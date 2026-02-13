@@ -18,10 +18,13 @@ jobs:
           python-version: "3.x"
 
       - name: Run generator
-        run: python scripts/generate_md.py
+        run: |
+          mkdir -p build
+          python scripts/generate_md.py
+          mv index.md certs.md labs.md build/
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: .
+          publish_dir: ./build
