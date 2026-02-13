@@ -1,480 +1,598 @@
-<!--index.html-->
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Developer Portfolio - Moderne web applicaties en creative coding">
+    <title>Portfolio - Developer</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600;700&family=Manrope:wght@400;600;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="#" class="logo">
+                <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+                    <rect width="40" height="40" rx="8" fill="url(#logo-gradient)"/>
+                    <path d="M12 12L28 28M28 12L12 28" stroke="white" stroke-width="3" stroke-linecap="round"/>
+                    <defs>
+                        <linearGradient id="logo-gradient" x1="0" y1="0" x2="40" y2="40">
+                            <stop offset="0%" stop-color="#6366f1"/>
+                            <stop offset="100%" stop-color="#8b5cf6"/>
+                        </linearGradient>
+                    </defs>
+                </svg>
+                <span>DevPort</span>
+            </a>
+            <ul class="nav-menu">
+                <li><a href="#about">Over</a></li>
+                <li><a href="#projects">Projecten</a></li>
+                <li><a href="#certificates">Certificaten</a></li>
+                <li><a href="#blog">Blog</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <button class="menu-toggle" aria-label="Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
 
-<!DOCTYPE html> 
-<html lang="en"> 
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-bg">
+            <div class="gradient-orb orb-1"></div>
+            <div class="gradient-orb orb-2"></div>
+            <div class="gradient-orb orb-3"></div>
+        </div>
+        <div class="container">
+            <div class="hero-content">
+                <p class="hero-tag">👋 Hey, ik ben</p>
+                <h1 class="hero-title">
+                    <span class="gradient-text">Full-Stack</span><br>
+                    Developer
+                </h1>
+                <p class="hero-description">
+                    Ik bouw moderne, gebruiksvriendelijke web applicaties met focus op 
+                    clean code en geweldige gebruikerservaringen.
+                </p>
+                <div class="hero-buttons">
+                    <a href="#projects" class="btn btn-primary">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="2" y="3" width="20" height="14" rx="2"/>
+                            <line x1="8" y1="21" x2="16" y2="21"/>
+                            <line x1="12" y1="17" x2="12" y2="21"/>
+                        </svg>
+                        Bekijk Projecten
+                    </a>
+                    <a href="#contact" class="btn btn-secondary">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                            <polyline points="22,6 12,13 2,6"/>
+                        </svg>
+                        Contact
+                    </a>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat">
+                        <strong>5+</strong>
+                        <span>Jaren</span>
+                    </div>
+                    <div class="stat">
+                        <strong>50+</strong>
+                        <span>Projecten</span>
+                    </div>
+                    <div class="stat">
+                        <strong>100%</strong>
+                        <span>Tevreden</span>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="code-window">
+                    <div class="window-header">
+                        <div class="window-dots">
+                            <span class="dot red"></span>
+                            <span class="dot yellow"></span>
+                            <span class="dot green"></span>
+                        </div>
+                        <span class="window-title">portfolio.jsx</span>
+                    </div>
+                    <div class="code-content">
+<pre><code><span class="keyword">import</span> <span class="punctuation">{</span> Developer <span class="punctuation">}</span> <span class="keyword">from</span> <span class="string">'./profile'</span><span class="punctuation">;</span>
 
-<head> 
-    <meta charset="UTF-8"> 
-    <meta name="viewport"
-        content="width=device-width, initial-scale=1.0"> 
-    <title>My Portfolio</title> 
-    <link rel="stylesheet"
-        href= 
-"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
-        integrity= 
-"sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
-            crossorigin="anonymous" referrerpolicy="no-referrer" /> 
-    <link rel="stylesheet" href="style.css"> 
-    <link rel="stylesheet" href="responsive.css"> 
-</head> 
-
-<body> 
-    <!-- Navbar header section -->
-    <header class="header"> 
-        <nav class="navbar"> 
-            <div class="logo"> 
-                <h2 class="logo-heading">Emrit Diyal</h2> 
-            </div> 
-            <div class="hamburger" id="hamburger"> 
-                <i class="fas fa-bars hamburger-icon"></i> 
-                <i class="fas fa-times cross-icon"></i> 
-            </div> 
-            <div class="menu"> 
-                <ul class="menu-list"> 
-                    <li class="menu-list-items"> 
-                        <a class="links" href="#home"> 
-                            Home 
-                        </a> 
-                    </li> 
-                    <li class="menu-list-items"> 
-                        <a class="links" href="#portfolio"> 
-                            Portfolio 
-                        </a> 
-                    </li> 
-                    <li class="menu-list-items"> 
-                        <a class="links" href="#about"> 
-                            About 
-                        </a> 
-                    </li> 
-                    <li class="menu-list-items"> 
-                        <a class="links" href="#services"> 
-                            Services 
-                        </a> 
-                    </li> 
-                    <li class="menu-list-items"> 
-                        <a class="links" href="#contact"> 
-                            Contact Me 
-                        </a> 
-                    </li> 
-                </ul> 
-            </div> 
-        </nav> 
-    </header> 
-
-    <!-- Main hero banner -->
-    <section id="home" class="hero"> 
-        <div class="intro"> 
-            <div class="headings"> 
-                <h3 class="greet-heading">Hello, I'm</h3> 
-                <h1 class="my-heading">Emrit Diyal</h1> 
-                <h4 class="sub-heading"> 
-                    A Software Engineer with 3 years of Experience. 
-                </h4> 
-            </div> 
-            <div class="intro-buttons"> 
-                <button class="btn common-btn">Hire Me</button> 
-                <button class="btn ghost-btn">Get Resume</button> 
-            </div> 
-        </div> 
-    </section> 
-
-    <!-- Portfolio Section -->
-    <section class="portfolio" id="portfolio"> 
-        <div class="portfolio-heading"> 
-            <h1 class="my-heading text-center">Featured Portfolio</h1> 
-        </div> 
-        <div class="portfolio-content"> 
-            <div class="my-row"> 
-                <div class="my-col"> 
-                    <div class="my-card port-card"> 
-                        <div class="image"> 
-                            <img src="./Images/designImage2.avif"
-                                alt="Web Design Image"> 
-                        </div> 
-                        <h3 class="greet-heading blue-text">Web Design</h3> 
-                        <p class="small-para blue-text">Designing</p> 
-                    </div> 
-                </div> 
-                <div class="my-col"> 
-                    <div class="my-card port-card"> 
-                        <div class="image"> 
-                            <img src="./Images/webDevelopment2.avif"
-                                alt="Web Development Image"> 
-                        </div> 
-                        <h3 class="greet-heading blue-text"> 
-                            Web Development 
-                        </h3> 
-                        <p class="small-para blue-text">Development</p> 
-                    </div> 
-                </div> 
-                <div class="my-col"> 
-                    <div class="my-card port-card"> 
-                        <div class="image"> 
-                            <img src="./Images/SEOImage2.avif" alt="SEO Image"> 
-                        </div> 
-                        <h3 class="greet-heading blue-text">SEO</h3> 
-                        <p class="small-para blue-text">Optimization</p> 
-                    </div> 
-                </div> 
-            </div> 
-            <div class="my-row"> 
-                <div class="my-col"> 
-                    <div class="my-card port-card"> 
-                        <div class="image"> 
-                            <img src="./Images/contentImage2.avif"
-                                alt="Content Writting Image"> 
-                        </div> 
-                        <h3 class="greet-heading blue-text"> 
-                            Content Writing 
-                        </h3> 
-                        <p class="small-para blue-text">Writing</p> 
-                    </div> 
-                </div> 
-                <div class="my-col"> 
-                    <div class="my-card port-card"> 
-                        <div class="image"> 
-                            <img src="./Images/wordpressImage2.avif"
-                                alt="Wordpress Image"> 
-                        </div> 
-                        <h3 class="greet-heading blue-text"> 
-                            WordPress Dev 
-                        </h3> 
-                        <p class="small-para blue-text"> 
-                            Content Management System 
-                        </p> 
-                    </div> 
-                </div> 
-                <div class="my-col"> 
-                    <div class="my-card port-card"> 
-                        <div class="image"> 
-                            <img src="./Images/videoEditing2.avif"
-                                alt="Video Editing Image"> 
-                        </div> 
-                        <h3 class="greet-heading blue-text"> 
-                            Video Editing 
-                        </h3> 
-                        <p class="small-para blue-text">Editing</p> 
-                    </div> 
-                </div> 
-            </div> 
-        </div> 
-    </section> 
+<span class="keyword">const</span> <span class="function">Portfolio</span> <span class="punctuation">=</span> <span class="punctuation">()</span> <span class="keyword">=></span> <span class="punctuation">{</span>
+  <span class="keyword">return</span> <span class="punctuation">(</span>
+    <span class="tag">&lt;div</span> <span class="attr">className</span><span class="punctuation">=</span><span class="string">"awesome"</span><span class="tag">&gt;</span>
+      <span class="tag">&lt;Developer</span>
+        <span class="attr">skills</span><span class="punctuation">=</span><span class="punctuation">{[</span><span class="string">"React"</span><span class="punctuation">,</span> <span class="string">"Node.js"</span><span class="punctuation">]}</span>
+        <span class="attr">passion</span><span class="punctuation">=</span><span class="string">"building cool stuff"</span>
+      <span class="tag">/&gt;</span>
+    <span class="tag">&lt;/div&gt;</span>
+  <span class="punctuation">);</span>
+<span class="punctuation">};</span></code></pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- About Section -->
-    <section id="about" class="about"> 
-        <div class="about-text"> 
-            <h1 class="my-heading">About Me</h1> 
-            <p class="lead-para"> 
-                GeeksforGeeks is a leading platform 
-                that provides computer science 
-                resources and coding challenges for 
-                programmers and technology 
-                enthusiasts, along with interview 
-                and exam preparations for upcoming 
-                aspirants. With a strong emphasis on 
-                enhancing coding skills and knowledge, 
-                it has become a trusted destination 
-                for over 12 million plus registered 
-                users worldwide. The platform offers 
-                a vast collection of tutorials, practice 
-                problems, interview tutorials, articles, 
-                and courses, covering various domains 
-                of computer science. 
-            </p> 
-            <p> 
-                Our exceptional mentors hailing from top 
-                colleges & organizations have the 
-                ability to guide you on a journey from 
-                the humble beginnings of coding to 
-                the pinnacle of expertise. Under their 
-                guidance watch your skills flourish 
-                as we lay the foundation and help you 
-                conquer the world of coding. 
-            </p> 
-        </div> 
-        <div class="about-image"> 
-            <img src="./Images/heroImg2.avif" alt="About Image"> 
-        </div> 
-    </section> 
+    <section id="about" class="about section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-number">01</span>
+                <h2>Over Mij</h2>
+            </div>
+            <div class="about-grid">
+                <div class="about-text">
+                    <p class="lead">
+                        Hey! 👋 Ik ben een developer die gepassioneerd is over het maken van 
+                        digitale producten die er niet alleen goed uitzien, maar ook super 
+                        fijn werken.
+                    </p>
+                    <p>
+                        Met ervaring in zowel frontend als backend development, focus ik op het 
+                        bouwen van schaalbare applicaties met moderne technologieën. Ik geloof 
+                        in clean code, goede documentatie en continue learning.
+                    </p>
+                    <div class="skills">
+                        <h3>Tech Stack</h3>
+                        <div class="skills-grid">
+                            <div class="skill-item">
+                                <div class="skill-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <polyline points="16 18 22 12 16 6"/>
+                                        <polyline points="8 6 2 12 8 18"/>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <strong>Frontend</strong>
+                                    <p>React, Vue, TypeScript, Tailwind</p>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <rect x="2" y="2" width="20" height="8" rx="2"/>
+                                        <rect x="2" y="14" width="20" height="8" rx="2"/>
+                                        <line x1="6" y1="6" x2="6.01" y2="6"/>
+                                        <line x1="6" y1="18" x2="6.01" y2="18"/>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <strong>Backend</strong>
+                                    <p>Node.js, Python, PostgreSQL, MongoDB</p>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <circle cx="12" cy="12" r="10"/>
+                                        <path d="M12 16v-4"/>
+                                        <path d="M12 8h.01"/>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <strong>Tools</strong>
+                                    <p>Git, Docker, AWS, CI/CD</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-image">
+                    <div class="profile-card">
+                        <div class="avatar">
+                            <svg viewBox="0 0 200 200" fill="none">
+                                <circle cx="100" cy="100" r="100" fill="url(#avatar-gradient)"/>
+                                <circle cx="100" cy="80" r="30" fill="white" opacity="0.9"/>
+                                <path d="M60 140 Q60 110 100 110 Q140 110 140 140 L140 180 Q140 200 100 200 Q60 200 60 180 Z" fill="white" opacity="0.9"/>
+                                <defs>
+                                    <linearGradient id="avatar-gradient" x1="0" y1="0" x2="200" y2="200">
+                                        <stop offset="0%" stop-color="#6366f1"/>
+                                        <stop offset="100%" stop-color="#8b5cf6"/>
+                                    </linearGradient>
+                                </defs>
+                            </svg>
+                        </div>
+                        <div class="profile-info">
+                            <h3>Jouw Naam</h3>
+                            <p>Full-Stack Developer</p>
+                            <div class="social-links">
+                                <a href="https://github.com" target="_blank" aria-label="GitHub">
+                                    <svg viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                                    </svg>
+                                </a>
+                                <a href="https://linkedin.com" target="_blank" aria-label="LinkedIn">
+                                    <svg viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                                    </svg>
+                                </a>
+                                <a href="mailto:your@email.com" aria-label="Email">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                                        <polyline points="22,6 12,13 2,6"/>
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    <!-- Services Section -->
-    <section class="services" id="services"> 
-        <div class="services-heading"> 
-            <h1 class="my-heading text-center">My Services</h1> 
-        </div> 
-        <div class="services-content"> 
-            <div class="my-row"> 
-                <div class="my-col"> 
-                    <div class="my-card"> 
-                        <div class="icon"> 
-                            <i class="fas fa-paint-brush"></i> 
-                        </div> 
-                        <h3 class="greet-heading blue-text">Web Design</h3> 
-                        <p class="small-para"> 
-                            Web development refers to the creating, 
-                            building, and maintaining 
-                            of websites. It includes aspects such as 
-                            web design, web publishing, 
-                            web programming, and database management. 
-                            It is the creation of an 
-                            application that works over the internet 
-                            i.e. websites. 
-                        </p> 
-                        <p class="small-para"> 
-                            Web development refers to the creating, 
-                            building, and maintaining 
-                            of websites. It includes aspects such as 
-                            web design, web publishing, 
-                            web programming, and database management. 
-                            It is the creation of an 
-                            application that works over the internet 
-                            i.e. websites. 
-                        </p> 
-                    </div> 
-                </div> 
-                <div class="my-col"> 
-                    <div class="my-card"> 
-                        <div class="icon"> 
-                            <i class="fa-solid fa-code"></i> 
-                        </div> 
-                        <h3 class="greet-heading blue-text"> 
-                            Web Development 
-                        </h3> 
-                        <p class="small-para"> 
-                            Web development refers to the creating, 
-                            building, and maintaining 
-                            of websites. It includes aspects such as 
-                            web design, web publishing, 
-                            web programming, and database management. 
-                            It is the creation of an 
-                            application that works over the internet 
-                            i.e. websites. 
-                        </p> 
-                        <p class="small-para"> 
-                            Web development refers to the creating, 
-                            building, and maintaining 
-                            of websites. It includes aspects such as 
-                            web design, web publishing, 
-                            web programming, and database management. 
-                            It is the creation of an 
-                            application that works over the internet 
-                            i.e. websites. 
-                        </p> 
-                    </div> 
-                </div> 
-                <div class="my-col"> 
-                    <div class="my-card"> 
-                        <div class="icon"> 
-                            <i class="fas fa-chart-line"></i> 
-                        </div> 
-                        <h3 class="greet-heading blue-text">SEO</h3> 
-                        <p class="small-para"> 
-                            Web development refers to the creating, 
-                            building, and maintaining 
-                            of websites. It includes aspects such as 
-                            web design, web publishing, 
-                            web programming, and database management. 
-                            It is the creation of an 
-                            application that works over the internet 
-                            i.e. websites. 
-                        </p> 
-                        <p class="small-para"> 
-                            Web development refers to the creating, 
-                            building, and maintaining 
-                            of websites. It includes aspects such as 
-                            web design, web publishing, 
-                            web programming, and database management. 
-                            It is the creation of an 
-                            application that works over the internet 
-                            i.e. websites. 
-                        </p> 
-                    </div> 
-                </div> 
-            </div> 
-            <div class="my-row"> 
-                <div class="my-col"> 
-                    <div class="my-card"> 
-                        <div class="icon"> 
-                            <i class="fas fa-quote-left"></i> 
-                        </div> 
-                        <h3 class="greet-heading blue-text"> 
-                            Content Writting 
-                        </h3> 
-                        <p class="small-para"> 
-                            Web development refers to the creating, 
-                            building, and maintaining of websites. 
-                            It includes aspects such as web design, 
-                            web publishing, web programming, and 
-                            database management. It is the creation 
-                            of an application that works over the 
-                            internet i.e. websites. 
-                        </p> 
-                        <p class="small-para"> 
-                            Web development refers to the creating, 
-                            building, and maintaining of websites. 
-                            It includes aspects such as web design, 
-                            web publishing, web programming, and 
-                            database management. It is the creation of an 
-                            application that works over the internet i.e. 
-                            websites. 
-                        </p> 
-                    </div> 
-                </div> 
-                <div class="my-col"> 
-                    <div class="my-card"> 
-                        <div class="icon"> 
-                            <i class="fab fa-wordpress-simple"></i> 
-                        </div> 
-                        <h3 class="greet-heading blue-text"> 
-                            WordPress Dev 
-                        </h3> 
-                        <p class="small-para"> 
-                            Web development refers to the creating, 
-                            building, and maintaining of websites. 
-                            It includes aspects such as web design, 
-                            web publishing, web programming, and 
-                            database management. It is the creation 
-                            of an application that works over the 
-                            internet i.e. websites. 
-                        </p> 
-                        <p class="small-para"> 
-                            Web development refers to the creating, 
-                            building, and maintaining 
-                            of websites. It includes aspects such as 
-                            web design, web publishing, 
-                            web programming, and database management. 
-                            It is the creation of an 
-                            application that works over the internet 
-                            i.e. websites. 
-                        </p> 
-                    </div> 
-                </div> 
-                <div class="my-col"> 
-                    <div class="my-card"> 
-                        <div class="icon"> 
-                            <i class="fas fa-video"></i> 
-                        </div> 
-                        <h3 class="greet-heading blue-text"> 
-                            Video Editing 
-                        </h3> 
-                        <p class="small-para"> 
-                            Web development refers to the creating, 
-                            building, and maintaining 
-                            of websites. It includes aspects such as 
-                            web design, web publishing, 
-                            web programming, and database management. 
-                            It is the creation of an 
-                            application that works over the internet 
-                            i.e. websites. 
-                        </p> 
-                        <p class="small-para"> 
-                            Web development refers to the creating, 
-                            building, and maintaining 
-                            of websites. It includes aspects such as 
-                            web design, web publishing, 
-                            web programming, and database management. 
-                            It is the creation of an 
-                            application that works over the internet 
-                            i.e. websites. 
-                        </p> 
-                    </div> 
-                </div> 
-            </div> 
-        </div> 
-    </section> 
+    <!-- Projects Section -->
+    <section id="projects" class="projects section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-number">02</span>
+                <h2>Featured Projects</h2>
+            </div>
+            <div class="projects-grid">
+                <!-- Project 1 -->
+                <article class="project-card">
+                    <div class="project-image">
+                        <div class="placeholder-image gradient-purple">
+                            <svg viewBox="0 0 400 300" fill="none">
+                                <rect width="400" height="300" fill="url(#project1-bg)"/>
+                                <circle cx="100" cy="100" r="60" fill="white" opacity="0.1"/>
+                                <circle cx="300" cy="200" r="80" fill="white" opacity="0.1"/>
+                                <rect x="150" y="120" width="100" height="60" rx="8" fill="white" opacity="0.2"/>
+                                <defs>
+                                    <linearGradient id="project1-bg" x1="0" y1="0" x2="400" y2="300">
+                                        <stop offset="0%" stop-color="#6366f1"/>
+                                        <stop offset="100%" stop-color="#8b5cf6"/>
+                                    </linearGradient>
+                                </defs>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-tags">
+                            <span class="tag">React</span>
+                            <span class="tag">Node.js</span>
+                            <span class="tag">MongoDB</span>
+                        </div>
+                        <h3>E-Commerce Platform</h3>
+                        <p>Full-stack webshop met real-time inventory, payment processing en admin dashboard.</p>
+                        <div class="project-links">
+                            <a href="#" class="project-link">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
+                                </svg>
+                                Code
+                            </a>
+                            <a href="#" class="project-link">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+                                    <polyline points="15 3 21 3 21 9"/>
+                                    <line x1="10" y1="14" x2="21" y2="3"/>
+                                </svg>
+                                Demo
+                            </a>
+                        </div>
+                    </div>
+                </article>
 
-    <!-- Contact me section -->
-    <section class="contact" id="contact"> 
-        <div class="contact-heading"> 
-            <h1 class="my-heading text-center">Contact Me</h1> 
-        </div> 
-        <div class="contact-content"> 
-            <div class="contact-form-container"> 
-                <h1 class="greet-heading">Get In Touch</h1> 
-                <form class="contact-form"> 
-                    <input class="form-controls" type="text"
-                        placeholder="Your Name"> 
-                    <input class="form-controls" type="text"
-                        placeholder="Your Email"> 
-                    <input class="form-controls" type="text"
-                        placeholder="Your Phone"> 
-                    <textarea class="form-controls"
-                            placeholder="Write your message"
-                            name="message" id="" cols="30"
-                            rows="10"> 
-                    </textarea> 
-                    <input class="form-btn btn common-btn"
-                        type="submit" value="Send Message"> 
-                </form> 
-            </div> 
-            <div class="contact-details"> 
-                <h1 class="greet-heading">My Contact Details</h1> 
-                <div class="details"> 
-                    <h5 class="contact-heading">EMAIL</h5> 
-                    <p class="contact-text">example@gmail.com</p> 
-                </div> 
-                <div class="details"> 
-                    <h5 class="contact-heading">PHONE</h5> 
-                    <p class="contact-text">+91 0123456789</p> 
-                </div> 
-                <div class="details"> 
-                    <h5 class="contact-heading">FAX</h5> 
-                    <p class="contact-text">+91 0123456789</p> 
-                </div> 
-                <div class="details"> 
-                    <h5 class="contact-heading">ADDRESS</h5> 
-                    <p class="contact-text">San Francisco, CA</p> 
-                    <p>4th Floor8 Lower</p> 
-                    <p>San Francisco street, M1 50F</p> 
-                </div> 
-            </div> 
-        </div> 
-    </section> 
+                <!-- Project 2 -->
+                <article class="project-card">
+                    <div class="project-image">
+                        <div class="placeholder-image gradient-blue">
+                            <svg viewBox="0 0 400 300" fill="none">
+                                <rect width="400" height="300" fill="url(#project2-bg)"/>
+                                <rect x="50" y="50" width="120" height="80" rx="8" fill="white" opacity="0.15"/>
+                                <rect x="50" y="150" width="120" height="80" rx="8" fill="white" opacity="0.15"/>
+                                <rect x="230" y="50" width="120" height="200" rx="8" fill="white" opacity="0.2"/>
+                                <defs>
+                                    <linearGradient id="project2-bg" x1="0" y1="0" x2="400" y2="300">
+                                        <stop offset="0%" stop-color="#3b82f6"/>
+                                        <stop offset="100%" stop-color="#06b6d4"/>
+                                    </linearGradient>
+                                </defs>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-tags">
+                            <span class="tag">Next.js</span>
+                            <span class="tag">TypeScript</span>
+                            <span class="tag">Tailwind</span>
+                        </div>
+                        <h3>Analytics Dashboard</h3>
+                        <p>Real-time analytics platform met custom visualisaties en data export functionaliteit.</p>
+                        <div class="project-links">
+                            <a href="#" class="project-link">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
+                                </svg>
+                                Code
+                            </a>
+                            <a href="#" class="project-link">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+                                    <polyline points="15 3 21 3 21 9"/>
+                                    <line x1="10" y1="14" x2="21" y2="3"/>
+                                </svg>
+                                Demo
+                            </a>
+                        </div>
+                    </div>
+                </article>
 
-    <!-- Footer section -->
-    <footer class="footer"> 
-        <div class="footer-content text-center"> 
-            <h4> 
-                Copyright © 2023 All rights reserved | 
-                This portfolio website template is created 
-                by GeeksforGeeks. 
-            </h4> 
-            <div class="social-links"> 
-                <div class="footer-menu"> 
-                    <ul class="footer-menu-list"> 
-                        <li class="footer-list-items"> 
-                            <a class="footer-links" href="#"> 
-                                <i class="fab fa-facebook-f"></i> 
-                            </a> 
-                        </li> 
-                        <li class="footer-list-items"> 
-                            <a class="footer-links" href="#"> 
-                                <i class="fab fa-twitter"></i> 
-                            </a> 
-                        </li> 
-                        <li class="footer-list-items"> 
-                            <a class="footer-links" href="#"> 
-                                <i class="fab fa-instagram"></i> 
-                            </a> 
-                        </li> 
-                        <li class="footer-list-items"> 
-                            <a class="footer-links" href="#"> 
-                                <i class="fab fa-linkedin-in"></i> 
-                            </a> 
-                        </li> 
-                    </ul> 
-                </div> 
-            </div> 
-        </div> 
-    </footer> 
+                <!-- Project 3 -->
+                <article class="project-card">
+                    <div class="project-image">
+                        <div class="placeholder-image gradient-green">
+                            <svg viewBox="0 0 400 300" fill="none">
+                                <rect width="400" height="300" fill="url(#project3-bg)"/>
+                                <circle cx="200" cy="150" r="80" fill="white" opacity="0.2"/>
+                                <circle cx="200" cy="150" r="50" fill="white" opacity="0.15"/>
+                                <circle cx="200" cy="150" r="25" fill="white" opacity="0.25"/>
+                                <defs>
+                                    <linearGradient id="project3-bg" x1="0" y1="0" x2="400" y2="300">
+                                        <stop offset="0%" stop-color="#10b981"/>
+                                        <stop offset="100%" stop-color="#059669"/>
+                                    </linearGradient>
+                                </defs>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-tags">
+                            <span class="tag">Vue.js</span>
+                            <span class="tag">Firebase</span>
+                            <span class="tag">Sass</span>
+                        </div>
+                        <h3>Task Management App</h3>
+                        <p>Collaborative task manager met real-time sync, team features en mobile support.</p>
+                        <div class="project-links">
+                            <a href="#" class="project-link">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
+                                </svg>
+                                Code
+                            </a>
+                            <a href="#" class="project-link">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+                                    <polyline points="15 3 21 3 21 9"/>
+                                    <line x1="10" y1="14" x2="21" y2="3"/>
+                                </svg>
+                                Demo
+                            </a>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
 
-    <script src= 
-"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/js/all.min.js"
-        integrity= 
-"sha512-uKQ39gEGiyUJl4AI6L+ekBdGKpGw4xJ55+xyJG7YFlJokPNYegn9KwQ3P8A7aFQAUtUsAQHep+d/lrGqrbPIDQ=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"> 
-    </script> 
-    <script src="script.js"></script> 
-</body> 
+    <!-- Certificates Section -->
+    <section id="certificates" class="certificates section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-number">03</span>
+                <h2>Certificaten</h2>
+            </div>
+            <div class="certificates-grid">
+                <div class="cert-card">
+                    <div class="cert-badge">
+                        <svg viewBox="0 0 100 100" fill="none">
+                            <circle cx="50" cy="50" r="45" fill="url(#cert1-bg)"/>
+                            <path d="M30 50 L45 65 L70 35" stroke="white" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+                            <defs>
+                                <linearGradient id="cert1-bg" x1="0" y1="0" x2="100" y2="100">
+                                    <stop offset="0%" stop-color="#fbbf24"/>
+                                    <stop offset="100%" stop-color="#f59e0b"/>
+                                </linearGradient>
+                            </defs>
+                        </svg>
+                    </div>
+                    <h3>AWS Certified Developer</h3>
+                    <p class="cert-issuer">Amazon Web Services</p>
+                    <p class="cert-date">2024</p>
+                </div>
+                <div class="cert-card">
+                    <div class="cert-badge">
+                        <svg viewBox="0 0 100 100" fill="none">
+                            <circle cx="50" cy="50" r="45" fill="url(#cert2-bg)"/>
+                            <path d="M50 25 L60 45 L80 50 L60 55 L50 75 L40 55 L20 50 L40 45 Z" fill="white"/>
+                            <defs>
+                                <linearGradient id="cert2-bg" x1="0" y1="0" x2="100" y2="100">
+                                    <stop offset="0%" stop-color="#6366f1"/>
+                                    <stop offset="100%" stop-color="#8b5cf6"/>
+                                </linearGradient>
+                            </defs>
+                        </svg>
+                    </div>
+                    <h3>Meta React Advanced</h3>
+                    <p class="cert-issuer">Meta (Facebook)</p>
+                    <p class="cert-date">2023</p>
+                </div>
+                <div class="cert-card">
+                    <div class="cert-badge">
+                        <svg viewBox="0 0 100 100" fill="none">
+                            <circle cx="50" cy="50" r="45" fill="url(#cert3-bg)"/>
+                            <rect x="35" y="35" width="30" height="30" rx="4" fill="white"/>
+                            <defs>
+                                <linearGradient id="cert3-bg" x1="0" y1="0" x2="100" y2="100">
+                                    <stop offset="0%" stop-color="#10b981"/>
+                                    <stop offset="100%" stop-color="#059669"/>
+                                </linearGradient>
+                            </defs>
+                        </svg>
+                    </div>
+                    <h3>Full-Stack Certification</h3>
+                    <p class="cert-issuer">freeCodeCamp</p>
+                    <p class="cert-date">2023</p>
+                </div>
+                <div class="cert-card">
+                    <div class="cert-badge">
+                        <svg viewBox="0 0 100 100" fill="none">
+                            <circle cx="50" cy="50" r="45" fill="url(#cert4-bg)"/>
+                            <polygon points="50,25 60,45 80,48 65,62 68,82 50,72 32,82 35,62 20,48 40,45" fill="white"/>
+                            <defs>
+                                <linearGradient id="cert4-bg" x1="0" y1="0" x2="100" y2="100">
+                                    <stop offset="0%" stop-color="#3b82f6"/>
+                                    <stop offset="100%" stop-color="#06b6d4"/>
+                                </linearGradient>
+                            </defs>
+                        </svg>
+                    </div>
+                    <h3>Node.js Developer</h3>
+                    <p class="cert-issuer">OpenJS Foundation</p>
+                    <p class="cert-date">2022</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
+    <!-- Blog Section -->
+    <section id="blog" class="blog section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-number">04</span>
+                <h2>Recent Blog Posts</h2>
+            </div>
+            <div class="blog-grid">
+                <article class="blog-card">
+                    <div class="blog-date">
+                        <span class="day">14</span>
+                        <span class="month">Feb</span>
+                    </div>
+                    <h3>React Performance Tips</h3>
+                    <p>Best practices voor het optimaliseren van React applicaties en het verbeteren van de user experience.</p>
+                    <a href="#" class="read-more">
+                        Lees meer
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <line x1="5" y1="12" x2="19" y2="12"/>
+                            <polyline points="12 5 19 12 12 19"/>
+                        </svg>
+                    </a>
+                </article>
+                <article class="blog-card">
+                    <div class="blog-date">
+                        <span class="day">01</span>
+                        <span class="month">Feb</span>
+                    </div>
+                    <h3>TypeScript Best Practices</h3>
+                    <p>Advanced patterns en technieken voor het schrijven van type-safe en maintainable code.</p>
+                    <a href="#" class="read-more">
+                        Lees meer
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <line x1="5" y1="12" x2="19" y2="12"/>
+                            <polyline points="12 5 19 12 12 19"/>
+                        </svg>
+                    </a>
+                </article>
+                <article class="blog-card">
+                    <div class="blog-date">
+                        <span class="day">20</span>
+                        <span class="month">Jan</span>
+                    </div>
+                    <h3>Building RESTful APIs</h3>
+                    <p>Een complete guide voor het ontwerpen en implementeren van schaalbare REST APIs met Node.js.</p>
+                    <a href="#" class="read-more">
+                        Lees meer
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <line x1="5" y1="12" x2="19" y2="12"/>
+                            <polyline points="12 5 19 12 12 19"/>
+                        </svg>
+                    </a>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-number">05</span>
+                <h2>Contact</h2>
+            </div>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>Laten we iets bouwen!</h3>
+                    <p>
+                        Heb je een project in gedachten of wil je gewoon even praten over tech? 
+                        Stuur me een berichtje!
+                    </p>
+                    <div class="contact-methods">
+                        <div class="contact-item">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                                <polyline points="22,6 12,13 2,6"/>
+                            </svg>
+                            <div>
+                                <strong>Email</strong>
+                                <a href="mailto:your@email.com">your@email.com</a>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                            </svg>
+                            <div>
+                                <strong>GitHub</strong>
+                                <a href="https://github.com/yourusername" target="_blank">@yourusername</a>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                            </svg>
+                            <div>
+                                <strong>LinkedIn</strong>
+                                <a href="https://linkedin.com/in/yourprofile" target="_blank">in/yourprofile</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <form class="contact-form" id="contactForm">
+                    <div class="form-group">
+                        <label for="name">Naam</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Bericht</label>
+                        <textarea id="message" name="message" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <line x1="22" y1="2" x2="11" y2="13"/>
+                            <polygon points="22 2 15 22 11 13 2 9 22 2"/>
+                        </svg>
+                        Verstuur Bericht
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 Portfolio. Gebouwd met ❤️ en GitHub Pages</p>
+            <div class="footer-links">
+                <a href="https://github.com/yourusername">GitHub</a>
+                <a href="https://linkedin.com/in/yourprofile">LinkedIn</a>
+                <a href="mailto:your@email.com">Email</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
 </html>
