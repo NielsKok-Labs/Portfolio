@@ -53,12 +53,12 @@
             <div class="hero-content">
                 <p class="hero-tag">👋 Hey, ik ben</p>
                 <h1 class="hero-title">
-                    <span class="gradient-text">Full-Stack</span><br>
-                    Developer
+                    <span class="gradient-text">Cloud & Security</span><br>
+                    Enthusiast
                 </h1>
                 <p class="hero-description">
-                    Ik bouw moderne, gebruiksvriendelijke web applicaties met focus op 
-                    clean code en geweldige gebruikerservaringen.
+                    Gepassioneerd door cloud technologieën, security en automation. 
+                    Altijd bezig met leren en nieuwe certificeringen behalen!
                 </p>
                 <div class="hero-buttons">
                     <a href="#projects" class="btn btn-primary">
@@ -79,16 +79,16 @@
                 </div>
                 <div class="hero-stats">
                     <div class="stat">
-                        <strong>5+</strong>
-                        <span>Jaren</span>
+                        <strong>3</strong>
+                        <span>Certificaten</span>
                     </div>
                     <div class="stat">
-                        <strong>50+</strong>
-                        <span>Projecten</span>
+                        <strong>10</strong>
+                        <span>In Planning</span>
                     </div>
                     <div class="stat">
                         <strong>100%</strong>
-                        <span>Tevreden</span>
+                        <span>Gemotiveerd</span>
                     </div>
                 </div>
             </div>
@@ -100,21 +100,20 @@
                             <span class="dot yellow"></span>
                             <span class="dot green"></span>
                         </div>
-                        <span class="window-title">portfolio.jsx</span>
+                        <span class="window-title">main.tf</span>
                     </div>
                     <div class="code-content">
-<pre><code><span class="keyword">import</span> <span class="punctuation">{</span> Developer <span class="punctuation">}</span> <span class="keyword">from</span> <span class="string">'./profile'</span><span class="punctuation">;</span>
+<pre><code><span class="keyword">resource</span> <span class="string">"azurerm_virtual_network"</span> <span class="string">"main"</span> <span class="punctuation">{</span>
+  <span class="attr">name</span>                <span class="punctuation">=</span> <span class="string">"niels-vnet"</span>
+  <span class="attr">location</span>            <span class="punctuation">=</span> <span class="string">"West Europe"</span>
+  <span class="attr">resource_group_name</span> <span class="punctuation">=</span> <span class="function">azurerm_resource_group</span><span class="punctuation">.</span>main<span class="punctuation">.</span>name
+  <span class="attr">address_space</span>       <span class="punctuation">=</span> <span class="punctuation">[</span><span class="string">"10.0.0.0/16"</span><span class="punctuation">]</span>
 
-<span class="keyword">const</span> <span class="function">Portfolio</span> <span class="punctuation">=</span> <span class="punctuation">()</span> <span class="keyword">=></span> <span class="punctuation">{</span>
-  <span class="keyword">return</span> <span class="punctuation">(</span>
-    <span class="tag">&lt;div</span> <span class="attr">className</span><span class="punctuation">=</span><span class="string">"awesome"</span><span class="tag">&gt;</span>
-      <span class="tag">&lt;Developer</span>
-        <span class="attr">skills</span><span class="punctuation">=</span><span class="punctuation">{[</span><span class="string">"React"</span><span class="punctuation">,</span> <span class="string">"Node.js"</span><span class="punctuation">]}</span>
-        <span class="attr">passion</span><span class="punctuation">=</span><span class="string">"building cool stuff"</span>
-      <span class="tag">/&gt;</span>
-    <span class="tag">&lt;/div&gt;</span>
-  <span class="punctuation">);</span>
-<span class="punctuation">};</span></code></pre>
+  <span class="attr">tags</span> <span class="punctuation">=</span> <span class="punctuation">{</span>
+    <span class="attr">Environment</span> <span class="punctuation">=</span> <span class="string">"Production"</span>
+    <span class="attr">ManagedBy</span>   <span class="punctuation">=</span> <span class="string">"Terraform"</span>
+  <span class="punctuation">}</span>
+<span class="punctuation">}</span></code></pre>
                     </div>
                 </div>
             </div>
@@ -131,55 +130,64 @@
             <div class="about-grid">
                 <div class="about-text">
                     <p class="lead">
-                        Hey! 👋 Ik ben een developer die gepassioneerd is over het maken van 
-                        digitale producten die er niet alleen goed uitzien, maar ook super 
-                        fijn werken.
+                        Hey! 👋 Ik ben Niels, gepassioneerd door cloud technologie, security 
+                        en automation. Hoewel ik geen traditionele developer ben, vind ik het 
+                        ontzettend gaaf om met deze technologieën te werken!
                     </p>
                     <p>
-                        Met ervaring in zowel frontend als backend development, focus ik op het 
-                        bouwen van schaalbare applicaties met moderne technologieën. Ik geloof 
-                        in clean code, goede documentatie en continue learning.
+                        Momenteel ben ik bezig met het uitbreiden van mijn kennis in Azure, 
+                        Microsoft 365, en cloud security. Ik werk graag met Infrastructure as Code 
+                        (Terraform, Ansible) en ben altijd op zoek naar nieuwe certificeringen 
+                        om mijn skills te verbeteren.
                     </p>
                     <div class="skills">
-                        <h3>Tech Stack</h3>
+                        <h3>Focus Gebieden</h3>
                         <div class="skills-grid">
                             <div class="skill-item">
                                 <div class="skill-icon">
                                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                        <polyline points="16 18 22 12 16 6"/>
-                                        <polyline points="8 6 2 12 8 18"/>
+                                        <path d="M3 15v4c0 1.1.9 2 2 2h14a2 2 0 0 0 2-2v-4M17 9l-5 5-5-5M12 12.8V2.5"/>
                                     </svg>
                                 </div>
                                 <div>
-                                    <strong>Frontend</strong>
-                                    <p>React, Vue, TypeScript, Tailwind</p>
+                                    <strong>Cloud</strong>
+                                    <p>Azure, M365, IaC, Terraform, Ansible</p>
                                 </div>
                             </div>
                             <div class="skill-item">
                                 <div class="skill-icon">
                                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                        <rect x="2" y="2" width="20" height="8" rx="2"/>
-                                        <rect x="2" y="14" width="20" height="8" rx="2"/>
-                                        <line x1="6" y1="6" x2="6.01" y2="6"/>
-                                        <line x1="6" y1="18" x2="6.01" y2="18"/>
+                                        <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+                                        <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
                                     </svg>
                                 </div>
                                 <div>
-                                    <strong>Backend</strong>
-                                    <p>Node.js, Python, PostgreSQL, MongoDB</p>
+                                    <strong>Security</strong>
+                                    <p>OT Security, Ethical Hacking, DLP, Governance</p>
                                 </div>
                             </div>
                             <div class="skill-item">
                                 <div class="skill-icon">
                                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                        <circle cx="12" cy="12" r="10"/>
-                                        <path d="M12 16v-4"/>
-                                        <path d="M12 8h.01"/>
+                                        <circle cx="12" cy="12" r="3"/>
+                                        <path d="M12 1v6m0 6v6M5.64 5.64l4.24 4.24m4.24 4.24l4.24 4.24M1 12h6m6 0h6M5.64 18.36l4.24-4.24m4.24-4.24l4.24-4.24"/>
                                     </svg>
                                 </div>
                                 <div>
-                                    <strong>Tools</strong>
-                                    <p>Git, Docker, AWS, CI/CD</p>
+                                    <strong>Automation</strong>
+                                    <p>CI/CD, GitHub Actions, Scripting, DevSecOps</p>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <rect x="2" y="7" width="20" height="14" rx="2"/>
+                                        <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <strong>Netwerken</strong>
+                                    <p>Firewalls, Segmentatie, Load Balancing</p>
                                 </div>
                             </div>
                         </div>
@@ -201,8 +209,8 @@
                             </svg>
                         </div>
                         <div class="profile-info">
-                            <h3>Jouw Naam</h3>
-                            <p>Full-Stack Developer</p>
+                            <h3>Niels Kok</h3>
+                            <p>Cloud & Security Enthusiast</p>
                             <div class="social-links">
                                 <a href="https://github.com" target="_blank" aria-label="GitHub">
                                     <svg viewBox="0 0 24 24" fill="currentColor">
@@ -214,7 +222,7 @@
                                         <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
                                     </svg>
                                 </a>
-                                <a href="mailto:your@email.com" aria-label="Email">
+                                <a href="/cdn-cgi/l/email-protection#8ff6e0fafdcfeae2eee6e3a1ece0e2" aria-label="Email">
                                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                         <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
                                         <polyline points="22,6 12,13 2,6"/>
@@ -233,7 +241,7 @@
         <div class="container">
             <div class="section-header">
                 <span class="section-number">02</span>
-                <h2>Featured Projects</h2>
+                <h2>Projecten & Labs</h2>
             </div>
             <div class="projects-grid">
                 <!-- Project 1 -->
@@ -242,13 +250,13 @@
                         <div class="placeholder-image gradient-purple">
                             <svg viewBox="0 0 400 300" fill="none">
                                 <rect width="400" height="300" fill="url(#project1-bg)"/>
-                                <circle cx="100" cy="100" r="60" fill="white" opacity="0.1"/>
-                                <circle cx="300" cy="200" r="80" fill="white" opacity="0.1"/>
-                                <rect x="150" y="120" width="100" height="60" rx="8" fill="white" opacity="0.2"/>
+                                <circle cx="200" cy="150" r="80" fill="white" opacity="0.15"/>
+                                <rect x="140" y="110" width="120" height="80" rx="8" fill="white" opacity="0.2"/>
+                                <path d="M160 150 L180 130 L200 150 L220 130 L240 150" stroke="white" stroke-width="3" opacity="0.3"/>
                                 <defs>
                                     <linearGradient id="project1-bg" x1="0" y1="0" x2="400" y2="300">
-                                        <stop offset="0%" stop-color="#6366f1"/>
-                                        <stop offset="100%" stop-color="#8b5cf6"/>
+                                        <stop offset="0%" stop-color="#0078d4"/>
+                                        <stop offset="100%" stop-color="#0053a6"/>
                                     </linearGradient>
                                 </defs>
                             </svg>
@@ -256,26 +264,28 @@
                     </div>
                     <div class="project-content">
                         <div class="project-tags">
-                            <span class="tag">React</span>
-                            <span class="tag">Node.js</span>
-                            <span class="tag">MongoDB</span>
+                            <span class="tag">Azure</span>
+                            <span class="tag">Terraform</span>
+                            <span class="tag">IaC</span>
                         </div>
-                        <h3>E-Commerce Platform</h3>
-                        <p>Full-stack webshop met real-time inventory, payment processing en admin dashboard.</p>
+                        <h3>Azure Infrastructure Automation</h3>
+                        <p>Automated deployment van complete Azure omgevingen met Terraform. Inclusief VNets, NSGs, en resource tagging.</p>
                         <div class="project-links">
                             <a href="#" class="project-link">
                                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                     <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
                                 </svg>
-                                Code
+                                Repo
                             </a>
                             <a href="#" class="project-link">
                                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
-                                    <polyline points="15 3 21 3 21 9"/>
-                                    <line x1="10" y1="14" x2="21" y2="3"/>
+                                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                                    <polyline points="14 2 14 8 20 8"/>
+                                    <line x1="16" y1="13" x2="8" y2="13"/>
+                                    <line x1="16" y1="17" x2="8" y2="17"/>
+                                    <polyline points="10 9 9 9 8 9"/>
                                 </svg>
-                                Demo
+                                Docs
                             </a>
                         </div>
                     </div>
@@ -284,59 +294,15 @@
                 <!-- Project 2 -->
                 <article class="project-card">
                     <div class="project-image">
-                        <div class="placeholder-image gradient-blue">
-                            <svg viewBox="0 0 400 300" fill="none">
-                                <rect width="400" height="300" fill="url(#project2-bg)"/>
-                                <rect x="50" y="50" width="120" height="80" rx="8" fill="white" opacity="0.15"/>
-                                <rect x="50" y="150" width="120" height="80" rx="8" fill="white" opacity="0.15"/>
-                                <rect x="230" y="50" width="120" height="200" rx="8" fill="white" opacity="0.2"/>
-                                <defs>
-                                    <linearGradient id="project2-bg" x1="0" y1="0" x2="400" y2="300">
-                                        <stop offset="0%" stop-color="#3b82f6"/>
-                                        <stop offset="100%" stop-color="#06b6d4"/>
-                                    </linearGradient>
-                                </defs>
-                            </svg>
-                        </div>
-                    </div>
-                    <div class="project-content">
-                        <div class="project-tags">
-                            <span class="tag">Next.js</span>
-                            <span class="tag">TypeScript</span>
-                            <span class="tag">Tailwind</span>
-                        </div>
-                        <h3>Analytics Dashboard</h3>
-                        <p>Real-time analytics platform met custom visualisaties en data export functionaliteit.</p>
-                        <div class="project-links">
-                            <a href="#" class="project-link">
-                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
-                                </svg>
-                                Code
-                            </a>
-                            <a href="#" class="project-link">
-                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
-                                    <polyline points="15 3 21 3 21 9"/>
-                                    <line x1="10" y1="14" x2="21" y2="3"/>
-                                </svg>
-                                Demo
-                            </a>
-                        </div>
-                    </div>
-                </article>
-
-                <!-- Project 3 -->
-                <article class="project-card">
-                    <div class="project-image">
                         <div class="placeholder-image gradient-green">
                             <svg viewBox="0 0 400 300" fill="none">
-                                <rect width="400" height="300" fill="url(#project3-bg)"/>
-                                <circle cx="200" cy="150" r="80" fill="white" opacity="0.2"/>
-                                <circle cx="200" cy="150" r="50" fill="white" opacity="0.15"/>
-                                <circle cx="200" cy="150" r="25" fill="white" opacity="0.25"/>
+                                <rect width="400" height="300" fill="url(#project2-bg)"/>
+                                <rect x="100" y="80" width="80" height="140" rx="8" fill="white" opacity="0.15"/>
+                                <rect x="220" y="80" width="80" height="140" rx="8" fill="white" opacity="0.15"/>
+                                <path d="M140 150 L200 120 L260 150" stroke="white" stroke-width="4" opacity="0.3"/>
+                                <circle cx="200" cy="120" r="15" fill="white" opacity="0.25"/>
                                 <defs>
-                                    <linearGradient id="project3-bg" x1="0" y1="0" x2="400" y2="300">
+                                    <linearGradient id="project2-bg" x1="0" y1="0" x2="400" y2="300">
                                         <stop offset="0%" stop-color="#10b981"/>
                                         <stop offset="100%" stop-color="#059669"/>
                                     </linearGradient>
@@ -346,26 +312,75 @@
                     </div>
                     <div class="project-content">
                         <div class="project-tags">
-                            <span class="tag">Vue.js</span>
-                            <span class="tag">Firebase</span>
-                            <span class="tag">Sass</span>
+                            <span class="tag">Security</span>
+                            <span class="tag">Network</span>
+                            <span class="tag">Firewall</span>
                         </div>
-                        <h3>Task Management App</h3>
-                        <p>Collaborative task manager met real-time sync, team features en mobile support.</p>
+                        <h3>Network Security Lab</h3>
+                        <p>Homelab setup met firewalls, VLANs en network segmentatie. Focus op OT security en isolatie.</p>
                         <div class="project-links">
                             <a href="#" class="project-link">
                                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                     <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
                                 </svg>
-                                Code
+                                Repo
                             </a>
                             <a href="#" class="project-link">
                                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
-                                    <polyline points="15 3 21 3 21 9"/>
-                                    <line x1="10" y1="14" x2="21" y2="3"/>
+                                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                                    <polyline points="14 2 14 8 20 8"/>
+                                    <line x1="16" y1="13" x2="8" y2="13"/>
+                                    <line x1="16" y1="17" x2="8" y2="17"/>
+                                    <polyline points="10 9 9 9 8 9"/>
                                 </svg>
-                                Demo
+                                Docs
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Project 3 -->
+                <article class="project-card">
+                    <div class="project-image">
+                        <div class="placeholder-image gradient-blue">
+                            <svg viewBox="0 0 400 300" fill="none">
+                                <rect width="400" height="300" fill="url(#project3-bg)"/>
+                                <circle cx="200" cy="80" r="40" fill="white" opacity="0.15"/>
+                                <rect x="100" y="140" width="200" height="100" rx="8" fill="white" opacity="0.2"/>
+                                <path d="M150 180 L170 200 L230 140" stroke="white" stroke-width="4" stroke-linecap="round" opacity="0.3"/>
+                                <defs>
+                                    <linearGradient id="project3-bg" x1="0" y1="0" x2="400" y2="300">
+                                        <stop offset="0%" stop-color="#3b82f6"/>
+                                        <stop offset="100%" stop-color="#1d4ed8"/>
+                                    </linearGradient>
+                                </defs>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-tags">
+                            <span class="tag">Ansible</span>
+                            <span class="tag">Automation</span>
+                            <span class="tag">CI/CD</span>
+                        </div>
+                        <h3>Ansible Automation Playbooks</h3>
+                        <p>Collection van Ansible playbooks voor server configuratie, security hardening en automated deployments.</p>
+                        <div class="project-links">
+                            <a href="#" class="project-link">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
+                                </svg>
+                                Repo
+                            </a>
+                            <a href="#" class="project-link">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                                    <polyline points="14 2 14 8 20 8"/>
+                                    <line x1="16" y1="13" x2="8" y2="13"/>
+                                    <line x1="16" y1="17" x2="8" y2="17"/>
+                                    <polyline points="10 9 9 9 8 9"/>
+                                </svg>
+                                Docs
                             </a>
                         </div>
                     </div>
@@ -379,76 +394,131 @@
         <div class="container">
             <div class="section-header">
                 <span class="section-number">03</span>
-                <h2>Certificaten</h2>
+                <h2>Certificaten & Roadmap</h2>
             </div>
+            
+            <h3 style="margin-bottom: 2rem; color: var(--text); font-size: 1.5rem;">✅ Behaald</h3>
             <div class="certificates-grid">
-                <div class="cert-card">
+                <div class="cert-card cert-obtained">
                     <div class="cert-badge">
                         <svg viewBox="0 0 100 100" fill="none">
-                            <circle cx="50" cy="50" r="45" fill="url(#cert1-bg)"/>
+                            <circle cx="50" cy="50" r="45" fill="url(#cert-azure)"/>
                             <path d="M30 50 L45 65 L70 35" stroke="white" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
                             <defs>
-                                <linearGradient id="cert1-bg" x1="0" y1="0" x2="100" y2="100">
-                                    <stop offset="0%" stop-color="#fbbf24"/>
-                                    <stop offset="100%" stop-color="#f59e0b"/>
+                                <linearGradient id="cert-azure" x1="0" y1="0" x2="100" y2="100">
+                                    <stop offset="0%" stop-color="#0078d4"/>
+                                    <stop offset="100%" stop-color="#0053a6"/>
                                 </linearGradient>
                             </defs>
                         </svg>
                     </div>
-                    <h3>AWS Certified Developer</h3>
-                    <p class="cert-issuer">Amazon Web Services</p>
-                    <p class="cert-date">2024</p>
+                    <h3>AZ-900</h3>
+                    <p class="cert-issuer">Azure Fundamentals</p>
+                    <p class="cert-date">✅ Behaald</p>
                 </div>
-                <div class="cert-card">
+                
+                <div class="cert-card cert-obtained">
                     <div class="cert-badge">
                         <svg viewBox="0 0 100 100" fill="none">
-                            <circle cx="50" cy="50" r="45" fill="url(#cert2-bg)"/>
-                            <path d="M50 25 L60 45 L80 50 L60 55 L50 75 L40 55 L20 50 L40 45 Z" fill="white"/>
+                            <circle cx="50" cy="50" r="45" fill="url(#cert-ai)"/>
+                            <path d="M30 50 L45 65 L70 35" stroke="white" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
                             <defs>
-                                <linearGradient id="cert2-bg" x1="0" y1="0" x2="100" y2="100">
+                                <linearGradient id="cert-ai" x1="0" y1="0" x2="100" y2="100">
                                     <stop offset="0%" stop-color="#6366f1"/>
                                     <stop offset="100%" stop-color="#8b5cf6"/>
                                 </linearGradient>
                             </defs>
                         </svg>
                     </div>
-                    <h3>Meta React Advanced</h3>
-                    <p class="cert-issuer">Meta (Facebook)</p>
-                    <p class="cert-date">2023</p>
+                    <h3>AI-900</h3>
+                    <p class="cert-issuer">AI Fundamentals</p>
+                    <p class="cert-date">✅ Behaald</p>
                 </div>
-                <div class="cert-card">
+                
+                <div class="cert-card cert-obtained">
                     <div class="cert-badge">
                         <svg viewBox="0 0 100 100" fill="none">
-                            <circle cx="50" cy="50" r="45" fill="url(#cert3-bg)"/>
-                            <rect x="35" y="35" width="30" height="30" rx="4" fill="white"/>
+                            <circle cx="50" cy="50" r="45" fill="url(#cert-security)"/>
+                            <path d="M30 50 L45 65 L70 35" stroke="white" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
                             <defs>
-                                <linearGradient id="cert3-bg" x1="0" y1="0" x2="100" y2="100">
+                                <linearGradient id="cert-security" x1="0" y1="0" x2="100" y2="100">
                                     <stop offset="0%" stop-color="#10b981"/>
                                     <stop offset="100%" stop-color="#059669"/>
                                 </linearGradient>
                             </defs>
                         </svg>
                     </div>
-                    <h3>Full-Stack Certification</h3>
-                    <p class="cert-issuer">freeCodeCamp</p>
-                    <p class="cert-date">2023</p>
+                    <h3>SC-900</h3>
+                    <p class="cert-issuer">Security Fundamentals</p>
+                    <p class="cert-date">✅ Behaald</p>
                 </div>
-                <div class="cert-card">
+            </div>
+
+            <h3 style="margin: 4rem 0 2rem; color: var(--text); font-size: 1.5rem;">⏳ Binnenkort</h3>
+            <div class="certificates-grid">
+                <div class="cert-card cert-upcoming">
                     <div class="cert-badge">
                         <svg viewBox="0 0 100 100" fill="none">
-                            <circle cx="50" cy="50" r="45" fill="url(#cert4-bg)"/>
-                            <polygon points="50,25 60,45 80,48 65,62 68,82 50,72 32,82 35,62 20,48 40,45" fill="white"/>
+                            <circle cx="50" cy="50" r="45" fill="url(#cert-pl900)"/>
+                            <circle cx="50" cy="50" r="20" stroke="white" stroke-width="4" opacity="0.5"/>
                             <defs>
-                                <linearGradient id="cert4-bg" x1="0" y1="0" x2="100" y2="100">
-                                    <stop offset="0%" stop-color="#3b82f6"/>
-                                    <stop offset="100%" stop-color="#06b6d4"/>
+                                <linearGradient id="cert-pl900" x1="0" y1="0" x2="100" y2="100">
+                                    <stop offset="0%" stop-color="#7c3aed"/>
+                                    <stop offset="100%" stop-color="#5b21b6"/>
                                 </linearGradient>
                             </defs>
                         </svg>
                     </div>
-                    <h3>Node.js Developer</h3>
-                    <p class="cert-issuer">OpenJS Foundation</p>
-                    <p class="cert-date">2022</p>
+                    <h3>PL-900</h3>
+                    <p class="cert-issuer">Power Platform Fundamentals</p>
+                    <p class="cert-date">⏳ Over 2 weken</p>
+                </div>
+                
+                <div class="cert-card cert-upcoming">
+                    <div class="cert-badge">
+                        <svg viewBox="0 0 100 100" fill="none">
+                            <circle cx="50" cy="50" r="45" fill="url(#cert-ms900)"/>
+                            <circle cx="50" cy="50" r="20" stroke="white" stroke-width="4" opacity="0.5"/>
+                            <defs>
+                                <linearGradient id="cert-ms900" x1="0" y1="0" x2="100" y2="100">
+                                    <stop offset="0%" stop-color="#ea580c"/>
+                                    <stop offset="100%" stop-color="#c2410c"/>
+                                </linearGradient>
+                            </defs>
+                        </svg>
+                    </div>
+                    <h3>MS-900</h3>
+                    <p class="cert-issuer">Microsoft 365 Fundamentals</p>
+                    <p class="cert-date">⏳ Over 2 weken</p>
+                </div>
+            </div>
+
+            <h3 style="margin: 4rem 0 2rem; color: var(--text); font-size: 1.5rem;">🎯 Op de Roadmap</h3>
+            <div class="roadmap-grid">
+                <div class="roadmap-item">
+                    <strong>Cloud & Infrastructure</strong>
+                    <ul>
+                        <li>AZ-500 - Azure Security Engineer</li>
+                        <li>AZ-700 - Azure Network Engineer</li>
+                        <li>Terraform Associate</li>
+                    </ul>
+                </div>
+                <div class="roadmap-item">
+                    <strong>Security</strong>
+                    <ul>
+                        <li>SC-400 - Information Protection</li>
+                        <li>CCSK - Cloud Security Knowledge</li>
+                        <li>CCSP - Cloud Security Professional</li>
+                        <li>CEH - Ethical Hacking</li>
+                    </ul>
+                </div>
+                <div class="roadmap-item">
+                    <strong>Automation & DevOps</strong>
+                    <ul>
+                        <li>PL-600 - Power Platform Architect</li>
+                        <li>Ansible Automation</li>
+                        <li>Python Programming</li>
+                    </ul>
                 </div>
             </div>
         </div>
@@ -464,11 +534,11 @@
             <div class="blog-grid">
                 <article class="blog-card">
                     <div class="blog-date">
-                        <span class="day">14</span>
+                        <span class="day">10</span>
                         <span class="month">Feb</span>
                     </div>
-                    <h3>React Performance Tips</h3>
-                    <p>Best practices voor het optimaliseren van React applicaties en het verbeteren van de user experience.</p>
+                    <h3>Mijn Azure Learning Journey</h3>
+                    <p>Hoe ik begon met cloud technologie en wat ik heb geleerd tijdens het behalen van AZ-900, AI-900 en SC-900.</p>
                     <a href="#" class="read-more">
                         Lees meer
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -479,26 +549,26 @@
                 </article>
                 <article class="blog-card">
                     <div class="blog-date">
-                        <span class="day">01</span>
-                        <span class="month">Feb</span>
-                    </div>
-                    <h3>TypeScript Best Practices</h3>
-                    <p>Advanced patterns en technieken voor het schrijven van type-safe en maintainable code.</p>
-                    <a href="#" class="read-more">
-                        Lees meer
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <line x1="5" y1="12" x2="19" y2="12"/>
-                            <polyline points="12 5 19 12 12 19"/>
-                        </svg>
-                    </a>
-                </article>
-                <article class="blog-card">
-                    <div class="blog-date">
-                        <span class="day">20</span>
+                        <span class="day">28</span>
                         <span class="month">Jan</span>
                     </div>
-                    <h3>Building RESTful APIs</h3>
-                    <p>Een complete guide voor het ontwerpen en implementeren van schaalbare REST APIs met Node.js.</p>
+                    <h3>Terraform vs Ansible: Wanneer Wat?</h3>
+                    <p>Een praktische vergelijking tussen Infrastructure as Code tools en wanneer je welke moet gebruiken.</p>
+                    <a href="#" class="read-more">
+                        Lees meer
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <line x1="5" y1="12" x2="19" y2="12"/>
+                            <polyline points="12 5 19 12 12 19"/>
+                        </svg>
+                    </a>
+                </article>
+                <article class="blog-card">
+                    <div class="blog-date">
+                        <span class="day">15</span>
+                        <span class="month">Jan</span>
+                    </div>
+                    <h3>Network Segmentation Best Practices</h3>
+                    <p>Tips en tricks voor het opzetten van veilige netwerksegmentatie in je homelab of productie omgeving.</p>
                     <a href="#" class="read-more">
                         Lees meer
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -520,10 +590,10 @@
             </div>
             <div class="contact-content">
                 <div class="contact-info">
-                    <h3>Laten we iets bouwen!</h3>
+                    <h3>Laten we connecten!</h3>
                     <p>
-                        Heb je een project in gedachten of wil je gewoon even praten over tech? 
-                        Stuur me een berichtje!
+                        Geïnteresseerd in cloud, security of automation? Of wil je gewoon even sparren 
+                        over certificeringen? Stuur me gerust een berichtje!
                     </p>
                     <div class="contact-methods">
                         <div class="contact-item">
@@ -533,7 +603,7 @@
                             </svg>
                             <div>
                                 <strong>Email</strong>
-                                <a href="mailto:your@email.com">your@email.com</a>
+                                <a href="/cdn-cgi/l/email-protection#61180e141321040c00080d4f020e0c"><span class="__cf_email__" data-cfemail="b1c8dec4c3f1d4dcd0d8dd9fd2dedc">[email&#160;protected]</span></a>
                             </div>
                         </div>
                         <div class="contact-item">
@@ -588,11 +658,3 @@
             <div class="footer-links">
                 <a href="https://github.com/yourusername">GitHub</a>
                 <a href="https://linkedin.com/in/yourprofile">LinkedIn</a>
-                <a href="mailto:your@email.com">Email</a>
-            </div>
-        </div>
-    </footer>
-
-    <script src="script.js"></script>
-</body>
-</html>
