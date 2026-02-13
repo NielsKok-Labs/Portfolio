@@ -1,0 +1,16 @@
+{
+  "certs": [
+    {"name":"AZ-900","status":"done"},
+    {"name":"AI-900","status":"done"},
+    {"name":"PL-900","status":"in progress"},
+    {"name":"MS-900","status":"in progress"},
+    {"name":"AZ-700","status":"todo"},
+    {"name":"AZ-500","status":"todo"}
+  ],
+  "labs": [
+    {"name":"VNET Lab","status":"done"},
+    {"name":"Terraform Lab","status":"in progress"},
+    {"name":"Packet Tracer VLAN Lab","status":"todo"},
+    {"name":"Sentinel Detection Lab","status":"todo"}
+  ]
+}
