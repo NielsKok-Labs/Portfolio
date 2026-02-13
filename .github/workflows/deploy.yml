@@ -5,9 +5,13 @@ on:
     branches:
       - main
 
+permissions:
+  contents: write
+
 jobs:
   build:
     runs-on: ubuntu-latest
+
     steps:
       - uses: actions/checkout@v3
 
@@ -17,5 +21,4 @@ jobs:
           python-version: "3.x"
 
       - name: Run generator
-        run: |
-          python scripts/generate_md.py
+        run: python scripts/generate_md.py
