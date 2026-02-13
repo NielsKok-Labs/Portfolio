@@ -619,6 +619,62 @@ body {
     font-size: 0.9rem;
 }
 
+.cert-obtained {
+    border-color: #10b981;
+    background: linear-gradient(135deg, rgba(16, 185, 129, 0.05), rgba(5, 150, 105, 0.05));
+}
+
+.cert-upcoming {
+    border-color: #f59e0b;
+    background: linear-gradient(135deg, rgba(245, 158, 11, 0.05), rgba(217, 119, 6, 0.05));
+}
+
+.roadmap-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.roadmap-item {
+    background: white;
+    border-radius: 16px;
+    padding: 2rem;
+    border: 1px solid var(--border);
+}
+
+.roadmap-item strong {
+    display: block;
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    color: var(--primary);
+}
+
+.roadmap-item ul {
+    list-style: none;
+    padding: 0;
+}
+
+.roadmap-item li {
+    padding: 0.75rem 0;
+    border-bottom: 1px solid var(--bg-secondary);
+    color: var(--text-secondary);
+    position: relative;
+    padding-left: 1.5rem;
+}
+
+.roadmap-item li:last-child {
+    border-bottom: none;
+}
+
+.roadmap-item li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: var(--primary);
+    font-weight: bold;
+}
+
 /* Blog */
 .blog {
     background: var(--bg-secondary);
