@@ -1,4 +1,4 @@
-# Hallo, ik ben Niels Kok
+# Niels Kok Portfolio
 
 ## Certificaten
 {% include_relative certs.md %}
