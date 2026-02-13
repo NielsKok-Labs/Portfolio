@@ -1,16 +1,19 @@
 import json
+import os
 
-# Lees JSON
-with open("data/certs-labs.json") as f:
+# pad naar JSON
+json_path = os.path.join("data", "certs-labs.json")
+
+with open(json_path, "r") as f:
     data = json.load(f)
 
-# Schrijf certs.md
+# certs.md
 with open("certs.md", "w") as f:
     f.write("# Certificaten\n\n")
     for cert in data.get("certs", []):
         f.write(f"- {cert['name']} ({cert['status']})\n")
 
-# Schrijf labs.md
+# labs.md
 with open("labs.md", "w") as f:
     f.write("# Labs\n\n")
     for lab in data.get("labs", []):
