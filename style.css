@@ -621,6 +621,10 @@ body {
   object-fit: cover;
 }
 
+.cert-badge a:hover img {
+    transform: scale(1.1); /* leuk hover-effect */
+}
+
 /* Status kleuren */
 .cert-card.obtained .cert-date { color: #10b981; } /* groen */
 .cert-card.upcoming .cert-date { color: #f59e0b; } /* oranje */
