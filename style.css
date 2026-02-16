@@ -594,12 +594,12 @@ body {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   text-decoration: none; /* geen underline voor link */
   color: inherit; /* behoud tekstkleur */
+  cursor: pointer;
 }
 
 .cert-card.small:hover {
   transform: translateY(-4px);
   box-shadow: var(--shadow-lg);
-  cursor: pointer;
 }
 
 /* Badge */
@@ -634,6 +634,7 @@ body {
 
 .cert-card.small .cert-issuer:hover {
   color: var(--secondary);
+  text-decoration: underline; /* optioneel voor hover */
 }
 
 /* Datum / status */
@@ -664,6 +665,18 @@ body {
   padding: 1rem;
   font-size: 0.85rem;
   color: var(--text-secondary);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .certificates-grid.compact-grid {
+    grid-template-columns: 1fr; /* stapel op mobiel */
+  }
+
+  .cert-badge img {
+    width: 120px;
+    height: 120px;
+  }
 }
 
 /* Blog */
