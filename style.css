@@ -614,8 +614,8 @@ body {
 }
 
 .cert-badge img {
-  width: 90px;
-  height: 90px;
+  width: 100px;
+  height: 100px;
   border-radius: 50%;
   margin-bottom: 0.5rem;
   object-fit: cover;
