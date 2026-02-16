@@ -576,71 +576,53 @@ body {
     gap: 0.75rem;
 }
 
-/* Certificates - Compact Grid */
+/* Certificates */
 .certificates-grid.compact-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
   gap: 1.5rem;
 }
 
-/* Cert Card als link */
 .cert-card.small {
-  display: block; /* zodat <a> als blok werkt */
   background: var(--bg-secondary);
   border-radius: 16px;
   padding: 1rem;
   text-align: center;
   border: 1px solid var(--border);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  text-decoration: none; /* geen underline voor link */
-  color: inherit; /* behoud tekstkleur */
-  cursor: pointer;
+  transition: all 0.2s ease;
 }
 
 .cert-card.small:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--shadow-lg);
+  transform: translateY(-3px);
+  box-shadow: var(--shadow);
 }
 
-/* Badge */
-.cert-badge {
-  margin-bottom: 0.75rem;
-}
-
-.cert-badge img {
-  width: 140px; /* iets groter */
-  height: 140px;
-  border-radius: 0%;
-  object-fit: cover;
-  transition: transform 0.3s ease;
-}
-
-.cert-badge img:hover {
-  transform: scale(1.1); /* leuk hover-effect op badge */
-}
-
-/* Titel en issuer */
 .cert-card.small h3 {
-  font-size: 1.1rem;
+  font-size: 1rem;
   margin: 0.5rem 0;
 }
 
 .cert-card.small .cert-issuer {
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   color: var(--primary);
   margin-bottom: 0.25rem;
-  transition: color 0.3s ease;
 }
 
-.cert-card.small .cert-issuer:hover {
-  color: var(--secondary);
-  text-decoration: underline; /* optioneel voor hover */
-}
-
-/* Datum / status */
 .cert-card.small .cert-date {
   font-size: 0.8rem;
   color: var(--text-muted);
+}
+
+.cert-badge img {
+  width: 120px;
+  height: 120px;
+  border-radius: 0%;
+  margin-bottom: 0.5rem;
+  object-fit: cover;
+}
+
+.cert-badge a:hover img {
+    transform: scale(1.1); /* leuk hover-effect */
 }
 
 /* Status kleuren */
@@ -665,18 +647,6 @@ body {
   padding: 1rem;
   font-size: 0.85rem;
   color: var(--text-secondary);
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-  .certificates-grid.compact-grid {
-    grid-template-columns: 1fr; /* stapel op mobiel */
-  }
-
-  .cert-badge img {
-    width: 120px;
-    height: 120px;
-  }
 }
 
 /* Blog */
