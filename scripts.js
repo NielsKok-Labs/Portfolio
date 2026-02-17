@@ -448,7 +448,7 @@ const paletteItems = [
     { label: 'About me',       sub: 'Who is Niels?',              href: '#about',        icon: '01' },
     { label: 'Projects',       sub: 'Projects', href: '#projects',     icon: '02' },
     { label: 'Certificates',   sub: 'Certifications',       href: '#certificates', icon: '03' },
-    { label: 'Experience',     sub: 'Working experience',      href: '#experience',  icon: '04' },
+    { label: 'Experience',     sub: 'Working experience',      href: '#timeline',  icon: '04' },
     { label: 'Blog',           sub: 'Recent posts',      href: '#blog',         icon: '06' },
     { label: 'Contact',        sub: 'Lets connect',           href: '#contact',      icon: '06' },
     { label: 'GitHub',         sub: 'github.com/NielsKok-Labs',    href: 'https://github.com/NielsKok-Labs', icon: 'GH' },
