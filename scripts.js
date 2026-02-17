@@ -539,3 +539,186 @@ document.addEventListener('keydown', e => {
         paletteOverlay.classList.contains('open') ? closePalette() : openPalette();
     }
 });
+
+// Terminal easter egg (Ctrl+T)
+const terminalOverlay = document.getElementById('terminalOverlay');
+const terminalInput   = document.getElementById('terminalInput');
+const terminalOutput  = document.getElementById('terminalOutput');
+const terminalBody    = document.getElementById('terminalBody');
+const terminalClose   = document.getElementById('terminalClose');
+
+const commands = {
+    help: () => `
+<span class="term-info">Available commands:</span>
+  <span class="term-cmd">whoami</span>        — wie ben ik?
+  <span class="term-cmd">skills</span>        — technische skills
+  <span class="term-cmd">experience</span>    — werkervaring
+  <span class="term-cmd">certs</span>         — certificaten
+  <span class="term-cmd">projects</span>      — projecten
+  <span class="term-cmd">contact</span>       — contactgegevens
+  <span class="term-cmd">social</span>        — social media links
+  <span class="term-cmd">clear</span>         — terminal leegmaken
+  <span class="term-cmd">sudo rm -rf /</span> — probeer het maar 😏
+`,
+    whoami: () => `
+<span class="term-success">Niels Kok</span>
+Role     : M365 Technical Consultant & Cloud Engineer
+Location : Bunnik, Utrecht, Nederland
+Focus    : Cloud · Security · Automation · Networking
+Goal     : Cloud & Security Architect
+`,
+    skills: () => `
+<span class="term-info">Technical Skills:</span>
+  Cloud      → Azure, Microsoft 365, Terraform, Ansible
+  Security   → Zero Trust, Conditional Access, Security Baselines
+  Automation → CI/CD, Python, PowerShell, DevSecOps
+  Network    → Segmentation, Firewalls, Hybrid Connectivity
+  Tools      → Kubernetes, ArgoCD, Flux, Prometheus
+`,
+    experience: () => `
+<span class="term-info">Work Experience:</span>
+  <span class="term-success">2025–now </span> M365 Technical Consultant    @ XTRM Development
+  <span class="term-warn">2025     </span> Security & Network Engineer  @ Conscia (stage)
+  <span class="term-warn">2023–2024</span> Kubernetes Platform Engineer @ Anonify (stage)
+  <span class="term-success">2021–2025</span> System Engineer              @ Stric
+  <span class="term-success">2020–2021</span> Junior Sysadmin              @ Stric
+  <span class="term-muted">2019     </span> Service Desk Consultant      @ Missing Piece BV
+`,
+    certs: () => `
+<span class="term-info">Certificates:</span>
+  ✅ AZ-900  — Azure Fundamentals
+  ✅ SC-900  — Security Fundamentals
+  ✅ MS-900  — Microsoft 365 Fundamentals
+  ✅ AI-900  — Azure AI Fundamentals
+  ✅ PL-900  — Power Platform Fundamentals
+  ✅ ArgoCD  — Introduction
+  🎯 Next    — AZ-104, AZ-500, AZ-700
+`,
+    projects: () => `
+<span class="term-info">Projects:</span>
+  [1] Azure Infrastructure Automation  — Terraform, IaC, VNets, NSGs
+  [2] Network Security Lab             — Firewalls, VLANs, OT Security
+  [3] Ansible Automation Playbooks     — Hardening, CI/CD, Deployments
+`,
+    contact: () => `
+<span class="term-info">Contact:</span>
+  GitHub   → github.com/NielsKok-Labs
+  LinkedIn → linkedin.com/in/nielskoknl
+`,
+    social: () => `
+<span class="term-info">Social:</span>
+  🐙 GitHub   → <a href="https://github.com/NielsKok-Labs" target="_blank" style="color:#6366f1">github.com/NielsKok-Labs</a>
+  💼 LinkedIn → <a href="https://www.linkedin.com/in/nielskoknl" target="_blank" style="color:#6366f1">linkedin.com/in/nielskoknl</a>
+  ✈️  Travel   → <a href="https://www.polarsteps.com/nielskoknl" target="_blank" style="color:#6366f1">polarsteps.com/nielskoknl</a>
+`,
+    clear: () => {
+        terminalOutput.innerHTML = '';
+        return null;
+    },
+    'sudo rm -rf /': () => `<span class="term-error">Permission denied. Nice try. 😄</span>`,
+};
+
+let cmdHistory = [];
+let historyIndex = -1;
+
+function printOutput(html) {
+    if (html === null) return;
+    const p = document.createElement('p');
+    p.className = 'term-line';
+    p.innerHTML = html;
+    terminalOutput.appendChild(p);
+    terminalBody.scrollTop = terminalBody.scrollHeight;
+}
+
+function runCommand(raw) {
+    const cmd = raw.trim().toLowerCase();
+
+    const typed = document.createElement('div');
+    typed.className = 'term-typed-line';
+    typed.innerHTML = `<span class="term-prompt">niels@portfolio:~$</span><span style="color:#e2e8f0">${raw}</span>`;
+    terminalOutput.appendChild(typed);
+
+    if (cmd === '') {
+        terminalBody.scrollTop = terminalBody.scrollHeight;
+        return;
+    }
+
+    if (commands[cmd] !== undefined) {
+        const result = commands[cmd]();
+        if (result !== null) printOutput(result);
+    } else {
+        printOutput(`<span class="term-error">command not found: ${raw}</span> — type <span class="term-cmd">help</span>`);
+    }
+
+    printOutput('');
+    terminalBody.scrollTop = terminalBody.scrollHeight;
+}
+
+function openTerminal() {
+    terminalOverlay.classList.add('open');
+    setTimeout(() => terminalInput.focus(), 50);
+}
+
+function closeTerminal() {
+    terminalOverlay.classList.remove('open');
+}
+
+// Ctrl+T opent terminal
+document.addEventListener('keydown', e => {
+    if ((e.ctrlKey || e.metaKey) && e.key === 't') {
+        // Voorkom nieuw browser tabblad
+        e.preventDefault();
+        terminalOverlay.classList.contains('open') ? closeTerminal() : openTerminal();
+    }
+    if (e.key === 'Escape' && terminalOverlay.classList.contains('open')) {
+        closeTerminal();
+    }
+});
+
+// Sluit bij klik buiten modal of op rode dot
+terminalOverlay.addEventListener('click', e => {
+    if (e.target === terminalOverlay) closeTerminal();
+});
+
+terminalClose.addEventListener('click', closeTerminal);
+
+// Terminal input
+if (terminalInput) {
+    terminalInput.addEventListener('keydown', e => {
+        if (e.key === 'Enter') {
+            const val = terminalInput.value;
+            cmdHistory.unshift(val);
+            historyIndex = -1;
+            runCommand(val);
+            terminalInput.value = '';
+        }
+
+        if (e.key === 'ArrowUp') {
+            e.preventDefault();
+            if (historyIndex < cmdHistory.length - 1) {
+                historyIndex++;
+                terminalInput.value = cmdHistory[historyIndex];
+            }
+        }
+
+        if (e.key === 'ArrowDown') {
+            e.preventDefault();
+            if (historyIndex > 0) {
+                historyIndex--;
+                terminalInput.value = cmdHistory[historyIndex];
+            } else {
+                historyIndex = -1;
+                terminalInput.value = '';
+            }
+        }
+
+        if (e.key === 'Tab') {
+            e.preventDefault();
+            const partial = terminalInput.value.toLowerCase();
+            const match = Object.keys(commands).find(c => c.startsWith(partial));
+            if (match) terminalInput.value = match;
+        }
+    });
+
+    terminalBody.addEventListener('click', () => terminalInput.focus());
+}
