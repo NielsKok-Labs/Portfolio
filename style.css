@@ -20,6 +20,18 @@
     --shadow-lg: 0 20px 25px -5px rgb(0 0 0 / 0.1);
 }
 
+[data-theme="dark"] {
+    --bg: #0f172a;
+    --bg-secondary: #1e293b;
+    --bg-tertiary: #334155;
+    --text: #f1f5f9;
+    --text-secondary: #94a3b8;
+    --text-muted: #64748b;
+    --border: #334155;
+    --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.4);
+    --shadow-lg: 0 20px 25px -5px rgb(0 0 0 / 0.5);
+}
+
 html {
     scroll-behavior: smooth;
 }
@@ -30,6 +42,7 @@ body {
     color: var(--text);
     line-height: 1.7;
     overflow-x: hidden;
+    transition: background 0.3s ease, color 0.3s ease;
 }
 
 .container {
@@ -49,6 +62,10 @@ body {
     border-bottom: 1px solid var(--border);
     z-index: 1000;
     transition: all 0.3s ease;
+}
+
+[data-theme="dark"] .navbar {
+    background: rgba(15, 23, 42, 0.9);
 }
 
 .navbar .container {
@@ -101,6 +118,41 @@ body {
     width: 100%;
 }
 
+/* Theme Toggle */
+.theme-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    background: var(--bg-secondary);
+    border: 1px solid var(--border);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    color: var(--text-secondary);
+    flex-shrink: 0;
+}
+
+.theme-toggle:hover {
+    background: var(--primary);
+    color: white;
+    border-color: var(--primary);
+    transform: translateY(-1px);
+}
+
+.theme-toggle svg {
+    width: 18px;
+    height: 18px;
+    transition: all 0.3s ease;
+}
+
+.theme-toggle .icon-sun { display: none; }
+.theme-toggle .icon-moon { display: block; }
+
+[data-theme="dark"] .theme-toggle .icon-sun { display: block; }
+[data-theme="dark"] .theme-toggle .icon-moon { display: none; }
+
 .menu-toggle {
     display: none;
     flex-direction: column;
@@ -143,6 +195,10 @@ body {
     filter: blur(80px);
     opacity: 0.3;
     animation: float 8s ease-in-out infinite;
+}
+
+[data-theme="dark"] .gradient-orb {
+    opacity: 0.15;
 }
 
 .orb-1 {
@@ -245,7 +301,7 @@ body {
 }
 
 .btn-secondary {
-    background: white;
+    background: var(--bg);
     color: var(--primary);
     border: 2px solid var(--border);
 }
@@ -277,7 +333,7 @@ body {
 }
 
 .code-window {
-    background: white;
+    background: var(--bg);
     border-radius: 16px;
     overflow: hidden;
     box-shadow: var(--shadow-lg);
@@ -321,6 +377,10 @@ body {
     font-size: 0.9rem;
     line-height: 1.8;
     color: #e2e8f0;
+}
+
+[data-theme="dark"] .code-content {
+    background: #0d1829;
 }
 
 .keyword { color: #c792ea; }
@@ -429,12 +489,13 @@ body {
 }
 
 .profile-card {
-    background: white;
+    background: var(--bg);
     border-radius: 20px;
     padding: 2rem;
     box-shadow: var(--shadow-lg);
     border: 1px solid var(--border);
     text-align: center;
+    transition: background 0.3s ease, border-color 0.3s ease;
 }
 
 .avatar {
@@ -446,8 +507,8 @@ body {
 .avatar img {
     width: 150px;
     height: 150px;
-    border-radius: 50%; /* maakt het rond */
-    object-fit: cover;   /* zorgt dat de afbeelding goed past */
+    border-radius: 50%;
+    object-fit: cover;
 }
 
 .profile-info h3 {
@@ -501,7 +562,7 @@ body {
 }
 
 .project-card {
-    background: white;
+    background: var(--bg);
     border-radius: 20px;
     overflow: hidden;
     border: 1px solid var(--border);
@@ -582,75 +643,74 @@ body {
 
 /* Certificates */
 .certificates-grid.compact-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap: 1.5rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1.5rem;
 }
 
 .cert-card.small {
-  background: var(--bg-secondary);
-  border-radius: 16px;
-  padding: 1rem;
-  text-align: center;
-  border: 1px solid var(--border);
-  transition: all 0.2s ease;
+    background: var(--bg-secondary);
+    border-radius: 16px;
+    padding: 1rem;
+    text-align: center;
+    border: 1px solid var(--border);
+    transition: all 0.2s ease;
 }
 
 .cert-card.small:hover {
-  transform: translateY(-3px);
-  box-shadow: var(--shadow);
+    transform: translateY(-3px);
+    box-shadow: var(--shadow);
 }
 
 .cert-card.small h3 {
-  font-size: 1rem;
-  margin: 0.5rem 0;
+    font-size: 1rem;
+    margin: 0.5rem 0;
 }
 
 .cert-card.small .cert-issuer {
-  font-size: 0.85rem;
-  color: var(--primary);
-  margin-bottom: 0.25rem;
+    font-size: 0.85rem;
+    color: var(--primary);
+    margin-bottom: 0.25rem;
 }
 
 .cert-card.small .cert-date {
-  font-size: 0.8rem;
-  color: var(--text-muted);
+    font-size: 0.8rem;
+    color: var(--text-muted);
 }
 
 .cert-badge img {
-  width: 120px;
-  height: 120px;
-  border-radius: 0%;
-  margin-bottom: 0.5rem;
-  object-fit: cover;
+    width: 120px;
+    height: 120px;
+    border-radius: 0%;
+    margin-bottom: 0.5rem;
+    object-fit: cover;
 }
 
 .cert-badge a:hover img {
-    transform: scale(1.1); /* leuk hover-effect */
+    transform: scale(1.1);
 }
 
-/* Status kleuren */
-.cert-card.obtained .cert-date { color: #10b981; } /* groen */
-.cert-card.upcoming .cert-date { color: #f59e0b; } /* oranje */
+.cert-card.obtained .cert-date { color: #10b981; }
+.cert-card.upcoming .cert-date { color: #f59e0b; }
 
-/* Roadmap compact */
+/* Roadmap */
 .roadmap {
-  margin-top: 2rem;
+    margin-top: 2rem;
 }
 
 .roadmap-grid {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1.5rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
 }
 
 .roadmap-item {
-  flex: 1 1 180px;
-  background: var(--bg-tertiary);
-  border-radius: 12px;
-  padding: 1rem;
-  font-size: 0.85rem;
-  color: var(--text-secondary);
+    flex: 1 1 180px;
+    background: var(--bg-tertiary);
+    border-radius: 12px;
+    padding: 1rem;
+    font-size: 0.85rem;
+    color: var(--text-secondary);
 }
 
 /* Blog */
@@ -665,7 +725,7 @@ body {
 }
 
 .blog-card {
-    background: white;
+    background: var(--bg);
     border-radius: 20px;
     padding: 2rem;
     border: 1px solid var(--border);
@@ -742,7 +802,7 @@ body {
 .contact-methods {
     display: flex;
     gap: 1.5rem;
-    flex-wrap: wrap; /* voor mobiel */
+    flex-wrap: wrap;
 }
 
 .contact-item {
@@ -786,7 +846,6 @@ body {
     color: inherit;
 }
 
-/* Responsive */
 @media (max-width: 768px) {
     .contact-methods {
         flex-direction: column;
