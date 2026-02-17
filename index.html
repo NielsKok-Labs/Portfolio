@@ -195,9 +195,18 @@
                 </div>
                 <div class="about-image">
                     <div class="profile-card">
-                        <div class="avatar">
-                          <img src="assets/me/avatar.jpg" alt="Niels Kok" />
-                        </div>
+                        <div class="avatar" style="position: relative;">
+                            <svg viewBox="0 0 200 200" fill="none">
+                            <circle cx="100" cy="100" r="100" fill="url(#avatar-gradient)"/>
+                            <defs>
+                                <linearGradient id="avatar-gradient" x1="0" y1="0" x2="200" y2="200">
+                                <stop offset="0%" stop-color="#6366f1"/>
+                                <stop offset="100%" stop-color="#8b5cf6"/>
+                                </linearGradient>
+                            </defs>
+                            </svg>
+                            <img src="assets/me/avatar.jpg" alt="Niels Kok" style="position: absolute; top: 25px; left: 25px; width: 150px; height: 150px; border-radius: 50%; object-fit: cover;" />
+                          </div>
                         <div class="profile-info">
                             <h3>Niels Kok</h3>
                             <p>Technical Cloud & M365 Consultant</p>
