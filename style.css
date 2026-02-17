@@ -437,11 +437,10 @@ body {
     text-align: center;
 }
 
-.avatar img {
+.avatar {
     width: 150px;
     height: 150px;
-    border-radius: 50%; /* maakt het rond */
-    object-fit: cover;   /* zorgt dat de afbeelding goed past */
+    margin: 0 auto 1.5rem;
 }
 
 .profile-info h3 {
