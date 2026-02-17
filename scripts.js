@@ -1,3 +1,19 @@
+// Dark mode toggle
+const themeToggle = document.getElementById('themeToggle');
+const root = document.documentElement;
+
+function applyTheme(theme) {
+    root.setAttribute('data-theme', theme);
+    localStorage.setItem('theme', theme);
+}
+
+if (themeToggle) {
+    themeToggle.addEventListener('click', () => {
+        const current = root.getAttribute('data-theme');
+        applyTheme(current === 'dark' ? 'light' : 'dark');
+    });
+}
+
 // Smooth scroll voor anchor links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
@@ -23,7 +39,6 @@ if (menuToggle) {
         menuToggle.classList.toggle('active');
     });
 
-    // Sluit menu bij klik op link
     document.querySelectorAll('.nav-menu a').forEach(link => {
         link.addEventListener('click', () => {
             navMenu.classList.remove('active');
@@ -63,7 +78,6 @@ const observer = new IntersectionObserver((entries) => {
     });
 }, observerOptions);
 
-// Observeer alle cards en sections
 const animatedElements = document.querySelectorAll(
     '.project-card, .cert-card, .blog-card, .skill-item, .about-grid > *'
 );
@@ -90,7 +104,6 @@ const animateValue = (element, start, end, duration) => {
     window.requestAnimationFrame(step);
 };
 
-// Observeer stats voor counter animatie
 const statsObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting && !entry.target.classList.contains('counted')) {
@@ -121,33 +134,12 @@ if (contactForm) {
         submitButton.innerHTML = '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="animation: spin 1s linear infinite;"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg> Verzenden...';
         submitButton.disabled = true;
 
-        // Simuleer verzending (vervang dit met je eigen backend)
         setTimeout(() => {
             alert('✅ Bericht verzonden! Ik neem zo snel mogelijk contact met je op.');
             contactForm.reset();
             submitButton.innerHTML = originalHTML;
             submitButton.disabled = false;
         }, 1500);
-
-        // Voor echte implementatie:
-        /*
-        try {
-            const response = await fetch('/api/contact', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(data)
-            });
-            if (response.ok) {
-                alert('✅ Bericht verzonden!');
-                contactForm.reset();
-            }
-        } catch (error) {
-            alert('❌ Er ging iets mis. Probeer het opnieuw.');
-        } finally {
-            submitButton.innerHTML = originalHTML;
-            submitButton.disabled = false;
-        }
-        */
     });
 }
 
@@ -160,7 +152,6 @@ window.addEventListener('scroll', () => {
 
     sections.forEach(section => {
         const sectionTop = section.offsetTop - 100;
-        const sectionHeight = section.clientHeight;
         if (pageYOffset >= sectionTop) {
             current = section.getAttribute('id');
         }
@@ -192,7 +183,7 @@ codeElements.forEach((element, index) => {
     element.style.animation = `fadeIn 0.1s ease forwards ${index * 0.05}s`;
 });
 
-// Voeg extra styles toe via JavaScript
+// Extra styles via JavaScript
 const style = document.createElement('style');
 style.textContent = `
     @keyframes fadeIn {
@@ -227,6 +218,10 @@ style.textContent = `
             box-shadow: var(--shadow);
         }
 
+        [data-theme="dark"] .nav-menu.active {
+            background: rgba(15, 23, 42, 0.98);
+        }
+
         .menu-toggle.active span:nth-child(1) {
             transform: rotate(45deg) translate(5px, 5px);
         }
@@ -240,7 +235,6 @@ style.textContent = `
         }
     }
 
-    /* Hover effects */
     .project-card {
         position: relative;
         overflow: hidden;
@@ -261,7 +255,6 @@ style.textContent = `
         left: 100%;
     }
 
-    /* Scroll indicator */
     .scroll-indicator {
         position: absolute;
         bottom: 2rem;
@@ -275,19 +268,16 @@ style.textContent = `
         50% { transform: translateX(-50%) translateY(-10px); }
     }
 
-    /* Selection color */
     ::selection {
         background: var(--primary);
         color: white;
     }
 
-    /* Focus styles */
     *:focus-visible {
         outline: 2px solid var(--primary);
         outline-offset: 2px;
     }
 
-    /* Loading state */
     button:disabled {
         opacity: 0.7;
         cursor: not-allowed;
@@ -303,12 +293,12 @@ console.log('%c📧 Want to work together? Hit me up!', 'font-size: 12px; color:
 
 // Performance monitoring
 if ('PerformanceObserver' in window) {
-    const observer = new PerformanceObserver((list) => {
+    const perfObserver = new PerformanceObserver((list) => {
         for (const entry of list.getEntries()) {
             if (entry.loadTime > 3000) {
                 console.warn('Slow loading asset:', entry.name);
             }
         }
     });
-    observer.observe({ entryTypes: ['resource'] });
+    perfObserver.observe({ entryTypes: ['resource'] });
 }
