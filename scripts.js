@@ -352,10 +352,10 @@ const CONTACT_NODE_COUNT = 35;
 const CONTACT_MAX_DIST = 120;
 
 function resizeContactCanvas() {
-    contactCanvas.width = contactCanvas.offsetWidth;
-    contactCanvas.height = contactCanvas.offsetHeight;
+    const parent = contactCanvas.parentElement;
+    contactCanvas.width = parent.offsetWidth;
+    contactCanvas.height = parent.offsetHeight;
 }
-
 function createContactNodes() {
     contactNodes = [];
     for (let i = 0; i < CONTACT_NODE_COUNT; i++) {
