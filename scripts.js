@@ -341,3 +341,124 @@ filterBtns.forEach(btn => {
         });
     });
 });
+
+// Contact netwerktopologie
+const contactCanvas = document.getElementById('contactCanvas');
+const contactCtx = contactCanvas.getContext('2d');
+
+let contactNodes = [];
+let contactMouse = { x: null, y: null };
+const CONTACT_NODE_COUNT = 35;
+const CONTACT_MAX_DIST = 120;
+
+function resizeContactCanvas() {
+    contactCanvas.width = contactCanvas.offsetWidth;
+    contactCanvas.height = contactCanvas.offsetHeight;
+}
+
+function createContactNodes() {
+    contactNodes = [];
+    for (let i = 0; i < CONTACT_NODE_COUNT; i++) {
+        contactNodes.push({
+            x: Math.random() * contactCanvas.width,
+            y: Math.random() * contactCanvas.height,
+            vx: (Math.random() - 0.5) * 0.5,
+            vy: (Math.random() - 0.5) * 0.5,
+            radius: Math.random() * 2.5 + 1.5,
+        });
+    }
+}
+
+function drawContactNetwork() {
+    contactCtx.clearRect(0, 0, contactCanvas.width, contactCanvas.height);
+
+    const primaryColor = '99, 102, 241';
+    const accentColor  = '139, 92, 246';
+
+    for (let i = 0; i < contactNodes.length; i++) {
+        for (let j = i + 1; j < contactNodes.length; j++) {
+            const dx = contactNodes[i].x - contactNodes[j].x;
+            const dy = contactNodes[i].y - contactNodes[j].y;
+            const dist = Math.sqrt(dx * dx + dy * dy);
+
+            if (dist < CONTACT_MAX_DIST) {
+                const alpha = 1 - dist / CONTACT_MAX_DIST;
+                contactCtx.beginPath();
+                contactCtx.moveTo(contactNodes[i].x, contactNodes[i].y);
+                contactCtx.lineTo(contactNodes[j].x, contactNodes[j].y);
+                contactCtx.strokeStyle = `rgba(${primaryColor}, ${alpha * 0.6})`;
+                contactCtx.lineWidth = 0.8;
+                contactCtx.stroke();
+            }
+        }
+
+        if (contactMouse.x && contactMouse.y) {
+            const dx = contactNodes[i].x - contactMouse.x;
+            const dy = contactNodes[i].y - contactMouse.y;
+            const dist = Math.sqrt(dx * dx + dy * dy);
+            const mouseRadius = 150;
+
+            if (dist < mouseRadius) {
+                const alpha = 1 - dist / mouseRadius;
+                contactCtx.beginPath();
+                contactCtx.moveTo(contactNodes[i].x, contactNodes[i].y);
+                contactCtx.lineTo(contactMouse.x, contactMouse.y);
+                contactCtx.strokeStyle = `rgba(${accentColor}, ${alpha * 0.9})`;
+                contactCtx.lineWidth = 1;
+                contactCtx.stroke();
+            }
+        }
+    }
+
+    contactNodes.forEach(node => {
+        contactCtx.beginPath();
+        contactCtx.arc(node.x, node.y, node.radius, 0, Math.PI * 2);
+        contactCtx.fillStyle = `rgba(${primaryColor}, 0.9)`;
+        contactCtx.fill();
+    });
+}
+
+function updateContactNodes() {
+    contactNodes.forEach(node => {
+        node.x += node.vx;
+        node.y += node.vy;
+        if (node.x < 0 || node.x > contactCanvas.width)  node.vx *= -1;
+        if (node.y < 0 || node.y > contactCanvas.height) node.vy *= -1;
+    });
+}
+
+function animateContact() {
+    updateContactNodes();
+    drawContactNetwork();
+    requestAnimationFrame(animateContact);
+}
+
+contactCanvas.addEventListener('mousemove', e => {
+    const rect = contactCanvas.getBoundingClientRect();
+    contactMouse.x = e.clientX - rect.left;
+    contactMouse.y = e.clientY - rect.top;
+});
+
+contactCanvas.addEventListener('mouseleave', () => {
+    contactMouse.x = null;
+    contactMouse.y = null;
+});
+
+window.addEventListener('resize', () => {
+    resizeContactCanvas();
+    createContactNodes();
+});
+
+// Start pas als het canvas zichtbaar is
+const contactObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            resizeContactCanvas();
+            createContactNodes();
+            animateContact();
+            contactObserver.unobserve(entry.target);
+        }
+    });
+});
+
+contactObserver.observe(contactCanvas);
