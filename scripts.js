@@ -550,15 +550,15 @@ const terminalClose   = document.getElementById('terminalClose');
 const commands = {
     help: () => `
 <span class="term-info">Available commands:</span>
-  <span class="term-cmd">whoami</span>        — wie ben ik?
-  <span class="term-cmd">skills</span>        — technische skills
-  <span class="term-cmd">experience</span>    — werkervaring
-  <span class="term-cmd">certs</span>         — certificaten
-  <span class="term-cmd">projects</span>      — projecten
-  <span class="term-cmd">contact</span>       — contactgegevens
+  <span class="term-cmd">whoami</span>        — who is Niels?
+  <span class="term-cmd">skills</span>        — technical skills
+  <span class="term-cmd">experience</span>    — work experience
+  <span class="term-cmd">certs</span>         — certifications
+  <span class="term-cmd">projects</span>      — projects
+  <span class="term-cmd">contact</span>       — contact information
   <span class="term-cmd">social</span>        — social media links
-  <span class="term-cmd">clear</span>         — terminal leegmaken
-  <span class="term-cmd">sudo rm -rf /</span> — probeer het maar 😏
+  <span class="term-cmd">clear</span>         — empty terminal
+  <span class="term-cmd">sudo rm -rf /</span> — try it! 😏
 `,
     whoami: () => `
 <span class="term-success">Niels Kok</span>
@@ -609,7 +609,6 @@ Goal     : Cloud & Security Architect
 <span class="term-info">Social:</span>
   🐙 GitHub   → <a href="https://github.com/NielsKok-Labs" target="_blank" style="color:#6366f1">github.com/NielsKok-Labs</a>
   💼 LinkedIn → <a href="https://www.linkedin.com/in/nielskoknl" target="_blank" style="color:#6366f1">linkedin.com/in/nielskoknl</a>
-  ✈️  Travel   → <a href="https://www.polarsteps.com/nielskoknl" target="_blank" style="color:#6366f1">polarsteps.com/nielskoknl</a>
 `,
     clear: () => {
         terminalOutput.innerHTML = '';
