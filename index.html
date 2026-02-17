@@ -873,6 +873,32 @@
             </div>
         </div>
     </div>
+
+    <!-- Terminal Easter Egg -->
+    <div class="terminal-overlay" id="terminalOverlay">
+        <div class="terminal-modal">
+            <div class="window-header">
+                <div class="window-dots">
+                    <span class="dot red" id="terminalClose"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+                </div>
+                <span class="window-title">niels@portfolio:~$</span>
+                <span class="terminal-hint-kbd">esc</span>
+            </div>
+            <div class="terminal-body" id="terminalBody">
+                <div class="terminal-output" id="terminalOutput">
+                    <p class="term-line"><span class="term-success">Welcome to Niels's portfolio terminal!</span></p>
+                    <p class="term-line term-muted">Type <span class="term-cmd">help</span> to see available commands.</p>
+                    <br>
+                </div>
+                <div class="terminal-input-row">
+                    <span class="term-prompt">niels@portfolio:~$</span>
+                    <input type="text" id="terminalInput" class="terminal-input" autocomplete="off" spellcheck="false"/>
+                </div>
+            </div>
+        </div>
+    </div>
     <script src="scripts.js"></script>
 </body>
 </html>
