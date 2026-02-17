@@ -317,9 +317,6 @@ body {
 .code-content {
     padding: 1.5rem;
     background: #1e293b;
-}
-
-.code-content code {
     font-family: 'Fira Code', monospace;
     font-size: 0.9rem;
     line-height: 1.8;
