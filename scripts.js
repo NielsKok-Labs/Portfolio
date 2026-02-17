@@ -665,7 +665,7 @@ function closeTerminal() {
 
 // Ctrl+T opent terminal
 document.addEventListener('keydown', e => {
-    if ((e.ctrlKey || e.metaKey) && e.key === 't') {
+    if ((e.ctrlKey || e.metaKey) && e.key === '`') {
         // Voorkom nieuw browser tabblad
         e.preventDefault();
         terminalOverlay.classList.contains('open') ? closeTerminal() : openTerminal();
