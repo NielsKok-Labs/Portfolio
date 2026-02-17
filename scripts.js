@@ -79,7 +79,7 @@ const observer = new IntersectionObserver((entries) => {
 }, observerOptions);
 
 const animatedElements = document.querySelectorAll(
-    '.project-card, .cert-card, .blog-card, .skill-item, .about-grid > *'
+    '.project-card, .cert-card, .blog-card, .skill-item, .about-grid > *, .timeline-card'
 );
 
 animatedElements.forEach((el, index) => {
