@@ -1426,3 +1426,123 @@ body {
         transform: none;
     }
 }
+
+/* Terminal modal */
+.terminal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(4px);
+    z-index: 2001;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s ease;
+}
+
+.terminal-overlay.open {
+    opacity: 1;
+    pointer-events: all;
+}
+
+.terminal-modal {
+    width: 100%;
+    max-width: 720px;
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    box-shadow: 0 25px 60px -12px rgba(0, 0, 0, 0.6);
+    transform: translateY(-12px) scale(0.97);
+    transition: transform 0.2s ease;
+}
+
+.terminal-overlay.open .terminal-modal {
+    transform: translateY(0) scale(1);
+}
+
+.terminal-hint-kbd {
+    font-size: 0.75rem;
+    color: #64748b;
+    background: #1e293b;
+    border: 1px solid #334155;
+    border-radius: 6px;
+    padding: 0.2rem 0.5rem;
+    font-family: 'Fira Code', monospace;
+    margin-left: auto;
+}
+
+.terminal-body {
+    background: #0d1117;
+    padding: 1.5rem;
+    min-height: 340px;
+    max-height: 60vh;
+    overflow-y: auto;
+    font-family: 'Fira Code', monospace;
+    font-size: 0.9rem;
+    cursor: text;
+    display: flex;
+    flex-direction: column;
+}
+
+.terminal-output {
+    flex: 1;
+}
+
+.term-line {
+    color: #e2e8f0;
+    line-height: 1.8;
+    white-space: pre-wrap;
+    word-break: break-word;
+}
+
+.term-muted  { color: #64748b; }
+.term-success { color: #4ade80; }
+.term-error  { color: #f87171; }
+.term-info   { color: #60a5fa; }
+.term-warn   { color: #fbbf24; }
+.term-cmd    { color: #c792ea; }
+
+.term-prompt {
+    color: #6366f1;
+    margin-right: 0.75rem;
+    white-space: nowrap;
+    font-weight: 700;
+}
+
+.terminal-input-row {
+    display: flex;
+    align-items: center;
+    margin-top: 0.5rem;
+}
+
+.terminal-input {
+    background: none;
+    border: none;
+    outline: none;
+    color: #e2e8f0;
+    font-family: 'Fira Code', monospace;
+    font-size: 0.9rem;
+    flex: 1;
+    caret-color: #6366f1;
+}
+
+.term-typed-line {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 0.25rem;
+}
+
+@media (max-width: 768px) {
+    .terminal-modal {
+        max-width: 100%;
+    }
+
+    .terminal-body {
+        font-size: 0.8rem;
+        min-height: 280px;
+    }
+}
