@@ -462,3 +462,103 @@ const contactObserver = new IntersectionObserver((entries) => {
 });
 
 contactObserver.observe(contactCanvas);
+
+// Command palette
+const paletteOverlay = document.getElementById('paletteOverlay');
+const paletteInput   = document.getElementById('paletteInput');
+const paletteResults = document.getElementById('paletteResults');
+
+const paletteItems = [
+    { label: 'About me',       sub: 'Wie is Niels?',              href: '#about',        icon: '01' },
+    { label: 'Projects',       sub: 'Azure, Security, Automation', href: '#projects',     icon: '02' },
+    { label: 'Certificates',   sub: 'Behaalde certificaten',       href: '#certificates', icon: '03' },
+    { label: 'Blog',           sub: 'Recent geschreven posts',      href: '#blog',         icon: '04' },
+    { label: 'Contact',        sub: 'GitHub & LinkedIn',           href: '#contact',      icon: '05' },
+    { label: 'GitHub',         sub: 'github.com/NielsKok-Labs',    href: 'https://github.com/NielsKok-Labs', icon: 'GH' },
+    { label: 'LinkedIn',       sub: 'linkedin.com/in/nielskoknl',  href: 'https://www.linkedin.com/in/nielskoknl', icon: 'LI' },
+];
+
+let selectedIndex = 0;
+let filtered = [...paletteItems];
+
+function openPalette() {
+    paletteOverlay.classList.add('open');
+    paletteInput.value = '';
+    filtered = [...paletteItems];
+    selectedIndex = 0;
+    renderResults();
+    setTimeout(() => paletteInput.focus(), 50);
+}
+
+function closePalette() {
+    paletteOverlay.classList.remove('open');
+}
+
+function renderResults() {
+    paletteResults.innerHTML = '';
+    if (filtered.length === 0) {
+        paletteResults.innerHTML = '<li style="color:var(--text-muted);padding:1rem;text-align:center;">Geen resultaten</li>';
+        return;
+    }
+    filtered.forEach((item, i) => {
+        const li = document.createElement('li');
+        li.className = i === selectedIndex ? 'selected' : '';
+        li.innerHTML = `
+            <div class="palette-result-icon">${item.icon}</div>
+            <div class="palette-result-text">
+                <strong>${item.label}</strong>
+                <span>${item.sub}</span>
+            </div>
+        `;
+        li.addEventListener('click', () => navigateTo(item));
+        paletteResults.appendChild(li);
+    });
+}
+
+function navigateTo(item) {
+    closePalette();
+    if (item.href.startsWith('#')) {
+        const target = document.querySelector(item.href);
+        if (target) {
+            window.scrollTo({ top: target.offsetTop - 80, behavior: 'smooth' });
+        }
+    } else {
+        window.open(item.href, '_blank');
+    }
+}
+
+paletteInput.addEventListener('input', () => {
+    const q = paletteInput.value.toLowerCase();
+    filtered = paletteItems.filter(item =>
+        item.label.toLowerCase().includes(q) || item.sub.toLowerCase().includes(q)
+    );
+    selectedIndex = 0;
+    renderResults();
+});
+
+paletteInput.addEventListener('keydown', e => {
+    if (e.key === 'ArrowDown') {
+        e.preventDefault();
+        selectedIndex = Math.min(selectedIndex + 1, filtered.length - 1);
+        renderResults();
+    } else if (e.key === 'ArrowUp') {
+        e.preventDefault();
+        selectedIndex = Math.max(selectedIndex - 1, 0);
+        renderResults();
+    } else if (e.key === 'Enter') {
+        if (filtered[selectedIndex]) navigateTo(filtered[selectedIndex]);
+    } else if (e.key === 'Escape') {
+        closePalette();
+    }
+});
+
+paletteOverlay.addEventListener('click', e => {
+    if (e.target === paletteOverlay) closePalette();
+});
+
+document.addEventListener('keydown', e => {
+    if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
+        e.preventDefault();
+        paletteOverlay.classList.contains('open') ? closePalette() : openPalette();
+    }
+});
