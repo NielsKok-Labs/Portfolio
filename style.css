@@ -442,9 +442,6 @@ body {
     height: 150px;
     border-radius: 50%; /* maakt het rond */
     object-fit: cover;   /* zorgt dat de afbeelding goed past */
-    position: absolute;
-    top: 25px;  /* positioneert de afbeelding precies binnen het SVG-frame */
-    left: 25px;
 }
 
 .profile-info h3 {
