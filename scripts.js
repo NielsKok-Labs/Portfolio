@@ -119,30 +119,6 @@ document.querySelectorAll('.stat').forEach(stat => {
     statsObserver.observe(stat);
 });
 
-// Form handling
-const contactForm = document.getElementById('contactForm');
-if (contactForm) {
-    contactForm.addEventListener('submit', async (e) => {
-        e.preventDefault();
-
-        const formData = new FormData(contactForm);
-        const data = Object.fromEntries(formData);
-
-        const submitButton = contactForm.querySelector('button[type="submit"]');
-        const originalHTML = submitButton.innerHTML;
-        
-        submitButton.innerHTML = '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="animation: spin 1s linear infinite;"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg> Verzenden...';
-        submitButton.disabled = true;
-
-        setTimeout(() => {
-            alert('✅ Bericht verzonden! Ik neem zo snel mogelijk contact met je op.');
-            contactForm.reset();
-            submitButton.innerHTML = originalHTML;
-            submitButton.disabled = false;
-        }, 1500);
-    });
-}
-
 // Active nav link op basis van scroll positie
 const sections = document.querySelectorAll('section[id]');
 const navLinks = document.querySelectorAll('.nav-menu a');
@@ -469,13 +445,14 @@ const paletteInput   = document.getElementById('paletteInput');
 const paletteResults = document.getElementById('paletteResults');
 
 const paletteItems = [
-    { label: 'About me',       sub: 'Wie is Niels?',              href: '#about',        icon: '01' },
-    { label: 'Projects',       sub: 'Azure, Security, Automation', href: '#projects',     icon: '02' },
-    { label: 'Certificates',   sub: 'Behaalde certificaten',       href: '#certificates', icon: '03' },
-    { label: 'Blog',           sub: 'Recent geschreven posts',      href: '#blog',         icon: '04' },
-    { label: 'Contact',        sub: 'GitHub & LinkedIn',           href: '#contact',      icon: '05' },
+    { label: 'About me',       sub: 'Who is Niels?',              href: '#about',        icon: '01' },
+    { label: 'Projects',       sub: 'Projects', href: '#projects',     icon: '02' },
+    { label: 'Certificates',   sub: 'Certifications',       href: '#certificates', icon: '03' },
+    { label: 'Experience',     sub: 'Working experience',      href: '#experience',  icon: '04' },
+    { label: 'Blog',           sub: 'Recent posts',      href: '#blog',         icon: '06' },
+    { label: 'Contact',        sub: 'Lets connect',           href: '#contact',      icon: '06' },
     { label: 'GitHub',         sub: 'github.com/NielsKok-Labs',    href: 'https://github.com/NielsKok-Labs', icon: 'GH' },
-    { label: 'LinkedIn',       sub: 'linkedin.com/in/nielskoknl',  href: 'https://www.linkedin.com/in/nielskoknl', icon: 'LI' },
+    { label: 'LinkedIn',       sub: 'linkedin.com/in/nielskoknl',  href: 'https://www.linkedin.com/in/nielskoknl', icon: 'IN' },
 ];
 
 let selectedIndex = 0;
