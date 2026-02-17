@@ -1098,3 +1098,19 @@ body {
 .project-card.hidden {
     display: none;
 }
+
+/* Contact network */
+.contact-network {
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    background: var(--bg-secondary);
+    min-height: 280px;
+}
+
+#contactCanvas {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
