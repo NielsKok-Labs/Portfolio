@@ -722,3 +722,96 @@ if (terminalInput) {
 
     terminalBody.addEventListener('click', () => terminalInput.focus());
 }
+
+
+// Konami Code → Matrix easter egg
+const konamiCode = ['ArrowUp','ArrowUp','ArrowDown','ArrowDown','ArrowLeft','ArrowRight','ArrowLeft','ArrowRight','b','a'];
+let konamiIndex = 0;
+
+document.addEventListener('keydown', e => {
+    // Negeer als terminal of palette open is
+    if (terminalOverlay.classList.contains('open')) return;
+    if (paletteOverlay.classList.contains('open')) return;
+
+    if (e.key === konamiCode[konamiIndex]) {
+        konamiIndex++;
+        if (konamiIndex === konamiCode.length) {
+            konamiIndex = 0;
+            startMatrix();
+        }
+    } else {
+        konamiIndex = 0;
+    }
+});
+
+function startMatrix() {
+    const overlay = document.createElement('div');
+    overlay.style.cssText = `
+        position: fixed; inset: 0; z-index: 9999;
+        background: black; opacity: 0;
+        transition: opacity 0.5s ease;
+        cursor: pointer;
+    `;
+    document.body.appendChild(overlay);
+
+    const matrixCanvas = document.createElement('canvas');
+    matrixCanvas.style.cssText = 'position:absolute;top:0;left:0;width:100%;height:100%;';
+    overlay.appendChild(matrixCanvas);
+
+    const hint = document.createElement('div');
+    hint.textContent = '[ klik om te sluiten ]';
+    hint.style.cssText = `
+        position: absolute; bottom: 2rem; left: 50%;
+        transform: translateX(-50%);
+        color: #00ff41;
+        font-family: 'Fira Code', monospace;
+        font-size: 0.85rem;
+        opacity: 0.5;
+        pointer-events: none;
+        letter-spacing: 0.1em;
+    `;
+    overlay.appendChild(hint);
+
+    // Fade in
+    setTimeout(() => overlay.style.opacity = '1', 10);
+
+    matrixCanvas.width  = window.innerWidth;
+    matrixCanvas.height = window.innerHeight;
+
+    const mCtx    = matrixCanvas.getContext('2d');
+    const fontSize = 14;
+    const columns  = Math.floor(matrixCanvas.width / fontSize);
+    const drops    = Array(columns).fill(1);
+    const chars    = 'アイウエオカキクケコサシスセソタチツテトナニヌネノ0123456789ABCDEF<>{}[]|/\\';
+
+    function drawMatrix() {
+        mCtx.fillStyle = 'rgba(0, 0, 0, 0.05)';
+        mCtx.fillRect(0, 0, matrixCanvas.width, matrixCanvas.height);
+
+        drops.forEach((y, i) => {
+            const char = chars[Math.floor(Math.random() * chars.length)];
+            // Eerste karakter van elke kolom is wit, rest groen
+            mCtx.fillStyle = drops[i] === 1 ? '#ffffff' : '#00ff41';
+            mCtx.font = `${fontSize}px 'Fira Code', monospace`;
+            mCtx.fillText(char, i * fontSize, y * fontSize);
+
+            if (y * fontSize > matrixCanvas.height && Math.random() > 0.975) {
+                drops[i] = 0;
+            }
+            drops[i]++;
+        });
+    }
+
+    const matrixInterval = setInterval(drawMatrix, 40);
+
+    function closeMatrix() {
+        clearInterval(matrixInterval);
+        overlay.style.opacity = '0';
+        setTimeout(() => overlay.remove(), 500);
+    }
+
+    overlay.addEventListener('click', closeMatrix);
+
+    // Automatisch sluiten na 10 seconden
+    setTimeout(closeMatrix, 10000);
+}
