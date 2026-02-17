@@ -663,13 +663,16 @@ function closeTerminal() {
     terminalOverlay.classList.remove('open');
 }
 
-// Ctrl+T opent terminal
 document.addEventListener('keydown', e => {
-    if ((e.ctrlKey || e.metaKey) && e.key === '`') {
-        // Voorkom nieuw browser tabblad
+    // Negeer als er getypt wordt in een input/textarea
+    if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
+    
+    // ~ toets (shift + `) opent terminal
+    if (e.key === '~') {
         e.preventDefault();
         terminalOverlay.classList.contains('open') ? closeTerminal() : openTerminal();
     }
+
     if (e.key === 'Escape' && terminalOverlay.classList.contains('open')) {
         closeTerminal();
     }
