@@ -443,6 +443,13 @@ body {
     margin: 0 auto 1.5rem;
 }
 
+.avatar img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%; /* maakt het rond */
+    object-fit: cover;   /* zorgt dat de afbeelding goed past */
+}
+
 .profile-info h3 {
     font-size: 1.5rem;
     margin-bottom: 0.5rem;
