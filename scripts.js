@@ -32,51 +32,6 @@ if (menuToggle) {
     });
 }
 
-if (menuToggle) {
-    menuToggle.addEventListener('click', () => {
-        navMenu.classList.toggle('active');
-        menuToggle.classList.toggle('active');
-    });
-
-    document.querySelectorAll('.nav-menu a').forEach(link => {
-        link.addEventListener('click', () => {
-            navMenu.classList.remove('active');
-            menuToggle.classList.remove('active');
-        });
-    });
-}
-
-// Dark theme toggle
-const themeToggle = document.getElementById('theme-toggle');
-
-if (themeToggle) {
-
-    // Check opgeslagen voorkeur
-    const savedTheme = localStorage.getItem('theme');
-
-    if (savedTheme === 'dark') {
-        document.body.classList.add('dark-theme');
-        themeToggle.textContent = '☀️';
-    } else {
-        themeToggle.textContent = '🌙';
-    }
-
-    themeToggle.addEventListener('click', () => {
-
-        document.body.classList.toggle('dark-theme');
-
-        const isDark = document.body.classList.contains('dark-theme');
-
-        if (isDark) {
-            localStorage.setItem('theme', 'dark');
-            themeToggle.textContent = '☀️';
-        } else {
-            localStorage.setItem('theme', 'light');
-            themeToggle.textContent = '🌙';
-        }
-    });
-}
-
 // Navbar scroll effect
 const navbar = document.querySelector('.navbar');
 let lastScroll = 0;
