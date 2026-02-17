@@ -5,6 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Developer Portfolio - Moderne web applicaties en creative coding">
     <title>Portfolio | Niels Kok</title>
+    <!-- Dark mode init: voorkomt flits bij laden -->
+    <script>
+        (function() {
+            const saved = localStorage.getItem('theme');
+            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            if (saved === 'dark' || (!saved && prefersDark)) {
+                document.documentElement.setAttribute('data-theme', 'dark');
+            }
+        })();
+    </script>
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -34,12 +44,29 @@
                 <li><a href="#blog">Blogs</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
+            <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+                <!-- Maan: zichtbaar in light mode -->
+                <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+                </svg>
+                <!-- Zon: zichtbaar in dark mode -->
+                <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="5"/>
+                    <line x1="12" y1="1" x2="12" y2="3"/>
+                    <line x1="12" y1="21" x2="12" y2="23"/>
+                    <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+                    <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+                    <line x1="1" y1="12" x2="3" y2="12"/>
+                    <line x1="21" y1="12" x2="23" y2="12"/>
+                    <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+                    <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+                </svg>
+            </button>
             <button class="menu-toggle" aria-label="Menu">
                 <span></span>
                 <span></span>
                 <span></span>
             </button>
-            </div>
         </div>
     </nav>
 
@@ -130,7 +157,7 @@
             <div class="about-grid">
                 <div class="about-text">
                     <p class="lead">
-                        I’m Niels, a Technical Cloud & Microsoft 365 consultant with a strong interest in secure architecture, automation and infrastructure design.
+                        I'm Niels, a Technical Cloud & Microsoft 365 consultant with a strong interest in secure architecture, automation and infrastructure design.
                         I enjoy working at the intersection of cloud, security and networking, where governance and technical depth come together.     
                     </p>
                     <p>
@@ -383,6 +410,7 @@
             </div>
         </div>
     </section>
+
     <section id="certificates" class="certificates section">
       <div class="container">
         <div class="section-header">
@@ -390,9 +418,7 @@
           <h2>Certificaten & Roadmap</h2>
         </div>
         <h3>Foundation</h3>
-        <!-- Certificates Grid -->
         <div class="certificates-grid compact-grid">
-        <!-- Klikbare badge -->
           <div class="cert-card small obtained">
             <div class="cert-badge">
               <a href="https://www.credly.com/badges/e4a43cc9-497d-4ac5-815f-029d8aca3a10" target="_blank" rel="noopener noreferrer">
@@ -424,7 +450,7 @@
           <div class="cert-card small obtained">
             <div class="cert-badge">
               <a href="https://learn.microsoft.com/api/credentials/share/nl-nl/NielsKok-9564/EC0ED30F786734C2?sharingId=3269C5358C3139E2" target="_blank" rel="noopener noreferrer">
-                <img src="assets/badges/ms-900-badge.png" alt="AI-900 Badge">
+                <img src="assets/badges/ms-900-badge.png" alt="MS-900 Badge">
               </a>
             </div>
             <h3>MS-900</h3>
@@ -466,7 +492,7 @@
           <div class="cert-card small upcoming">
             <div class="cert-badge">
               <a href="https://www.credential.net/b309da75-6d35-444b-94b0-cbe8bf05ce62#acc.PgI7t9WA" target="_blank" rel="noopener noreferrer">
-                <img src="assets/badges/argocd-badge.png" alt="PL-900 Badge">
+                <img src="assets/badges/argocd-badge.png" alt="Argo CD Badge">
               </a>
             </div>
             <h3>Argo CD</h3>
@@ -479,14 +505,13 @@
 
           <div class="cert-card small upcoming">
             <div class="cert-badge">
-              <img src="assets/badges/inno-bs.jpg" alt="PL-900 Badge">
+              <img src="assets/badges/inno-bs.jpg" alt="INNO Badge">
             </div>
             <h3>INNO</h3>
             <p class="cert-issuer">Best security student</p>
           </div>
         </div>
         
-        <!-- Optional Roadmap -->
         <div class="roadmap">
           <h3>🎯 Roadmap</h3>
           <div class="roadmap-grid">
@@ -567,14 +592,11 @@
             <span class="section-number">05</span>
             <h2>Contact</h2>
         </div>
-
         <div class="contact-content">
             <div class="contact-info">
                 <h3>Let's Connect!</h3>
-                <p>Feel free to reach out on GitHub or LinkedIn. I’m always open to collaborations and new opportunities!</p>
-
+                <p>Feel free to reach out on GitHub or LinkedIn. I'm always open to collaborations and new opportunities!</p>
                 <div class="contact-methods">
-                    <!-- GitHub -->
                     <a href="https://github.com/NielsCSC" target="_blank" class="contact-item">
                         <div class="contact-icon">
                             <svg viewBox="0 0 24 24" fill="currentColor">
@@ -586,8 +608,6 @@
                             <span>@NielsCSC</span>
                         </div>
                     </a>
-
-                    <!-- LinkedIn -->
                     <a href="https://www.linkedin.com/in/nielskoknl" target="_blank" class="contact-item">
                         <div class="contact-icon">
                             <svg viewBox="0 0 24 24" fill="currentColor">
@@ -612,3 +632,10 @@
             <div class="footer-links">
                 <a href="https://github.com/NielsKok-Labs">GitHub</a>
                 <a href="https://www.linkedin.com/in/nielskoknl">LinkedIn</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
