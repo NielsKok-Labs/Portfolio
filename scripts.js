@@ -1,6 +1,12 @@
-// scripts.js v2 — fixed null checks for multi-page support
-// Dark mode toggle
-const themeToggle = document.getElementById('themeToggle');
+// scripts.js — safe multi-page version (null-checked)
+
+// ─── Helper functions ─────────────────────────────────────────────────────────
+function el(id)   { return document.getElementById(id); }
+function qs(sel)  { return document.querySelector(sel); }
+function qsa(sel) { return Array.from(document.querySelectorAll(sel)); }
+
+// ─── Dark mode ────────────────────────────────────────────────────────────────
+const themeToggle = el('themeToggle');
 const root = document.documentElement;
 
 function applyTheme(theme) {
@@ -15,32 +21,31 @@ if (themeToggle) {
     });
 }
 
-// Smooth scroll voor anchor links
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+// ─── Smooth scroll voor anchor links ─────────────────────────────────────────
+qsa('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
+        const target = qs(this.getAttribute('href'));
         if (target) {
-            const offsetTop = target.offsetTop - 80;
+            e.preventDefault();
             window.scrollTo({
-                top: offsetTop,
+                top: target.offsetTop - 80,
                 behavior: 'smooth'
             });
         }
     });
 });
 
-// Mobile menu toggle
-const menuToggle = document.querySelector('.menu-toggle');
-const navMenu = document.querySelector('.nav-menu');
+// ─── Mobile menu toggle ───────────────────────────────────────────────────────
+const menuToggle = qs('.menu-toggle');
+const navMenu    = qs('.nav-menu');
 
-if (menuToggle) {
+if (menuToggle && navMenu) {
     menuToggle.addEventListener('click', () => {
         navMenu.classList.toggle('active');
         menuToggle.classList.toggle('active');
     });
 
-    document.querySelectorAll('.nav-menu a').forEach(link => {
+    qsa('.nav-menu a').forEach(link => {
         link.addEventListener('click', () => {
             navMenu.classList.remove('active');
             menuToggle.classList.remove('active');
@@ -48,23 +53,25 @@ if (menuToggle) {
     });
 }
 
-// Navbar scroll effect
-const navbar = document.querySelector('.navbar');
+// ─── Navbar scroll effect ─────────────────────────────────────────────────────
+const navbar = qs('.navbar');
+let lastScroll = 0;
 
 if (navbar) {
-    let lastScroll = 0;
     window.addEventListener('scroll', () => {
         const currentScroll = window.pageYOffset;
+
         if (currentScroll > 50) {
             navbar.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.1)';
         } else {
             navbar.style.boxShadow = 'none';
         }
+
         lastScroll = currentScroll;
     });
 }
 
-// Intersection Observer voor fade-in animaties
+// ─── Intersection Observer voor fade-in animaties ─────────────────────────────
 const observerOptions = {
     threshold: 0.1,
     rootMargin: '0px 0px -50px 0px'
@@ -79,18 +86,15 @@ const observer = new IntersectionObserver((entries) => {
     });
 }, observerOptions);
 
-const animatedElements = document.querySelectorAll(
-    '.project-card, .cert-card, .blog-card, .skill-item, .about-grid > *, .timeline-card'
-);
+qsa('.project-card, .cert-card, .blog-card, .skill-item, .about-grid > *, .timeline-card')
+    .forEach((el, index) => {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(20px)';
+        el.style.transition = `opacity 0.6s ease ${index * 0.1}s, transform 0.6s ease ${index * 0.1}s`;
+        observer.observe(el);
+    });
 
-animatedElements.forEach((el, index) => {
-    el.style.opacity = '0';
-    el.style.transform = 'translateY(20px)';
-    el.style.transition = `opacity 0.6s ease ${index * 0.1}s, transform 0.6s ease ${index * 0.1}s`;
-    observer.observe(el);
-});
-
-// Counter animatie voor stats
+// ─── Counter animatie voor stats ──────────────────────────────────────────────
 const animateValue = (element, start, end, duration) => {
     let startTimestamp = null;
     const step = (timestamp) => {
@@ -109,32 +113,34 @@ const statsObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting && !entry.target.classList.contains('counted')) {
             const strong = entry.target.querySelector('strong');
-            if (strong && !isNaN(parseInt(strong.textContent))) {
-                const endValue = parseInt(strong.textContent);
-                animateValue(strong, 0, endValue, 2000);
-                entry.target.classList.add('counted');
-            }
+            if (!strong) return;
+            const endValue = parseInt(strong.textContent);
+            if (isNaN(endValue)) return;
+            animateValue(strong, 0, endValue, 2000);
+            entry.target.classList.add('counted');
         }
     });
 }, { threshold: 0.5 });
 
-document.querySelectorAll('.stat').forEach(stat => {
+qsa('.stat').forEach(stat => {
     statsObserver.observe(stat);
 });
 
-// Active nav link op basis van scroll positie
-const sections = document.querySelectorAll('section[id]');
-const navLinks = document.querySelectorAll('.nav-menu a');
+// ─── Active nav link op basis van scroll positie ──────────────────────────────
+const sections = qsa('section[id]');
+const navLinks  = qsa('.nav-menu a');
 
-if (sections.length > 0) {
+if (sections.length) {
     window.addEventListener('scroll', () => {
         let current = '';
+
         sections.forEach(section => {
             const sectionTop = section.offsetTop - 100;
             if (pageYOffset >= sectionTop) {
                 current = section.getAttribute('id');
             }
         });
+
         navLinks.forEach(link => {
             link.classList.remove('active');
             if (link.getAttribute('href') && link.getAttribute('href').slice(1) === current) {
@@ -144,9 +150,9 @@ if (sections.length > 0) {
     });
 }
 
-// Parallax effect voor gradient orbs
-const orbs = document.querySelectorAll('.gradient-orb');
-if (orbs.length > 0) {
+// ─── Parallax effect voor gradient orbs ──────────────────────────────────────
+const orbs = qsa('.gradient-orb');
+if (orbs.length) {
     window.addEventListener('scroll', () => {
         const scrolled = window.pageYOffset;
         orbs.forEach((orb, index) => {
@@ -156,14 +162,13 @@ if (orbs.length > 0) {
     });
 }
 
-// Code typing animation
-const codeElements = document.querySelectorAll('.code-content code span');
-codeElements.forEach((element, index) => {
+// ─── Code typing animation ────────────────────────────────────────────────────
+qsa('.code-content code span').forEach((element, index) => {
     element.style.opacity = '0';
     element.style.animation = `fadeIn 0.1s ease forwards ${index * 0.05}s`;
 });
 
-// Extra styles via JavaScript
+// ─── Extra styles via JavaScript ──────────────────────────────────────────────
 const style = document.createElement('style');
 style.textContent = `
     @keyframes fadeIn {
@@ -266,12 +271,12 @@ style.textContent = `
 
 document.head.appendChild(style);
 
-// Console easter egg
+// ─── Console easter egg ───────────────────────────────────────────────────────
 console.log('%c👋 Hey developer!', 'font-size: 24px; color: #6366f1; font-weight: bold;');
 console.log('%c🚀 Nice to see you checking the code!', 'font-size: 14px; color: #8b5cf6;');
 console.log('%c📧 Want to work together? Hit me up!', 'font-size: 12px; color: #475569;');
 
-// Performance monitoring
+// ─── Performance monitoring ───────────────────────────────────────────────────
 if ('PerformanceObserver' in window) {
     try {
         const perfObserver = new PerformanceObserver((list) => {
@@ -285,8 +290,8 @@ if ('PerformanceObserver' in window) {
     } catch (e) {}
 }
 
-// Back to top
-const backToTop = document.getElementById('backToTop');
+// ─── Back to top ──────────────────────────────────────────────────────────────
+const backToTop = el('backToTop');
 
 if (backToTop) {
     window.addEventListener('scroll', () => {
@@ -302,11 +307,11 @@ if (backToTop) {
     });
 }
 
-// Project filter tabs
-const filterBtns = document.querySelectorAll('.filter-btn');
-const projectCards = document.querySelectorAll('.project-card');
+// ─── Project filter tabs ──────────────────────────────────────────────────────
+const filterBtns   = qsa('.filter-btn');
+const projectCards = qsa('.project-card');
 
-if (filterBtns.length > 0) {
+if (filterBtns.length) {
     filterBtns.forEach(btn => {
         btn.addEventListener('click', () => {
             filterBtns.forEach(b => b.classList.remove('active'));
@@ -328,8 +333,8 @@ if (filterBtns.length > 0) {
     });
 }
 
-// Contact netwerktopologie
-const contactCanvas = document.getElementById('contactCanvas');
+// ─── Contact netwerktopologie ─────────────────────────────────────────────────
+const contactCanvas = el('contactCanvas');
 
 if (contactCanvas) {
     const contactCtx = contactCanvas.getContext('2d');
@@ -337,21 +342,22 @@ if (contactCanvas) {
     let contactNodes = [];
     let contactMouse = { x: null, y: null };
     const CONTACT_NODE_COUNT = 35;
-    const CONTACT_MAX_DIST = 120;
+    const CONTACT_MAX_DIST   = 120;
 
     function resizeContactCanvas() {
         const parent = contactCanvas.parentElement;
-        contactCanvas.width = parent.offsetWidth;
+        contactCanvas.width  = parent.offsetWidth;
         contactCanvas.height = parent.offsetHeight;
     }
+
     function createContactNodes() {
         contactNodes = [];
         for (let i = 0; i < CONTACT_NODE_COUNT; i++) {
             contactNodes.push({
-                x: Math.random() * contactCanvas.width,
-                y: Math.random() * contactCanvas.height,
-                vx: (Math.random() - 0.5) * 0.5,
-                vy: (Math.random() - 0.5) * 0.5,
+                x:      Math.random() * contactCanvas.width,
+                y:      Math.random() * contactCanvas.height,
+                vx:     (Math.random() - 0.5) * 0.5,
+                vy:     (Math.random() - 0.5) * 0.5,
                 radius: Math.random() * 2.5 + 1.5,
             });
         }
@@ -365,8 +371,8 @@ if (contactCanvas) {
 
         for (let i = 0; i < contactNodes.length; i++) {
             for (let j = i + 1; j < contactNodes.length; j++) {
-                const dx = contactNodes[i].x - contactNodes[j].x;
-                const dy = contactNodes[i].y - contactNodes[j].y;
+                const dx   = contactNodes[i].x - contactNodes[j].x;
+                const dy   = contactNodes[i].y - contactNodes[j].y;
                 const dist = Math.sqrt(dx * dx + dy * dy);
 
                 if (dist < CONTACT_MAX_DIST) {
@@ -375,15 +381,15 @@ if (contactCanvas) {
                     contactCtx.moveTo(contactNodes[i].x, contactNodes[i].y);
                     contactCtx.lineTo(contactNodes[j].x, contactNodes[j].y);
                     contactCtx.strokeStyle = `rgba(${primaryColor}, ${alpha * 0.6})`;
-                    contactCtx.lineWidth = 0.8;
+                    contactCtx.lineWidth   = 0.8;
                     contactCtx.stroke();
                 }
             }
 
-            if (contactMouse.x && contactMouse.y) {
-                const dx = contactNodes[i].x - contactMouse.x;
-                const dy = contactNodes[i].y - contactMouse.y;
-                const dist = Math.sqrt(dx * dx + dy * dy);
+            if (contactMouse.x !== null && contactMouse.y !== null) {
+                const dx          = contactNodes[i].x - contactMouse.x;
+                const dy          = contactNodes[i].y - contactMouse.y;
+                const dist        = Math.sqrt(dx * dx + dy * dy);
                 const mouseRadius = 150;
 
                 if (dist < mouseRadius) {
@@ -392,7 +398,7 @@ if (contactCanvas) {
                     contactCtx.moveTo(contactNodes[i].x, contactNodes[i].y);
                     contactCtx.lineTo(contactMouse.x, contactMouse.y);
                     contactCtx.strokeStyle = `rgba(${accentColor}, ${alpha * 0.9})`;
-                    contactCtx.lineWidth = 1;
+                    contactCtx.lineWidth   = 1;
                     contactCtx.stroke();
                 }
             }
@@ -422,7 +428,7 @@ if (contactCanvas) {
     }
 
     contactCanvas.addEventListener('mousemove', e => {
-        const rect = contactCanvas.getBoundingClientRect();
+        const rect     = contactCanvas.getBoundingClientRect();
         contactMouse.x = e.clientX - rect.left;
         contactMouse.y = e.clientY - rect.top;
     });
@@ -451,21 +457,22 @@ if (contactCanvas) {
     contactObserver.observe(contactCanvas);
 }
 
-// Command palette
-const paletteOverlay = document.getElementById('paletteOverlay');
-const paletteInput   = document.getElementById('paletteInput');
-const paletteResults = document.getElementById('paletteResults');
+// ─── Command palette ──────────────────────────────────────────────────────────
+const paletteOverlay = el('paletteOverlay');
+const paletteInput   = el('paletteInput');
+const paletteResults = el('paletteResults');
 
 if (paletteOverlay && paletteInput && paletteResults) {
+
     const paletteItems = [
-        { label: 'About me',       sub: 'Who is Niels?',              href: '#about',        icon: '01' },
-        { label: 'Projects',       sub: 'Projects', href: '#projects',     icon: '02' },
-        { label: 'Certificates',   sub: 'Certifications',       href: '#certificates', icon: '03' },
-        { label: 'Experience',     sub: 'Working experience',      href: '#timeline',  icon: '04' },
-        { label: 'Blog',           sub: 'Recent posts',      href: '#blog',         icon: '06' },
-        { label: 'Contact',        sub: 'Lets connect',           href: '#contact',      icon: '06' },
-        { label: 'GitHub',         sub: 'github.com/NielsKok-Labs',    href: 'https://github.com/NielsKok-Labs', icon: 'GH' },
-        { label: 'LinkedIn',       sub: 'linkedin.com/in/nielskoknl',  href: 'https://www.linkedin.com/in/nielskoknl', icon: 'IN' },
+        { label: 'About me',     sub: 'Who is Niels?',              href: '#about',        icon: '01' },
+        { label: 'Projects',     sub: 'Projects',                   href: '#projects',     icon: '02' },
+        { label: 'Certificates', sub: 'Certifications',             href: '#certificates', icon: '03' },
+        { label: 'Experience',   sub: 'Working experience',         href: '#timeline',     icon: '04' },
+        { label: 'Blog',         sub: 'Recent posts',               href: '#blog',         icon: '05' },
+        { label: 'Contact',      sub: 'Lets connect',               href: '#contact',      icon: '06' },
+        { label: 'GitHub',       sub: 'github.com/NielsKok-Labs',   href: 'https://github.com/NielsKok-Labs', icon: 'GH' },
+        { label: 'LinkedIn',     sub: 'linkedin.com/in/nielskoknl', href: 'https://www.linkedin.com/in/nielskoknl', icon: 'IN' },
     ];
 
     let selectedIndex = 0;
@@ -508,7 +515,7 @@ if (paletteOverlay && paletteInput && paletteResults) {
     function navigateTo(item) {
         closePalette();
         if (item.href.startsWith('#')) {
-            const target = document.querySelector(item.href);
+            const target = qs(item.href);
             if (target) {
                 window.scrollTo({ top: target.offsetTop - 80, behavior: 'smooth' });
             }
@@ -554,14 +561,15 @@ if (paletteOverlay && paletteInput && paletteResults) {
     });
 }
 
-// Terminal easter egg (~ toets)
-const terminalOverlay = document.getElementById('terminalOverlay');
-const terminalInput   = document.getElementById('terminalInput');
-const terminalOutput  = document.getElementById('terminalOutput');
-const terminalBody    = document.getElementById('terminalBody');
-const terminalClose   = document.getElementById('terminalClose');
+// ─── Terminal easter egg (~ toets) ───────────────────────────────────────────
+const terminalOverlay = el('terminalOverlay');
+const terminalInput   = el('terminalInput');
+const terminalOutput  = el('terminalOutput');
+const terminalBody    = el('terminalBody');
+const terminalClose   = el('terminalClose');
 
 if (terminalOverlay && terminalInput && terminalOutput && terminalBody && terminalClose) {
+
     const commands = {
         help: () => `
 <span class="term-info">Available commands:</span>
@@ -632,7 +640,7 @@ Goal     : Cloud & Security Architect
         'sudo rm -rf /': () => `<span class="term-error">Permission denied. Nice try. 😄</span>`,
     };
 
-    let cmdHistory = [];
+    let cmdHistory   = [];
     let historyIndex = -1;
 
     function printOutput(html) {
@@ -679,10 +687,12 @@ Goal     : Cloud & Security Architect
 
     document.addEventListener('keydown', e => {
         if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
+
         if (e.key === '~') {
             e.preventDefault();
             terminalOverlay.classList.contains('open') ? closeTerminal() : openTerminal();
         }
+
         if (e.key === 'Escape' && terminalOverlay.classList.contains('open')) {
             closeTerminal();
         }
@@ -702,6 +712,7 @@ Goal     : Cloud & Security Architect
             runCommand(val);
             terminalInput.value = '';
         }
+
         if (e.key === 'ArrowUp') {
             e.preventDefault();
             if (historyIndex < cmdHistory.length - 1) {
@@ -709,6 +720,7 @@ Goal     : Cloud & Security Architect
                 terminalInput.value = cmdHistory[historyIndex];
             }
         }
+
         if (e.key === 'ArrowDown') {
             e.preventDefault();
             if (historyIndex > 0) {
@@ -719,10 +731,11 @@ Goal     : Cloud & Security Architect
                 terminalInput.value = '';
             }
         }
+
         if (e.key === 'Tab') {
             e.preventDefault();
             const partial = terminalInput.value.toLowerCase();
-            const match = Object.keys(commands).find(c => c.startsWith(partial));
+            const match   = Object.keys(commands).find(c => c.startsWith(partial));
             if (match) terminalInput.value = match;
         }
     });
@@ -730,13 +743,14 @@ Goal     : Cloud & Security Architect
     terminalBody.addEventListener('click', () => terminalInput.focus());
 }
 
-// Konami Code → Matrix easter egg
+// ─── Konami Code → Matrix easter egg ─────────────────────────────────────────
 const konamiCode = ['ArrowUp','ArrowUp','ArrowDown','ArrowDown','ArrowLeft','ArrowRight','ArrowLeft','ArrowRight','b','a'];
-let konamiIndex = 0;
+let konamiIndex  = 0;
 
 document.addEventListener('keydown', e => {
-    if (terminalOverlay && terminalOverlay.classList.contains('open')) return;
-    if (paletteOverlay && paletteOverlay.classList.contains('open')) return;
+    // Veilig checken met optional chaining — werkt op elke pagina
+    if (el('terminalOverlay')?.classList.contains('open')) return;
+    if (el('paletteOverlay')?.classList.contains('open'))  return;
 
     if (e.key === konamiCode[konamiIndex]) {
         konamiIndex++;
@@ -782,11 +796,11 @@ function startMatrix() {
     matrixCanvas.width  = window.innerWidth;
     matrixCanvas.height = window.innerHeight;
 
-    const mCtx    = matrixCanvas.getContext('2d');
-    const fontSize = 14;
-    const columns  = Math.floor(matrixCanvas.width / fontSize);
-    const drops    = Array(columns).fill(1);
-    const chars    = 'アイウエオカキクケコサシスセソタチツテトナニヌネノ0123456789ABCDEF<>{}[]|/\\';
+    const mCtx     = matrixCanvas.getContext('2d');
+    const fontSize  = 14;
+    const columns   = Math.floor(matrixCanvas.width / fontSize);
+    const drops     = Array(columns).fill(1);
+    const chars     = 'アイウエオカキクケコサシスセソタチツテトナニヌネノ0123456789ABCDEF<>{}[]|/\\';
 
     function drawMatrix() {
         mCtx.fillStyle = 'rgba(0, 0, 0, 0.05)';
