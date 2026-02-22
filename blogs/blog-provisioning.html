@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Provisioning SharePoint, Teams & Viva Engage with Provision Assist</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="logo">Niels Kok Labs</a>
+            <ul class="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="blogs.html">Blogs</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <div class="theme-toggle">
+                <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="5"></circle>
+                    <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
+                </svg>
+                <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/>
+                </svg>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="container">
+            <div>
+                <p class="hero-tag">Blog</p>
+                <h1 class="hero-title gradient-text">Provisioning SharePoint, Teams & Viva Engage Communities</h1>
+                <p class="hero-description">
+                    Explore a senior-level approach to automate Microsoft 365 collaboration environments using <strong>Provision Assist</strong>. Learn best practices for governance, scalable provisioning, and integration with PowerShell and APIs.
+                </p>
+            </div>
+            <div class="hero-visual">
+                <div class="code-window">
+                    <div class="window-header">
+                        <div class="window-dots">
+                            <div class="dot red"></div>
+                            <div class="dot yellow"></div>
+                            <div class="dot green"></div>
+                        </div>
+                        <div class="window-title">Provision Assist Example</div>
+                    </div>
+                    <pre class="code-content"><code class="language-powershell">
+# Example: Provision a SharePoint site collection
+Connect-PnPOnline -Url https://contoso.sharepoint.com -Interactive
+New-PnPSite -Type TeamSite -Title "Project Alpha" -Alias "project-alpha"
+
+# Provision a Microsoft Teams team linked to the site
+New-Team -DisplayName "Project Alpha" -Visibility Private -Owner user@contoso.com
+
+# Create a Viva Engage community
+# (Requires Viva Engage Graph API)
+Invoke-RestMethod -Method POST -Uri https://graph.microsoft.com/beta/communities -Body @{
+    displayName = "Project Alpha Community"
+    description = "Collaboration space for Project Alpha"
+} -Headers @{ Authorization = "Bearer $token" }
+                    </code></pre>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Content -->
+    <section class="section blog container">
+        <div class="about-text">
+            <h2 class="section-header"><span class="section-number">01</span> Provision Assist: Overview</h2>
+            <p class="lead">
+                <strong>Provision Assist</strong> is a powerful tool for Microsoft 365 administrators and enterprise architects, enabling standardized provisioning of SharePoint sites, Teams, and Viva Engage communities. It ensures governance, reduces manual errors, and accelerates onboarding of new collaboration environments.
+            </p>
+            <p>
+                By leveraging Provision Assist, organizations can define templates, enforce naming conventions, and automatically apply policies across multiple environments. This is crucial for maintaining compliance and streamlining operations at scale.
+            </p>
+
+            <h2 class="section-header"><span class="section-number">02</span> Architecture & Approach</h2>
+            <p>
+                Provision Assist integrates with:
+            </p>
+            <ul>
+                <li><strong>SharePoint Online:</strong> for site collections and hub site architecture</li>
+                <li><strong>Microsoft Teams:</strong> including private/public teams and channel templates</li>
+                <li><strong>Viva Engage:</strong> for communities, ideation, and internal social engagement</li>
+                <li><strong>Graph API & PowerShell:</strong> to automate provisioning and maintain auditing logs</li>
+            </ul>
+            <p>
+                The recommended architecture separates the provisioning engine from the production tenant. Templates are maintained in version control, allowing reproducibility and rollback.
+            </p>
+
+            <h2 class="section-header"><span class="section-number">03</span> Advanced Provisioning Techniques</h2>
+            <p>
+                At a senior level, provisioning should consider:
+            </p>
+            <ul>
+                <li>Automated assignment of site owners and Teams members based on roles</li>
+                <li>Integration with Azure AD groups for access control</li>
+                <li>Policy-driven retention and lifecycle management</li>
+                <li>Custom scripting for Viva Engage community settings, branding, and topics</li>
+            </ul>
+            <p>
+                Example: You can automate Teams channel creation and add owners using PowerShell and Provision Assist API calls:
+            </p>
+            <div class="code-window">
+                <div class="window-header">
+                    <div class="window-dots">
+                        <div class="dot red"></div>
+                        <div class="dot yellow"></div>
+                        <div class="dot green"></div>
+                    </div>
+                    <div class="window-title">Provision Teams Channels</div>
+                </div>
+                <pre class="code-content"><code class="language-powershell">
+# Add multiple channels with owners
+$channels = @("General","Design","Development")
+foreach ($ch in $channels) {
+    Add-TeamChannel -GroupId $team.Id -DisplayName $ch
+}
+                </code></pre>
+            </div>
+
+            <h2 class="section-header"><span class="section-number">04</span> Documentation & References</h2>
+            <p>
+                Official resources for further reading:
+            </p>
+            <ul>
+                <li><a href="https://docs.microsoft.com/en-us/powershell/sharepoint/sharepoint-online/connect-sharepoint-online" target="_blank">Connect-PnPOnline</a> – Microsoft documentation for SharePoint PowerShell</li>
+                <li><a href="https://docs.microsoft.com/en-us/microsoftteams/teams-powershell-module" target="_blank">Teams PowerShell Module</a> – Create and manage Teams programmatically</li>
+                <li><a href="https://learn.microsoft.com/en-us/viva/engage/" target="_blank">Viva Engage API</a> – Graph API references for community management</li>
+                <li><a href="https://www.provisionassist.com/docs" target="_blank">Provision Assist Documentation</a> – Templates, automation, and best practices</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 Niels Kok Labs</p>
+            <div class="footer-links">
+                <a href="index.html">Home</a>
+                <a href="blogs.html">Blogs</a>
+                <a href="projects.html">Projects</a>
+                <a href="contact.html">Contact</a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
