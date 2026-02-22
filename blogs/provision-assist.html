@@ -4,34 +4,84 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Provisioning SharePoint, Teams & Viva Engage with Provision Assist</title>
+    <!-- Dark mode init: voorkomt flits bij laden -->
+    <script>
+        (function() {
+            const saved = localStorage.getItem('theme');
+            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            if (saved === 'dark' || (!saved && prefersDark)) {
+                document.documentElement.setAttribute('data-theme', 'dark');
+            }
+        })();
+    </script>
     <link rel="stylesheet" href="../style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600;700&family=Manrope:wght@400;600;800&display=swap" rel="stylesheet">
 </head>
 <body>
 
     <!-- Navbar -->
     <nav class="navbar">
         <div class="container">
-            <a href="../index.html" class="logo">Niels Kok Labs</a>
+            <a href="../index.html" class="logo">
+                <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+                    <rect width="40" height="40" rx="8" fill="url(#logo-gradient-blog)"/>
+                    <path d="M12 12L28 28M28 12L12 28" stroke="white" stroke-width="3" stroke-linecap="round"/>
+                    <defs>
+                        <linearGradient id="logo-gradient-blog" x1="0" y1="0" x2="40" y2="40">
+                            <stop offset="0%" stop-color="#6366f1"/>
+                            <stop offset="100%" stop-color="#8b5cf6"/>
+                        </linearGradient>
+                    </defs>
+                </svg>
+                <span>Niels Kok</span>
+            </a>
             <ul class="nav-menu">
                 <li><a href="../index.html">Home</a></li>
-            <div class="theme-toggle">
-                <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <circle cx="12" cy="12" r="5"></circle>
-                    <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
-                </svg>
-                <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/>
-                </svg>
+                <li><a href="../index.html#about">About</a></li>
+                <li><a href="../index.html#projects">Projects</a></li>
+                <li><a href="../index.html#blog">Blog</a></li>
+                <li><a href="../index.html#contact">Contact</a></li>
+            </ul>
+            <div style="display:flex; align-items:center; gap:0.75rem;">
+                <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+                    <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+                    </svg>
+                    <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="5"/>
+                        <line x1="12" y1="1" x2="12" y2="3"/>
+                        <line x1="12" y1="21" x2="12" y2="23"/>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+                        <line x1="1" y1="12" x2="3" y2="12"/>
+                        <line x1="21" y1="12" x2="23" y2="12"/>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+                    </svg>
+                </button>
+                <button class="menu-toggle" aria-label="Menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
             </div>
         </div>
     </nav>
 
     <!-- Hero -->
     <section class="hero">
+        <div class="hero-bg">
+            <div class="gradient-orb orb-1"></div>
+            <div class="gradient-orb orb-2"></div>
+        </div>
         <div class="container">
-            <div>
-                <p class="hero-tag">Blog</p>
-                <h1 class="hero-title gradient-text">Provisioning SharePoint, Teams & Viva Engage Communities</h1>
+            <div class="hero-content">
+                <p class="hero-tag">Blog · Microsoft 365</p>
+                <h1 class="hero-title">
+                    <span class="gradient-text">Provisioning SharePoint, Teams & Viva Engage</span>
+                </h1>
                 <p class="hero-description">
                     Explore a senior-level approach to automate Microsoft 365 collaboration environments using <strong>Provision Assist</strong>. Learn best practices for governance, scalable provisioning, and integration with PowerShell and APIs.
                 </p>
@@ -40,27 +90,19 @@
                 <div class="code-window">
                     <div class="window-header">
                         <div class="window-dots">
-                            <div class="dot red"></div>
-                            <div class="dot yellow"></div>
-                            <div class="dot green"></div>
+                            <span class="dot red"></span>
+                            <span class="dot yellow"></span>
+                            <span class="dot green"></span>
                         </div>
-                        <div class="window-title">Provision Assist Example</div>
+                        <span class="window-title">provision.ps1</span>
                     </div>
-                    <pre class="code-content"><code class="language-powershell">
-# Example: Provision a SharePoint site collection
-Connect-PnPOnline -Url https://contoso.sharepoint.com -Interactive
-New-PnPSite -Type TeamSite -Title "Project Alpha" -Alias "project-alpha"
+                    <div class="code-content">
+<pre><code><span class="keyword">Connect-PnPOnline</span> <span class="attr">-Url</span> <span class="string">"https://contoso.sharepoint.com"</span> <span class="attr">-Interactive</span>
+<span class="keyword">New-PnPSite</span> <span class="attr">-Type</span> <span class="string">TeamSite</span> <span class="attr">-Title</span> <span class="string">"Project Alpha"</span>
 
-# Provision a Microsoft Teams team linked to the site
-New-Team -DisplayName "Project Alpha" -Visibility Private -Owner user@contoso.com
-
-# Create a Viva Engage community
-# (Requires Viva Engage Graph API)
-Invoke-RestMethod -Method POST -Uri https://graph.microsoft.com/beta/communities -Body @{
-    displayName = "Project Alpha Community"
-    description = "Collaboration space for Project Alpha"
-} -Headers @{ Authorization = "Bearer $token" }
-                    </code></pre>
+<span class="keyword">New-Team</span> <span class="attr">-DisplayName</span> <span class="string">"Project Alpha"</span> <span class="punctuation">\</span>
+         <span class="attr">-Visibility</span> <span class="string">Private</span> <span class="attr">-Owner</span> <span class="string">"user@contoso.com"</span></code></pre>
+                    </div>
                 </div>
             </div>
         </div>
@@ -69,7 +111,11 @@ Invoke-RestMethod -Method POST -Uri https://graph.microsoft.com/beta/communities
     <!-- Blog Content -->
     <section class="section blog container">
         <div class="about-text">
-            <h2 class="section-header"><span class="section-number">01</span> Provision Assist: Overview</h2>
+
+            <div class="section-header">
+                <span class="section-number">01</span>
+                <h2>Provision Assist: Overview</h2>
+            </div>
             <p class="lead">
                 <strong>Provision Assist</strong> is a powerful tool for Microsoft 365 administrators and enterprise architects, enabling standardized provisioning of SharePoint sites, Teams, and Viva Engage communities. It ensures governance, reduces manual errors, and accelerates onboarding of new collaboration environments.
             </p>
@@ -77,10 +123,11 @@ Invoke-RestMethod -Method POST -Uri https://graph.microsoft.com/beta/communities
                 By leveraging Provision Assist, organizations can define templates, enforce naming conventions, and automatically apply policies across multiple environments. This is crucial for maintaining compliance and streamlining operations at scale.
             </p>
 
-            <h2 class="section-header"><span class="section-number">02</span> Architecture & Approach</h2>
-            <p>
-                Provision Assist integrates with:
-            </p>
+            <div class="section-header">
+                <span class="section-number">02</span>
+                <h2>Architecture & Approach</h2>
+            </div>
+            <p>Provision Assist integrates with:</p>
             <ul>
                 <li><strong>SharePoint Online:</strong> for site collections and hub site architecture</li>
                 <li><strong>Microsoft Teams:</strong> including private/public teams and channel templates</li>
@@ -91,47 +138,47 @@ Invoke-RestMethod -Method POST -Uri https://graph.microsoft.com/beta/communities
                 The recommended architecture separates the provisioning engine from the production tenant. Templates are maintained in version control, allowing reproducibility and rollback.
             </p>
 
-            <h2 class="section-header"><span class="section-number">03</span> Advanced Provisioning Techniques</h2>
-            <p>
-                At a senior level, provisioning should consider:
-            </p>
+            <div class="section-header">
+                <span class="section-number">03</span>
+                <h2>Advanced Provisioning Techniques</h2>
+            </div>
+            <p>At a senior level, provisioning should consider:</p>
             <ul>
                 <li>Automated assignment of site owners and Teams members based on roles</li>
                 <li>Integration with Azure AD groups for access control</li>
                 <li>Policy-driven retention and lifecycle management</li>
                 <li>Custom scripting for Viva Engage community settings, branding, and topics</li>
             </ul>
-            <p>
-                Example: You can automate Teams channel creation and add owners using PowerShell and Provision Assist API calls:
-            </p>
-            <div class="code-window">
+
+            <div class="code-window" style="margin: 2rem 0;">
                 <div class="window-header">
                     <div class="window-dots">
-                        <div class="dot red"></div>
-                        <div class="dot yellow"></div>
-                        <div class="dot green"></div>
+                        <span class="dot red"></span>
+                        <span class="dot yellow"></span>
+                        <span class="dot green"></span>
                     </div>
-                    <div class="window-title">Provision Teams Channels</div>
+                    <span class="window-title">channels.ps1</span>
                 </div>
-                <pre class="code-content"><code class="language-powershell">
-# Add multiple channels with owners
-$channels = @("General","Design","Development")
-foreach ($ch in $channels) {
-    Add-TeamChannel -GroupId $team.Id -DisplayName $ch
-}
-                </code></pre>
+                <div class="code-content">
+<pre><code><span class="comment"># Add multiple channels with owners</span>
+<span class="attr">$channels</span> <span class="punctuation">=</span> <span class="punctuation">@(</span><span class="string">"General"</span><span class="punctuation">,</span><span class="string">"Design"</span><span class="punctuation">,</span><span class="string">"Development"</span><span class="punctuation">)</span>
+<span class="keyword">foreach</span> <span class="punctuation">(</span><span class="attr">$ch</span> <span class="keyword">in</span> <span class="attr">$channels</span><span class="punctuation">) {</span>
+    <span class="keyword">Add-TeamChannel</span> <span class="attr">-GroupId</span> <span class="attr">$team</span><span class="punctuation">.</span><span class="function">Id</span> <span class="attr">-DisplayName</span> <span class="attr">$ch</span>
+<span class="punctuation">}</span></code></pre>
+                </div>
             </div>
 
-            <h2 class="section-header"><span class="section-number">04</span> Documentation & References</h2>
-            <p>
-                Official resources for further reading:
-            </p>
+            <div class="section-header">
+                <span class="section-number">04</span>
+                <h2>Documentation & References</h2>
+            </div>
             <ul>
                 <li><a href="https://docs.microsoft.com/en-us/powershell/sharepoint/sharepoint-online/connect-sharepoint-online" target="_blank">Connect-PnPOnline</a> – Microsoft documentation for SharePoint PowerShell</li>
                 <li><a href="https://docs.microsoft.com/en-us/microsoftteams/teams-powershell-module" target="_blank">Teams PowerShell Module</a> – Create and manage Teams programmatically</li>
                 <li><a href="https://learn.microsoft.com/en-us/viva/engage/" target="_blank">Viva Engage API</a> – Graph API references for community management</li>
                 <li><a href="https://www.provisionassist.com/docs" target="_blank">Provision Assist Documentation</a> – Templates, automation, and best practices</li>
             </ul>
+
         </div>
     </section>
 
@@ -141,11 +188,12 @@ foreach ($ch in $channels) {
             <p>&copy; 2026 Niels Kok Labs</p>
             <div class="footer-links">
                 <a href="../index.html">Home</a>
-                <a href="blogs.html">Blogs</a>
-                <a href="https://github.com/NielsKok-Labs">Explore Projects</a>
+                <a href="https://github.com/NielsKok-Labs">GitHub</a>
+                <a href="https://www.linkedin.com/in/nielskoknl">LinkedIn</a>
             </div>
         </div>
     </footer>
+
     <script src="../scripts.js"></script>
 </body>
 </html>
