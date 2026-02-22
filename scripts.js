@@ -1,3 +1,4 @@
+// scripts.js v2 — fixed null checks for multi-page support
 // Dark mode toggle
 const themeToggle = document.getElementById('themeToggle');
 const root = document.documentElement;
