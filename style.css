@@ -1546,3 +1546,154 @@ body {
         min-height: 280px;
     }
 }
+
+/* ─── Blog post content styling ─────────────────────────────────────────────── */
+
+.blog-post {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 4rem 2rem 6rem;
+}
+
+.blog-post .section-header {
+    margin-top: 3rem;
+    margin-bottom: 1.25rem;
+}
+
+.blog-post .section-header:first-child {
+    margin-top: 0;
+}
+
+.blog-post .section-header h2 {
+    font-size: 1.75rem;
+    font-weight: 700;
+}
+
+.blog-post p {
+    color: var(--text-secondary);
+    margin-bottom: 1.5rem;
+    font-size: 1.05rem;
+    line-height: 1.8;
+}
+
+.blog-post p.lead {
+    font-size: 1.15rem;
+    color: var(--text);
+    font-weight: 500;
+    border-left: 3px solid var(--primary);
+    padding-left: 1.25rem;
+    margin-bottom: 2rem;
+}
+
+.blog-post ul,
+.blog-post ol {
+    margin: 0 0 1.75rem 0;
+    padding-left: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+}
+
+.blog-post ul li,
+.blog-post ol li {
+    color: var(--text-secondary);
+    font-size: 1rem;
+    line-height: 1.7;
+    padding-left: 1.75rem;
+    position: relative;
+}
+
+.blog-post ul li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.55em;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    flex-shrink: 0;
+}
+
+.blog-post ol {
+    counter-reset: list-counter;
+}
+
+.blog-post ol li {
+    counter-increment: list-counter;
+}
+
+.blog-post ol li::before {
+    content: counter(list-counter);
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 1.2rem;
+    height: 1.2rem;
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    color: white;
+    border-radius: 4px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Fira Code', monospace;
+}
+
+.blog-post ul li strong,
+.blog-post ol li strong {
+    color: var(--text);
+    font-weight: 600;
+}
+
+.blog-post a {
+    color: var(--primary);
+    text-decoration: none;
+    font-weight: 500;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.2s ease;
+}
+
+.blog-post a:hover {
+    border-bottom-color: var(--primary);
+}
+
+.blog-post .code-window {
+    margin: 2rem 0;
+}
+
+.blog-post h3 {
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin: 2rem 0 1rem;
+    color: var(--text);
+}
+
+/* Blog hero tweaks — smaller for blog pages */
+.hero.blog-hero {
+    min-height: 60vh;
+}
+
+.hero.blog-hero .hero-title {
+    font-size: 2.8rem;
+}
+
+@media (max-width: 768px) {
+    .blog-post {
+        padding: 2rem 1.25rem 4rem;
+    }
+
+    .blog-post .section-header h2 {
+        font-size: 1.4rem;
+    }
+
+    .blog-post p.lead {
+        font-size: 1rem;
+    }
+
+    .hero.blog-hero .hero-title {
+        font-size: 1.8rem;
+    }
+}
