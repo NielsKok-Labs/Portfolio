@@ -1,10 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="nl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Provisioning SharePoint, Teams & Viva Engage with Provision Assist</title>
-    <!-- Dark mode init: voorkomt flits bij laden -->
+    <title>Provision Assist: Governed Provisioning in Microsoft 365 | Niels Kok</title>
     <script>
         (function() {
             const saved = localStorage.getItem('theme');
@@ -15,7 +14,7 @@
         })();
     </script>
     <link rel="stylesheet" href="../style.css">
-    <link rel="stylesheet" href="../blog.css">
+    <link rel="stylesheet" href="provision-assist.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600;700&family=Manrope:wght@400;600;800&display=swap" rel="stylesheet">
@@ -27,10 +26,10 @@
         <div class="container">
             <a href="../index.html" class="logo">
                 <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
-                    <rect width="40" height="40" rx="8" fill="url(#logo-gradient-blog)"/>
+                    <rect width="40" height="40" rx="8" fill="url(#lg-blog)"/>
                     <path d="M12 12L28 28M28 12L12 28" stroke="white" stroke-width="3" stroke-linecap="round"/>
                     <defs>
-                        <linearGradient id="logo-gradient-blog" x1="0" y1="0" x2="40" y2="40">
+                        <linearGradient id="lg-blog" x1="0" y1="0" x2="40" y2="40">
                             <stop offset="0%" stop-color="#6366f1"/>
                             <stop offset="100%" stop-color="#8b5cf6"/>
                         </linearGradient>
@@ -52,20 +51,14 @@
                     </svg>
                     <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <circle cx="12" cy="12" r="5"/>
-                        <line x1="12" y1="1" x2="12" y2="3"/>
-                        <line x1="12" y1="21" x2="12" y2="23"/>
-                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
-                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
-                        <line x1="1" y1="12" x2="3" y2="12"/>
-                        <line x1="21" y1="12" x2="23" y2="12"/>
-                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
-                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+                        <line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+                        <line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
                     </svg>
                 </button>
                 <button class="menu-toggle" aria-label="Menu">
-                    <span></span>
-                    <span></span>
-                    <span></span>
+                    <span></span><span></span><span></span>
                 </button>
             </div>
         </div>
@@ -79,31 +72,25 @@
         </div>
         <div class="container">
             <div class="hero-content">
-                <p class="hero-tag">Blog · Microsoft 365</p>
+                <p class="hero-tag">Blog · Microsoft 365 · Governance</p>
                 <h1 class="hero-title">
-                    <span class="gradient-text">Provisioning SharePoint, Teams & Viva Engage</span>
+                    <span class="gradient-text">Provision Assist</span>
                 </h1>
                 <p class="hero-description">
-                    Explore a senior-level approach to automate Microsoft 365 collaboration environments using <strong>Provision Assist</strong>. Learn best practices for governance, scalable provisioning, and integration with PowerShell and APIs.
+                    Governed provisioning van SharePoint, Teams en Viva Engage in Microsoft 365 — zonder Teams-sprawl, zonder IT-bottlenecks, met volledige controle.
                 </p>
-            </div>
-            <div class="hero-visual">
-                <div class="code-window">
-                    <div class="window-header">
-                        <div class="window-dots">
-                            <span class="dot red"></span>
-                            <span class="dot yellow"></span>
-                            <span class="dot green"></span>
-                        </div>
-                        <span class="window-title">provision.ps1</span>
-                    </div>
-                    <div class="code-content">
-<pre><code><span class="keyword">Connect-PnPOnline</span> <span class="attr">-Url</span> <span class="string">"https://contoso.sharepoint.com"</span> <span class="attr">-Interactive</span>
-<span class="keyword">New-PnPSite</span> <span class="attr">-Type</span> <span class="string">TeamSite</span> <span class="attr">-Title</span> <span class="string">"Project Alpha"</span>
-
-<span class="keyword">New-Team</span> <span class="attr">-DisplayName</span> <span class="string">"Project Alpha"</span> <span class="punctuation">\</span>
-         <span class="attr">-Visibility</span> <span class="string">Private</span> <span class="attr">-Owner</span> <span class="string">"user@contoso.com"</span></code></pre>
-                    </div>
+                <div class="blog-meta">
+                    <span class="blog-meta-item">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                        22 februari 2026
+                    </span>
+                    <span class="blog-meta-item">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                        8 min leestijd
+                    </span>
+                    <span class="blog-meta-tag">Open Source</span>
+                    <span class="blog-meta-tag">PnP</span>
+                    <span class="blog-meta-tag">Power Platform</span>
                 </div>
             </div>
         </div>
@@ -113,78 +100,204 @@
     <section class="section">
         <div class="blog-post container">
 
+            <!-- Screenshot -->
+            <div class="blog-screenshot">
+                <img 
+                    src="https://raw.githubusercontent.com/pnp/provision-assist-m365/main/Images/requestaspace.png" 
+                    alt="Provision Assist Power App interface — een gebruiker vraagt een nieuwe collaboration space aan"
+                    onerror="this.parentElement.innerHTML='<div class=\'screenshot-fallback\'><svg viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'currentColor\' stroke-width=\'1.5\' width=\'48\' height=\'48\'><rect x=\'3\' y=\'3\' width=\'18\' height=\'18\' rx=\'2\'/><circle cx=\'8.5\' cy=\'8.5\' r=\'1.5\'/><polyline points=\'21 15 16 10 5 21\'/></svg><p>Screenshot niet beschikbaar — bekijk de <a href=\'https://github.com/pnp/provision-assist-m365\' target=\'_blank\'>GitHub repository</a></p></div>'"
+                >
+                <p class="screenshot-caption">De Provision Assist Power App — gebruikers vragen hier een nieuwe collaboration space aan via een gestructureerd formulier</p>
+            </div>
+
+            <!-- 01 Wat is het -->
             <div class="section-header">
                 <span class="section-number">01</span>
-                <h2>Provision Assist: Overview</h2>
+                <h2>Wat is Provision Assist?</h2>
             </div>
             <p class="lead">
-                <strong>Provision Assist</strong> is a powerful tool for Microsoft 365 administrators and enterprise architects, enabling standardized provisioning of SharePoint sites, Teams, and Viva Engage communities. It ensures governance, reduces manual errors, and accelerates onboarding of new collaboration environments.
+                Provision Assist is een open-source oplossing van de Microsoft 365 & Power Platform Community (PnP) die gestructureerde aanvraag en automatische uitrol van collaboration spaces in Microsoft 365 mogelijk maakt — met governance ingebouwd vanaf dag één.
             </p>
             <p>
-                By leveraging Provision Assist, organizations can define templates, enforce naming conventions, and automatically apply policies across multiple environments. This is crucial for maintaining compliance and streamlining operations at scale.
+                Het is geen Microsoft-product, maar een community-project gebouwd door Microsoft-medewerkers en experts uit het ecosysteem. De tool biedt een alternatief voor ongecontroleerde self-service aanmaak van Teams, SharePoint-sites en Viva Engage communities. Gebruikers vragen een ruimte aan via een Power App, een beheerder keurt goed, en de backend regelt de rest automatisch.
             </p>
 
+            <!-- 02 Waarom gebruiken -->
             <div class="section-header">
                 <span class="section-number">02</span>
-                <h2>Architecture & Approach</h2>
+                <h2>Waarom zou je het gebruiken?</h2>
             </div>
-            <p>Provision Assist integrates with:</p>
-            <ul>
-                <li><strong>SharePoint Online:</strong> for site collections and hub site architecture</li>
-                <li><strong>Microsoft Teams:</strong> including private/public teams and channel templates</li>
-                <li><strong>Viva Engage:</strong> for communities, ideation, and internal social engagement</li>
-                <li><strong>Graph API & PowerShell:</strong> to automate provisioning and maintain auditing logs</li>
-            </ul>
             <p>
-                The recommended architecture separates the provisioning engine from the production tenant. Templates are maintained in version control, allowing reproducibility and rollback.
+                Zonder een provisioning-oplossing eindigt elke Microsoft 365-omgeving vroeg of laat in chaos. Medewerkers maken Teams aan voor elk project, iedere vergadering en elke werkgroep. Het resultaat: honderden verlaten Teams zonder eigenaar, overlappende SharePoint-sites, en een beheerder die geen overzicht meer heeft.
             </p>
+            <p>Provision Assist lost een aantal concrete problemen op:</p>
+            <ul>
+                <li><strong>Teams-sprawl:</strong> zonder governance groeit het aantal Teams exponentieel. Provision Assist dwingt een aanvraagproces af zodat er een bewuste afweging is vóór aanmaak.</li>
+                <li><strong>Inconsistente naamgeving:</strong> elke afdeling bedenkt zijn eigen conventies. Provision Assist past automatisch de juiste naamgevingsconventie toe op basis van type en organisatiestructuur.</li>
+                <li><strong>Geen eigenaarschap:</strong> aangemaakt Teams hebben vaak geen duidelijke eigenaar. Via het aanvraagformulier wordt eigenaarschap verplicht vastgelegd.</li>
+                <li><strong>IT als bottleneck:</strong> als alles via een ticket moet, wordt IT een vertragende factor. Provision Assist automatiseert de uitrol zodat IT zich focust op beleid, niet op handmatig aanmaken.</li>
+                <li><strong>Compliance-risico's:</strong> voor overheidsorganisaties en regulated industries is aantoonbaar beheer van informatie een vereiste. Provision Assist legt elk verzoek en elke goedkeuring vast.</li>
+            </ul>
 
+            <!-- 03 Wanneer gebruik je het NIET -->
             <div class="section-header">
                 <span class="section-number">03</span>
-                <h2>Advanced Provisioning Techniques</h2>
+                <h2>Wanneer gebruik je het niet?</h2>
             </div>
-            <p>At a senior level, provisioning should consider:</p>
+            <p>
+                Provision Assist is niet voor elke organisatie de juiste keuze. Het is een krachtige tool die ook deployment-complexiteit meebrengt.
+            </p>
             <ul>
-                <li>Automated assignment of site owners and Teams members based on roles</li>
-                <li>Integration with Azure AD groups for access control</li>
-                <li>Policy-driven retention and lifecycle management</li>
-                <li>Custom scripting for Viva Engage community settings, branding, and topics</li>
+                <li><strong>Kleine organisaties (&lt;100 medewerkers):</strong> de Azure-infrastructuur en de beheerslast wegen niet op tegen de governance-winst. Een simpele naamgevingsconventie en wat Conditional Access beleid is hier genoeg.</li>
+                <li><strong>Geen Power Platform licenties:</strong> de frontend is een canvas Power App, wat een Power Apps-licentie vereist. Zonder die licentie is de tool niet inzetbaar.</li>
+                <li><strong>Geen Azure-subscriptie:</strong> de backendcomponenten draaien op Azure (Logic Apps, Runbooks, Key Vault). Zonder Azure-budget is Provision Assist geen optie.</li>
+                <li><strong>Maximale snelheid vereist:</strong> als je elke dag tientallen nieuwe ruimtes nodig hebt, is een goedkeuringsflow een belemmering. Dan is gecontroleerde self-service met naming policies een betere keuze.</li>
+                <li><strong>Geen beheer-capaciteit:</strong> de tool vereist initiële configuratie en onderhoud. Als je geen M365-beheerder hebt die het beheert, wordt het een vergeten systeem.</li>
             </ul>
 
-            <div class="code-window" style="margin: 2rem 0;">
-                <div class="window-header">
-                    <div class="window-dots">
-                        <span class="dot red"></span>
-                        <span class="dot yellow"></span>
-                        <span class="dot green"></span>
-                    </div>
-                    <span class="window-title">channels.ps1</span>
-                </div>
-                <div class="code-content">
-<pre><code><span class="comment"># Add multiple channels with owners</span>
-<span class="attr">$channels</span> <span class="punctuation">=</span> <span class="punctuation">@(</span><span class="string">"General"</span><span class="punctuation">,</span><span class="string">"Design"</span><span class="punctuation">,</span><span class="string">"Development"</span><span class="punctuation">)</span>
-<span class="keyword">foreach</span> <span class="punctuation">(</span><span class="attr">$ch</span> <span class="keyword">in</span> <span class="attr">$channels</span><span class="punctuation">) {</span>
-    <span class="keyword">Add-TeamChannel</span> <span class="attr">-GroupId</span> <span class="attr">$team</span><span class="punctuation">.</span><span class="function">Id</span> <span class="attr">-DisplayName</span> <span class="attr">$ch</span>
-<span class="punctuation">}</span></code></pre>
-                </div>
-            </div>
-
+            <!-- 04 Mogelijkheden -->
             <div class="section-header">
                 <span class="section-number">04</span>
-                <h2>Documentation & References</h2>
+                <h2>Wat zijn de mogelijkheden?</h2>
             </div>
+            <p>Provision Assist ondersteunt het aanmaken en beheren van de volgende typen collaboration spaces:</p>
             <ul>
-                <li><a href="https://docs.microsoft.com/en-us/powershell/sharepoint/sharepoint-online/connect-sharepoint-online" target="_blank">Connect-PnPOnline</a> – Microsoft documentation for SharePoint PowerShell</li>
-                <li><a href="https://docs.microsoft.com/en-us/microsoftteams/teams-powershell-module" target="_blank">Teams PowerShell Module</a> – Create and manage Teams programmatically</li>
-                <li><a href="https://learn.microsoft.com/en-us/viva/engage/" target="_blank">Viva Engage API</a> – Graph API references for community management</li>
-                <li><a href="https://www.provisionassist.com/docs" target="_blank">Provision Assist Documentation</a> – Templates, automation, and best practices</li>
+                <li><strong>Microsoft Teams:</strong> privé of publieke teams, met vooraf geconfigureerde kanalen, tabs, apps en instellingen</li>
+                <li><strong>Microsoft 365 Groups:</strong> de onderliggende group-laag voor Teams, Planner en gedeeld postvak</li>
+                <li><strong>SharePoint Online sites:</strong> team sites en communicatiesites, inclusief hub site-koppeling</li>
+                <li><strong>Viva Engage communities:</strong> voorheen Yammer, nu geïntegreerd in de M365-suite als intern sociaal platform</li>
             </ul>
+            <p>Naast aanmaak biedt Provision Assist ook:</p>
+            <ul>
+                <li>Goedkeuringsworkflow met e-mailnotificaties voor aanvrager en beheerder</li>
+                <li>Sensitivity labels automatisch toepassen op basis van type ruimte</li>
+                <li>Hub site-koppeling op basis van afdeling of organisatiestructuur</li>
+                <li>Site templates toepassen via PnP-provisioning engine</li>
+                <li>Beheerinterface voor het activeren en deactiveren van templates</li>
+                <li>Integratie met Copilot for Microsoft 365 governance-vereisten</li>
+            </ul>
+
+            <!-- 05 Hoe werkt het -->
+            <div class="section-header">
+                <span class="section-number">05</span>
+                <h2>Hoe werkt het in de praktijk?</h2>
+            </div>
+            <p>
+                Het proces is bewust eenvoudig gehouden voor de eindgebruiker, terwijl de complexiteit achter de schermen zit. Een typische flow ziet er als volgt uit:
+            </p>
+            <ul>
+                <li><strong>Stap 1 — Aanvraag:</strong> een medewerker opent de Provision Assist Power App in Teams, kiest het type ruimte (Team, SharePoint, Viva Engage), vult een naam, beschrijving en eigenaar in en dient de aanvraag in.</li>
+                <li><strong>Stap 2 — Goedkeuring:</strong> de beheerder ontvangt een notificatie via e-mail of Teams. Hij beoordeelt de aanvraag en keurt goed of af — eventueel met toelichting.</li>
+                <li><strong>Stap 3 — Automatische uitrol:</strong> na goedkeuring triggert een Azure Logic App het provisioning-proces. De ruimte wordt aangemaakt via Microsoft Graph API, naamgeving en settings worden toegepast, en de eigenaar ontvangt een bevestiging.</li>
+                <li><strong>Stap 4 — Lifecycle:</strong> de ruimte is vanaf dag één correct geconfigureerd, eigenaarschap is vastgelegd en het verzoek is gedocumenteerd in SharePoint.</li>
+            </ul>
+
+            <!-- 06 Technische architectuur -->
+            <div class="section-header">
+                <span class="section-number">06</span>
+                <h2>Hoe zit het technisch in elkaar?</h2>
+            </div>
+            <p>
+                Provision Assist is opgebouwd uit een combinatie van Power Platform en Azure-componenten. De scheiding is bewust: de frontend is low-code en toegankelijk, de backend is robuust en veilig.
+            </p>
+
+            <div class="tech-stack-grid">
+                <div class="tech-card">
+                    <div class="tech-card-icon" style="background: linear-gradient(135deg, #742774, #9c27b0);">
+                        <svg viewBox="0 0 24 24" fill="white" width="24" height="24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+                    </div>
+                    <strong>Power App (Canvas)</strong>
+                    <p>Frontend voor eindgebruikers. Pinned in Teams als tab. Formulier voor aanvraag van collaboration spaces.</p>
+                </div>
+                <div class="tech-card">
+                    <div class="tech-card-icon" style="background: linear-gradient(135deg, #0072c6, #0091da);">
+                        <svg viewBox="0 0 24 24" fill="white" width="24" height="24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+                    </div>
+                    <strong>Azure Logic Apps</strong>
+                    <p>Orkestreert het volledige provisioning-proces. Laag runtime-cost, serverless, veilig afgeschermd via managed identity.</p>
+                </div>
+                <div class="tech-card">
+                    <div class="tech-card-icon" style="background: linear-gradient(135deg, #2e7d32, #43a047);">
+                        <svg viewBox="0 0 24 24" fill="white" width="24" height="24"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+                    </div>
+                    <strong>Azure Automation Runbooks</strong>
+                    <p>PnP PowerShell-taken die niet via Graph API mogelijk zijn. Denk aan site templates toepassen, hub site-koppeling, of geavanceerde SharePoint-configuratie.</p>
+                </div>
+                <div class="tech-card">
+                    <div class="tech-card-icon" style="background: linear-gradient(135deg, #b71c1c, #e53935);">
+                        <svg viewBox="0 0 24 24" fill="white" width="24" height="24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                    </div>
+                    <strong>Azure Key Vault</strong>
+                    <p>Slaat het certificaat van de Azure AD app registration veilig op. Geen secrets in code of configuratiebestanden.</p>
+                </div>
+                <div class="tech-card">
+                    <div class="tech-card-icon" style="background: linear-gradient(135deg, #e65100, #fb8c00);">
+                        <svg viewBox="0 0 24 24" fill="white" width="24" height="24"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
+                    </div>
+                    <strong>SharePoint Lists</strong>
+                    <p>Datastore voor aanvragen, templates, hub sites en audit trail. Geen extra database nodig — SharePoint is de backend.</p>
+                </div>
+                <div class="tech-card">
+                    <div class="tech-card-icon" style="background: linear-gradient(135deg, #4a148c, #7b1fa2);">
+                        <svg viewBox="0 0 24 24" fill="white" width="24" height="24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                    </div>
+                    <strong>Microsoft Graph API</strong>
+                    <p>Primaire API voor het aanmaken van Teams, Groups en SharePoint sites. Werkt met application permissions via de Azure AD app registration.</p>
+                </div>
+            </div>
+
+            <p>
+                De authenticatie loopt via een Azure AD app registration met een certificaat (opgeslagen in Key Vault). De Logic Apps gebruiken een service account voor acties die Graph niet ondersteunt. Dit is bewust gescheiden van admin-accounts, zodat de solution draait zonder directe privileges van een persoon.
+            </p>
+
+            <!-- 07 Wie gebruiken het -->
+            <div class="section-header">
+                <span class="section-number">07</span>
+                <h2>Wie gebruiken het?</h2>
+            </div>
+            <p>
+                Provision Assist is met name populair in de publieke sector en bij grotere organisaties die governance hoog in het vaandel hebben staan. Microsoft 365 is inmiddels bij vrijwel alle Nederlandse overheidslagen dominant aanwezig.
+            </p>
+            <ul>
+                <li><strong>Gemeenten:</strong> de meerderheid van de Nederlandse gemeenten werkt al met M365. Door de massale corona-uitrol zijn Teams en SharePoint snel ingevoerd, soms zonder governance-kader. Tools zoals Provision Assist helpen om orde te scheppen in een organisch gegroeide omgeving.</li>
+                <li><strong>Rijksoverheid:</strong> de Belastingdienst, Douane en Dienst Toeslagen stappen in 2025-2026 volledig over op M365 voor 46.000 medewerkers. In zo'n omgeving is ongecontroleerde self-service onhoudbaar — governed provisioning is een vereiste.</li>
+                <li><strong>Provincies en waterschappen:</strong> vergelijkbaar patroon als gemeenten. Governance en archivering zijn wettelijke verplichtingen (Archiefwet, AVG, Wet Open Overheid) die vragen om traceerbare aanmaakprocessen.</li>
+                <li><strong>Onderwijs (HBO/WO):</strong> universiteiten en hogescholen hebben veel projectteams, werkgroepen en commissies. De schaal en het tijdelijke karakter van veel Teams maakt een lifecycle-aanpak essentieel.</li>
+                <li><strong>Financiële sector en zorg:</strong> sectoren met strikte compliance-eisen (NIS2, BIO, ISO 27001) waar aantoonbaar beheer van informatieruimtes een audit-vereiste is.</li>
+            </ul>
+            <p>
+                Provision Assist is een open-source community-project, dus er is geen officiële klantlijst. Maar gezien de context — overheid, compliance, schaal — is het aannemelijk dat het primair leeft bij M365-consultants en beheerders bij grotere publieke organisaties.
+            </p>
+
+            <!-- 08 Conclusie -->
+            <div class="section-header">
+                <span class="section-number">08</span>
+                <h2>Conclusie</h2>
+            </div>
+            <p class="lead">
+                Provision Assist is geen sexy product — het is infrastructuur. Maar in organisaties waar Microsoft 365 serieus wordt ingezet, is governed provisioning geen luxe maar een noodzaak.
+            </p>
+            <p>
+                De combinatie van een laagdrempelige Power App voor gebruikers en een robuuste Azure-backend voor beheerders maakt het een pragmatische keuze. Het is open source, gratis te gebruiken en actief onderhouden door de PnP-community — inclusief Microsoft-medewerkers.
+            </p>
+            <p>
+                Voor organisaties die net beginnen met M365-governance is het een logisch startpunt. Voor grotere omgevingen met complexere eisen (lifecycle management, automatische archivering, Copilot-readiness) is het een solide basis waarop verder gebouwd kan worden.
+            </p>
+
+            <!-- Links -->
+            <div class="blog-links-box">
+                <h3>Verder lezen</h3>
+                <ul>
+                    <li><a href="https://github.com/pnp/provision-assist-m365" target="_blank">GitHub — pnp/provision-assist-m365</a> — source code, deployment guide en documentatie</li>
+                    <li><a href="https://pnp.github.io/provision-assist-m365/" target="_blank">Officiële documentatie</a> — architectuur, deployment en configuratie</li>
+                    <li><a href="https://adoption.microsoft.com/en-us/sample-solution-gallery/sample/pnp-provision-assist-m365/" target="_blank">Microsoft Adoption Gallery</a> — Provision Assist in de officïele M365 solution gallery</li>
+                </ul>
+            </div>
 
         </div>
     </section>
 
     <!-- Footer -->
-
     <footer class="footer">
         <div class="container">
             <p>&copy; 2026 Niels Kok Labs</p>
