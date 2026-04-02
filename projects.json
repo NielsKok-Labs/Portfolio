@@ -1,0 +1,46 @@
+[
+  {
+    "id": "waterschap-metadata",
+    "title": "Waterschap Metadata Migratie SPO",
+    "description": "400 actieve SharePoint-sites voorzien van een nieuw metadata-schema. Sharegate schoot tekort bij multi-site operaties — eigen scripts gebouwd met volledige logging en rapportage.",
+    "tags": ["M365", "SharePoint", "PowerShell", "Automation"],
+    "link": "projects/waterschap-metadata.html",
+    "linkType": "page",
+    "status": "completed",
+    "date": "Nov 2025 – Jan 2026",
+    "image": "spo"
+  },
+  {
+    "id": "smart-home",
+    "title": "Self-Hosted Smart Home Platform",
+    "description": "Self-hosted Home Assistant environment on a Raspberry Pi with Docker. Includes Plex media server, containerized services, and remote access via Tailscale VPN.",
+    "tags": ["Automation", "Docker", "Mesh VPN"],
+    "link": "projects/smart-home.html",
+    "linkType": "page",
+    "status": "active",
+    "date": "2024 – heden",
+    "image": "homeassistant"
+  },
+  {
+    "id": "network-security-lab",
+    "title": "Network Security Lab",
+    "description": "Homelab setup met firewalls, VLANs en netwerksegmentatie. Focus op OT security en isolatie van kritieke systemen.",
+    "tags": ["Security", "Azure"],
+    "link": "projects/network-security-lab.html",
+    "linkType": "page",
+    "status": "active",
+    "date": "2024",
+    "image": "network"
+  },
+  {
+    "id": "ansible-playbooks",
+    "title": "Ansible Automation Playbooks",
+    "description": "Collection van Ansible playbooks voor server configuratie, security hardening en automated deployments in hybride omgevingen.",
+    "tags": ["Automation", "Security", "Azure"],
+    "link": "projects/ansible-playbooks.html",
+    "linkType": "page",
+    "status": "active",
+    "date": "2023 – heden",
+    "image": "ansible"
+  }
+]
