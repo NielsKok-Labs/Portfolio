@@ -332,7 +332,7 @@ function initFilters(grid, isHomePage) {
 // ─── Bootstrap projects on index.html ────────────────────────────────────────
 const homeGrid = el('projectsGrid');
 if (homeGrid) {
-    fetch('projects.json')
+    fetch('./projects.json')
         .then(r => r.json())
         .then(data => {
             allProjects = data;
