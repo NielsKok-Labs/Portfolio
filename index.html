@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Niels Kok - Cloud & Security Engineer gespecialiseerd in Azure, Automation en Infrastructure as Code">
     <title>Portfolio | Niels Kok</title>
-    <!-- Dark mode init: voorkomt flits bij laden -->
     <script>
         (function() {
             const saved = localStorage.getItem('theme');
@@ -21,10 +20,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600;700&family=Manrope:wght@400;600;800&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- WCAG 2.2: Skip to main content link -->
     <a href="#main-content" class="skip-link">Skip to main content</a>
 
-    <!-- Navigation with ARIA labels -->
     <nav class="navbar" role="navigation" aria-label="Main navigation">
         <div class="container">
             <a href="#" class="logo" aria-label="Niels Kok - Home">
@@ -48,41 +45,27 @@
                 <li><a href="#blog">Blogs</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
-            <div style="display:flex; align-items:center; gap:0.75rem;">
-                <button class="theme-toggle" 
-                        id="themeToggle" 
-                        aria-label="Toggle between light and dark theme"
-                        aria-pressed="false">
-                    <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
-                    </svg>
+            <div style="display:flex;align-items:center;gap:0.75rem;">
+                <button class="theme-toggle" id="themeToggle" aria-label="Toggle between light and dark theme" aria-pressed="false">
+                    <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
                     <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
                         <circle cx="12" cy="12" r="5"/>
-                        <line x1="12" y1="1" x2="12" y2="3"/>
-                        <line x1="12" y1="21" x2="12" y2="23"/>
-                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
-                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
-                        <line x1="1" y1="12" x2="3" y2="12"/>
-                        <line x1="21" y1="12" x2="23" y2="12"/>
-                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
-                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+                        <line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+                        <line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
                     </svg>
                 </button>
-                <button class="menu-toggle" 
-                        aria-label="Toggle navigation menu"
-                        aria-expanded="false"
-                        aria-controls="main-navigation">
-                    <span></span>
-                    <span></span>
-                    <span></span>
+                <button class="menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="main-navigation">
+                    <span></span><span></span><span></span>
                 </button>
             </div>
         </div>
     </nav>
 
-    <!-- Main content landmark -->
     <main id="main-content" role="main">
-        <!-- Hero Section -->
+
+        <!-- ── Hero ── -->
         <section class="hero" aria-labelledby="hero-title">
             <div class="hero-bg" aria-hidden="true">
                 <div class="gradient-orb orb-1"></div>
@@ -92,53 +75,31 @@
             <div class="container">
                 <div class="hero-content">
                     <p class="hero-tag">Cloud & <span class="gradient-text">Security</span> Specialist</p>
-                    <h1 id="hero-title" class="hero-title">
-                        <span class="gradient-text">Cloud • Security • Automation</span>
-                    </h1>
+                    <h1 id="hero-title" class="hero-title"><span class="gradient-text">Cloud • Security • Automation</span></h1>
                     <p class="hero-description">
                         Designing <span class="gradient-text">secure</span> and <span class="gradient-text">scalable</span> IT environments.
                         Currently working as Technical M365 / Cloud Consultant.
                     </p>
                     <div class="hero-buttons">
                         <a href="#projects" class="btn btn-primary">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-                                <rect x="2" y="3" width="20" height="14" rx="2"/>
-                                <line x1="8" y1="21" x2="16" y2="21"/>
-                                <line x1="12" y1="17" x2="12" y2="21"/>
-                            </svg>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
                             View projects
                         </a>
                         <a href="#contact" class="btn btn-secondary">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
-                                <polyline points="22,6 12,13 2,6"/>
-                            </svg>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
                             Contact
                         </a>
                     </div>
                     <div class="hero-stats">
-                        <div class="stat">
-                            <strong>7</strong>
-                            <span>Certificates</span>
-                        </div>
-                        <div class="stat">
-                            <strong>2</strong>
-                            <span>Projects</span>
-                        </div>
-                        <div class="stat">
-                            <strong>2</strong>
-                            <span>Blogs</span>
-                        </div>
+                        <div class="stat"><strong>7</strong><span>Certificates</span></div>
+                        <div class="stat"><strong>4</strong><span>Projects</span></div>
+                        <div class="stat"><strong>2</strong><span>Blogs</span></div>
                     </div>
                 </div>
                 <div class="hero-visual">
                     <div class="code-window">
                         <div class="window-header">
-                            <div class="window-dots" aria-hidden="true">
-                                <span class="dot red"></span>
-                                <span class="dot yellow"></span>
-                                <span class="dot green"></span>
-                            </div>
+                            <div class="window-dots" aria-hidden="true"><span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span></div>
                             <span class="window-title">main.tf</span>
                         </div>
                         <div class="code-content">
@@ -159,7 +120,7 @@
             </div>
         </section>
 
-        <!-- About Section -->
+        <!-- ── About ── -->
         <section id="about" class="about section" aria-labelledby="about-heading">
             <div class="container">
                 <div class="section-header">
@@ -168,109 +129,53 @@
                 </div>
                 <div class="about-grid">
                     <div class="about-text">
-                        <p class="lead">
-                            I'm Niels, a Technical Cloud & Microsoft 365 consultant with a strong interest in secure architecture, automation and infrastructure design.
-                            I enjoy working at the intersection of cloud, security and networking, where governance and technical depth come together.     
-                        </p>
-                        <p>
-                            In my professional role, I design and support secure cloud environments within public sector organizations.
-                            Compliance, risk mitigation and structured governance are central to every implementation, especially in semi-government environments where security and reliability are non-negotiable.
-                        </p>
-                        <p>
-                            Beyond project work, I actively explore Infrastructure as Code (Terraform), cloud networking, Zero Trust principles and automation.
-                            I regularly build Proof of Concepts and home lab projects — ranging from cloud deployments to networking and smart home environments — to continuously strengthen my technical foundation.
-                        </p>
+                        <p class="lead">I'm Niels, a Technical Cloud & Microsoft 365 consultant with a strong interest in secure architecture, automation and infrastructure design. I enjoy working at the intersection of cloud, security and networking, where governance and technical depth come together.</p>
+                        <p>In my professional role, I design and support secure cloud environments within public sector organizations. Compliance, risk mitigation and structured governance are central to every implementation, especially in semi-government environments where security and reliability are non-negotiable.</p>
+                        <p>Beyond project work, I actively explore Infrastructure as Code (Terraform), cloud networking, Zero Trust principles and automation. I regularly build Proof of Concepts and home lab projects — ranging from cloud deployments to networking and smart home environments — to continuously strengthen my technical foundation.</p>
+                        <p>I love traveling, jet-skiing, riding motorcycles and staying fit through various sports. These hobbies keep me energized, creative, and ready to tackle challenges both professionally and personally.</p>
                         <div class="skills">
-                            <h3>Areas of Expertise</h3>
                             <div class="skills-grid">
                                 <div class="skill-item">
-                                    <div class="skill-icon" aria-hidden="true">
-                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                            <path d="M3 15v4c0 1.1.9 2 2 2h14a2 2 0 0 0 2-2v-4M17 9l-5 5-5-5M12 12.8V2.5"/>
-                                        </svg>
-                                    </div>
-                                    <div>
-                                        <strong>Cloud</strong>
-                                        <p>Azure, M365, IaC, Terraform, Ansible</p>
-                                    </div>
+                                    <div class="skill-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
+                                    <div><strong>Microsoft 365 & Azure</strong><p>SharePoint, Teams, Entra ID, Purview, Azure Infrastructure</p></div>
                                 </div>
                                 <div class="skill-item">
-                                    <div class="skill-icon" aria-hidden="true">
-                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
-                                            <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
-                                        </svg>
-                                    </div>
-                                    <div>
-                                        <strong>Security</strong>
-                                        <p>Zero Trust, Conditional Access, Governance, Security Baselines</p>
-                                    </div>
+                                    <div class="skill-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+                                    <div><strong>Security</strong><p>Zero Trust, Purview, Compliance, SIEM/SOAR</p></div>
                                 </div>
                                 <div class="skill-item">
-                                    <div class="skill-icon" aria-hidden="true">
-                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                            <circle cx="12" cy="12" r="3"/>
-                                            <path d="M12 1v6m0 6v6M5.64 5.64l4.24 4.24m4.24 4.24l4.24 4.24M1 12h6m6 0h6M5.64 18.36l4.24-4.24m4.24-4.24l4.24-4.24"/>
-                                        </svg>
-                                    </div>
-                                    <div>
-                                        <strong>Automation</strong>
-                                        <p>CI/CD, Scripting, DevSecOps</p>
-                                    </div>
+                                    <div class="skill-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 1v6m0 6v6M5.64 5.64l4.24 4.24m4.24 4.24l4.24 4.24M1 12h6m6 0h6M5.64 18.36l4.24-4.24m4.24-4.24l4.24-4.24"/></svg></div>
+                                    <div><strong>Automation</strong><p>CI/CD, Scripting, DevSecOps</p></div>
                                 </div>
                                 <div class="skill-item">
-                                    <div class="skill-icon" aria-hidden="true">
-                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                            <rect x="2" y="7" width="20" height="14" rx="2"/>
-                                            <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/>
-                                        </svg>
-                                    </div>
-                                    <div>
-                                        <strong>Networking</strong>
-                                        <p>Network Segmentation, Firewalls, Hybrid Connectivity</p>
-                                    </div>
+                                    <div class="skill-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg></div>
+                                    <div><strong>Networking</strong><p>Network Segmentation, Firewalls, Hybrid Connectivity</p></div>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="about-image">
                         <div class="profile-card">
-                            <div class="avatar">
-                                <img src="assets/me/avatar.jpg" alt="Niels Kok profile picture" />
-                            </div>
+                            <div class="avatar"><img src="assets/me/avatar.jpg" alt="Niels Kok profile picture"/></div>
                             <div class="profile-info">
                                 <h3>Niels Kok</h3>
                                 <p>Technical Cloud & M365 Consultant</p>
                                 <div class="social-links">
                                     <a href="https://github.com/NielsKok-Labs" target="_blank" rel="noopener noreferrer" aria-label="GitHub profile">
-                                        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                                            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-                                        </svg>
+                                        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
                                     </a>
-                                    <a href="https://www.linkedin.com/in/nielskoknl/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile">
-                                        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                                            <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
-                                        </svg>
-                                    </a>
-                                    <a href="mailto:contact@nielskok.nl" aria-label="Send email">
-                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-                                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
-                                            <polyline points="22,6 12,13 2,6"/>
-                                        </svg>
+                                    <a href="https://www.linkedin.com/in/nielskoknl" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile">
+                                        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
                                     </a>
                                 </div>
                             </div>
                         </div>
-                        <br><br>
-                        <p>My long-term ambition is to grow into a Cloud & Security Architect role, combining strategic thinking with hands-on technical expertise to design scalable, secure and maintainable environments.</p>
-                        <br>
-                        <p>Outside of work, I enjoy staying active and exploring new experiences. I love traveling, jet-skiing, riding motorcycles and staying fit through various sports. These hobbies keep me energized, creative, and ready to tackle challenges both professionally and personally.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Projects Section -->
+        <!-- ── Projects ── -->
         <section id="projects" class="projects section" aria-labelledby="projects-heading">
             <div class="container">
                 <div class="section-header">
@@ -278,152 +183,22 @@
                     <h2 id="projects-heading">Projecten & Labs</h2>
                 </div>
                 <div class="filter-tabs" role="tablist" aria-label="Filter projects by technology">
-                    <button class="filter-btn active" data-filter="all" role="tab" aria-selected="true">All</button>
-                    <button class="filter-btn" data-filter="Azure" role="tab" aria-selected="false">Azure</button>
-                    <button class="filter-btn" data-filter="Security" role="tab" aria-selected="false">Security</button>
-                    <button class="filter-btn" data-filter="Automation" role="tab" aria-selected="false">Automation</button>
-                    <button class="filter-btn" data-filter="Docker" role="tab" aria-selected="false">Docker</button>
-                    <button class="filter-btn" data-filter="Mesh VPN" role="tab" aria-selected="false">Mesh VPN</button>
+                    <button class="filter-btn active" data-filter="all"        role="tab" aria-selected="true">All</button>
+                    <button class="filter-btn"         data-filter="Azure"     role="tab" aria-selected="false">Azure</button>
+                    <button class="filter-btn"         data-filter="Security"  role="tab" aria-selected="false">Security</button>
+                    <button class="filter-btn"         data-filter="Automation" role="tab" aria-selected="false">Automation</button>
+                    <button class="filter-btn"         data-filter="M365"      role="tab" aria-selected="false">M365</button>
+                    <button class="filter-btn"         data-filter="Docker"    role="tab" aria-selected="false">Docker</button>
+                    <button class="filter-btn"         data-filter="Mesh VPN"  role="tab" aria-selected="false">Mesh VPN</button>
                 </div>
-                <div class="projects-grid">
-                    <!-- Project 1 -->
-                    <article class="project-card">
-                        <div class="project-image">
-                            <svg viewBox="0 0 512 512" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                                <rect width="512" height="512" rx="90" fill="#03A9F4"/>
-                                <polygon points="256,120 110,240 150,240 150,380 362,380 362,240 402,240" fill="white"/>
-                                <rect x="226" y="300" width="60" height="80" fill="#03A9F4"/>
-                            </svg>
-                        </div>
-                        <div class="project-content">
-                            <div class="project-tags">
-                                <span class="tag">Automation</span>
-                                <span class="tag">Docker</span>
-                                <span class="tag">Home Assistant</span>
-                                <span class="tag">Mesh VPN</span>
-                            </div>
-                            <h3>Self-Hosted Smart Home Platform</h3>
-                            <p>Self-hosted Home Assistant environment on a Raspberry Pi with Docker. Includes Plex media server, containerized services, and remote access via Tailscale VPN.</p>
-                            <div class="project-links">
-                                <a href="https://github.com/NielsKok-Labs/proj-hass" class="project-link" target="_blank" rel="noopener noreferrer">
-                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-                                        <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
-                                    </svg>
-                                    Repo
-                                </a>
-                                <a href="https://github.com/NielsKok-Labs/proj-hass#readme" class="project-link" target="_blank" rel="noopener noreferrer">
-                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-                                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
-                                        <polyline points="14 2 14 8 20 8"/>
-                                        <line x1="16" y1="13" x2="8" y2="13"/>
-                                        <line x1="16" y1="17" x2="8" y2="17"/>
-                                        <polyline points="10 9 9 9 8 9"/>
-                                    </svg>
-                                    Docs
-                                </a>
-                            </div>
-                        </div>
-                    </article>
-
-                    <!-- Project 2 -->
-                    <article class="project-card">
-                        <div class="project-image">
-                            <div class="placeholder-image gradient-green">
-                                <svg viewBox="0 0 400 300" fill="none" aria-hidden="true">
-                                    <rect width="400" height="300" fill="url(#project2-bg)"/>
-                                    <rect x="100" y="80" width="80" height="140" rx="8" fill="white" opacity="0.15"/>
-                                    <rect x="220" y="80" width="80" height="140" rx="8" fill="white" opacity="0.15"/>
-                                    <path d="M140 150 L200 120 L260 150" stroke="white" stroke-width="4" opacity="0.3"/>
-                                    <circle cx="200" cy="120" r="15" fill="white" opacity="0.25"/>
-                                    <defs>
-                                        <linearGradient id="project2-bg" x1="0" y1="0" x2="400" y2="300">
-                                            <stop offset="0%" stop-color="#10b981"/>
-                                            <stop offset="100%" stop-color="#059669"/>
-                                        </linearGradient>
-                                    </defs>
-                                </svg>
-                            </div>
-                        </div>
-                        <div class="project-content">
-                            <div class="project-tags">
-                                <span class="tag">Security</span>
-                                <span class="tag">Network</span>
-                                <span class="tag">Firewall</span>
-                            </div>
-                            <h3>Network Security Lab</h3>
-                            <p>Homelab setup met firewalls, VLANs en network segmentatie. Focus op OT security en isolatie.</p>
-                            <div class="project-links">
-                                <a href="#" class="project-link">
-                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-                                        <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
-                                    </svg>
-                                    Repo
-                                </a>
-                                <a href="#" class="project-link">
-                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-                                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
-                                        <polyline points="14 2 14 8 20 8"/>
-                                        <line x1="16" y1="13" x2="8" y2="13"/>
-                                        <line x1="16" y1="17" x2="8" y2="17"/>
-                                        <polyline points="10 9 9 9 8 9"/>
-                                    </svg>
-                                    Docs
-                                </a>
-                            </div>
-                        </div>
-                    </article>
-
-                    <!-- Project 3 -->
-                    <article class="project-card">
-                        <div class="project-image">
-                            <div class="placeholder-image gradient-blue">
-                                <svg viewBox="0 0 400 300" fill="none" aria-hidden="true">
-                                    <rect width="400" height="300" fill="url(#project3-bg)"/>
-                                    <circle cx="200" cy="80" r="40" fill="white" opacity="0.15"/>
-                                    <rect x="100" y="140" width="200" height="100" rx="8" fill="white" opacity="0.2"/>
-                                    <path d="M150 180 L170 200 L230 140" stroke="white" stroke-width="4" stroke-linecap="round" opacity="0.3"/>
-                                    <defs>
-                                        <linearGradient id="project3-bg" x1="0" y1="0" x2="400" y2="300">
-                                            <stop offset="0%" stop-color="#3b82f6"/>
-                                            <stop offset="100%" stop-color="#1d4ed8"/>
-                                        </linearGradient>
-                                    </defs>
-                                </svg>
-                            </div>
-                        </div>
-                        <div class="project-content">
-                            <div class="project-tags">
-                                <span class="tag">Ansible</span>
-                                <span class="tag">Automation</span>
-                                <span class="tag">CI/CD</span>
-                            </div>
-                            <h3>Ansible Automation Playbooks</h3>
-                            <p>Collection van Ansible playbooks voor server configuratie, security hardening en automated deployments.</p>
-                            <div class="project-links">
-                                <a href="#" class="project-link">
-                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-                                        <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
-                                    </svg>
-                                    Repo
-                                </a>
-                                <a href="#" class="project-link">
-                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-                                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
-                                        <polyline points="14 2 14 8 20 8"/>
-                                        <line x1="16" y1="13" x2="8" y2="13"/>
-                                        <line x1="16" y1="17" x2="8" y2="17"/>
-                                        <polyline points="10 9 9 9 8 9"/>
-                                    </svg>
-                                    Docs
-                                </a>
-                            </div>
-                        </div>
-                    </article>
+                <!-- Filled dynamically via script.js + projects.json (max 2 + view-all card) -->
+                <div class="projects-grid" id="projectsGrid">
+                    <p style="color:var(--text-secondary);padding:1rem;grid-column:1/-1;">Projecten laden…</p>
                 </div>
             </div>
         </section>
 
-        <!-- Certificates Section -->
+        <!-- ── Certificates ── -->
         <section id="certificates" class="certificates section" aria-labelledby="certificates-heading">
             <div class="container">
                 <div class="section-header">
@@ -433,115 +208,37 @@
                 <h3>Foundation</h3>
                 <div class="certificates-grid compact-grid">
                     <div class="cert-card small obtained">
-                        <div class="cert-badge">
-                            <a href="https://www.credly.com/badges/e4a43cc9-497d-4ac5-815f-029d8aca3a10" target="_blank" rel="noopener noreferrer" aria-label="View AZ-900 certificate on Credly">
-                                <img src="assets/badges/az-900-badge2.png" alt="Microsoft Azure Fundamentals AZ-900 badge">
-                            </a>
-                        </div>
-                        <h3>AZ-900</h3>
-                        <p class="cert-issuer">
-                            <a href="https://www.credly.com/badges/e4a43cc9-497d-4ac5-815f-029d8aca3a10" target="_blank" rel="noopener noreferrer">
-                                Azure Fundamentals
-                            </a>
-                        </p>
+                        <div class="cert-badge"><a href="https://www.credly.com/badges/e4a43cc9-497d-4ac5-815f-029d8aca3a10" target="_blank" rel="noopener noreferrer" aria-label="View AZ-900 certificate on Credly"><img src="assets/badges/az-900-badge2.png" alt="AZ-900 badge"></a></div>
+                        <h3>AZ-900</h3><p class="cert-issuer"><a href="https://www.credly.com/badges/e4a43cc9-497d-4ac5-815f-029d8aca3a10" target="_blank" rel="noopener noreferrer">Azure Fundamentals</a></p>
                     </div>
-
                     <div class="cert-card small obtained">
-                        <div class="cert-badge">
-                            <a href="https://learn.microsoft.com/api/credentials/share/nl-nl/NielsKok-9564/8904D370A83C0436?sharingId=3269C5358C3139E2" target="_blank" rel="noopener noreferrer" aria-label="View SC-900 certificate">
-                                <img src="assets/badges/sc-900-badge.png" alt="Microsoft Security Fundamentals SC-900 badge">
-                            </a>
-                        </div>
-                        <h3>SC-900</h3>
-                        <p class="cert-issuer">
-                            <a href="https://learn.microsoft.com/api/credentials/share/nl-nl/NielsKok-9564/8904D370A83C0436?sharingId=3269C5358C3139E2" target="_blank" rel="noopener noreferrer">
-                                Security Fundamentals
-                            </a>
-                        </p>
+                        <div class="cert-badge"><a href="https://learn.microsoft.com/api/credentials/share/nl-nl/NielsKok-9564/8904D370A83C0436?sharingId=3269C5358C3139E2" target="_blank" rel="noopener noreferrer" aria-label="View SC-900 certificate"><img src="assets/badges/sc-900-badge.png" alt="SC-900 badge"></a></div>
+                        <h3>SC-900</h3><p class="cert-issuer"><a href="https://learn.microsoft.com/api/credentials/share/nl-nl/NielsKok-9564/8904D370A83C0436?sharingId=3269C5358C3139E2" target="_blank" rel="noopener noreferrer">Security Fundamentals</a></p>
                     </div>
-
                     <div class="cert-card small obtained">
-                        <div class="cert-badge">
-                            <a href="https://learn.microsoft.com/api/credentials/share/nl-nl/NielsKok-9564/EC0ED30F786734C2?sharingId=3269C5358C3139E2" target="_blank" rel="noopener noreferrer" aria-label="View MS-900 certificate">
-                                <img src="assets/badges/ms-900-badge.png" alt="Microsoft 365 Fundamentals MS-900 badge">
-                            </a>
-                        </div>
-                        <h3>MS-900</h3>
-                        <p class="cert-issuer">
-                            <a href="https://learn.microsoft.com/api/credentials/share/nl-nl/NielsKok-9564/EC0ED30F786734C2?sharingId=3269C5358C3139E2" target="_blank" rel="noopener noreferrer">
-                                Microsoft 365 Fundamentals
-                            </a>
-                        </p>
+                        <div class="cert-badge"><a href="https://learn.microsoft.com/api/credentials/share/nl-nl/NielsKok-9564/EC0ED30F786734C2?sharingId=3269C5358C3139E2" target="_blank" rel="noopener noreferrer" aria-label="View MS-900 certificate"><img src="assets/badges/ms-900-badge.png" alt="MS-900 badge"></a></div>
+                        <h3>MS-900</h3><p class="cert-issuer"><a href="https://learn.microsoft.com/api/credentials/share/nl-nl/NielsKok-9564/EC0ED30F786734C2?sharingId=3269C5358C3139E2" target="_blank" rel="noopener noreferrer">Microsoft 365 Fundamentals</a></p>
                     </div>
-
                     <div class="cert-card small obtained">
-                        <div class="cert-badge">
-                            <a href="https://learn.microsoft.com/api/credentials/share/nl-nl/NielsKok-9564/F5916FA7B999EBCD?sharingId=3269C5358C3139E2" target="_blank" rel="noopener noreferrer" aria-label="View AI-900 certificate">
-                                <img src="assets/badges/ai-900-badge.png" alt="Microsoft Azure AI Fundamentals AI-900 badge">
-                            </a>
-                        </div>
-                        <h3>AI-900</h3>
-                        <p class="cert-issuer">
-                            <a href="https://learn.microsoft.com/api/credentials/share/nl-nl/NielsKok-9564/F5916FA7B999EBCD?sharingId=3269C5358C3139E2" target="_blank" rel="noopener noreferrer">
-                                Azure AI Fundamentals
-                            </a>
-                        </p>
+                        <div class="cert-badge"><a href="https://learn.microsoft.com/api/credentials/share/nl-nl/NielsKok-9564/F5916FA7B999EBCD?sharingId=3269C5358C3139E2" target="_blank" rel="noopener noreferrer" aria-label="View AI-900 certificate"><img src="assets/badges/ai-900-badge.png" alt="AI-900 badge"></a></div>
+                        <h3>AI-900</h3><p class="cert-issuer"><a href="https://learn.microsoft.com/api/credentials/share/nl-nl/NielsKok-9564/F5916FA7B999EBCD?sharingId=3269C5358C3139E2" target="_blank" rel="noopener noreferrer">Azure AI Fundamentals</a></p>
                     </div>
-
-                    <div class="cert-card small upcoming">
-                        <div class="cert-badge">
-                            <a href="https://learn.microsoft.com/api/credentials/share/nl-nl/NielsKok-9564/1639FC956FA93A19?sharingId=3269C5358C3139E2" target="_blank" rel="noopener noreferrer" aria-label="View PL-900 certificate">
-                                <img src="assets/badges/pl-900-badge.webp" alt="Microsoft Power Platform Fundamentals PL-900 badge">
-                            </a>
-                        </div>
-                        <h3>PL-900</h3>
-                        <p class="cert-issuer">
-                            <a href="https://learn.microsoft.com/api/credentials/share/nl-nl/NielsKok-9564/1639FC956FA93A19?sharingId=3269C5358C3139E2" target="_blank" rel="noopener noreferrer">
-                                Power Platform Fundamentals
-                            </a>
-                        </p>
-                    </div>
-
-                    <div class="cert-card small upcoming">
-                        <div class="cert-badge">
-                            <a href="https://www.credential.net/b309da75-6d35-444b-94b0-cbe8bf05ce62#acc.PgI7t9WA" target="_blank" rel="noopener noreferrer" aria-label="View Argo CD certificate">
-                                <img src="assets/badges/argocd-badge.png" alt="Argo CD Introduction badge">
-                            </a>
-                        </div>
-                        <h3>Argo CD</h3>
-                        <p class="cert-issuer">
-                            <a href="https://www.credential.net/b309da75-6d35-444b-94b0-cbe8bf05ce62#acc.PgI7t9WA" target="_blank" rel="noopener noreferrer">
-                                ArgoCD Introduction
-                            </a>
-                        </p>
-                    </div>
-
-                    <div class="cert-card small upcoming">
-                        <div class="cert-badge">
-                            <img src="assets/badges/inno-bs.jpg" alt="INNO Best Security Student award">
-                        </div>
-                        <h3>INNO</h3>
-                        <p class="cert-issuer">Best security student</p>
+                    <div class="cert-card small obtained">
+                        <div class="cert-badge"><img src="assets/badges/inno-bs.jpg" alt="INNO Best Security Student award"></div>
+                        <h3>INNO</h3><p class="cert-issuer">Best security student</p>
                     </div>
                 </div>
-                
                 <div class="roadmap">
                     <h3>🎯 Roadmap</h3>
                     <div class="roadmap-grid">
-                        <div class="roadmap-item">
-                            <strong>Cloud & Security</strong>
-                            <p>AZ-104, AZ-500, AZ-700, SC-400, SC-200, CCSP, CCSK, CEH</p>
-                        </div>
-                        <div class="roadmap-item">
-                            <strong>Automation & DevOps</strong>
-                            <p>PL-600, Ansible, Python</p>
-                        </div>
+                        <div class="roadmap-item"><strong>Cloud & Security</strong><p>AZ-104, AZ-500, AZ-700, SC-400, SC-200, CCSP, CCSK, CEH</p></div>
+                        <div class="roadmap-item"><strong>Automation & DevOps</strong><p>PL-600, Ansible, Python</p></div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Timeline Section -->
+        <!-- ── Timeline ── -->
         <section id="timeline" class="timeline-section section" aria-labelledby="timeline-heading">
             <div class="container">
                 <div class="section-header">
@@ -549,193 +246,19 @@
                     <h2 id="timeline-heading">Experience</h2>
                 </div>
                 <div class="timeline">
-                    <!-- XTRM Development -->
-                    <div class="timeline-item">
-                        <div class="timeline-dot" aria-hidden="true"></div>
-                        <div class="timeline-card">
-                            <div class="timeline-header">
-                                <div>
-                                    <h3>M365 Technical Consultant</h3>
-                                    <p class="timeline-company">XTRM Development</p>
-                                </div>
-                                <div class="timeline-meta">
-                                    <span class="timeline-badge fulltime">Fulltime</span>
-                                    <span class="timeline-date">nov. 2025 – heden</span>
-                                </div>
-                            </div>
-                            <p class="timeline-location">📍 Bunnik, Utrecht · Hybride</p>
-                            <div class="timeline-tags">
-                                <span class="tag">Microsoft 365</span>
-                                <span class="tag">Cloud</span>
-                                <span class="tag">Consulting</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Conscia -->
-                    <div class="timeline-item">
-                        <div class="timeline-dot" aria-hidden="true"></div>
-                        <div class="timeline-card">
-                            <div class="timeline-header">
-                                <div>
-                                    <h3>Security & Network Automation Engineer</h3>
-                                    <p class="timeline-company">Conscia Nederland</p>
-                                </div>
-                                <div class="timeline-meta">
-                                    <span class="timeline-badge stage">Stage</span>
-                                    <span class="timeline-date">feb. 2025 – jun. 2025</span>
-                                </div>
-                            </div>
-                            <p class="timeline-location">📍 Gouda, Zuid-Holland · Hybride</p>
-                            <div class="timeline-tags">
-                                <span class="tag">Python</span>
-                                <span class="tag">REST API</span>
-                                <span class="tag">Check Point</span>
-                                <span class="tag">Automation</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Stric System Engineer -->
-                    <div class="timeline-item">
-                        <div class="timeline-dot" aria-hidden="true"></div>
-                        <div class="timeline-card">
-                            <div class="timeline-header">
-                                <div>
-                                    <h3>System Engineer</h3>
-                                    <p class="timeline-company">Stric</p>
-                                </div>
-                                <div class="timeline-meta">
-                                    <span class="timeline-badge parttime">Parttime</span>
-                                    <span class="timeline-date">nov. 2021 – nov. 2025</span>
-                                </div>
-                            </div>
-                            <p class="timeline-location">📍 Bunnik, Utrecht · Op locatie</p>
-                            <div class="timeline-tags">
-                                <span class="tag">Servers</span>
-                                <span class="tag">Networking</span>
-                                <span class="tag">Migraties</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Hogeschool Utrecht -->
-                    <div class="timeline-item">
-                        <div class="timeline-dot" aria-hidden="true"></div>
-                        <div class="timeline-card">
-                            <div class="timeline-header">
-                                <div>
-                                    <h3>Student-assistent</h3>
-                                    <p class="timeline-company">Hogeschool Utrecht</p>
-                                </div>
-                                <div class="timeline-meta">
-                                    <span class="timeline-badge parttime">Parttime</span>
-                                    <span class="timeline-date">feb. 2023 – jan. 2025</span>
-                                </div>
-                            </div>
-                            <p class="timeline-location">📍 Utrecht · Op locatie</p>
-                            <div class="timeline-tags">
-                                <span class="tag">Onderwijs</span>
-                                <span class="tag">Begeleiding</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Anonify -->
-                    <div class="timeline-item">
-                        <div class="timeline-dot" aria-hidden="true"></div>
-                        <div class="timeline-card">
-                            <div class="timeline-header">
-                                <div>
-                                    <h3>Kubernetes Platform Engineer</h3>
-                                    <p class="timeline-company">Anonify</p>
-                                </div>
-                                <div class="timeline-meta">
-                                    <span class="timeline-badge stage">Stage</span>
-                                    <span class="timeline-date">sep. 2023 – feb. 2024</span>
-                                </div>
-                            </div>
-                            <p class="timeline-location">📍 Apeldoorn, Gelderland · Hybride</p>
-                            <div class="timeline-tags">
-                                <span class="tag">Kubernetes</span>
-                                <span class="tag">Ansible</span>
-                                <span class="tag">GitOps</span>
-                                <span class="tag">Prometheus</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Stric Junior -->
-                    <div class="timeline-item">
-                        <div class="timeline-dot" aria-hidden="true"></div>
-                        <div class="timeline-card">
-                            <div class="timeline-header">
-                                <div>
-                                    <h3>Junior System Administrator</h3>
-                                    <p class="timeline-company">Stric</p>
-                                </div>
-                                <div class="timeline-meta">
-                                    <span class="timeline-badge fulltime">Fulltime</span>
-                                    <span class="timeline-date">mrt. 2020 – aug. 2021</span>
-                                </div>
-                            </div>
-                            <p class="timeline-location">📍 Bunnik, Utrecht · Op locatie</p>
-                            <div class="timeline-tags">
-                                <span class="tag">Servers</span>
-                                <span class="tag">Werkplekbeheer</span>
-                                <span class="tag">Networking</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Missing Piece -->
-                    <div class="timeline-item">
-                        <div class="timeline-dot" aria-hidden="true"></div>
-                        <div class="timeline-card">
-                            <div class="timeline-header">
-                                <div>
-                                    <h3>Service Desk Consultant</h3>
-                                    <p class="timeline-company">Missing Piece BV</p>
-                                </div>
-                                <div class="timeline-meta">
-                                    <span class="timeline-badge fulltime">Fulltime</span>
-                                    <span class="timeline-date">jun. 2019 – aug. 2019</span>
-                                </div>
-                            </div>
-                            <p class="timeline-location">📍 Wijk bij Duurstede</p>
-                            <div class="timeline-tags">
-                                <span class="tag">Servicedesk</span>
-                                <span class="tag">1e lijn</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Missing Piece Stage -->
-                    <div class="timeline-item">
-                        <div class="timeline-dot" aria-hidden="true"></div>
-                        <div class="timeline-card">
-                            <div class="timeline-header">
-                                <div>
-                                    <h3>Service Desk Medewerker</h3>
-                                    <p class="timeline-company">Missing Piece BV</p>
-                                </div>
-                                <div class="timeline-meta">
-                                    <span class="timeline-badge stage">Stage</span>
-                                    <span class="timeline-date">nov. 2018 – mei 2019</span>
-                                </div>
-                            </div>
-                            <p class="timeline-location">📍 Wijk bij Duurstede</p>
-                            <div class="timeline-tags">
-                                <span class="tag">MBO Stage</span>
-                                <span class="tag">Servicedesk</span>
-                            </div>
-                        </div>
-                    </div>
+                    <div class="timeline-item"><div class="timeline-dot" aria-hidden="true"></div><div class="timeline-card"><div class="timeline-header"><div><h3>M365 Technical Consultant</h3><p class="timeline-company">XTRM Development</p></div><div class="timeline-meta"><span class="timeline-badge fulltime">Fulltime</span><span class="timeline-date">nov. 2025 – heden</span></div></div><p class="timeline-location">📍 Bunnik, Utrecht · Hybride</p><div class="timeline-tags"><span class="tag">Microsoft 365</span><span class="tag">Cloud</span><span class="tag">Consulting</span></div></div></div>
+                    <div class="timeline-item"><div class="timeline-dot" aria-hidden="true"></div><div class="timeline-card"><div class="timeline-header"><div><h3>Security & Network Automation Engineer</h3><p class="timeline-company">Conscia Nederland</p></div><div class="timeline-meta"><span class="timeline-badge stage">Stage</span><span class="timeline-date">feb. 2025 – jun. 2025</span></div></div><p class="timeline-location">📍 Gouda, Zuid-Holland · Hybride</p><div class="timeline-tags"><span class="tag">Python</span><span class="tag">REST API</span><span class="tag">Check Point</span><span class="tag">Automation</span></div></div></div>
+                    <div class="timeline-item"><div class="timeline-dot" aria-hidden="true"></div><div class="timeline-card"><div class="timeline-header"><div><h3>System Engineer</h3><p class="timeline-company">Stric</p></div><div class="timeline-meta"><span class="timeline-badge parttime">Parttime</span><span class="timeline-date">nov. 2021 – nov. 2025</span></div></div><p class="timeline-location">📍 Bunnik, Utrecht · Op locatie</p><div class="timeline-tags"><span class="tag">Servers</span><span class="tag">Networking</span><span class="tag">Migraties</span></div></div></div>
+                    <div class="timeline-item"><div class="timeline-dot" aria-hidden="true"></div><div class="timeline-card"><div class="timeline-header"><div><h3>Student-assistent</h3><p class="timeline-company">Hogeschool Utrecht</p></div><div class="timeline-meta"><span class="timeline-badge parttime">Parttime</span><span class="timeline-date">feb. 2023 – jan. 2025</span></div></div><p class="timeline-location">📍 Utrecht · Op locatie</p><div class="timeline-tags"><span class="tag">Onderwijs</span><span class="tag">Begeleiding</span></div></div></div>
+                    <div class="timeline-item"><div class="timeline-dot" aria-hidden="true"></div><div class="timeline-card"><div class="timeline-header"><div><h3>Kubernetes Platform Engineer</h3><p class="timeline-company">Anonify</p></div><div class="timeline-meta"><span class="timeline-badge stage">Stage</span><span class="timeline-date">sep. 2023 – feb. 2024</span></div></div><p class="timeline-location">📍 Apeldoorn, Gelderland · Hybride</p><div class="timeline-tags"><span class="tag">Kubernetes</span><span class="tag">Ansible</span><span class="tag">GitOps</span><span class="tag">Prometheus</span></div></div></div>
+                    <div class="timeline-item"><div class="timeline-dot" aria-hidden="true"></div><div class="timeline-card"><div class="timeline-header"><div><h3>Junior System Administrator</h3><p class="timeline-company">Stric</p></div><div class="timeline-meta"><span class="timeline-badge fulltime">Fulltime</span><span class="timeline-date">mrt. 2020 – aug. 2021</span></div></div><p class="timeline-location">📍 Bunnik, Utrecht · Op locatie</p><div class="timeline-tags"><span class="tag">Servers</span><span class="tag">Werkplekbeheer</span><span class="tag">Networking</span></div></div></div>
+                    <div class="timeline-item"><div class="timeline-dot" aria-hidden="true"></div><div class="timeline-card"><div class="timeline-header"><div><h3>Service Desk Consultant</h3><p class="timeline-company">Missing Piece BV</p></div><div class="timeline-meta"><span class="timeline-badge fulltime">Fulltime</span><span class="timeline-date">jun. 2021 – aug. 2021</span></div></div><p class="timeline-location">📍 Wijk bij Duurstede</p><div class="timeline-tags"><span class="tag">Servicedesk</span><span class="tag">1e lijn</span></div></div></div>
+                    <div class="timeline-item"><div class="timeline-dot" aria-hidden="true"></div><div class="timeline-card"><div class="timeline-header"><div><h3>Service Desk Medewerker</h3><p class="timeline-company">Missing Piece BV</p></div><div class="timeline-meta"><span class="timeline-badge stage">Stage</span><span class="timeline-date">nov. 2018 – mei 2019</span></div></div><p class="timeline-location">📍 Wijk bij Duurstede</p><div class="timeline-tags"><span class="tag">MBO Stage</span><span class="tag">Servicedesk</span></div></div></div>
                 </div>
             </div>
         </section>
 
-        <!-- Blog Section -->
+        <!-- ── Blog ── -->
         <section id="blog" class="blog section" aria-labelledby="blog-heading">
             <div class="container">
                 <div class="section-header">
@@ -744,104 +267,56 @@
                 </div>
                 <div class="blog-grid">
                     <article class="blog-card">
-                        <div class="blog-date" aria-hidden="true">
-                            <span class="day">22</span>
-                            <span class="month">Feb</span>
-                        </div>
+                        <div class="blog-date" aria-hidden="true"><span class="day">22</span><span class="month">Feb</span></div>
                         <h3>Provisioning SharePoint, Teams & Viva Engage</h3>
                         <p>Governed provisioning of SharePoint, Teams, and Viva Engage in Microsoft 365 — without sprawl, without manual work. Learn how <strong>Provision Assist</strong> works, when to use it, how it's built technically, and who's already using it.</p>
-                        <a href="blogs/provision-assist.html" class="read-more">
-                            Read more
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-                                <line x1="5" y1="12" x2="19" y2="12"/>
-                                <polyline points="12 5 19 12 12 19"/>
-                            </svg>
-                        </a>
+                        <a href="blogs/provision-assist.html" class="read-more">Read more <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
                     </article>
                     <article class="blog-card">
-                        <div class="blog-date" aria-hidden="true">
-                            <span class="day">24</span>
-                            <span class="month">Feb</span>
-                        </div>
+                        <div class="blog-date" aria-hidden="true"><span class="day">24</span><span class="month">Feb</span></div>
                         <h3>Archiving MS Teams channels</h3>
                         <p>How do you archive Microsoft Teams channels in compliance with Dutch archiving law? A practical look at MDTO, SIP structures, PDF/A conversion, and how to automate the entire process with Power Automate from Teams to an e-depot.</p>
-                        <a href="blogs/teams-archivering.html" class="read-more">
-                            Read more
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-                                <line x1="5" y1="12" x2="19" y2="12"/>
-                                <polyline points="12 5 19 12 12 19"/>
-                            </svg>
-                        </a>
+                        <a href="blogs/teams-archivering.html" class="read-more">Read more <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
                     </article>
                     <article class="blog-card">
-                        <div class="blog-date" aria-hidden="true">
-                            <span class="day">15</span>
-                            <span class="month">Jan</span>
-                        </div>
+                        <div class="blog-date" aria-hidden="true"><span class="day">15</span><span class="month">Jan</span></div>
                         <h3>Network Segmentation Best Practices</h3>
                         <p>Tips en tricks voor het opzetten van veilige netwerksegmentatie in je homelab of productie omgeving.</p>
-                        <a href="#" class="read-more">
-                            Lees meer
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-                                <line x1="5" y1="12" x2="19" y2="12"/>
-                                <polyline points="12 5 19 12 12 19"/>
-                            </svg>
-                        </a>
+                        <a href="#" class="read-more">Lees meer <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
                     </article>
                 </div>
             </div>
         </section>
 
-        <!-- Contact Section -->
+        <!-- ── Contact ── -->
         <section id="contact" class="contact section" aria-labelledby="contact-heading">
             <div class="container">
                 <div class="section-header">
                     <span class="section-number" aria-hidden="true">06</span>
                     <h2 id="contact-heading">Contact</h2>
                 </div>
-                
                 <div class="contact-content">
                     <div class="contact-info">
                         <h3>Let's Connect!</h3>
-                        <p>Feel free to reach out on GitHub or LinkedIn. I'm always open to collaborations and new opportunities!</p>
-                        
+                        <p>Feel free to reach out on GitHub or LinkedIn.</p>
                         <div class="contact-methods">
-                            <a href="https://github.com/NielsCSC" target="_blank" rel="noopener noreferrer" class="contact-item">
-                                <div class="contact-icon">
-                                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                                        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-                                    </svg>
-                                </div>
-                                <div class="contact-text">
-                                    <strong>GitHub</strong>
-                                    <span>@NielsCSC</span>
-                                </div>
+                            <a href="https://github.com/NielsKok-Labs" class="contact-item" target="_blank" rel="noopener noreferrer" aria-label="GitHub profile NielsKok-Labs">
+                                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                                <div class="contact-text"><strong>GitHub</strong><span>NielsKok-Labs</span></div>
                             </a>
-                            
-                            <a href="https://www.linkedin.com/in/nielskoknl" target="_blank" rel="noopener noreferrer" class="contact-item">
-                                <div class="contact-icon">
-                                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                                        <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
-                                    </svg>
-                                </div>
-                                <div class="contact-text">
-                                    <strong>LinkedIn</strong>
-                                    <span>in/nielskoknl</span>
-                                </div>
+                            <a href="https://www.linkedin.com/in/nielskoknl" class="contact-item" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile nielskoknl">
+                                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                                <div class="contact-text"><strong>LinkedIn</strong><span>in/nielskoknl</span></div>
                             </a>
                         </div>
                     </div>
-                    
-                    <!-- Network canvas rechts -->
-                    <div class="contact-network">
-                        <canvas id="contactCanvas" aria-hidden="true"></canvas>
-                    </div>
+                    <div class="contact-network"><canvas id="contactCanvas" aria-hidden="true"></canvas></div>
                 </div>
             </div>
         </section>
+
     </main>
 
-    <!-- Footer -->
     <footer class="footer" role="contentinfo">
         <div class="container">
             <p>&copy; 2026 Portfolio. Build with GitHub Pages</p>
@@ -852,42 +327,28 @@
         </div>
     </footer>
 
-    <!-- Back to top button -->
     <button class="back-to-top" id="backToTop" aria-label="Back to top">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
-            <polyline points="18 15 12 9 6 15"/>
-        </svg>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="18 15 12 9 6 15"/></svg>
     </button>
 
-    <!-- Command palette -->
     <div class="palette-overlay" id="paletteOverlay">
         <div class="palette">
             <div class="palette-search">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-                    <circle cx="11" cy="11" r="8"/>
-                    <line x1="21" y1="21" x2="16.65" y2="16.65"/>
-                </svg>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
                 <input type="text" id="paletteInput" placeholder="Zoek een sectie..." autocomplete="off" spellcheck="false" aria-label="Search sections"/>
                 <span class="palette-esc" aria-hidden="true">esc</span>
             </div>
             <ul class="palette-results" id="paletteResults" role="listbox"></ul>
             <div class="palette-footer" aria-hidden="true">
-                <span><kbd>↑</kbd><kbd>↓</kbd> navigeren</span>
-                <span><kbd>↵</kbd> ga naar</span>
-                <span><kbd>esc</kbd> sluiten</span>
+                <span><kbd>↑</kbd><kbd>↓</kbd> navigeren</span><span><kbd>↵</kbd> ga naar</span><span><kbd>esc</kbd> sluiten</span>
             </div>
         </div>
     </div>
 
-    <!-- Terminal Easter Egg -->
     <div class="terminal-overlay" id="terminalOverlay">
         <div class="terminal-modal">
             <div class="window-header">
-                <div class="window-dots" aria-hidden="true">
-                    <span class="dot red" id="terminalClose"></span>
-                    <span class="dot yellow"></span>
-                    <span class="dot green"></span>
-                </div>
+                <div class="window-dots" aria-hidden="true"><span class="dot red" id="terminalClose"></span><span class="dot yellow"></span><span class="dot green"></span></div>
                 <span class="window-title">niels@portfolio:~$</span>
                 <span class="terminal-hint-kbd" aria-hidden="true">esc</span>
             </div>
@@ -905,9 +366,7 @@
         </div>
     </div>
 
-    <!-- Screen reader announcements -->
     <div role="status" aria-live="polite" aria-atomic="true" class="sr-only" id="announcements"></div>
-
     <script src="script.js"></script>
 </body>
 </html>
