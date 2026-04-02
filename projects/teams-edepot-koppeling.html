@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="nl" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Geautomatiseerde koppeling tussen Microsoft Teams en een E-depot via Power Automate — van archivering tot ingest via API.">
+    <title>MS Teams → E-depot Koppeling | Portfolio</title>
+    <script>
+        (function() {
+            const saved = localStorage.getItem('theme');
+            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            if (saved === 'dark' || (!saved && prefersDark)) {
+                document.documentElement.setAttribute('data-theme', 'dark');
+            }
+        })();
+    </script>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600;700&family=Manrope:wght@400;600;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Ga naar hoofdinhoud</a>
+
+    <nav class="navbar" role="navigation" aria-label="Hoofdnavigatie">
+        <div class="container">
+            <a href="../index.html" class="logo" aria-label="Home">
+                <svg width="40" height="40" viewBox="0 0 40 40" fill="none" aria-hidden="true">
+                    <rect width="40" height="40" rx="8" fill="url(#logo-gradient)"/>
+                    <path d="M12 12L28 28M28 12L12 28" stroke="white" stroke-width="3" stroke-linecap="round"/>
+                    <defs>
+                        <linearGradient id="logo-gradient" x1="0" y1="0" x2="40" y2="40">
+                            <stop offset="0%" stop-color="#6366f1"/>
+                            <stop offset="100%" stop-color="#8b5cf6"/>
+                        </linearGradient>
+                    </defs>
+                </svg>
+            </a>
+            <ul class="nav-menu">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../index.html#about">Over mij</a></li>
+                <li><a href="../index.html#projects">Projecten</a></li>
+                <li><a href="../index.html#blog">Blog</a></li>
+                <li><a href="../index.html#contact">Contact</a></li>
+            </ul>
+            <div style="display:flex;align-items:center;gap:0.75rem;">
+                <button class="theme-toggle" id="themeToggle" aria-label="Schakel licht/donker thema">
+                    <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+                    <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                        <circle cx="12" cy="12" r="5"/>
+                        <line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+                        <line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+                    </svg>
+                </button>
+                <button class="menu-toggle" aria-label="Menu openen/sluiten" aria-expanded="false">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero blog-hero" aria-labelledby="project-title">
+        <div class="gradient-orb orb-1" aria-hidden="true"></div>
+        <div class="gradient-orb orb-2" aria-hidden="true"></div>
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-tag">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                        <rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/>
+                    </svg>
+                    Client project · M365 / Power Platform / Azure
+                </div>
+                <h1 class="hero-title" id="project-title">MS Teams →<br>Pre-depot Koppeling</h1>
+                <div class="blog-meta">
+                    <span class="blog-meta-item">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                        2025 – 2026
+                    </span>
+                    <span class="blog-meta-item">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                        Succesvol afgerond
+                    </span>
+                    <span class="blog-meta-tag">Power Automate</span>
+                    <span class="blog-meta-tag">Microsoft Teams</span>
+                    <span class="blog-meta-tag">Azure Functions</span>
+                    <span class="blog-meta-tag">Graph API</span>
+                    <span class="blog-meta-tag">M365</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <main id="main-content">
+        <article class="blog-post">
+
+            <p class="lead">
+                Volledig geautomatiseerde koppeling tussen Microsoft Teams en een E-depot via Power Automate. Wanneer een project wordt afgesloten en gearchiveerd in Teams, verzorgt de flow automatisch het verzamelen van alle bestanden, PDF-conversie, metadata-verrijking conform het MDTO-schema, packaging in ZIP en overdracht naar het pre-depot via een ingest-API — waarna het team uit Teams wordt verwijderd.
+            </p>
+
+            <!-- 01 Context -->
+            <div class="section-header">
+                <span class="section-number" aria-hidden="true">01</span>
+                <h2>Context & opdracht</h2>
+            </div>
+            <p>
+                Organisaties die werken met projectteams in Microsoft Teams lopen tegen een governance-probleem aan: als een project klaar is, blijft het team bestaan in Teams terwijl de inhoud eigenlijk duurzaam gearchiveerd moet worden in een E-depot. Dit handmatig doen is tijdrovend, foutgevoelig en niet schaalbaar.
+            </p>
+            <p>
+                De opdracht was het bouwen van een geautomatiseerde koppeling die dit proces volledig afhandelt — van selectie door een geautoriseerde gebruiker tot bevestiging in Teams en verwijdering van het team. Het eindresultaat is een werkende Power Automate-oplossing die via de Workflows-app in Teams te bedienen is.
+            </p>
+
+            <!-- 02 Architectuur -->
+            <div class="section-header">
+                <span class="section-number" aria-hidden="true">02</span>
+                <h2>Architectuur</h2>
+            </div>
+            <p>
+                De oplossing bestaat uit twee flows en zes processen die samen de volledige levenscyclus van archivering afhandelen. Een dagelijkse GUID-flow houdt een actuele lijst bij van gearchiveerde Teams. De hoofdflow wordt handmatig gestart vanuit de Workflows-app in Teams door een geautoriseerde gebruiker.
+            </p>
+
+            <div class="tech-stack-grid">
+                <div class="tech-card" style="border-color:rgba(99,102,241,0.3);">
+                    <strong style="color:#6366f1;font-family:'Fira Code',monospace;">F1</strong>
+                    <strong>GUID-flow</strong>
+                    <p>Dagelijkse scheduled flow die alle Teams ophaalt, controleert welke gearchiveerd zijn en hun ID's wegschrijft naar een Dataverse-tabel.</p>
+                </div>
+                <div class="tech-card" style="border-color:rgba(14,165,233,0.3);">
+                    <strong style="color:#0ea5e9;font-family:'Fira Code',monospace;">F2</strong>
+                    <strong>Archiveringsflow</strong>
+                    <p>Handmatig gestart vanuit Teams Workflows. Verzorgt de volledige pipeline: selectie → bestanden → PDF → metadata → ZIP → ingest → notificatie → verwijdering.</p>
+                </div>
+                <div class="tech-card" style="border-color:rgba(16,185,129,0.3);">
+                    <strong style="color:#10b981;font-family:'Fira Code',monospace;">AZ</strong>
+                    <strong>Azure Functions</strong>
+                    <p>Ingezet voor het zippen van de bestanden inclusief volledige mappenstructuur en behoud van bestandseigenschappen.</p>
+                </div>
+            </div>
+
+            <!-- 03 De zes processen -->
+            <div class="section-header">
+                <span class="section-number" aria-hidden="true">03</span>
+                <h2>De zes processen stap voor stap</h2>
+            </div>
+
+            <div class="process-steps">
+                <div class="process-step">
+                    <div class="process-step-number">1</div>
+                    <div class="process-step-content">
+                        <strong>Teamselectie via adaptive card</strong>
+                        <p>De geautoriseerde gebruiker opent de archiveringsflow via de Workflows-app in Teams. Via een adaptive card in de Teams-chat selecteert de gebruiker één gearchiveerd team uit de lijst. Vervolgens worden de kanalen van dat team getoond ter bevestiging.</p>
+                    </div>
+                </div>
+                <div class="process-step">
+                    <div class="process-step-number">2</div>
+                    <div class="process-step-content">
+                        <strong>Bestanden verzamelen & PDF-conversie</strong>
+                        <p>Het serviceaccount haalt alle kanalen op en doorloopt de volledige mappenstructuur. Office-bestanden (Word, Excel, PowerPoint) worden via de Graph API geconverteerd naar PDF. Het originele bestand blijft behouden naast de PDF-versie. Niet-converteerbare bestanden worden gelogd in een errorlog.</p>
+                    </div>
+                </div>
+                <div class="process-step">
+                    <div class="process-step-number">3</div>
+                    <div class="process-step-content">
+                        <strong>Metadata verrijking (MDTO)</strong>
+                        <p>Voor elk bestand en elke informatieobjectmap wordt een XML-sidecar aangemaakt conform het MDTO-schema. De bestaande metadata wordt uitgelezen en aangevuld. Elk XML-bestand bevat het verplichte "overbrenging"-event en voldoet aan de MDTO-structuur voor duurzame archivering.</p>
+                    </div>
+                </div>
+                <div class="process-step">
+                    <div class="process-step-number">4</div>
+                    <div class="process-step-content">
+                        <strong>ZIP en overdracht naar pre-depot</strong>
+                        <p>Een Azure Function zipt alle bestanden, PDF's en XML-sidecars inclusief de originele mappenstructuur (kanalen → mappen). De ZIP wordt gesorteerd verzonden naar het E-depot via de ingest-API: eerst de hoofd-site, dan de sub-sites van gedeelde en privékanalen — zodat de relaties tussen bestanden en informatieobjecten in de XML's correct kunnen worden verwerkt.</p>
+                    </div>
+                </div>
+                <div class="process-step">
+                    <div class="process-step-number">5</div>
+                    <div class="process-step-content">
+                        <strong>Gebruikersnotificatie</strong>
+                        <p>Na afronding ontvangt de gebruiker automatisch een bericht in de Teams-chat: bij succes een bevestiging, bij een fout een foutmelding met details. Het team wordt alleen verwijderd als alle uploads succesvol zijn verlopen.</p>
+                    </div>
+                </div>
+                <div class="process-step">
+                    <div class="process-step-number">6</div>
+                    <div class="process-step-content">
+                        <strong>Team verwijderen uit Teams</strong>
+                        <p>Bij volledige succesvolle archivering wordt het team via de Graph API verwijderd uit Microsoft Teams (soft delete — 30 dagen herstelbaar). De volledige lifecycle van project tot archief is daarmee afgerond.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 04 Technische details -->
+            <div class="section-header">
+                <span class="section-number" aria-hidden="true">04</span>
+                <h2>Technische details</h2>
+            </div>
+            <p>
+                De koppeling met de Graph API loopt via een Azure App Registration met een service principal. De benodigde permissies zijn zo minimaal mogelijk gehouden: <code>Team.ReadBasic.All</code> voor het ophalen van gearchiveerde teams, <code>Sites.ReadWrite.All</code> voor PDF-conversie en bestandsbeheer, en <code>Group.ReadWrite.All</code> om het serviceaccount tijdelijk als eigenaar toe te voegen aan de teamsite voor de workflow-acties.
+            </p>
+            <p>
+                De verbinding met het E-depot verloopt via de ingest-API van het depot-platform. Bij het opzetten van de verbinding worden een sessie-cookie en CSRF-token opgehaald die worden meegestuurd bij elke uploadactie. De ingest-mode staat op <code>false</code> zodat ZIP-bestanden in het pre-depot terechtkomen en niet direct worden opgenomen in het archief — een bewuste keuze voor een extra validatiestap.
+            </p>
+
+            <div class="blog-callout">
+                <div class="blog-callout-icon" aria-hidden="true">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                </div>
+                <div>
+                    <strong>Azure Functions voor ZIP — bewuste keuze</strong>
+                    <p>Voor het zippen is gekozen voor een Azure Functions App. Dit geeft volledige controle over bestandseigenschappen zoals aanmaakdatum en metadata — iets wat Power Automate Desktop en externe connectors niet garanderen voor duurzame archivering.</p>
+                </div>
+            </div>
+
+            <!-- 05 Resultaat -->
+            <div class="section-header">
+                <span class="section-number" aria-hidden="true">05</span>
+                <h2>Resultaat</h2>
+            </div>
+            <p>
+                Het volledige archiveringsproces — van teamselectie door een geautoriseerde gebruiker tot bevestiging en verwijdering — verloopt geautomatiseerd zonder handmatige tussenkomst. De mappenstructuur van Teams (kanalen en submappen) blijft intact in het ZIP-archief. Van elk Office-bestand is een PDF-versie aanwezig naast het origineel. Elk bestand is voorzien van een MDTO-conforme XML-sidecar. Het team wordt na succesvolle archivering opgeruimd uit Teams.
+            </p>
+            <ul>
+                <li>Dagelijkse GUID-flow draait stabiel en houdt de lijst met gearchiveerde teams actueel</li>
+                <li>Adaptive cards in Teams zorgen voor een gebruiksvriendelijke bediening zonder aparte applicatie</li>
+                <li>Foutafhandeling via try/catch met errorlogging per bestand</li>
+                <li>Team wordt alleen verwijderd bij volledig succesvolle upload — geen dataverlies bij fouten</li>
+            </ul>
+
+        </article>
+    </main>
+
+    <footer class="footer" role="contentinfo">
+        <div class="container">
+            <p>&copy; 2026 Portfolio. Gebouwd met GitHub Pages</p>
+            <nav class="footer-links" aria-label="Footer navigatie">
+                <a href="https://github.com/NielsKok-Labs">GitHub</a>
+                <a href="https://www.linkedin.com/in/nielskoknl">LinkedIn</a>
+            </nav>
+        </div>
+    </footer>
+
+    <button class="back-to-top" id="backToTop" aria-label="Terug naar boven">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+            <polyline points="18 15 12 9 6 15"/>
+        </svg>
+    </button>
+
+    <script src="../script.js"></script>
+</body>
+</html>
