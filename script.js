@@ -333,7 +333,10 @@ function initFilters(grid, isHomePage) {
 const homeGrid = el('projectsGrid');
 if (homeGrid) {
     fetch('projects.json')
-        .then(r => r.json())
+        .then(r => {
+            if (!r.ok) throw new Error(`HTTP ${r.status}`);
+            return r.json();
+        })
         .then(data => {
             allProjects = data;
             renderProjectsToGrid(homeGrid, data, true);
@@ -348,7 +351,10 @@ if (homeGrid) {
 const allGrid = el('allProjectsGrid');
 if (allGrid) {
     fetch('projects.json')
-        .then(r => r.json())
+        .then(r => {
+            if (!r.ok) throw new Error(`HTTP ${r.status}`);
+            return r.json();
+        })
         .then(data => {
             allProjects = data;
             renderProjectsToGrid(allGrid, data, false);
