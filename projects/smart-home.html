@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="nl" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zelf-gehost Smart Home Platform | Niels Kok</title>
+    <script>
+        (function() {
+            const saved = localStorage.getItem('theme');
+            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            if (saved === 'dark' || (!saved && prefersDark)) {
+                document.documentElement.setAttribute('data-theme', 'dark');
+            }
+        })();
+    </script>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="../blog.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600;700&family=Manrope:wght@400;600;800&display=swap" rel="stylesheet">
+    <style>
+        /* ── Demo grid ─────────────────────────────────────────────────────── */
+        .demo-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.25rem;
+            margin: 1.75rem 0 1.25rem;
+        }
+
+        @media (max-width: 768px) {
+            .demo-grid { grid-template-columns: 1fr; }
+        }
+
+        .demo-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            overflow: hidden;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .demo-card:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .demo-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .demo-card-label {
+            padding: 0.75rem 1rem;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--text-secondary);
+            font-family: 'Fira Code', monospace;
+            border-top: 1px solid var(--border);
+        }
+
+        .demo-full {
+            margin: 1.25rem 0 2rem;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            overflow: hidden;
+        }
+
+        .demo-full img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .demo-full-label {
+            padding: 0.75rem 1.25rem;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--text-secondary);
+            font-family: 'Fira Code', monospace;
+            border-top: 1px solid var(--border);
+        }
+
+        /* ── Architecture pill list ─────────────────────────────────────────── */
+        .arch-list {
+            list-style: none;
+            padding: 0;
+            margin: 1.25rem 0 1.75rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .arch-list li {
+            display: flex;
+            align-items: baseline;
+            gap: 0.75rem;
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            padding-left: 0;
+        }
+
+        .arch-list li::before {
+            content: '';
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            flex-shrink: 0;
+            margin-top: 0.45em;
+        }
+
+        .arch-list li strong {
+            color: var(--text);
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar" role="navigation" aria-label="Hoofdnavigatie">
+        <div class="container">
+            <a href="../index.html" class="logo" aria-label="Niels Kok - Home">
+                <svg width="40" height="40" viewBox="0 0 40 40" fill="none" aria-hidden="true">
+                    <rect width="40" height="40" rx="8" fill="url(#logo-gradient)"/>
+                    <path d="M12 12L28 28M28 12L12 28" stroke="white" stroke-width="3" stroke-linecap="round"/>
+                    <defs>
+                        <linearGradient id="logo-gradient" x1="0" y1="0" x2="40" y2="40">
+                            <stop offset="0%" stop-color="#6366f1"/>
+                            <stop offset="100%" stop-color="#8b5cf6"/>
+                        </linearGradient>
+                    </defs>
+                </svg>
+                <span>Niels Kok</span>
+            </a>
+            <ul class="nav-menu">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../index.html#about">Over mij</a></li>
+                <li><a href="../index.html#projects">Projecten</a></li>
+                <li><a href="../index.html#blog">Blog</a></li>
+                <li><a href="../index.html#contact">Contact</a></li>
+            </ul>
+            <div style="display:flex;align-items:center;gap:0.75rem;">
+                <button class="theme-toggle" id="themeToggle" aria-label="Schakel licht/donker thema">
+                    <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+                    <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                        <circle cx="12" cy="12" r="5"/>
+                        <line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+                        <line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+                    </svg>
+                </button>
+                <button class="menu-toggle" id="menuToggle" aria-label="Menu openen/sluiten" aria-expanded="false">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero blog-hero" aria-labelledby="project-title">
+        <div class="gradient-orb orb-1" aria-hidden="true"></div>
+        <div class="gradient-orb orb-2" aria-hidden="true"></div>
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-tag">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/>
+                    </svg>
+                    Homelab · Zelf-gehost
+                </div>
+                <h1 class="hero-title" id="project-title">Zelf-gehost Smart Home<br>Automatiseringsplatform</h1>
+                <div class="blog-meta">
+                    <span class="blog-meta-item">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                        2024 – heden
+                    </span>
+                    <span class="blog-meta-item">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                        Actief
+                    </span>
+                    <span class="blog-meta-tag">Docker</span>
+                    <span class="blog-meta-tag">Home Assistant</span>
+                    <span class="blog-meta-tag">Tailscale</span>
+                    <span class="blog-meta-tag">Raspberry Pi</span>
+                    <span class="blog-meta-tag">n8n</span>
+                </div>
+                <div style="margin-top:1.5rem;">
+                    <a href="https://github.com/NielsKok-Labs/proj-hass" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="display:inline-flex;align-items:center;gap:0.5rem;padding:0.75rem 1.5rem;font-size:0.9rem;">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                        Bekijk repo
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <main id="main-content">
+        <article class="blog-post">
+
+            <p class="lead">
+                Een volledig zelf-gehost smart home platform op een Raspberry Pi met Docker. Gebouwd rond modulariteit, service-isolatie en energiebewuste automatiseringslogica — zonder cloud-afhankelijkheid en zonder poorten open naar het internet.
+            </p>
+
+            <!-- 01 Architectuur -->
+            <div class="section-header">
+                <span class="section-number" aria-hidden="true">01</span>
+                <h2>Systeemarchitectuur</h2>
+            </div>
+            <p>
+                Alle services draaien als Docker-containers op een Raspberry Pi. Elke service heeft zijn eigen lifecycle, kan onafhankelijk worden geüpdatet of teruggerold, en is geïsoleerd van de rest van het systeem.
+            </p>
+
+            <div class="tech-stack-grid">
+                <div class="tech-card">
+                    <div class="tech-card-icon" style="background:linear-gradient(135deg,#18BCEF,#0d8dbf);">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+                    </div>
+                    <strong>Home Assistant</strong>
+                    <p>Primaire automatiserings- en orkestratielaag. Beheert alle productie-automaties — deterministisch en stabiel.</p>
+                </div>
+                <div class="tech-card">
+                    <div class="tech-card-icon" style="background:linear-gradient(135deg,#ea580c,#c2410c);">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 1v6m0 6v6M5.64 5.64l4.24 4.24m4.24 4.24l4.24 4.24M1 12h6m6 0h6"/></svg>
+                    </div>
+                    <strong>Music Assistant</strong>
+                    <p>Multi-room audio abstractielaag. Ontkoppelt automatiseringslogica van leveranciersspecifieke ecosystemen (Sonos-integratie).</p>
+                </div>
+                <div class="tech-card">
+                    <div class="tech-card-icon" style="background:linear-gradient(135deg,#e5a00d,#b07d09);">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg>
+                    </div>
+                    <strong>Plex Media Server</strong>
+                    <p>Geïsoleerde container voor lokale mediastreaming. Onafhankelijk van andere services, volledig binnen het eigen netwerk.</p>
+                </div>
+                <div class="tech-card">
+                    <div class="tech-card-icon" style="background:linear-gradient(135deg,#ea4b71,#b02050);">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+                    </div>
+                    <strong>n8n</strong>
+                    <p>PoC-omgeving voor workflow-automatisering en externe integraties. Bewust gescheiden van Home Assistant om kernstabiliteit te bewaken.</p>
+                </div>
+                <div class="tech-card">
+                    <div class="tech-card-icon" style="background:linear-gradient(135deg,#3b82f6,#1d4ed8);">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                    </div>
+                    <strong>Tailscale VPN</strong>
+                    <p>Veilige remote connectiviteit zonder reverse proxy of open poorten. Versleuteld device-to-device verkeer via WireGuard.</p>
+                </div>
+            </div>
+
+            <!-- 02 Security -->
+            <div class="section-header">
+                <span class="section-number" aria-hidden="true">02</span>
+                <h2>Security model</h2>
+            </div>
+            <p>
+                Het platform is ontworpen met een remote-first security model: geen enkel intern service-endpoint is direct bereikbaar vanaf het internet.
+            </p>
+            <ul class="arch-list">
+                <li><strong>Geen open inbound poorten</strong> — alle externe toegang verloopt via Tailscale</li>
+                <li><strong>WireGuard-encryptie</strong> — versleuteld verkeer tussen apparaten, ook op externe netwerken</li>
+                <li><strong>Netwerksegmentatie</strong> — services zijn geïsoleerd op netwerkniveau binnen de lokale omgeving</li>
+                <li><strong>Secrets gescheiden van configuratie</strong> — geen credentials in Docker Compose of YAML-bestanden</li>
+            </ul>
+
+            <!-- 03 Energiebewuste automatisering -->
+            <div class="section-header">
+                <span class="section-number" aria-hidden="true">03</span>
+                <h2>Energiebewuste automatiseringslogica</h2>
+            </div>
+            <p>
+                Een kernfocus van het platform is adaptief energieverbruik. Het systeem monitort continu de energieinvoer en past het gebruik van verbruikers daarop aan — niet met vaste schema's, maar op basis van actuele condities.
+            </p>
+            <ul class="arch-list">
+                <li><strong>Klimaatsystemen</strong> activeren alleen bij overschot aan beschikbare energie</li>
+                <li><strong>Verbruik wordt gereduceerd</strong> tijdens perioden van lage productie</li>
+                <li><strong>Pieken worden voorkomen</strong> via conditionele triggers en prioriteitslogica</li>
+            </ul>
+            <p>
+                Het doel is niet simpele automatisering, maar responsief systeemgedrag op basis van omgevingsinput.
+            </p>
+
+            <!-- 04 Audio abstractie -->
+            <div class="section-header">
+                <span class="section-number" aria-hidden="true">04</span>
+                <h2>Multi-room audio abstractie</h2>
+            </div>
+            <p>
+                Music Assistant ontkoppelt de automatiseringslogica van het specifieke audiomerk. Speakers worden een implementatiedetail — de automatisering spreekt één abstractielaag aan, ongeacht of het Sonos, een Chromecast of iets anders is.
+            </p>
+            <ul class="arch-list">
+                <li>Geünificeerde aansturing van meerdere speakers</li>
+                <li>Gesynchroniseerde multi-room weergave</li>
+                <li>Automatiseringsgestuurde aankondigingen en contextbewust audiogedrag</li>
+                <li>Leverancier-onafhankelijk — speaker-merk is een implementatiedetail, geen systeembeperking</li>
+            </ul>
+
+            <!-- 05 Automatiseringslagen -->
+            <div class="section-header">
+                <span class="section-number" aria-hidden="true">05</span>
+                <h2>Gelaagde automatiseringsstrategie</h2>
+            </div>
+
+            <div class="blog-callout">
+                <div class="blog-callout-icon" aria-hidden="true">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4"/><path d="M21 12c0 4.97-4.03 9-9 9S3 16.97 3 12 7.03 3 12 3s9 4.03 9 9z"/></svg>
+                </div>
+                <div>
+                    <strong>Home Assistant vs. n8n — bewuste scheiding</strong>
+                    <p>Home Assistant beheert alle deterministische, productie-grade automaties. n8n is een aparte PoC-omgeving voor experimentele logica en externe integraties. Door deze scheiding blijft de kern van het smart home stabiel, ook als een experiment misgaat.</p>
+                </div>
+            </div>
+
+            <!-- 06 Demo -->
+            <div class="section-header">
+                <span class="section-number" aria-hidden="true">06</span>
+                <h2>Demo</h2>
+            </div>
+            <p>
+                Hieronder een aantal live opnames van het dashboard en de automatiseringsinterfaces.
+            </p>
+
+            <div class="demo-grid">
+                <div class="demo-card">
+                    <img src="../assets/projects/hassio/energy.gif" alt="Energy Dashboard — real-time energieverbruik en -productie" loading="lazy">
+                    <div class="demo-card-label">Energy Dashboard</div>
+                </div>
+                <div class="demo-card">
+                    <img src="../assets/projects/hassio/v1.gif" alt="Verdieping 1 overzicht — ruimtestatus en klimaatbeheer" loading="lazy">
+                    <div class="demo-card-label">Verdieping 1 overzicht</div>
+                </div>
+                <div class="demo-card">
+                    <img src="../assets/projects/hassio/buttons.gif" alt="Automatiseringsbediening — snelkoppelingen en scènes" loading="lazy">
+                    <div class="demo-card-label">Automatiseringsbediening</div>
+                </div>
+            </div>
+
+            <div class="demo-full">
+                <img src="../assets/projects/hassio/flpl.gif" alt="Interactieve plattegrond — live ruimtestatus op schaal" loading="lazy">
+                <div class="demo-full-label">Interactieve plattegrond</div>
+            </div>
+            <!-- Resultaat -->
+            <div class="section-header">
+                <span class="section-number" aria-hidden="true">07</span>
+                <h2>Wat dit project laat zien</h2>
+            </div>
+
+            <div class="tech-stack-grid">
+                <div class="tech-card" style="border-color:rgba(16,185,129,0.3);">
+                    <strong style="color:#10b981;">Container-orkestratie</strong>
+                    <p>Praktische Docker-implementatie op beperkte hardware, met lifecycle-isolatie per service.</p>
+                </div>
+                <div class="tech-card" style="border-color:rgba(99,102,241,0.3);">
+                    <strong style="color:#6366f1;">Remote-first security</strong>
+                    <p>Veilige toegang zonder reverse proxy of open poorten — via Tailscale en WireGuard.</p>
+                </div>
+                <div class="tech-card" style="border-color:rgba(14,165,233,0.3);">
+                    <strong style="color:#0ea5e9;">Energiebewust ontwerp</strong>
+                    <p>Adaptieve automatiseringslogica op basis van actuele energieconditie, niet op vaste schema's.</p>
+                </div>
+                <div class="tech-card" style="border-color:rgba(245,158,11,0.3);">
+                    <strong style="color:#f59e0b;">Vendor abstractie</strong>
+                    <p>Audio en andere ecosystemen zijn geabstraheerd — leverancierswisseling vereist geen aanpassing van de automatiseringslogica.</p>
+                </div>
+                <div class="tech-card" style="border-color:rgba(236,72,153,0.3);">
+                    <strong style="color:#ec4899;">Gelaagde automatisering</strong>
+                    <p>Stabiele productie-automaties in Home Assistant, experimentele workflows in n8n — bewust gescheiden.</p>
+                </div>
+                <div class="tech-card" style="border-color:rgba(16,185,129,0.3);">
+                    <strong style="color:#10b981;">Infra-beslissingen in de praktijk</strong>
+                    <p>Elk architectuurkeuze is gedreven door een concreet doel — geen over-engineering, geen onnodige afhankelijkheden.</p>
+                </div>
+            </div>
+
+            <div class="blog-links-box">
+                <h3>🔗 Repository</h3>
+                <ul>
+                    <li>
+                        <a href="https://github.com/NielsKok-Labs/proj-hass" target="_blank" rel="noopener noreferrer">github.com/NielsKok-Labs/proj-hass</a>
+                        — Architectuurdocumentatie, ontwerpkeuzes en automatiseringsstrategie.
+                    </li>
+                </ul>
+            </div>
+
+        </article>
+    </main>
+
+    <footer class="footer" role="contentinfo">
+        <div class="container">
+            <p>&copy; 2026 Portfolio. Gebouwd met GitHub Pages</p>
+            <nav class="footer-links" aria-label="Footer navigatie">
+                <a href="https://github.com/NielsKok-Labs">GitHub</a>
+                <a href="https://www.linkedin.com/in/nielskoknl">LinkedIn</a>
+            </nav>
+        </div>
+    </footer>
+
+    <button class="back-to-top" id="backToTop" aria-label="Terug naar boven">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+            <polyline points="18 15 12 9 6 15"/>
+        </svg>
+    </button>
+
+    <script src="../script.js"></script>
+</body>
+</html>
