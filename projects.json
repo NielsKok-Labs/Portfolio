@@ -2,7 +2,7 @@
   {
     "id": "m365-tenant-hardening",
     "title": "Microsoft 365 Tenant Security Hardening",
-    "description": "Volledige security-hardening van een M365-tenant op basis van de CIS Benchmark en Microsoft best practices. Entra ID, Conditional Access (17 policies), SharePoint, Teams en Purview — Secure Score 73,96% tegenover industriegemiddelde van 45,31%.",
+    "description": "Nieuwe Microsoft 365-tenant volledig van scratch opgezet en beveiligd — van initiële aanmaak tot afgeharde productieomgeving. Entra ID, Conditional Access (17 policies), SharePoint, Teams en Purview ingericht conform CIS Benchmark. Secure Score: 73,96% tegenover industriegemiddelde van 45,31%.",
     "tags": ["M365", "Security", "Azure"],
     "link": "projects/m365-tenant-hardening.html",
     "linkType": "page",
