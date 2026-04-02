@@ -1,5 +1,16 @@
 [
   {
+    "id": "m365-tenant-hardening",
+    "title": "Microsoft 365 Tenant Security Hardening",
+    "description": "Volledige security-hardening van een M365-tenant op basis van de CIS Benchmark en Microsoft best practices. Entra ID, Conditional Access (17 policies), SharePoint, Teams en Purview — Secure Score 73,96% tegenover industriegemiddelde van 45,31%.",
+    "tags": ["M365", "Security", "Azure"],
+    "link": "projects/m365-tenant-hardening.html",
+    "linkType": "page",
+    "status": "completed",
+    "date": "2025 – 2026",
+    "image": "security"
+  },
+  {
     "id": "waterschap-metadata",
     "title": "Waterschap Metadata Migratie SPO",
     "description": "400 actieve SharePoint-sites voorzien van een nieuw metadata-schema. Sharegate schoot tekort bij multi-site operaties — eigen scripts gebouwd met volledige logging en rapportage.",
