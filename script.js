@@ -270,6 +270,44 @@ const PROJECT_IMAGES = {
                     </linearGradient>
                 </defs>
             </svg>
+        </div>`,
+    
+    teams: `
+        <div class="placeholder-image" style="width:100%;height:100%;">
+            <svg viewBox="0 0 400 220" fill="none" style="width:100%;height:100%;">
+                <rect width="400" height="220" fill="url(#teams-bg)"/>
+                <!-- Teams icon simplified -->
+                <rect x="30" y="55" width="100" height="110" rx="14" fill="white" fill-opacity="0.12"/>
+                <text x="80" y="122" font-size="38" text-anchor="middle" fill="white" fill-opacity="0.7" font-family="sans-serif">T</text>
+                <!-- Arrow -->
+                <line x1="148" y1="110" x2="195" y2="110" stroke="white" stroke-opacity="0.5" stroke-width="2.5"/>
+                <polyline points="188,103 196,110 188,117" fill="none" stroke="white" stroke-opacity="0.5" stroke-width="2.5"/>
+                <!-- Archive box -->
+                <rect x="205" y="70" width="90" height="80" rx="10" fill="white" fill-opacity="0.12"/>
+                <rect x="205" y="70" width="90" height="18" rx="10" fill="white" fill-opacity="0.18"/>
+                <line x1="238" y1="70" x2="238" y2="88" stroke="white" stroke-opacity="0.15" stroke-width="1"/>
+                <line x1="262" y1="70" x2="262" y2="88" stroke="white" stroke-opacity="0.15" stroke-width="1"/>
+                <rect x="222" y="100" width="56" height="8" rx="3" fill="white" fill-opacity="0.2"/>
+                <rect x="222" y="115" width="40" height="8" rx="3" fill="white" fill-opacity="0.15"/>
+                <!-- Small XML tag -->
+                <rect x="310" y="75" width="60" height="30" rx="6" fill="white" fill-opacity="0.1"/>
+                <text x="340" y="95" font-size="11" text-anchor="middle" fill="white" fill-opacity="0.6" font-family="monospace">&lt;xml/&gt;</text>
+                <!-- ZIP label -->
+                <rect x="310" y="115" width="60" height="30" rx="6" fill="white" fill-opacity="0.1"/>
+                <text x="340" y="135" font-size="11" text-anchor="middle" fill="white" fill-opacity="0.6" font-family="monospace">.zip</text>
+                <!-- Flow dots -->
+                <circle cx="155" cy="170" r="4" fill="white" fill-opacity="0.2"/>
+                <circle cx="175" cy="170" r="4" fill="white" fill-opacity="0.3"/>
+                <circle cx="195" cy="170" r="4" fill="white" fill-opacity="0.4"/>
+                <circle cx="215" cy="170" r="4" fill="white" fill-opacity="0.3"/>
+                <circle cx="235" cy="170" r="4" fill="white" fill-opacity="0.2"/>
+                <defs>
+                    <linearGradient id="teams-bg" x1="0" y1="0" x2="400" y2="220" gradientUnits="userSpaceOnUse">
+                        <stop offset="0%" stop-color="#4b4acf"/>
+                        <stop offset="100%" stop-color="#0ea5e9"/>
+                    </linearGradient>
+                </defs>
+            </svg>
         </div>`
 };
 
