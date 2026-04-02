@@ -21,7 +21,6 @@
 </head>
 <body>
 
-    <!-- Navbar -->
     <nav class="navbar" role="navigation" aria-label="Hoofdnavigatie">
         <div class="container">
             <a href="../index.html" class="logo" aria-label="Niels Kok - Home">
@@ -44,11 +43,9 @@
                 <li><a href="../index.html#blog">Blog</a></li>
                 <li><a href="../index.html#contact">Contact</a></li>
             </ul>
-            <div style="display:flex; align-items:center; gap:0.75rem;">
-                <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
-                    <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
-                    </svg>
+            <div style="display:flex;align-items:center;gap:0.75rem;">
+                <button class="theme-toggle" id="themeToggle" aria-label="Schakel licht/donker thema">
+                    <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
                     <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
                         <circle cx="12" cy="12" r="5"/>
                         <line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/>
@@ -57,14 +54,13 @@
                         <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
                     </svg>
                 </button>
-                <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu" aria-expanded="false">
+                <button class="menu-toggle" id="menuToggle" aria-label="Menu openen/sluiten" aria-expanded="false">
                     <span></span><span></span><span></span>
                 </button>
             </div>
         </div>
     </nav>
 
-    <!-- Hero -->
     <section class="hero blog-hero" aria-labelledby="project-title">
         <div class="gradient-orb orb-1" aria-hidden="true"></div>
         <div class="gradient-orb orb-2" aria-hidden="true"></div>
@@ -89,18 +85,17 @@
                     <span class="blog-meta-tag">PowerShell</span>
                     <span class="blog-meta-tag">SharePoint Online</span>
                     <span class="blog-meta-tag">PnP</span>
-                    <span class="blog-meta-tag">Automation</span>
+                    <span class="blog-meta-tag">Automatisering</span>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Content -->
     <main id="main-content">
         <article class="blog-post">
 
             <p class="lead">
-                Een waterschap had een nieuw metadata-schema vastgesteld voor alle Teams- en SharePoint-sites als onderdeel van hun nieuwe informatiehuishouding. Circa 400 actieve sites moesten worden bijgewerkt — gefaseerd, geautomatiseerd en volledig gelogd.
+                Een waterschap stelde een nieuw metadata-schema vast voor alle Teams- en SharePoint-sites. Circa 400 actieve sites moesten worden bijgewerkt: content types mappen, gevoeligheidslabels instellen, Document IDs activeren en bestaande documenten voorzien van verplichte metadata — volledig geautomatiseerd en met eigen logging.
             </p>
 
             <!-- 01 Context -->
@@ -109,19 +104,19 @@
                 <h2>Context & opdracht</h2>
             </div>
             <p>
-                Het waterschap had een nieuw metadata-schema ingevoerd: elke actieve Teams- of SharePoint-site moest worden voorzien van verplichte velden zoals content type, status, gevoeligheidslabel en Document ID. Doel: informatie uniform vastleggen, beter vindbaar en beheerbaar maken.
+                Het waterschap had een nieuw metadata-schema ingevoerd als onderdeel van de nieuwe informatiehuishouding. Elke actieve Teams- of SharePoint-site moest worden voorzien van een custom content type, een gevoeligheidslabel, een actieve Document ID-service en correcte statuswaarden op documentniveau. Doel: informatie uniform vastleggen, beter vindbaar en beheerbaar maken.
             </p>
             <p>
-                De uitvoering werd opgedeeld in drie fasen — eerst de niet-projectsites, daarna reguliere projectsites, en als laatste de complexere SLD-projectsites (Sterke Lekdijk). Niet-actieve sites vielen buiten scope.
+                Niet-actieve sites vielen buiten scope. De omgeving telde circa 400 actieve sites, verspreid over meerdere site-typen met elk hun eigen content type mapping.
             </p>
 
-            <!-- 02 Uitdaging -->
+            <!-- 02 Uitdaging: Sharegate -->
             <div class="section-header">
                 <span class="section-number" aria-hidden="true">02</span>
                 <h2>De uitdaging: Sharegate schiet tekort</h2>
             </div>
             <p>
-                De eerste aanname was dat Sharegate dit kon afhandelen. Dat bleek niet zo: bulk-edit van metadata werkt in Sharegate alleen <em>per site</em> en kan niet over meerdere sites tegelijk worden uitgevoerd. Voor 400 sites is dat onwerkbaar.
+                De oorspronkelijke aanpak was om Sharegate te gebruiken voor het mappen van het standaard <em>Document</em> content type naar het custom content type van het waterschap. Sharegate ondersteunt dit, maar alleen handmatig — per site en per bibliotheek. Voor 400 sites is dat onwerkbaar.
             </p>
 
             <div class="blog-callout">
@@ -129,68 +124,21 @@
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
                 </div>
                 <div>
-                    <strong>Sharegate-beperking ontdekt</strong>
-                    <p>Bulk-edit van content types en metadata is in Sharegate alleen per site mogelijk — geen multi-site operaties. We moesten onze eigen tooling bouwen op basis van PnP PowerShell en de Graph API.</p>
+                    <strong>Sharegate-beperking</strong>
+                    <p>Het mappen van content types in Sharegate vereist handmatige actie per site én per bibliotheek. Er is geen bulk- of multi-site operatie mogelijk. Voor een omgeving van 400+ sites is dat geen optie — dus hebben we het gescript.</p>
                 </div>
             </div>
 
-            <!-- 03 Technische aanpak -->
+            <!-- 03 Content types: eerlijk verhaal -->
             <div class="section-header">
                 <span class="section-number" aria-hidden="true">03</span>
-                <h2>Technische aanpak</h2>
+                <h2>Content types als metadata-drager — een pragmatische keuze</h2>
             </div>
             <p>
-                Vijf PowerShell-scripts, elk verantwoordelijk voor één stap in het proces. Sites werden aangeleverd via CSV, zodat batches flexibel samengesteld konden worden. Elke run produceerde gestructureerde logs per site.
-            </p>
-
-            <div class="process-steps">
-                <div class="process-step">
-                    <div class="process-step-number">1</div>
-                    <div class="process-step-content">
-                        <strong>Document ID Service activeren</strong>
-                        <p>Via PnP de Document ID-service inschakelen op alle relevante bibliotheken — vereiste voor de overige metadata-stappen.</p>
-                    </div>
-                </div>
-                <div class="process-step">
-                    <div class="process-step-number">2</div>
-                    <div class="process-step-content">
-                        <strong>Content type koppelen</strong>
-                        <p>Per site type (Samenwerkteam / Organisatieteam / Projectteam BIM) het juiste content type koppelen aan alle bibliotheken, met een exclude-lijst voor systeembibliotheken zoals SiteAssets en Site Pages.</p>
-                    </div>
-                </div>
-                <div class="process-step">
-                    <div class="process-step-number">3</div>
-                    <div class="process-step-content">
-                        <strong>Gevoeligheidslabel instellen</strong>
-                        <p>Sensitivity label automatisch toewijzen op site- en bibliotheekniveau via de Microsoft Graph API.</p>
-                    </div>
-                </div>
-                <div class="process-step">
-                    <div class="process-step-number">4</div>
-                    <div class="process-step-content">
-                        <strong>Bibliotheekweergave aanpassen</strong>
-                        <p>De standaardweergave bijwerken zodat de nieuwe metadata-kolommen direct zichtbaar zijn voor gebruikers.</p>
-                    </div>
-                </div>
-                <div class="process-step">
-                    <div class="process-step-number">5</div>
-                    <div class="process-step-content">
-                        <strong>Nieuw-menu configureren</strong>
-                        <p>Het "Nieuw"-menu in bibliotheken beperken tot de relevante content types, zodat gebruikers alleen de juiste opties te zien krijgen.</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- 04 Content types: eerlijk verhaal -->
-            <div class="section-header">
-                <span class="section-number" aria-hidden="true">04</span>
-                <h2>Eerlijk: content types worden hier creatief ingezet</h2>
-            </div>
-            <p>
-                Content types in SharePoint zijn eigenlijk bedoeld als <em>documentsjablonen</em>: je definieert een type (bijv. "Projectvoorstel"), koppelt er een Word-template aan, en gebruikers maken nieuwe documenten op basis daarvan. Het idee is hergebruik van structuur en opmaak.
+                Content types in SharePoint zijn in essentie bedoeld als <em>documentsjablonen</em>: je definieert een type, koppelt er optioneel een Word-template aan, en gebruikers maken nieuwe documenten op basis daarvan. Maar ze dragen ook kolomdefinities — en dat is hier het eigenlijke doel.
             </p>
             <p>
-                In dit project gebruiken we content types anders: niet als sjabloon, maar als <strong>metadata-drager</strong>. Door het juiste content type te koppelen aan een bibliotheek, erven alle documenten daarin automatisch de bijbehorende velden — zoals status, type en gevoeligheid. Dat werkt uitstekend in de praktijk, maar het is technisch gezien een creatief gebruik van de functionaliteit.
+                Door het custom content type te koppelen aan een bibliotheek, krijgen alle documenten daarin automatisch de verplichte metadata-velden. Dat werkt uitstekend. Technisch gezien is het een creatief gebruik van de functionaliteit, maar het is een bewuste en goed verdedigbare keuze.
             </p>
 
             <div class="blog-callout">
@@ -198,8 +146,62 @@
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4"/><path d="M21 12c0 4.97-4.03 9-9 9S3 16.97 3 12 7.03 3 12 3s9 4.03 9 9z"/></svg>
                 </div>
                 <div>
-                    <strong>Pragmatisch, niet puur</strong>
-                    <p>Content types zijn bedoeld voor sjablonen. Hier worden ze gebruikt als metadata-containers. Het werkt — maar het is goed om te weten dat je de functie een andere invulling geeft dan Microsoft oorspronkelijk bedoelde.</p>
+                    <strong>Nieuw-menu: gebruikerservaring bewust gestuurd</strong>
+                    <p>Door de volgorde van content types in het "Nieuw"-menu aan te passen, wordt het custom content type automatisch als standaard gebruikt bij het aanmaken van een nieuw document. Gebruikers zien de interne content type-naam niet — ze klikken gewoon op "Nieuw document" en krijgen direct het juiste sjabloon met de juiste metadata-velden.</p>
+                </div>
+            </div>
+
+            <!-- 04 Technische aanpak -->
+            <div class="section-header">
+                <span class="section-number" aria-hidden="true">04</span>
+                <h2>Technische aanpak: zes scripts, één pijplijn</h2>
+            </div>
+            <p>
+                De volledige oplossing bestaat uit zes PowerShell-scripts op basis van PnP PowerShell en de Microsoft Graph API. Sites worden aangeleverd via een CSV-bestand, zodat batches flexibel samengesteld kunnen worden. Elk script is onafhankelijk uitvoerbaar en schrijft zijn eigen logbestand.
+            </p>
+
+            <div class="process-steps">
+                <div class="process-step">
+                    <div class="process-step-number">1</div>
+                    <div class="process-step-content">
+                        <strong>Document ID Service activeren</strong>
+                        <p>Via PnP de Document ID-service inschakelen op alle relevante bibliotheken. Dit is een vereiste voor de overige stappen — zonder actieve Document ID-service kunnen documenten niet correct worden geïdentificeerd en gevolgd.</p>
+                    </div>
+                </div>
+                <div class="process-step">
+                    <div class="process-step-number">2</div>
+                    <div class="process-step-content">
+                        <strong>Content type koppelen</strong>
+                        <p>Het standaard <em>Document</em> content type wordt per bibliotheek vervangen door het custom content type dat bij het site-type hoort. Dit is exact wat Sharegate niet geautomatiseerd kon: het script loopt door alle sites en alle bibliotheken, slaat systeembibliotheken over via een exclude-lijst, en koppelt het juiste type op basis van het site-type.</p>
+                    </div>
+                </div>
+                <div class="process-step">
+                    <div class="process-step-number">3</div>
+                    <div class="process-step-content">
+                        <strong>Gevoeligheidslabel instellen</strong>
+                        <p>Het sensitivity label wordt automatisch toegewezen op site- en bibliotheekniveau via de Microsoft Graph API.</p>
+                    </div>
+                </div>
+                <div class="process-step">
+                    <div class="process-step-number">4</div>
+                    <div class="process-step-content">
+                        <strong>Bibliotheekweergave aanpassen</strong>
+                        <p>De standaardweergave van bibliotheken wordt bijgewerkt zodat de nieuwe metadata-kolommen direct zichtbaar zijn voor gebruikers — zonder dat zij handmatig kolommen hoeven toe te voegen.</p>
+                    </div>
+                </div>
+                <div class="process-step">
+                    <div class="process-step-number">5</div>
+                    <div class="process-step-content">
+                        <strong>Nieuw-menu configureren</strong>
+                        <p>De volgorde van content types in het "Nieuw"-menu wordt aangepast zodat het custom content type bovenaan staat. Hierdoor wordt het automatisch als standaard gebruikt bij het aanmaken van een nieuw document, zonder dat gebruikers de technische naam van het content type hoeven te zien of kiezen.</p>
+                    </div>
+                </div>
+                <div class="process-step">
+                    <div class="process-step-number">6</div>
+                    <div class="process-step-content">
+                        <strong>Migratiescript: bestaande documenten bijwerken</strong>
+                        <p>Het migratiescript is de kern van het project. Het loopt door elke site en elke document library, controleert per item of de verplichte metadata-velden zijn ingevuld, en haalt bij ontbrekende waarden automatisch een standaardwaarde op uit de term store. Zo worden duizenden bestaande documenten in één keer voorzien van de juiste metadata, zonder handmatig werk.</p>
+                    </div>
                 </div>
             </div>
 
@@ -212,19 +214,19 @@
                 Met honderden sites en duizenden bestanden was betrouwbare logging cruciaal. Elk script schrijft per site een CSV-logbestand met timestamp, siteURL, bibliotheek, actie, status en een leesbare foutomschrijving. Fouten worden vertaald naar begrijpelijke meldingen in plaats van ruwe stack traces — bruikbaar voor zowel technische als niet-technische stakeholders.
             </p>
 
-            <div class="code-window" role="region" aria-label="Voorbeeld log-output">
+            <div class="code-window" role="region" aria-label="Voorbeeld log-output migratiescript">
                 <div class="window-header">
                     <div class="window-dots" aria-hidden="true">
                         <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
                     </div>
-                    <span class="window-title">migration-log.csv (voorbeeld)</span>
+                    <span class="window-title">migratie-log.csv (voorbeeld)</span>
                 </div>
                 <div class="code-content">
-                    <pre><code><span class="code-comment"># Timestamp            SiteUrl                                         Library      Status   Detail</span>
-2025-12-03 08:14:22  .../sites/proj-a  Documenten   <span class="code-string">Success</span>  CT gekoppeld: PRJ-Bestand
-2025-12-03 08:14:31  .../sites/proj-a  Documenten   <span class="code-string">Skip</span>     CT al aanwezig, geen actie nodig
-2025-12-03 08:15:07  .../sites/proj-b  Rapporten    <span class="code-keyword">Error</span>    Bestand vergrendeld of uitgecheckt door gebruiker
-2025-12-03 08:15:44  .../sites/org-c   Notulen      <span class="code-string">Success</span>  Status_Nieuw ingesteld op 'Concept'</code></pre>
+                    <pre><code><span class="code-comment"># Timestamp            SiteUrl               Library       ItemPath              Status   Detail</span>
+2025-12-03 08:14:22  .../sites/team-a  Documenten   /rapport-2024.docx   <span class="code-string">Success</span>  Status ingesteld op 'Concept' (term store)
+2025-12-03 08:14:31  .../sites/team-a  Documenten   /notulen-Q3.docx     <span class="code-string">Skip</span>     Metadata al aanwezig, geen actie nodig
+2025-12-03 08:15:07  .../sites/team-b  Archief      /plan-v2.docx        <span class="code-keyword">Error</span>    Bestand vergrendeld of uitgecheckt door gebruiker
+2025-12-03 08:15:44  .../sites/org-c   Notulen      /besluit-maart.docx  <span class="code-string">Success</span>  Documenttype ingesteld vanuit term store</code></pre>
                 </div>
             </div>
 
@@ -241,29 +243,28 @@
             <div class="tech-stack-grid">
                 <div class="tech-card" style="border-color: rgba(16,185,129,0.3);">
                     <strong style="color: #10b981; font-size: 2rem; font-family: 'Fira Code', monospace;">~400</strong>
-                    <p>Actieve sites succesvol bijgewerkt met het nieuwe metadata-schema.</p>
+                    <p>Actieve sites volledig bijgewerkt met het nieuwe metadata-schema.</p>
                 </div>
                 <div class="tech-card" style="border-color: rgba(99,102,241,0.3);">
-                    <strong style="color: #6366f1; font-size: 2rem; font-family: 'Fira Code', monospace;">5</strong>
-                    <p>PowerShell-scripts gebouwd, elk voor een specifieke migratiestap.</p>
+                    <strong style="color: #6366f1; font-size: 2rem; font-family: 'Fira Code', monospace;">6</strong>
+                    <p>PowerShell-scripts gebouwd — van Document ID activeren tot metadata-migratie op documentniveau.</p>
                 </div>
                 <div class="tech-card" style="border-color: rgba(14,165,233,0.3);">
-                    <strong style="color: #0ea5e9; font-size: 2rem; font-family: 'Fira Code', monospace;">3</strong>
-                    <p>Fasen uitgevoerd: samenwerkteams → projectteams → SLD-sites.</p>
+                    <strong style="color: #0ea5e9; font-size: 2rem; font-family: 'Fira Code', monospace;">0</strong>
+                    <p>Handmatige handelingen nodig voor de content type mapping — volledig gescript waar Sharegate stopte.</p>
                 </div>
             </div>
 
             <p>
-                Project succesvol afgerond binnen de geplande doorlooptijd. De omgeving sluit nu aan op het nieuwe metadata-schema, en de logging vormt de basis voor de eindrapportage en overdracht naar beheer.
+                Project succesvol afgerond binnen de geplande doorlooptijd. De omgeving sluit volledig aan op het nieuwe metadata-schema. Bestaande documenten zijn voorzien van de juiste waarden vanuit de term store, en de logging vormt de basis voor de eindrapportage en overdracht naar beheer.
             </p>
 
-            <!-- Blog tip -->
             <div class="blog-links-box">
                 <h3>📝 Gerelateerde blogpost</h3>
                 <ul>
                     <li>
                         <a href="../blogs/spo-metadata-op-schaal.html">SPO Metadata op schaal — wanneer Sharegate tekortschiet</a>
-                        — Hoe je met PnP PowerShell metadata-wijzigingen uitrolt over honderden SharePoint-sites, inclusief logging en foutafhandeling.
+                        — Hoe je met PnP PowerShell content type mappings en metadata-updates uitrolt over honderden SharePoint-sites, inclusief term store lookups en foutafhandeling.
                     </li>
                 </ul>
             </div>
@@ -271,11 +272,10 @@
         </article>
     </main>
 
-    <!-- Footer -->
     <footer class="footer" role="contentinfo">
         <div class="container">
             <p>&copy; 2026 Portfolio. Gebouwd met GitHub Pages</p>
-            <nav class="footer-links" aria-label="Footer navigation">
+            <nav class="footer-links" aria-label="Footer navigatie">
                 <a href="https://github.com/NielsKok-Labs">GitHub</a>
                 <a href="https://www.linkedin.com/in/nielskoknl">LinkedIn</a>
             </nav>
