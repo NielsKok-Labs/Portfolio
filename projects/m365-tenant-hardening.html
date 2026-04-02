@@ -70,9 +70,9 @@
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
                         <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
                     </svg>
-                    Client project · M365 / Security / Entra ID
+                    Client project · M365 / Entra ID / Security
                 </div>
-                <h1 class="hero-title" id="project-title">Microsoft 365<br>Tenant Security Hardening</h1>
+                <h1 class="hero-title" id="project-title">Microsoft 365<br>Tenant Inrichting & Security</h1>
                 <div class="blog-meta">
                     <span class="blog-meta-item">
                         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
@@ -97,7 +97,7 @@
         <article class="blog-post">
 
             <p class="lead">
-                Volledige security-inrichting van een nieuwe Microsoft 365-tenant op basis van de CIS Microsoft 365 Benchmark en Microsoft best practices. Scope omvatte Entra ID, Conditional Access, SharePoint, Teams en Microsoft Purview — met als eindresultaat een Secure Score van 73,96% tegenover een industriegemiddelde van 45,31%.
+                Een volledig nieuwe Microsoft 365-tenant opgezet en beveiligd van scratch — van de eerste tenant-aanmaak tot een afgeharde productieomgeving conform de CIS Microsoft 365 Benchmark. Scope omvatte de complete inrichting van Entra ID, Conditional Access, SharePoint, Teams en Microsoft Purview, met als eindresultaat een Secure Score van 73,96% tegenover een industriegemiddelde van 45,31%.
             </p>
 
             <!-- 01 Context -->
@@ -106,15 +106,42 @@
                 <h2>Context & opdracht</h2>
             </div>
             <p>
-                De opdracht was het beveiligen van een nieuw opgezette Microsoft 365-tenant. Vertrekpunt was een Health Check van de omgeving, waarbij de inrichting werd vergeleken met de CIS Microsoft 365 Benchmark (Level 1 en Level 2) en Microsoft-richtlijnen. Op basis van die analyse is de volledige security-hardening uitgevoerd en gedocumenteerd.
+                De opdracht was het volledig opzetten en beveiligen van een nieuwe, afgeschermde Microsoft 365-tenant — los van de bestaande gemeentelijke omgeving. De tenant is van scratch ingericht: van de initiële aanmaak en licentietoewijzing tot de volledige governance- en security-inrichting.
             </p>
             <p>
-                Het zwaartepunt lag bij identiteits- en toegangsbeheer, gegevensbescherming, compliance, logging en monitoring. De gehele hardening is door mij zelfstandig uitgevoerd.
+                Na de opzet is een Health Check uitgevoerd waarbij de inrichting werd getoetst aan de CIS Microsoft 365 Benchmark (Level 1 en Level 2) en Microsoft-richtlijnen. De volledige inrichting én de daaropvolgende hardening zijn door mij zelfstandig uitgevoerd.
             </p>
 
-            <!-- 02 Entra ID & Identity -->
+            <!-- 02 Tenant opzet -->
             <div class="section-header">
                 <span class="section-number" aria-hidden="true">02</span>
+                <h2>Tenant opzet van scratch</h2>
+            </div>
+            <p>
+                De tenant is volledig nieuw aangemaakt als afzonderlijke Microsoft 365-omgeving, gescheiden van de bestaande organisatie-tenant. Dit omvatte de initiële configuratie van het domein, licentietoewijzing, de basisinrichting van Exchange Online, SharePoint Online en Microsoft Teams, en het opzetten van de beheerstructuur.
+            </p>
+
+            <div class="tech-stack-grid">
+                <div class="tech-card" style="border-color:rgba(99,102,241,0.3);">
+                    <strong style="color:#6366f1;font-family:'Fira Code',monospace;">01</strong>
+                    <strong>Tenant & domeinen</strong>
+                    <p>Nieuwe tenant aangemaakt, domeinen gekoppeld, licenties toegewezen en de beheerstructuur opgezet met Global Admin- en breakglass-accounts.</p>
+                </div>
+                <div class="tech-card" style="border-color:rgba(14,165,233,0.3);">
+                    <strong style="color:#0ea5e9;font-family:'Fira Code',monospace;">02</strong>
+                    <strong>Gebruikers & groepen</strong>
+                    <p>Gebruikersaccounts aangemaakt met een consistente naamconventie. Dynamische beveiligingsgroepen geconfigureerd per afdeling, apparaattype en gastgebruikers.</p>
+                </div>
+                <div class="tech-card" style="border-color:rgba(16,185,129,0.3);">
+                    <strong style="color:#10b981;font-family:'Fira Code',monospace;">03</strong>
+                    <strong>Services ingericht</strong>
+                    <p>Exchange Online, SharePoint Online en Microsoft Teams geconfigureerd en klaargemaakt voor gebruik — inclusief rechtenstructuur en governance-beleid.</p>
+                </div>
+            </div>
+
+            <!-- 03 Entra ID & Identity -->
+            <div class="section-header">
+                <span class="section-number" aria-hidden="true">03</span>
                 <h2>Entra ID & identiteitsbeheer</h2>
             </div>
             <p>
@@ -142,9 +169,9 @@
                 </div>
             </div>
 
-            <!-- 03 Conditional Access -->
+            <!-- 04 Conditional Access -->
             <div class="section-header">
-                <span class="section-number" aria-hidden="true">03</span>
+                <span class="section-number" aria-hidden="true">04</span>
                 <h2>Conditional Access — 17 beleidsregels</h2>
             </div>
             <p>
@@ -182,9 +209,9 @@
                 </div>
             </div>
 
-            <!-- 04 Wachtwoordbeveiliging -->
+            <!-- 05 Wachtwoordbeveiliging -->
             <div class="section-header">
-                <span class="section-number" aria-hidden="true">04</span>
+                <span class="section-number" aria-hidden="true">05</span>
                 <h2>Wachtwoordbeveiliging & authenticatie</h2>
             </div>
             <p>
@@ -204,9 +231,9 @@
                 </div>
             </div>
 
-            <!-- 05 SharePoint & Teams -->
+            <!-- 06 SharePoint & Teams -->
             <div class="section-header">
-                <span class="section-number" aria-hidden="true">05</span>
+                <span class="section-number" aria-hidden="true">06</span>
                 <h2>SharePoint & Microsoft Teams</h2>
             </div>
             <p>
@@ -219,9 +246,9 @@
                 In Teams zijn third-party apps en custom apps uitgeschakeld. Externe gebruikers kunnen geen gesprekken initiëren. Anonieme gebruikers zijn volledig geblokkeerd van vergaderingen, meetingchat en schermoverdracht. Lobby-instellingen vereisen handmatige toelating voor alle externe en inbellende deelnemers.
             </p>
 
-            <!-- 06 CIS Benchmark -->
+            <!-- 07 CIS Benchmark -->
             <div class="section-header">
-                <span class="section-number" aria-hidden="true">06</span>
+                <span class="section-number" aria-hidden="true">07</span>
                 <h2>CIS Microsoft 365 Benchmark</h2>
             </div>
             <p>
@@ -246,9 +273,9 @@
                 </div>
             </div>
 
-            <!-- 07 Purview & overig -->
+            <!-- 08 Purview & overig -->
             <div class="section-header">
-                <span class="section-number" aria-hidden="true">07</span>
+                <span class="section-number" aria-hidden="true">08</span>
                 <h2>Microsoft Purview & overige maatregelen</h2>
             </div>
             <p>
