@@ -308,6 +308,41 @@ const PROJECT_IMAGES = {
                     </linearGradient>
                 </defs>
             </svg>
+        </div>`,
+
+        pryvee: `
+        <div class="placeholder-image" style="width:100%;height:100%;">
+            <svg viewBox="0 0 400 220" fill="none" style="width:100%;height:100%;">
+                <rect width="400" height="220" fill="url(#pryvee-bg)"/>
+                <!-- Wordmark: Pry -->
+                <text x="72" y="122" font-size="42" font-weight="700" text-anchor="middle"
+                      fill="white" fill-opacity="0.9" font-family="sans-serif">Pry</text>
+                <!-- Wordmark: vee (accent) -->
+                <text x="165" y="122" font-size="42" font-weight="700" text-anchor="middle"
+                      fill="white" fill-opacity="0.45" font-family="sans-serif">vee</text>
+                <!-- Module pills -->
+                <rect x="30" y="145" width="72" height="22" rx="11" fill="white" fill-opacity="0.15"/>
+                <text x="66" y="161" font-size="10" text-anchor="middle" fill="white" fill-opacity="0.8" font-family="sans-serif">Snapshot</text>
+                <rect x="110" y="145" width="60" height="22" rx="11" fill="white" fill-opacity="0.12"/>
+                <text x="140" y="161" font-size="10" text-anchor="middle" fill="white" fill-opacity="0.7" font-family="sans-serif">Redact</text>
+                <rect x="178" y="145" width="56" height="22" rx="11" fill="white" fill-opacity="0.08"/>
+                <text x="206" y="161" font-size="10" text-anchor="middle" fill="white" fill-opacity="0.5" font-family="sans-serif">Spaces</text>
+                <!-- Architecture hint right side -->
+                <rect x="270" y="60" width="100" height="34" rx="8" fill="white" fill-opacity="0.1"/>
+                <text x="320" y="82" font-size="10" text-anchor="middle" fill="white" fill-opacity="0.6" font-family="monospace">GitHub Pages</text>
+                <line x1="320" y1="94" x2="320" y2="108" stroke="white" stroke-opacity="0.25" stroke-width="1.5"/>
+                <rect x="270" y="108" width="100" height="34" rx="8" fill="white" fill-opacity="0.1"/>
+                <text x="320" y="130" font-size="10" text-anchor="middle" fill="white" fill-opacity="0.6" font-family="monospace">CF Workers</text>
+                <line x1="320" y1="142" x2="320" y2="156" stroke="white" stroke-opacity="0.25" stroke-width="1.5"/>
+                <rect x="270" y="156" width="100" height="34" rx="8" fill="white" fill-opacity="0.1"/>
+                <text x="320" y="178" font-size="10" text-anchor="middle" fill="white" fill-opacity="0.6" font-family="monospace">Graph API</text>
+                <defs>
+                    <linearGradient id="pryvee-bg" x1="0" y1="0" x2="400" y2="220" gradientUnits="userSpaceOnUse">
+                        <stop offset="0%" stop-color="#1a0533"/>
+                        <stop offset="100%" stop-color="#2a0f3d"/>
+                    </linearGradient>
+                </defs>
+            </svg>
         </div>`
 };
 
