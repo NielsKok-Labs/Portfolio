@@ -80,7 +80,7 @@ function observeCards() {
         });
 }
 
-// ─── Back to top ──────────────────────────────────────────────────────────────
+// ─── Terug naar boven ──────────────────────────────────────────────────────────────
 const backToTop = el('backToTop');
 if (backToTop) {
     window.addEventListener('scroll', () => {
@@ -220,7 +220,7 @@ const PROJECT_IMAGES = {
 const STATUS_LABELS = {
     completed: { label: 'Afgerond', color: '#10b981' },
     active:    { label: 'Actief',   color: '#6366f1' },
-    wip:       { label: 'In progress', color: '#f59e0b' }
+    wip:       { label: 'In uitvoering', color: '#f59e0b' }
 };
 
 function buildProjectCard(project) {
@@ -266,7 +266,7 @@ function buildViewAllCard() {
                 </svg>
             </div>
             <h3 style="margin-bottom:0.75rem;">Alle projecten</h3>
-            <p style="font-size:0.95rem;margin-bottom:1.5rem;">Labs, client work en open source — bekijk het volledige overzicht.</p>
+            <p style="font-size:0.95rem;margin-bottom:1.5rem;">Labs, client werk en open source — bekijk het volledige overzicht.</p>
             <a href="projects.html" class="project-link" style="font-size:1rem;">
                 Bekijk alle projecten
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -454,12 +454,12 @@ const paletteResults = el('paletteResults');
 
 if (paletteOverlay && paletteInput && paletteResults) {
     const paletteItems = [
-        { label: 'About me',     sub: 'Who is Niels?',              href: '#about',        icon: '01' },
-        { label: 'Projects',     sub: 'Projects & Labs',            href: '#projects',     icon: '02' },
-        { label: 'Certificates', sub: 'Certifications',             href: '#certificates', icon: '03' },
-        { label: 'Experience',   sub: 'Working experience',         href: '#timeline',     icon: '04' },
-        { label: 'Blog',         sub: 'Recent posts',               href: '#blog',         icon: '05' },
-        { label: 'Contact',      sub: 'Let\'s connect',             href: '#contact',      icon: '06' },
+        { label: 'Over mij',     sub: 'Wie is Niels?',              href: '#about',        icon: '01' },
+        { label: 'Projecten',    sub: 'Projecten & Labs',            href: '#projects',     icon: '02' },
+        { label: 'Certificaten', sub: 'Certificeringen',             href: '#certificates', icon: '03' },
+        { label: 'Ervaring',     sub: 'Werkervaring',         href: '#timeline',     icon: '04' },
+        { label: 'Blog',         sub: 'Recente posts',               href: '#blog',         icon: '05' },
+        { label: 'Contact',      sub: 'Neem contact op',             href: '#contact',      icon: '06' },
         { label: 'GitHub',       sub: 'github.com/NielsKok-Labs',   href: 'https://github.com/NielsKok-Labs', icon: 'GH' },
         { label: 'LinkedIn',     sub: 'linkedin.com/in/nielskoknl', href: 'https://www.linkedin.com/in/nielskoknl', icon: 'IN' },
     ];
@@ -526,7 +526,7 @@ const terminalClose   = el('terminalClose');
 
 if (terminalOverlay && terminalInput && terminalOutput && terminalBody && terminalClose) {
     const commands = {
-        help: () => `<span class="term-info">Available commands:</span>
+        help: () => `<span class="term-info">Beschikbare commando's:</span>
   <span class="term-cmd">whoami</span>        — who is Niels?
   <span class="term-cmd">skills</span>        — technical skills
   <span class="term-cmd">experience</span>    — work experience
@@ -537,27 +537,27 @@ if (terminalOverlay && terminalInput && terminalOutput && terminalBody && termin
   <span class="term-cmd">clear</span>         — empty terminal
   <span class="term-cmd">sudo rm -rf /</span> — try it! 😏`,
         whoami: () => `<span class="term-success">Niels Kok</span>
-Role     : M365 Technical Consultant & Cloud Engineer
-Location : Bunnik, Utrecht, Nederland
-Focus    : Cloud · Security · Automation · Networking`,
-        skills: () => `<span class="term-info">Technical Skills:</span>
+Rol      : M365 Technical Consultant & Cloud Engineer
+Locatie  : Bunnik, Utrecht, Nederland
+Focus    : Cloud · Security · Automatisering · Netwerken`,
+        skills: () => `<span class="term-info">Technische vaardigheden:</span>
   Cloud      → Azure, Microsoft 365, Terraform, Ansible
   Security   → Zero Trust, Conditional Access, Purview
   Automation → CI/CD, Python, PowerShell, DevSecOps
   Network    → Segmentation, Firewalls, Hybrid Connectivity`,
-        experience: () => `<span class="term-info">Work Experience:</span>
+        experience: () => `<span class="term-info">Werkervaring:</span>
   <span class="term-success">2025–now </span> M365 Technical Consultant    @ XTRM Development
   <span class="term-warn">2025     </span> Security & Network Engineer  @ Conscia (stage)
   <span class="term-warn">2023–2024</span> Kubernetes Platform Engineer @ Anonify (stage)
   <span class="term-success">2021–2025</span> System Engineer              @ Stric
   <span class="term-success">2020–2021</span> Junior Sysadmin              @ Stric`,
-        certs: () => `<span class="term-info">Certificates:</span>
+        certs: () => `<span class="term-info">Certificaten:</span>
   ✅ AZ-900  — Azure Fundamentals
   ✅ SC-900  — Security Fundamentals
   ✅ MS-900  — Microsoft 365 Fundamentals
   ✅ AI-900  — Azure AI Fundamentals
   🎯 Next    — AZ-104, AZ-500, AZ-700`,
-        projects: () => `<span class="term-info">Projects:</span>
+        projects: () => `<span class="term-info">Projecten:</span>
   [1] Waterschap Metadata Migratie  — PowerShell, SPO, PnP
   [2] Self-Hosted Smart Home        — Docker, Home Assistant, VPN
   [3] Network Security Lab          — Firewalls, VLANs, OT Security
@@ -565,11 +565,11 @@ Focus    : Cloud · Security · Automation · Networking`,
         contact: () => `<span class="term-info">Contact:</span>
   GitHub   → github.com/NielsKok-Labs
   LinkedIn → linkedin.com/in/nielskoknl`,
-        social: () => `<span class="term-info">Social:</span>
+        social: () => `<span class="term-info">Socials:</span>
   🐙 GitHub   → <a href="https://github.com/NielsKok-Labs" target="_blank" style="color:#6366f1">github.com/NielsKok-Labs</a>
   💼 LinkedIn → <a href="https://www.linkedin.com/in/nielskoknl" target="_blank" style="color:#6366f1">linkedin.com/in/nielskoknl</a>`,
         clear: () => { terminalOutput.innerHTML = ''; return null; },
-        'sudo rm -rf /': () => `<span class="term-error">Permission denied. Nice try. 😄</span>`,
+        'sudo rm -rf /': () => `<span class="term-error">Toegang geweigerd. Nice try. 😄</span>`,
     };
 
     let cmdHistory = [], historyIndex = -1;
