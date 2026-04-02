@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="nl" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Pryvee — M365 governance en privacy SaaS platform dat ik zelf bouw. Snapshot, Redact en Spaces voor IT-teams, MSPs en compliance-verantwoordelijken.">
+    <title>Pryvee — M365 Governance SaaS | Portfolio</title>
+    <script>
+        (function() {
+            const saved = localStorage.getItem('theme');
+            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            if (saved === 'dark' || (!saved && prefersDark)) {
+                document.documentElement.setAttribute('data-theme', 'dark');
+            }
+        })();
+    </script>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600;700&family=Manrope:wght@400;600;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Ga naar hoofdinhoud</a>
+
+    <nav class="navbar" role="navigation" aria-label="Hoofdnavigatie">
+        <div class="container">
+            <a href="../index.html" class="logo" aria-label="Home">
+                <svg width="40" height="40" viewBox="0 0 40 40" fill="none" aria-hidden="true">
+                    <rect width="40" height="40" rx="8" fill="url(#logo-gradient)"/>
+                    <path d="M12 12L28 28M28 12L12 28" stroke="white" stroke-width="3" stroke-linecap="round"/>
+                    <defs>
+                        <linearGradient id="logo-gradient" x1="0" y1="0" x2="40" y2="40">
+                            <stop offset="0%" stop-color="#6366f1"/>
+                            <stop offset="100%" stop-color="#8b5cf6"/>
+                        </linearGradient>
+                    </defs>
+                </svg>
+            </a>
+            <ul class="nav-menu">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../index.html#about">Over mij</a></li>
+                <li><a href="../index.html#projects">Projecten</a></li>
+                <li><a href="../index.html#blog">Blog</a></li>
+                <li><a href="../index.html#contact">Contact</a></li>
+            </ul>
+            <div style="display:flex;align-items:center;gap:0.75rem;">
+                <button class="theme-toggle" id="themeToggle" aria-label="Schakel licht/donker thema">
+                    <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+                    <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                        <circle cx="12" cy="12" r="5"/>
+                        <line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+                        <line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+                    </svg>
+                </button>
+                <button class="menu-toggle" aria-label="Menu openen/sluiten" aria-expanded="false">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero blog-hero" aria-labelledby="project-title">
+        <div class="gradient-orb orb-1" aria-hidden="true"></div>
+        <div class="gradient-orb orb-2" aria-hidden="true"></div>
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-tag">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                        <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                    </svg>
+                    Eigen SaaS · M365 / Security / Privacy
+                </div>
+                <h1 class="hero-title" id="project-title">Pryvee</h1>
+                <div class="blog-meta">
+                    <span class="blog-meta-item">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                        2025 – heden
+                    </span>
+                    <span class="blog-meta-item">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                        In actieve ontwikkeling
+                    </span>
+                    <span class="blog-meta-tag">SaaS</span>
+                    <span class="blog-meta-tag">M365</span>
+                    <span class="blog-meta-tag">Cloudflare Workers</span>
+                    <span class="blog-meta-tag">Stripe</span>
+                    <span class="blog-meta-tag">Graph API</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <main id="main-content">
+        <article class="blog-post">
+
+            <p class="lead">
+                Pryvee is een M365 governance en privacy SaaS platform dat ik zelf bouw — volledig als static site op GitHub Pages met Cloudflare Workers als backend. Gericht op IT-teams, MSPs en compliance-verantwoordelijken die hun Microsoft 365-omgeving willen auditen en AVG-compliant willen werken, zonder zware infrastructuur of agents te installeren.
+            </p>
+
+            <!-- 01 Waarom -->
+            <div class="section-header">
+                <span class="section-number" aria-hidden="true">01</span>
+                <h2>Waarom Pryvee</h2>
+            </div>
+            <p>
+                Veel MKB-organisaties en MSPs hebben geen inzicht in de beveiligingsstatus van hun Microsoft 365-tenant — maar de bestaande tooling is te zwaar, te duur of vereist Azure-infrastructuur. Pryvee vult die gap: lichtgewicht, geen installatie, geen footprint in de tenant van de klant.
+            </p>
+            <p>
+                Het idee ontstond vanuit mijn eigen praktijk als M365 consultant. Ik voerde regelmatig handmatige health checks uit en zag dat er geen toegankelijk, betaalbaar alternatief was voor MKB en MSPs. Pryvee is het antwoord daarop — gebouwd met de technologie die ik dagelijks gebruik.
+            </p>
+
+            <div class="blog-callout">
+                <div class="blog-callout-icon" aria-hidden="true">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+                </div>
+                <div>
+                    <strong>Geen infrastructuur in de tenant van de klant</strong>
+                    <p>Pryvee draait volledig als SaaS. Geen agents, geen scripts, geen Azure-resources in de klantomgeving — alleen leestoegang via de Microsoft Graph API met MSAL.</p>
+                </div>
+            </div>
+
+            <!-- 02 Architectuur -->
+            <div class="section-header">
+                <span class="section-number" aria-hidden="true">02</span>
+                <h2>Architectuur</h2>
+            </div>
+            <p>
+                De architectuur is bewust zo eenvoudig en kostenefficiënt mogelijk gehouden. De frontend is een pure static site op GitHub Pages — geen framework, geen buildstap. De backend bestaat uit Cloudflare Workers die de licentievalidatie, Stripe-webhooks en Graph API-proxying afhandelen. Licentiedata wordt opgeslagen in Cloudflare KV.
+            </p>
+
+            <div class="tech-stack-grid">
+                <div class="tech-card" style="border-color:rgba(99,102,241,0.3);">
+                    <strong style="color:#6366f1;font-family:'Fira Code',monospace;">FE</strong>
+                    <strong>GitHub Pages</strong>
+                    <p>Pure HTML/CSS/JS static site. Geen framework, geen buildstap, geen kosten. MSAL.js voor Microsoft authenticatie.</p>
+                </div>
+                <div class="tech-card" style="border-color:rgba(245,158,11,0.3);">
+                    <strong style="color:#f59e0b;font-family:'Fira Code',monospace;">BE</strong>
+                    <strong>Cloudflare Workers</strong>
+                    <p>Edge-runtime voor licentievalidatie, Stripe webhook verwerking en Graph API proxy. KV voor licentieopslag per product en e-mail.</p>
+                </div>
+                <div class="tech-card" style="border-color:rgba(16,185,129,0.3);">
+                    <strong style="color:#10b981;font-family:'Fira Code',monospace;">💳</strong>
+                    <strong>Stripe</strong>
+                    <p>Payment links per plan met metadata. Webhook naar Worker bij geslaagde betaling. Licentie wordt per product opgeslagen: <code>snapshot:email</code>, <code>redact:email</code>.</p>
+                </div>
+            </div>
+
+            <!-- 03 Modules -->
+            <div class="section-header">
+                <span class="section-number" aria-hidden="true">03</span>
+                <h2>Modules</h2>
+            </div>
+            <p>
+                Pryvee is opgebouwd uit losse modules die elk een specifiek governance- of privacy-probleem oplossen. Klanten kunnen starten met één module en uitbreiden naar de volledige suite.
+            </p>
+
+            <div class="process-steps">
+                <div class="process-step">
+                    <div class="process-step-number" style="background:linear-gradient(135deg,#6366f1,#8b5cf6);">📊</div>
+                    <div class="process-step-content">
+                        <strong>Snapshot — CIS M365 audit <span style="font-size:0.8rem;color:var(--text-secondary);font-weight:400;">Live</span></strong>
+                        <p>Verbind je tenant via MSAL, scan op basis van de CIS M365 Benchmark en ontvang binnen minuten een managementklaar PDF-rapport. Geautomatiseerde checks op MFA, Conditional Access, gastaccounts, Secure Score en extern delen. Geen installatie, alleen-lezen. €249 eenmalig of €79/mnd.</p>
+                    </div>
+                </div>
+                <div class="process-step">
+                    <div class="process-step-number" style="background:linear-gradient(135deg,#0ea5e9,#6366f1);">🔒</div>
+                    <div class="process-step-content">
+                        <strong>Redact — In-browser PII redactie <span style="font-size:0.8rem;color:var(--text-secondary);font-weight:400;">Live</span></strong>
+                        <p>Persoonsgegevens verwijderen uit PDF en DOCX — volledig in de browser, niets verstuurd naar servers. NER-engine herkent BSN, IBAN, namen, adressen, telefoonnummers en meer op basis van Nederlandse context. AVG-compliant by design. €39/mnd per organisatie.</p>
+                    </div>
+                </div>
+                <div class="process-step">
+                    <div class="process-step-number" style="background:linear-gradient(135deg,#475569,#334155);">🏗️</div>
+                    <div class="process-step-content">
+                        <strong>Spaces — Workspace provisioning <span style="font-size:0.8rem;color:var(--text-secondary);font-weight:400;">Binnenkort</span></strong>
+                        <p>Browser-based M365 workspace provisioning via MSAL en Graph API — een lichtgewicht alternatief voor Power Platform of Provision Assist, zonder infrastructuur in de klantomgeving. €39/mnd.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 04 Technisch -->
+            <div class="section-header">
+                <span class="section-number" aria-hidden="true">04</span>
+                <h2>Technische keuzes</h2>
+            </div>
+            <p>
+                De Graph API-calls worden gerouted via een Cloudflare Worker proxy (<code>/graph-proxy</code>) met een whitelist van toegestane endpoints. CORS is gelocked op specifieke domeinen. Stripe webhook-validatie verloopt via HMAC-signing. Rate limiting is ingericht via een aparte KV-namespace.
+            </p>
+            <p>
+                Licenties worden product-gescheiden opgeslagen in KV: <code>snapshot:email</code> en <code>redact:email</code>. Het Essentials-pakket schrijft beide keys tegelijk bij activatie. Een kortlevend HMAC-signed session token zorgt dat licentievalidatie niet afluisterbaar is.
+            </p>
+            <p>
+                De NER-engine in Redact is regex-gebaseerd met Nederlandse context — BSN met elfproefvalidatie, IBAN in NL-format, adressen alleen met bijbehorende postcode, namen uitsluitend bij expliciete triggers. De stap naar een WASM-model (spaCy of flair via Pyodide) staat op de roadmap voor hogere nauwkeurigheid.
+            </p>
+
+            <!-- 05 GTM -->
+            <div class="section-header">
+                <span class="section-number" aria-hidden="true">05</span>
+                <h2>Go-to-market</h2>
+            </div>
+            <p>
+                De primaire strategie is MSP-first: managed service providers kunnen Pryvee aanbieden aan hun klanten met een reseller-marge van 30–40%. Voor MSPs is er een white-label optie met eigen logo op de PDF-rapporten en een multi-tenant dashboard.
+            </p>
+            <p>
+                Voor MKB-klanten zijn de voornaamste triggers: cyberverzekering-vereisten, NIS2 supply chain-druk en ISO 27001/BIO-certificeringsprocessen. Het instapmodel is een 14-daagse gratis trial of een gratis eerste scan — geen prijskorting maar drempelverlagende toegang.
+            </p>
+            <ul>
+                <li>Snapshot €99/mnd · Redact €39/mnd · Spaces €39/mnd (binnenkort)</li>
+                <li>Essentials bundle (Snapshot + Redact + Spaces) €149/mnd</li>
+                <li>MSP-pricing op aanvraag met white-label opties</li>
+            </ul>
+
+        </article>
+    </main>
+
+    <footer class="footer" role="contentinfo">
+        <div class="container">
+            <p>&copy; 2026 Portfolio. Gebouwd met GitHub Pages</p>
+            <nav class="footer-links" aria-label="Footer navigatie">
+                <a href="https://github.com/NielsKok-Labs">GitHub</a>
+                <a href="https://www.linkedin.com/in/nielskoknl">LinkedIn</a>
+            </nav>
+        </div>
+    </footer>
+
+    <button class="back-to-top" id="backToTop" aria-label="Terug naar boven">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+            <polyline points="18 15 12 9 6 15"/>
+        </svg>
+    </button>
+
+    <script src="../script.js"></script>
+</body>
+</html>
