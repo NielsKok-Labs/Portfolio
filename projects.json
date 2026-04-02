@@ -31,6 +31,35 @@
     "image": "homeassistant"
   },
   {
+    "id": "network-security-lab",
+    "title": "Network Security Lab",
+    "description": "Homelab-opzet met firewalls, VLANs en netwerksegmentatie. Focus op OT-beveiliging en isolatie van kritieke systemen.",
+    "tags": [
+      "Security",
+      "Azure"
+    ],
+    "link": "projects/network-security-lab.html",
+    "linkType": "page",
+    "status": "active",
+    "date": "2024",
+    "image": "network"
+  },
+  {
+    "id": "ansible-playbooks",
+    "title": "Ansible Automation Playbooks",
+    "description": "Verzameling Ansible-playbooks voor serverconfiguratie, security hardening en geautomatiseerde deployments in hybride omgevingen.",
+    "tags": [
+      "Automation",
+      "Security",
+      "Azure"
+    ],
+    "link": "projects/ansible-playbooks.html",
+    "linkType": "page",
+    "status": "active",
+    "date": "2023 – heden",
+    "image": "ansible"
+  },
+  {
     "id": "provision-assist",
     "title": "Provision Assist — Multi-tenant Deployment & Maatwerk",
     "description": "PowerShell wrapper voor geautomatiseerde Provision Assist deployments. Uitgerold bij een gemeente over zes omgevingen (O/A/P voor gemeente én raad), inclusief huisstijlaanpassing en maatwerk Teams-provisioning.",
