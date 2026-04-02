@@ -240,6 +240,36 @@ const PROJECT_IMAGES = {
                     </linearGradient>
                 </defs>
             </svg>
+        </div>`,
+     
+    security: `
+        <div class="placeholder-image" style="width:100%;height:100%;">
+            <svg viewBox="0 0 400 220" fill="none" style="width:100%;height:100%;">
+                <rect width="400" height="220" fill="url(#sec-bg)"/>
+                <!-- shield outline -->
+                <path d="M200 40 L270 70 L270 130 C270 165 200 190 200 190 C200 190 130 165 130 130 L130 70 Z"
+                      fill="white" fill-opacity="0.12" stroke="white" stroke-opacity="0.25" stroke-width="2"/>
+                <!-- checkmark inside shield -->
+                <path d="M175 115 L192 132 L228 96"
+                      stroke="white" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" opacity="0.7"/>
+                <!-- score badge -->
+                <rect x="290" y="155" width="90" height="48" rx="10" fill="white" fill-opacity="0.1"/>
+                <text x="335" y="175" font-size="9" text-anchor="middle" fill="white" fill-opacity="0.6" font-family="sans-serif">Secure Score</text>
+                <text x="335" y="193" font-size="15" font-weight="bold" text-anchor="middle" fill="white" fill-opacity="0.85" font-family="monospace">73,96%</text>
+                <!-- small dots grid (decorative) -->
+                <circle cx="50" cy="170" r="3" fill="white" fill-opacity="0.15"/>
+                <circle cx="70" cy="170" r="3" fill="white" fill-opacity="0.1"/>
+                <circle cx="90" cy="170" r="3" fill="white" fill-opacity="0.15"/>
+                <circle cx="50" cy="190" r="3" fill="white" fill-opacity="0.1"/>
+                <circle cx="70" cy="190" r="3" fill="white" fill-opacity="0.15"/>
+                <circle cx="90" cy="190" r="3" fill="white" fill-opacity="0.1"/>
+                <defs>
+                    <linearGradient id="sec-bg" x1="0" y1="0" x2="400" y2="220" gradientUnits="userSpaceOnUse">
+                        <stop offset="0%" stop-color="#0f172a"/>
+                        <stop offset="100%" stop-color="#1e3a5f"/>
+                    </linearGradient>
+                </defs>
+            </svg>
         </div>`
 };
 
