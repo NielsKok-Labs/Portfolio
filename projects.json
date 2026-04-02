@@ -1,5 +1,16 @@
 [
   {
+    "id": "pryvee",
+    "title": "Pryvee — M365 Governance SaaS",
+    "description": "Eigen SaaS platform in actieve ontwikkeling. M365 audit (Snapshot), in-browser PII redactie (Redact) en workspace provisioning (Spaces) — volledig serverless op GitHub Pages + Cloudflare Workers, gericht op MSPs en MKB.",
+    "tags": ["M365", "Security", "Automation", "Azure"],
+    "link": "projects/pryvee.html",
+    "linkType": "page",
+    "status": "active",
+    "date": "2025 – heden",
+    "image": "pryvee"
+  },
+  {
     "id": "teams-edepot-koppeling",
     "title": "MS Teams → Pre-depot Koppeling",
     "description": "Geautomatiseerde archiveringspipeline via Power Automate: gearchiveerde Teams-projecten worden automatisch verzameld, omgezet naar PDF, voorzien van MDTO-metadata, gezipt via Azure Functions en via een ingest-API overgedragen aan het E-depot.",
@@ -12,7 +23,7 @@
   },
   {
     "id": "m365-tenant-hardening",
-    "title": "Microsoft 365 Tenant Security Hardening",
+    "title": "Microsoft 365 Tenant Inrichting & Security",
     "description": "Nieuwe Microsoft 365-tenant volledig van scratch opgezet en beveiligd — van initiële aanmaak tot afgeharde productieomgeving. Entra ID, Conditional Access (17 policies), SharePoint, Teams en Purview ingericht conform CIS Benchmark. Secure Score: 73,96% tegenover industriegemiddelde van 45,31%.",
     "tags": ["M365", "Security", "Azure"],
     "link": "projects/m365-tenant-hardening.html",
