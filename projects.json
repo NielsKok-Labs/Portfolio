@@ -12,8 +12,8 @@
   },
   {
     "id": "smart-home",
-    "title": "Self-Hosted Smart Home Platform",
-    "description": "Self-hosted Home Assistant environment on a Raspberry Pi with Docker. Includes Plex media server, containerized services, and remote access via Tailscale VPN.",
+    "title": "Zelf-gehost Smart Home Platform",
+    "description": "Zelf-gehost Home Assistant op een Raspberry Pi met Docker. Inclusief Plex mediaserver, gecontaineriseerde diensten en externe toegang via Tailscale VPN.",
     "tags": ["Automation", "Docker", "Mesh VPN"],
     "link": "projects/smart-home.html",
     "linkType": "page",
@@ -24,7 +24,7 @@
   {
     "id": "network-security-lab",
     "title": "Network Security Lab",
-    "description": "Homelab setup met firewalls, VLANs en netwerksegmentatie. Focus op OT security en isolatie van kritieke systemen.",
+    "description": "Homelab-opzet met firewalls, VLANs en netwerksegmentatie. Focus op OT-beveiliging en isolatie van kritieke systemen.",
     "tags": ["Security", "Azure"],
     "link": "projects/network-security-lab.html",
     "linkType": "page",
@@ -35,7 +35,7 @@
   {
     "id": "ansible-playbooks",
     "title": "Ansible Automation Playbooks",
-    "description": "Collection van Ansible playbooks voor server configuratie, security hardening en automated deployments in hybride omgevingen.",
+    "description": "Verzameling Ansible-playbooks voor serverconfiguratie, security hardening en geautomatiseerde deployments in hybride omgevingen.",
     "tags": ["Automation", "Security", "Azure"],
     "link": "projects/ansible-playbooks.html",
     "linkType": "page",
