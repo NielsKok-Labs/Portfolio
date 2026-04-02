@@ -243,6 +243,7 @@ const PROJECT_IMAGES = {
         </div>`
 };
 
+function buildProjectCard(project) {
     const linkTarget = project.linkType === 'repo' ? ' target="_blank" rel="noopener noreferrer"' : '';
 
     const tagsHtml = project.tags.map(t =>
