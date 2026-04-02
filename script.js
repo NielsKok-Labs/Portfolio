@@ -243,8 +243,14 @@ const PROJECT_IMAGES = {
         </div>`
 };
 
+// ─── BUG FIX: image, linkIcon en linkText worden nu correct bepaald ───────────
 function buildProjectCard(project) {
+    const image      = PROJECT_IMAGES[project.image] || '<div class="placeholder-image" style="background:var(--bg-secondary);width:100%;height:100%;"></div>';
     const linkTarget = project.linkType === 'repo' ? ' target="_blank" rel="noopener noreferrer"' : '';
+    const linkIcon   = project.linkType === 'repo'
+        ? `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>`
+        : `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>`;
+    const linkText   = project.linkType === 'repo' ? 'Bekijk repo' : 'Bekijk project';
 
     const tagsHtml = project.tags.map(t =>
         `<span class="tag" data-tag="${t}">${t}</span>`
@@ -297,7 +303,6 @@ let activeFilter = 'all';
 function applyFilter(filter, grid, isHomePage) {
     activeFilter = filter;
 
-    // update button states
     qsa('.filter-btn').forEach(btn => {
         btn.classList.toggle('active', btn.getAttribute('data-filter') === filter);
         btn.setAttribute('aria-selected', btn.getAttribute('data-filter') === filter);
@@ -476,11 +481,11 @@ if (paletteOverlay && paletteInput && paletteResults) {
         { label: 'Over mij',     sub: 'Wie is Niels?',              href: '#about',        icon: '01' },
         { label: 'Projecten',    sub: 'Projecten & Labs',            href: '#projects',     icon: '02' },
         { label: 'Certificaten', sub: 'Certificeringen',             href: '#certificates', icon: '03' },
-        { label: 'Ervaring',     sub: 'Werkervaring',         href: '#timeline',     icon: '04' },
+        { label: 'Ervaring',     sub: 'Werkervaring',                href: '#timeline',     icon: '04' },
         { label: 'Blog',         sub: 'Recente posts',               href: '#blog',         icon: '05' },
         { label: 'Contact',      sub: 'Neem contact op',             href: '#contact',      icon: '06' },
-        { label: 'GitHub',       sub: 'github.com/NielsKok-Labs',   href: 'https://github.com/NielsKok-Labs', icon: 'GH' },
-        { label: 'LinkedIn',     sub: 'linkedin.com/in/nielskoknl', href: 'https://www.linkedin.com/in/nielskoknl', icon: 'IN' },
+        { label: 'GitHub',       sub: 'github.com/NielsKok-Labs',    href: 'https://github.com/NielsKok-Labs', icon: 'GH' },
+        { label: 'LinkedIn',     sub: 'linkedin.com/in/nielskoknl',  href: 'https://www.linkedin.com/in/nielskoknl', icon: 'IN' },
     ];
 
     let selectedIndex = 0;
@@ -579,8 +584,7 @@ Focus    : Cloud · Security · Automatisering · Netwerken`,
         projects: () => `<span class="term-info">Projecten:</span>
   [1] Waterschap Metadata Migratie  — PowerShell, SPO, PnP
   [2] Self-Hosted Smart Home        — Docker, Home Assistant, VPN
-  [3] Network Security Lab          — Firewalls, VLANs, OT Security
-  [4] Ansible Automation Playbooks  — Hardening, CI/CD`,
+  [3] Provision Assist              — PowerShell, Power Platform, Azure`,
         contact: () => `<span class="term-info">Contact:</span>
   GitHub   → github.com/NielsKok-Labs
   LinkedIn → linkedin.com/in/nielskoknl`,
