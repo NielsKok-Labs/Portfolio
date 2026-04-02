@@ -183,39 +183,6 @@ const PROJECT_IMAGES = {
             <rect x="226" y="300" width="60" height="80" fill="#03A9F4"/>
         </svg>`,
 
-    network: `
-        <div class="placeholder-image" style="width:100%;height:100%;">
-            <svg viewBox="0 0 400 300" fill="none" style="width:100%;height:100%;">
-                <rect width="400" height="300" fill="url(#net-bg)"/>
-                <rect x="100" y="80" width="80" height="140" rx="8" fill="white" fill-opacity="0.15"/>
-                <rect x="220" y="80" width="80" height="140" rx="8" fill="white" fill-opacity="0.15"/>
-                <path d="M140 150 L200 120 L260 150" stroke="white" stroke-width="4" opacity="0.3"/>
-                <circle cx="200" cy="120" r="15" fill="white" fill-opacity="0.25"/>
-                <defs>
-                    <linearGradient id="net-bg" x1="0" y1="0" x2="400" y2="300">
-                        <stop offset="0%" stop-color="#10b981"/>
-                        <stop offset="100%" stop-color="#059669"/>
-                    </linearGradient>
-                </defs>
-            </svg>
-        </div>`,
-
-    ansible: `
-        <div class="placeholder-image" style="width:100%;height:100%;">
-            <svg viewBox="0 0 400 300" fill="none" style="width:100%;height:100%;">
-                <rect width="400" height="300" fill="url(#ans-bg)"/>
-                <circle cx="200" cy="80" r="40" fill="white" fill-opacity="0.15"/>
-                <rect x="100" y="140" width="200" height="100" rx="8" fill="white" fill-opacity="0.15"/>
-                <path d="M150 180 L170 200 L230 140" stroke="white" stroke-width="4" stroke-linecap="round" opacity="0.3"/>
-                <defs>
-                    <linearGradient id="ans-bg" x1="0" y1="0" x2="400" y2="300">
-                        <stop offset="0%" stop-color="#3b82f6"/>
-                        <stop offset="100%" stop-color="#1d4ed8"/>
-                    </linearGradient>
-                </defs>
-            </svg>
-        </div>`,
-
     provision: `
         <div class="placeholder-image" style="background:linear-gradient(135deg,#0072c6 0%,#6366f1 60%,#8b5cf6 100%);width:100%;height:100%;">
             <svg viewBox="0 0 400 220" fill="none" style="width:100%;height:100%;">
@@ -572,8 +539,7 @@ Focus    : Cloud · Security · Automatisering · Netwerken`,
         projects: () => `<span class="term-info">Projecten:</span>
   [1] Waterschap Metadata Migratie  — PowerShell, SPO, PnP
   [2] Self-Hosted Smart Home        — Docker, Home Assistant, VPN
-  [3] Network Security Lab          — Firewalls, VLANs, OT Security
-  [4] Ansible Automation Playbooks  — Hardening, CI/CD`,
+  [3] Provision Assist              — Governance, Automation, Power Platform, Azure
         contact: () => `<span class="term-info">Contact:</span>
   GitHub   → github.com/NielsKok-Labs
   LinkedIn → linkedin.com/in/nielskoknl`,
