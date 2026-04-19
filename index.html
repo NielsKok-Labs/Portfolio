@@ -103,17 +103,17 @@
                             <span class="window-title">main.tf</span>
                         </div>
                         <div class="code-content">
-<pre><code><span class="keyword">resource</span> <span class="string">"azurerm_virtual_network"</span> <span class="string">"main"</span> <span class="punctuation">{</span>
-  <span class="attr">name</span>                <span class="punctuation">=</span> <span class="string">"niels-vnet"</span>
-  <span class="attr">location</span>            <span class="punctuation">=</span> <span class="string">"West Europe"</span>
-  <span class="attr">resource_group_name</span> <span class="punctuation">=</span> <span class="function">azurerm_resource_group</span><span class="punctuation">.</span>main<span class="punctuation">.</span>name
-  <span class="attr">address_space</span>       <span class="punctuation">=</span> <span class="punctuation">[</span><span class="string">"10.0.0.0/16"</span><span class="punctuation">]</span>
-
-  <span class="attr">tags</span> <span class="punctuation">=</span> <span class="punctuation">{</span>
-    <span class="attr">Environment</span> <span class="punctuation">=</span> <span class="string">"Production"</span>
-    <span class="attr">ManagedBy</span>   <span class="punctuation">=</span> <span class="string">"Terraform"</span>
-  <span class="punctuation">}</span>
-<span class="punctuation">}</span></code></pre>
+                            <pre><code><span class="keyword">resource</span> <span class="string">"azurerm_virtual_network"</span> <span class="string">"main"</span> <span class="punctuation">{</span>
+                              <span class="attr">name</span>                <span class="punctuation">=</span> <span class="string">"niels-vnet"</span>
+                              <span class="attr">location</span>            <span class="punctuation">=</span> <span class="string">"West Europe"</span>
+                              <span class="attr">resource_group_name</span> <span class="punctuation">=</span> <span class="function">azurerm_resource_group</span><span class="punctuation">.</span>main<span class="punctuation">.</span>name
+                              <span class="attr">address_space</span>       <span class="punctuation">=</span> <span class="punctuation">[</span><span class="string">"10.0.0.0/16"</span><span class="punctuation">]</span>
+                            
+                              <span class="attr">tags</span> <span class="punctuation">=</span> <span class="punctuation">{</span>
+                                <span class="attr">Environment</span> <span class="punctuation">=</span> <span class="string">"Production"</span>
+                                <span class="attr">ManagedBy</span>   <span class="punctuation">=</span> <span class="string">"Terraform"</span>
+                              <span class="punctuation">}</span>
+                            <span class="punctuation">}</span></code></pre>
                         </div>
                     </div>
                 </div>
@@ -259,21 +259,22 @@
                             </a>
                         </p>
                     </div>
-                </div>
-                <div class="cert-card small obtained">
-                    <div class="cert-badge">
-                        <a href="https://learn.microsoft.com/api/credentials/share/nl-nl/NielsKok-9564/..." 
-                           target="_blank" rel="noopener noreferrer"
-                           aria-label="View AZ2003 Applied Skill certificate">
-                            <img src="assets/badges/az2003-badge.png" alt="AZ2003 badge">
-                        </a>
+                    <div class="cert-card small obtained">
+                        <div class="cert-badge">
+                            <a href="https://learn.microsoft.com/api/credentials/share/nl-nl/NielsKok-9564/..."
+                               target="_blank" rel="noopener noreferrer"
+                               aria-label="View AZ2003 Applied Skill certificate">
+                                <img src="assets/badges/az2003-badge.png" alt="AZ2003 badge">
+                            </a>
+                        </div>
+                        <h3>AZ-2003</h3>
+                        <p class="cert-issuer">
+                            <a href="..."
+                               target="_blank" rel="noopener noreferrer">
+                                Cloud-native apps<br>met Azure Container Apps
+                            </a>
+                        </p>
                     </div>
-                    <h3>AZ-2003</h3>
-                    <p class="cert-issuer">
-                        <a href="..." target="_blank" rel="noopener noreferrer">
-                            Cloud-native apps<br>met Azure Container Apps
-                        </a>
-                    </p>
                 </div>
 
                 <!-- Roadmap -->
