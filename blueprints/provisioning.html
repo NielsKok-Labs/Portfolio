@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="nl" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teams Provisioning | Blauwdruk | Niels Kok</title>
+    <script>
+        (function() {
+            const saved = localStorage.getItem('theme');
+            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            if (saved === 'dark' || (!saved && prefersDark)) {
+                document.documentElement.setAttribute('data-theme', 'dark');
+            }
+        })();
+    </script>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="../blog.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600;700&family=Manrope:wght@400;600;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Ga naar hoofdinhoud</a>
+
+    <nav class="navbar" role="navigation" aria-label="Hoofdnavigatie">
+        <div class="container">
+            <a href="../index.html" class="logo">
+                <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+                    <rect width="40" height="40" rx="8" fill="url(#lg)"/>
+                    <path d="M12 12L28 28M28 12L12 28" stroke="white" stroke-width="3" stroke-linecap="round"/>
+                    <defs><linearGradient id="lg" x1="0" y1="0" x2="40" y2="40"><stop offset="0%" stop-color="#6366f1"/><stop offset="100%" stop-color="#8b5cf6"/></linearGradient></defs>
+                </svg>
+                <span>Niels Kok</span>
+            </a>
+            <ul class="nav-menu">
+                <li><a href="../index.html#about">Over mij</a></li>
+                <li><a href="../projects.html">Projecten</a></li>
+                <li><a href="../index.html#certificates">Certificaten</a></li>
+                <li><a href="../index.html#timeline">Ervaring</a></li>
+                <li><a href="../blueprints.html">Blauwdrukken</a></li>
+                <li><a href="../links.html">Handige Links</a></li>
+                <li><a href="../index.html#contact">Contact</a></li>
+            </ul>
+            <div style="display:flex;align-items:center;gap:0.75rem;">
+                <button class="theme-toggle" id="themeToggle" aria-label="Schakel licht/donker thema">
+                    <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+                    <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+                </button>
+                <button class="menu-toggle" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero blog-hero">
+        <div class="gradient-orb orb-1" aria-hidden="true"></div>
+        <div class="gradient-orb orb-2" aria-hidden="true"></div>
+        <div class="container">
+            <div class="hero-content">
+                <p class="hero-tag">Blauwdruk · Teams · Governance</p>
+                <h1 class="hero-title"><span class="gradient-text">Teams Provisioning</span></h1>
+                <p class="hero-description">Van ongeremd Teams-gebruik naar gecontroleerde provisioning — met Provision Assist als referentie-implementatie.</p>
+                <div class="blog-meta">
+                    <span class="blog-meta-tag">Provision Assist</span>
+                    <span class="blog-meta-tag">Power Platform</span>
+                    <span class="blog-meta-tag">Azure Logic Apps</span>
+                    <span class="blog-meta-tag">OTAP</span>
+                    <span class="blog-meta-tag">PowerShell</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <main id="main-content">
+        <article class="blog-post">
+
+            <p class="lead">
+                Organisaties die Microsoft Teams in productie nemen zonder governance-strategie, lopen al snel aan tegen honderden werkruimtes zonder eigenaar, inconsistente naamgeving en gevoelige data op de verkeerde plekken. Provision Assist lost dit op — en deze blauwdruk beschrijft hoe we het uitrollen.
+            </p>
+
+            <!-- Het probleem -->
+            <div class="section-header">
+                <span class="section-number">01</span>
+                <h2>Het probleem — Teams sprawl</h2>
+            </div>
+            <p>Teams sprawl is niet een toekomstig risico — het is al gaande bij elke organisatie die Teams zonder governance heeft ingevoerd. De symptomen zijn herkenbaar: niemand weet welke Teams er zijn, documenten staan overal en nergens, en IT wordt overspoeld met ad-hoc verzoeken.</p>
+
+            <div class="tech-stack-grid">
+                <div class="tech-card" style="border-color:rgba(239,68,68,0.3);">
+                    <strong style="color:#ef4444;">Zonder provisioning</strong>
+                    <p>Iedereen maakt zelf Teams aan. Geen naamgeving, geen eigenaarschap, geen lifecycle. Binnen een jaar: chaos.</p>
+                </div>
+                <div class="tech-card" style="border-color:rgba(16,185,129,0.3);">
+                    <strong style="color:#10b981;">Met provisioning</strong>
+                    <p>Medewerkers vragen aan, beheerder keurt goed, systeem maakt aan. Consistent, traceerbaar, beheerbaar.</p>
+                </div>
+            </div>
+
+            <!-- Wat is Provision Assist -->
+            <div class="section-header">
+                <span class="section-number">02</span>
+                <h2>Provision Assist</h2>
+            </div>
+            <p>Provision Assist is een open-source Microsoft 365-applicatie van de PnP-community. Medewerkers vragen een werkruimte aan via een Power App, een beheerder keurt goed, en de backend regelt de rest automatisch via Microsoft Graph API.</p>
+
+            <div class="tech-stack-grid">
+                <div class="tech-card">
+                    <div class="tech-card-icon" style="background:linear-gradient(135deg,#742774,#9c27b0);">
+                        <svg viewBox="0 0 24 24" fill="white" width="22" height="22"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+                    </div>
+                    <strong>Power App</strong>
+                    <p>Aanvraagformulier met aanbevelingslogica. Pinned in Teams als tab — laagdrempelig voor eindgebruikers.</p>
+                </div>
+                <div class="tech-card">
+                    <div class="tech-card-icon" style="background:linear-gradient(135deg,#0072c6,#0091da);">
+                        <svg viewBox="0 0 24 24" fill="white" width="22" height="22"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+                    </div>
+                    <strong>Azure Logic Apps</strong>
+                    <p>Orkestreert het provisioning-proces. Maakt Teams, SharePoint-sites en M365 Groups aan via de Graph API.</p>
+                </div>
+                <div class="tech-card">
+                    <div class="tech-card-icon" style="background:linear-gradient(135deg,#b71c1c,#e53935);">
+                        <svg viewBox="0 0 24 24" fill="white" width="22" height="22"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                    </div>
+                    <strong>Azure Key Vault</strong>
+                    <p>Veilige opslag van certificaten. Geen secrets in code of configuratiebestanden.</p>
+                </div>
+                <div class="tech-card">
+                    <div class="tech-card-icon" style="background:linear-gradient(135deg,#2e7d32,#43a047);">
+                        <svg viewBox="0 0 24 24" fill="white" width="22" height="22"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+                    </div>
+                    <strong>PowerShell Wrapper</strong>
+                    <p>XTRM-eigen deployment-tool voor multi-tenant uitrol. Één JSON per klant, volledig geautomatiseerd.</p>
+                </div>
+            </div>
+
+            <!-- De 5 fasen -->
+            <div class="section-header">
+                <span class="section-number">03</span>
+                <h2>De XTRM uitrolaanpak — 5 fasen</h2>
+            </div>
+
+            <div class="process-steps">
+                <div class="process-step">
+                    <div class="process-step-number">1</div>
+                    <div class="process-step-content">
+                        <strong>Fase 1 — Intake & Analyse</strong>
+                        <p>Inventariseer de huidige situatie: hoeveel Teams bestaan er, hoe worden ze beheerd? Stel wensen vast rondom werkruimtetypen en scope. Leg alles vast in het Randvoorwaardendocument.</p>
+                    </div>
+                </div>
+                <div class="process-step">
+                    <div class="process-step-number">2</div>
+                    <div class="process-step-content">
+                        <strong>Fase 2 — Ontwerp & Inrichting</strong>
+                        <p>Naamgevingsconventie opstellen, Teams-sjablonen definiëren, goedkeuringsproces inrichten, service accounts aanmaken en certificaten genereren. OTAP-omgevingen bepalen.</p>
+                    </div>
+                </div>
+                <div class="process-step">
+                    <div class="process-step-number">3</div>
+                    <div class="process-step-content">
+                        <strong>Fase 3 — Deployment</strong>
+                        <p>Het XTRM deploy-script voert het volledige installatieproces uit: certificaat aanmaken, App Registration, Logic Apps, Key Vault en SharePoint-site. Gevolgd door handmatige autorisatie van API connections en import van de Power Apps solution.</p>
+                    </div>
+                </div>
+                <div class="process-step">
+                    <div class="process-step-number">4</div>
+                    <div class="process-step-content">
+                        <strong>Fase 4 — Testen & Acceptatie</strong>
+                        <p>Functionele tests in de ontwikkelomgeving, deployment naar acceptatie, UAT met key users van de klant en sign-off op de acceptatieomgeving.</p>
+                    </div>
+                </div>
+                <div class="process-step">
+                    <div class="process-step-number">5</div>
+                    <div class="process-step-content">
+                        <strong>Fase 5 — Go-Live & Borging</strong>
+                        <p>Deployment naar productie, beheerderssessie voor het IT-team, gebruikersintroductie en documentatieoverdracht. Hypercare van 2 weken na go-live.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Technische vereisten -->
+            <div class="section-header">
+                <span class="section-number">04</span>
+                <h2>Technische vereisten</h2>
+            </div>
+
+            <div class="tech-stack-grid">
+                <div class="tech-card">
+                    <strong style="color:#6366f1;font-family:'Fira Code',monospace;">Licenties</strong>
+                    <p>Power Apps + Power Automate (seeded via M365), Power Platform Environment + Dataverse, Azure Subscription en M365-licentie voor service account.</p>
+                </div>
+                <div class="tech-card">
+                    <strong style="color:#0ea5e9;font-family:'Fira Code',monospace;">Service Accounts</strong>
+                    <p>SA1 voor provisioning-logica (M365 licentie, geen GA, MFA mag aan). SA2 voor sensitivity labels — alleen indien labels automatisch worden toegepast, zonder MFA.</p>
+                </div>
+                <div class="tech-card">
+                    <strong style="color:#10b981;font-family:'Fira Code',monospace;">Werkplek</strong>
+                    <p>Windows 11, PowerShell 7, Azure CLI. Modules: PnP.PowerShell, Az, ImportExcel, Microsoft.Graph.*</p>
+                </div>
+            </div>
+
+            <div class="blog-callout">
+                <div class="blog-callout-icon">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                </div>
+                <div>
+                    <strong>Multi-tenant deployment — één JSON per klant</strong>
+                    <p>XTRM heeft een eigen deployment-wrapper die de volledige installatie automatiseert. Elke klant krijgt één JSON-configuratiebestand. Fout halverwege? Gebruik <code>-SkipPnpSetup</code> of <code>-SkipEntraApp</code> om al voltooide stappen over te slaan.</p>
+                </div>
+            </div>
+
+            <!-- Referentie -->
+            <div class="section-header">
+                <span class="section-number">05</span>
+                <h2>Referentie — Gemeente Gooise Meren</h2>
+            </div>
+            <p>De eerste klant waar XTRM Provision Assist volledig heeft uitgerold. Twee organisatorisch gescheiden entiteiten (gemeente én gemeenteraad), elk met een volledige OTAP-structuur — in totaal 6 omgevingen, 5 custom Teams-sjablonen en live in productie.</p>
+
+            <div class="tech-stack-grid">
+                <div class="tech-card" style="border-color:rgba(16,185,129,0.3);">
+                    <strong style="color:#10b981;font-size:2rem;font-family:'Fira Code',monospace;">6</strong>
+                    <p>Omgevingen uitgerold — twee organisaties, elk O/A/P.</p>
+                </div>
+                <div class="tech-card" style="border-color:rgba(99,102,241,0.3);">
+                    <strong style="color:#6366f1;font-size:2rem;font-family:'Fira Code',monospace;">5</strong>
+                    <p>Custom Teams-sjablonen: Project klein/groot, Afdeling, Event, Externe samenwerking.</p>
+                </div>
+                <div class="tech-card" style="border-color:rgba(14,165,233,0.3);">
+                    <strong style="color:#0ea5e9;font-size:1.2rem;font-family:'Fira Code',monospace;">Productie</strong>
+                    <p>Live en in dagelijks gebruik door gemeente en gemeenteraad.</p>
+                </div>
+            </div>
+
+            <!-- Documenten -->
+            <div class="section-header">
+                <span class="section-number">06</span>
+                <h2>Documenten & materialen</h2>
+            </div>
+            <p>Het volledige kennisdocument, deployment-scripts en randvoorwaardendocument zijn beschikbaar op aanvraag.</p>
+
+            <div class="blog-links-box">
+                <h3>Referentie</h3>
+                <ul>
+                    <li><a href="https://github.com/pnp/provision-assist-m365" target="_blank">GitHub — pnp/provision-assist-m365</a> — source code, deployment guide en documentatie</li>
+                    <li><a href="https://pnp.github.io/provision-assist-m365/" target="_blank">Officiële documentatie</a> — architectuur en configuratie</li>
+                    <li><a href="../blogs/provision-assist.html">Blog — Provision Assist uitgelegd</a> — uitgebreide uitleg over het product zelf</li>
+                </ul>
+            </div>
+
+        </article>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 Portfolio. Gebouwd met GitHub Pages</p>
+            <nav class="footer-links">
+                <a href="https://github.com/NielsKok-Labs">GitHub</a>
+                <a href="https://www.linkedin.com/in/nielskoknl">LinkedIn</a>
+            </nav>
+        </div>
+    </footer>
+
+    <button class="back-to-top" id="backToTop" aria-label="Terug naar boven">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="18 15 12 9 6 15"/></svg>
+    </button>
+    <script src="../script.js"></script>
+</body>
+</html>

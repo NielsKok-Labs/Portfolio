@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="nl" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>M365 Blauwdruk | Niels Kok</title>
+    <script>
+        (function() {
+            const saved = localStorage.getItem('theme');
+            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            if (saved === 'dark' || (!saved && prefersDark)) {
+                document.documentElement.setAttribute('data-theme', 'dark');
+            }
+        })();
+    </script>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="../blog.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600;700&family=Manrope:wght@400;600;800&display=swap" rel="stylesheet">
+    <style>
+        .chapter-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0 2rem;
+        }
+        .chapter-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1rem 1.25rem;
+            transition: border-color 0.2s ease, transform 0.2s ease;
+        }
+        .chapter-card:hover {
+            border-color: var(--primary);
+            transform: translateY(-2px);
+        }
+        .chapter-num {
+            font-family: 'Fira Code', monospace;
+            font-size: 0.75rem;
+            color: var(--primary);
+            font-weight: 700;
+            margin-bottom: 0.4rem;
+        }
+        .chapter-card strong {
+            display: block;
+            font-size: 0.9rem;
+            color: var(--text);
+            margin-bottom: 0.25rem;
+        }
+        .chapter-card p {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            margin: 0;
+            line-height: 1.5;
+        }
+        .principle-block {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-left: 4px solid var(--primary);
+            border-radius: 0 12px 12px 0;
+            padding: 1.25rem 1.5rem;
+            margin-bottom: 1rem;
+        }
+        .principle-block strong {
+            display: block;
+            font-size: 1rem;
+            color: var(--text);
+            margin-bottom: 0.5rem;
+        }
+        .principle-block p {
+            color: var(--text-secondary);
+            font-size: 0.92rem;
+            margin: 0;
+            line-height: 1.7;
+        }
+    </style>
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Ga naar hoofdinhoud</a>
+
+    <nav class="navbar" role="navigation" aria-label="Hoofdnavigatie">
+        <div class="container">
+            <a href="../index.html" class="logo">
+                <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+                    <rect width="40" height="40" rx="8" fill="url(#lg)"/>
+                    <path d="M12 12L28 28M28 12L12 28" stroke="white" stroke-width="3" stroke-linecap="round"/>
+                    <defs><linearGradient id="lg" x1="0" y1="0" x2="40" y2="40"><stop offset="0%" stop-color="#6366f1"/><stop offset="100%" stop-color="#8b5cf6"/></linearGradient></defs>
+                </svg>
+                <span>Niels Kok</span>
+            </a>
+            <ul class="nav-menu">
+                <li><a href="../index.html#about">Over mij</a></li>
+                <li><a href="../projects.html">Projecten</a></li>
+                <li><a href="../index.html#certificates">Certificaten</a></li>
+                <li><a href="../index.html#timeline">Ervaring</a></li>
+                <li><a href="../blueprints.html">Blauwdrukken</a></li>
+                <li><a href="../links.html">Handige Links</a></li>
+                <li><a href="../index.html#contact">Contact</a></li>
+            </ul>
+            <div style="display:flex;align-items:center;gap:0.75rem;">
+                <button class="theme-toggle" id="themeToggle" aria-label="Schakel licht/donker thema">
+                    <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+                    <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+                </button>
+                <button class="menu-toggle" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero blog-hero">
+        <div class="gradient-orb orb-1" aria-hidden="true"></div>
+        <div class="gradient-orb orb-2" aria-hidden="true"></div>
+        <div class="container">
+            <div class="hero-content">
+                <p class="hero-tag">Blauwdruk · M365 · Volledig naslagwerk</p>
+                <h1 class="hero-title"><span class="gradient-text">M365 Blauwdruk</span></h1>
+                <p class="hero-description">Een diepgaand naslagwerk voor de inrichting van een Microsoft 365-omgeving — van identity-fundament tot Copilot-readiness. Voor overheid en commercieel.</p>
+                <div class="blog-meta">
+                    <span class="blog-meta-item">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                        Versie 1.0 · Mei 2026
+                    </span>
+                    <span class="blog-meta-tag">Identity</span>
+                    <span class="blog-meta-tag">SharePoint</span>
+                    <span class="blog-meta-tag">Purview</span>
+                    <span class="blog-meta-tag">Teams</span>
+                    <span class="blog-meta-tag">Copilot</span>
+                    <span class="blog-meta-tag">Zero Trust</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <main id="main-content">
+        <article class="blog-post">
+
+            <p class="lead">
+                Veel organisaties bezitten Microsoft 365, maar weinig gebruiken het zoals het bedoeld is. Men migreert een oude fileshare naar SharePoint, plakt Teams erbovenop en hoopt dat governance zich vanzelf vormt. Dit document beschrijft hoe het wél moet — geschreven vanuit de praktijk, niet vanuit Microsoft Marketing.
+            </p>
+
+            <!-- Het mentale model -->
+            <div class="section-header">
+                <span class="section-number">01</span>
+                <h2>Het mentale model</h2>
+            </div>
+
+            <div class="blog-callout">
+                <div class="blog-callout-icon">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+                </div>
+                <div>
+                    <strong>Teams · SharePoint · OneDrive · Purview · Power Platform · Copilot</strong>
+                    <p>Teams is het venster waardoor mensen samenwerken aan documenten die in SharePoint staan. SharePoint is de bibliotheek. OneDrive is de persoonlijke werkbank. Purview is de governance-laag die over alles heen ligt. Power Platform automatiseert. Copilot is de AI-laag die alleen werkt als de rest klopt. Identity bepaalt wie binnenkomt.</p>
+                </div>
+            </div>
+
+            <p>De grootste fout die organisaties maken is Teams en SharePoint als twee aparte producten zien. Elk Team heeft een gekoppelde SharePoint-site. Elk kanaal heeft een folder in die site. Wie dat begrijpt, snapt waarom "een bestand kwijt zijn" een symptoom is van een ontwerpfout, niet van slordige gebruikers.</p>
+
+            <!-- De 4 principes -->
+            <div class="section-header">
+                <span class="section-number">02</span>
+                <h2>De vier ontwerpprincipes</h2>
+            </div>
+
+            <div class="principle-block">
+                <strong>Principe 1 — Secure by default</strong>
+                <p>De gebruiker hoeft niets bewust te doen om veilig te zijn. Een nieuw document krijgt automatisch een passend gevoeligheidslabel. Externe deling staat standaard uit voor gevoelige sites. DLP grijpt in voordat data weglekt. De gebruiker leert de uitzondering, niet de norm.</p>
+            </div>
+            <div class="principle-block">
+                <strong>Principe 2 — Structure over folders</strong>
+                <p>Mappen breken zoekbaarheid, retentie, metadata-filters, automatisering en views. De juiste primitieven zijn termsets, site columns, content types en libraries met views. Wie deze investering doet, krijgt de rest gratis: Copilot levert relevante antwoorden, dashboards bouwen zichzelf.</p>
+            </div>
+            <div class="principle-block">
+                <strong>Principe 3 — Standardize then provision</strong>
+                <p>Een handmatig aangemaakte site is een fout in wording. De juiste volgorde: leg de standaard vast, bouw templates, lever via geautomatiseerd provisioning. Drift binnen 6 maanden is gegarandeerd als je dit niet doet.</p>
+            </div>
+            <div class="principle-block">
+                <strong>Principe 4 — Business owns the data, IT owns the platform</strong>
+                <p>Sensitivity labels, retentie, content types, naamgeving — dit zijn business-keuzes. HR bepaalt hoe lang een functioneringsverslag bewaard wordt. IT levert het platform, business levert de inhoud van de governance.</p>
+            </div>
+
+            <!-- Wat de blauwdruk dekt -->
+            <div class="section-header">
+                <span class="section-number">03</span>
+                <h2>Wat de blauwdruk dekt</h2>
+            </div>
+            <p>Het volledige document bestaat uit 14 hoofdstukken en dekt de complete inrichting van een Microsoft 365-omgeving — van de eerste tenant-instellingen tot Copilot-readiness en Power Platform-governance.</p>
+
+            <div class="chapter-grid">
+                <div class="chapter-card">
+                    <div class="chapter-num">H2–3</div>
+                    <strong>Filosofie & fundament</strong>
+                    <p>Mentaal model, ontwerpprincipes, identity-basis en Conditional Access baseline.</p>
+                </div>
+                <div class="chapter-card">
+                    <div class="chapter-num">H4</div>
+                    <strong>SharePoint</strong>
+                    <p>Informatie-architectuur, Term Store, content types, hub-structuur, naamgeving en views.</p>
+                </div>
+                <div class="chapter-card">
+                    <div class="chapter-num">H5</div>
+                    <strong>Microsoft Teams</strong>
+                    <p>Team-structuur, SharePoint-koppeling, externe samenwerking en lifecycle-beheer.</p>
+                </div>
+                <div class="chapter-card">
+                    <div class="chapter-num">H6</div>
+                    <strong>Provisioning</strong>
+                    <p>Nooit handmatig. Provision Assist, site templates, OTAP en naming-policy.</p>
+                </div>
+                <div class="chapter-card">
+                    <div class="chapter-num">H7</div>
+                    <strong>Microsoft Purview</strong>
+                    <p>Het langste hoofdstuk. Labels, DLP, retentie, eDiscovery, Compliance Manager.</p>
+                </div>
+                <div class="chapter-card">
+                    <div class="chapter-num">H8</div>
+                    <strong>Backup & restore</strong>
+                    <p>Wat Microsoft doet én niet doet. 3-2-1-1-0 voor M365. Ransomware-response.</p>
+                </div>
+                <div class="chapter-card">
+                    <div class="chapter-num">H9</div>
+                    <strong>Copilot</strong>
+                    <p>Pre-readiness checklist, oversharing assessment, pilot-aanpak en valkuilen.</p>
+                </div>
+                <div class="chapter-card">
+                    <div class="chapter-num">H10</div>
+                    <strong>Identity & Zero Trust</strong>
+                    <p>Conditional Access deep dive, PIM, Entra ID Governance en Defender for Identity.</p>
+                </div>
+                <div class="chapter-card">
+                    <div class="chapter-num">H11</div>
+                    <strong>Power Platform</strong>
+                    <p>Environments, DLP-policies, Managed Environments, CoE Starter Kit en ALM.</p>
+                </div>
+                <div class="chapter-card">
+                    <div class="chapter-num">H12</div>
+                    <strong>Van plan naar werkelijkheid</strong>
+                    <p>PoC, pilot, gefaseerde uitrol, adoptie en doorlopend verbeteren.</p>
+                </div>
+                <div class="chapter-card">
+                    <div class="chapter-num">H13</div>
+                    <strong>Overheid vs commercieel</strong>
+                    <p>Vergelijkingstabel met de fundamentele verschillen per domein.</p>
+                </div>
+                <div class="chapter-card">
+                    <div class="chapter-num">H14</div>
+                    <strong>Fouten & checklists</strong>
+                    <p>Top 20 klassieke fouten en checklists per fase — van pre-implementatie tot Copilot.</p>
+                </div>
+            </div>
+
+            <!-- Highlights -->
+            <div class="section-header">
+                <span class="section-number">04</span>
+                <h2>Highlights uit het document</h2>
+            </div>
+
+            <h3>Identity-basis — wat nooit overgeslagen mag worden</h3>
+            <ul>
+                <li><strong>MFA voor 100% van de gebruikers</strong> — geen uitzonderingen, ook niet voor de directie</li>
+                <li><strong>Per-user MFA uit</strong> — alles via Conditional Access regelen, dat is de moderne methode</li>
+                <li><strong>PIM verplicht</strong> — geen permanent Global Admin, alles just-in-time met max 4–8 uur activatie</li>
+                <li><strong>Breakglass-accounts</strong> — minimaal 2, uitgesloten van Conditional Access, FIDO2-keys in een fysieke kluis</li>
+                <li><strong>Admin-accounts zonder mailbox</strong> — geen aanvalsoppervlak op het account dat de meeste rechten heeft</li>
+            </ul>
+
+            <h3>Conditional Access — minimale baseline</h3>
+            <ul>
+                <li>MFA verplicht voor alle gebruikers op alle apps (breakglass uitgesloten)</li>
+                <li>Block legacy authentication — POP, IMAP, SMTP Basic Auth</li>
+                <li>Require compliant device voor SharePoint, Exchange en Teams</li>
+                <li>Device Code flow blokkeren vanwege token-misbruikrisico</li>
+                <li>Hoog/middelmatig aanmeldingsrisico blokkeert of dwingt wachtwoordwijziging</li>
+            </ul>
+
+            <h3>SharePoint — de fundamentele regel</h3>
+            <div class="blog-callout">
+                <div class="blog-callout-icon">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+                </div>
+                <div>
+                    <strong>Geen mappen</strong>
+                    <p>Mappen breken zoekbaarheid, retentie, metadata-filters, automatisering en views. De juiste primitieven zijn Term Store, site columns, content types en libraries met views. Wie dit doet, krijgt Copilot-readiness als bijproduct.</p>
+                </div>
+            </div>
+
+            <h3>De gouden zin voor elke kick-off</h3>
+            <div class="blog-callout">
+                <div class="blog-callout-icon">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                </div>
+                <div>
+                    <strong>"Microsoft 365 inrichten is voor 30% techniek en voor 70% afspraken."</strong>
+                    <p>Als de afspraken er niet zijn, levert de techniek niets op. Daarom beginnen we niet met klikken, maar met een workshop met de business.</p>
+                </div>
+            </div>
+
+            <!-- Document beschikbaar -->
+            <div class="section-header">
+                <span class="section-number">05</span>
+                <h2>Document beschikbaar op aanvraag</h2>
+            </div>
+            <p>Het volledige naslagwerk (versie 1.0, mei 2026) is beschikbaar op aanvraag — voor collega's, klanten en partners. Neem contact op via LinkedIn.</p>
+
+            <div class="tech-stack-grid">
+                <div class="tech-card" style="border-color:rgba(99,102,241,0.15);">
+                    <strong>📄 Volledig document</strong>
+                    <p>14 hoofdstukken, checklists per fase en bijlagen met stack overview en referenties.</p>
+                </div>
+                <div class="tech-card" style="border-color:rgba(99,102,241,0.15);">
+                    <strong>✅ Checklists</strong>
+                    <p>Pre-implementatie, tenant-fundament, SharePoint, Purview, provisioning, backup en Copilot.</p>
+                </div>
+                <div class="tech-card" style="border-color:rgba(99,102,241,0.15);">
+                    <strong>⚠️ Top 20 klassieke fouten</strong>
+                    <p>De meest gemaakte fouten bij M365-implementaties — en hoe je ze voorkomt.</p>
+                </div>
+            </div>
+
+            <div class="blog-links-box">
+                <h3>Handige bronnen</h3>
+                <ul>
+                    <li><a href="https://learn.microsoft.com/nl-nl/microsoft-365/" target="_blank">Microsoft Learn — Microsoft 365</a> — officiële documentatie</li>
+                    <li><a href="https://learn.microsoft.com/en-us/azure/active-directory/conditional-access/plan-conditional-access" target="_blank">Conditional Access plannen</a> — Microsoft's eigen deployment guide</li>
+                    <li><a href="https://learn.microsoft.com/en-us/microsoft-365/compliance/purview-compliance" target="_blank">Microsoft Purview compliance</a> — compliance portal documentatie</li>
+                    <li><a href="https://adoption.microsoft.com/nl-nl/" target="_blank">Microsoft Adoption</a> — adoption resources en templates</li>
+                </ul>
+            </div>
+
+        </article>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 Portfolio. Gebouwd met GitHub Pages</p>
+            <nav class="footer-links">
+                <a href="https://github.com/NielsKok-Labs">GitHub</a>
+                <a href="https://www.linkedin.com/in/nielskoknl">LinkedIn</a>
+            </nav>
+        </div>
+    </footer>
+
+    <button class="back-to-top" id="backToTop" aria-label="Terug naar boven">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="18 15 12 9 6 15"/></svg>
+    </button>
+    <script src="../script.js"></script>
+</body>
+</html>

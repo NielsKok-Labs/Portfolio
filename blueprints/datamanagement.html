@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="nl" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Datamanagement & Microsoft Purview | Blauwdruk | Niels Kok</title>
+    <script>
+        (function() {
+            const saved = localStorage.getItem('theme');
+            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            if (saved === 'dark' || (!saved && prefersDark)) {
+                document.documentElement.setAttribute('data-theme', 'dark');
+            }
+        })();
+    </script>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="../blog.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600;700&family=Manrope:wght@400;600;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Ga naar hoofdinhoud</a>
+
+    <nav class="navbar" role="navigation" aria-label="Hoofdnavigatie">
+        <div class="container">
+            <a href="../index.html" class="logo">
+                <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+                    <rect width="40" height="40" rx="8" fill="url(#lg)"/>
+                    <path d="M12 12L28 28M28 12L12 28" stroke="white" stroke-width="3" stroke-linecap="round"/>
+                    <defs><linearGradient id="lg" x1="0" y1="0" x2="40" y2="40"><stop offset="0%" stop-color="#6366f1"/><stop offset="100%" stop-color="#8b5cf6"/></linearGradient></defs>
+                </svg>
+                <span>Niels Kok</span>
+            </a>
+            <ul class="nav-menu">
+                <li><a href="../index.html#about">Over mij</a></li>
+                <li><a href="../projects.html">Projecten</a></li>
+                <li><a href="../index.html#certificates">Certificaten</a></li>
+                <li><a href="../index.html#timeline">Ervaring</a></li>
+                <li><a href="../blueprints.html">Blauwdrukken</a></li>
+                <li><a href="../links.html">Handige Links</a></li>
+                <li><a href="../index.html#contact">Contact</a></li>
+            </ul>
+            <div style="display:flex;align-items:center;gap:0.75rem;">
+                <button class="theme-toggle" id="themeToggle" aria-label="Schakel licht/donker thema">
+                    <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+                    <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+                </button>
+                <button class="menu-toggle" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero blog-hero">
+        <div class="gradient-orb orb-1" aria-hidden="true"></div>
+        <div class="gradient-orb orb-2" aria-hidden="true"></div>
+        <div class="container">
+            <div class="hero-content">
+                <p class="hero-tag">Blauwdruk · Purview · GRC</p>
+                <h1 class="hero-title"><span class="gradient-text">Datamanagement</span><br>& Microsoft Purview</h1>
+                <p class="hero-description">Een bewezen aanpak voor gevoeligheidslabels, DLP en retentie — van de eerste workshop tot technische uitrol.</p>
+                <div class="blog-meta">
+                    <span class="blog-meta-tag">Sensitivity Labels</span>
+                    <span class="blog-meta-tag">DLP</span>
+                    <span class="blog-meta-tag">Retentie</span>
+                    <span class="blog-meta-tag">MDTO</span>
+                    <span class="blog-meta-tag">Workshops</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <main id="main-content">
+        <article class="blog-post">
+
+            <p class="lead">
+                Datamanagement klinkt technisch — maar het raakt elke medewerker bij de klant. Verkeerd gedeelde bestanden zijn de meest voorkomende oorzaak van AVG-boetes. Retentiebeleid zorgt dat verouderde data automatisch verdwijnt. En klanten die zien dat hun data structureel beheerd wordt, verlengen contracten. Dit is de aanpak die we daarvoor hanteren.
+            </p>
+
+            <!-- Waarom -->
+            <div class="section-header">
+                <span class="section-number">01</span>
+                <h2>Waarom dit ertoe doet</h2>
+            </div>
+            <p>Microsoft Purview is bij veel organisaties een onderbenutte laag in hun M365-omgeving. De tooling is aanwezig, maar zonder een goede aanpak leidt implementatie tot labels die niemand gebruikt, DLP-regels die alles blokkeren, en retentiebeleid dat niet aansluit op de werkelijkheid.</p>
+            <p>Onze aanpak begint niet met klikken — maar met begrijpen. Samen met de FG, CISO en relevante stakeholders bepalen we wat de organisatie nodig heeft. Daarna volgt de techniek.</p>
+
+            <div class="tech-stack-grid">
+                <div class="tech-card" style="border-color:rgba(99,102,241,0.3);">
+                    <strong style="color:#6366f1;">Datalekken voorkomen</strong>
+                    <p>Verkeerd gedeelde bestanden zijn de meest voorkomende oorzaak van AVG-boetes. Labels en DLP voorkomen dit automatisch.</p>
+                </div>
+                <div class="tech-card" style="border-color:rgba(14,165,233,0.3);">
+                    <strong style="color:#0ea5e9;">Minder rommel, meer overzicht</strong>
+                    <p>Retentiebeleid zorgt dat verouderde data automatisch verdwijnt. Minder clutter, betere zoekresultaten.</p>
+                </div>
+                <div class="tech-card" style="border-color:rgba(16,185,129,0.3);">
+                    <strong style="color:#10b981;">Vertrouwen bij de klant</strong>
+                    <p>Klanten die zien dat hun data structureel beheerd wordt, verlengen contracten. Dit is een concreet concurrentievoordeel.</p>
+                </div>
+            </div>
+
+            <!-- De 3 pijlers -->
+            <div class="section-header">
+                <span class="section-number">02</span>
+                <h2>De drie pijlers</h2>
+            </div>
+
+            <div class="tech-stack-grid">
+                <div class="tech-card" style="border-color:rgba(99,102,241,0.3);">
+                    <div class="tech-card-icon" style="background:linear-gradient(135deg,#6366f1,#8b5cf6);">
+                        <svg viewBox="0 0 24 24" fill="white" width="22" height="22"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                    </div>
+                    <strong>Gevoeligheidslabels</strong>
+                    <p>Classificeer data op basis van impact en vertrouwelijkheid. Samen met de klant bepalen we een labelstructuur die aansluit bij AVG-vereisten en bedrijfsprocessen.</p>
+                </div>
+                <div class="tech-card" style="border-color:rgba(14,165,233,0.3);">
+                    <div class="tech-card-icon" style="background:linear-gradient(135deg,#0ea5e9,#6366f1);">
+                        <svg viewBox="0 0 24 24" fill="white" width="22" height="22"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><line x1="12" y1="8" x2="12" y2="16" stroke="#0ea5e9" stroke-width="2"/></svg>
+                    </div>
+                    <strong>DLP-beleid</strong>
+                    <p>Data Loss Prevention regels afgestemd op de labelstructuur. We werken met bewezen beleidssets voor e-mail, Teams, SharePoint en endpoints.</p>
+                </div>
+                <div class="tech-card" style="border-color:rgba(16,185,129,0.3);">
+                    <div class="tech-card-icon" style="background:linear-gradient(135deg,#10b981,#0ea5e9);">
+                        <svg viewBox="0 0 24 24" fill="white" width="22" height="22"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                    </div>
+                    <strong>Retentiebeleid</strong>
+                    <p>Bepaal hoe lang data bewaard en vernietigd wordt. Op basis van type data, wettelijke verplichtingen en klantspecifieke eisen stellen we retentieschema's op.</p>
+                </div>
+            </div>
+
+            <!-- De workshops -->
+            <div class="section-header">
+                <span class="section-number">03</span>
+                <h2>De aanpak — 3 workshops</h2>
+            </div>
+            <p>De technische implementatie volgt altijd op de inhoudelijke keuzes. Daarvoor hanteren we een workshopstructuur van drie sessies, telkens met de juiste stakeholders aan tafel: FG, CISO, informatiemanager en relevante afdelingshoofden.</p>
+
+            <div class="process-steps">
+                <div class="process-step">
+                    <div class="process-step-number">1</div>
+                    <div class="process-step-content">
+                        <strong>Workshop 1 — Gevoeligheidslabels</strong>
+                        <p>Samen bepalen we de labelstructuur: welke gevoeligheidsniveaus zijn relevant? Wat is "Vertrouwelijk" voor déze organisatie? Hoe werkt inheritance tussen container-labels en bestandslabels? Uitkomst: een vastgestelde labelstructuur die direct de basis vormt voor de technische configuratie.</p>
+                    </div>
+                </div>
+                <div class="process-step">
+                    <div class="process-step-number">2</div>
+                    <div class="process-step-content">
+                        <strong>Workshop 2 — Data Loss Prevention</strong>
+                        <p>Op basis van de labelstructuur bepalen we de DLP-regels: welke informatie mag nooit buiten de organisatie? Welke uitzonderingen zijn nodig voor werkprocessen? We starten altijd in audit-modus — policy tips voor bewustwording, blokkeringen pas als de organisatie er klaar voor is.</p>
+                    </div>
+                </div>
+                <div class="process-step">
+                    <div class="process-step-number">3</div>
+                    <div class="process-step-content">
+                        <strong>Workshop 3 — Retentie</strong>
+                        <p>Hoe lang bewaart de organisatie welk type informatie? Wat moet vernietigd, wat overgebracht? Voor overheidsklanten koppelen we dit aan de selectielijst en MDTO-vereisten. Voor commerciële klanten aan wettelijke bewaarplichten (fiscaal, arbeidsrecht, contracten).</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Roadmap -->
+            <div class="section-header">
+                <span class="section-number">04</span>
+                <h2>Roadmap Datamanagement</h2>
+            </div>
+
+            <div class="tech-stack-grid">
+                <div class="tech-card">
+                    <strong style="color:#6366f1;font-family:'Fira Code',monospace;">01</strong>
+                    <strong>Analyse & inventarisatie</strong>
+                    <p>Analyse is cruciaal om de huidige situatie volledig te begrijpen en vast te leggen voor verdere stappen.</p>
+                </div>
+                <div class="tech-card">
+                    <strong style="color:#6366f1;font-family:'Fira Code',monospace;">02</strong>
+                    <strong>Governance en rollen</strong>
+                    <p>Duidelijke governance en rolverdeling zorgen voor verantwoordelijkheid en structuur binnen het proces.</p>
+                </div>
+                <div class="tech-card">
+                    <strong style="color:#6366f1;font-family:'Fira Code',monospace;">03</strong>
+                    <strong>Metadata en MDTO</strong>
+                    <p>Metadata vormt de basis voor dataclassificatie en implementatie van MDTO-standaarden.</p>
+                </div>
+                <div class="tech-card">
+                    <strong style="color:#6366f1;font-family:'Fira Code',monospace;">04</strong>
+                    <strong>Labels en beleidsregels</strong>
+                    <p>Beveiligingslabels en beleidsregels beschermen data en zorgen voor naleving van richtlijnen.</p>
+                </div>
+                <div class="tech-card">
+                    <strong style="color:#6366f1;font-family:'Fira Code',monospace;">05</strong>
+                    <strong>Training en adoptie</strong>
+                    <p>Training zorgt voor correcte toepassing van processen en bevordert brede adoptie binnen de organisatie.</p>
+                </div>
+                <div class="tech-card">
+                    <strong style="color:#6366f1;font-family:'Fira Code',monospace;">06</strong>
+                    <strong>Monitoring en optimalisatie</strong>
+                    <p>Door monitoring kunnen processen worden bijgestuurd en geoptimaliseerd voor duurzame resultaten.</p>
+                </div>
+            </div>
+
+            <!-- MDTO overheid -->
+            <div class="section-header">
+                <span class="section-number">05</span>
+                <h2>Overheidscontext — MDTO</h2>
+            </div>
+            <p>Voor overheidsklanten geldt een aanvullende laag: MDTO (Metagegevens voor Duurzaam Toegankelijke Overheidsinformatie). De nieuwe Archiefwet (van kracht per 1 januari 2026) maakt gestructureerd informatiebeheer urgenter dan ooit — met een verkorte overbrengtermijn van twintig naar tien jaar.</p>
+
+            <div class="blog-callout">
+                <div class="blog-callout-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+                </div>
+                <div>
+                    <strong>Secure by default als uitgangspunt</strong>
+                    <p>De gebruiker hoeft niets bewust te doen om veilig te zijn. Nieuwe documenten krijgen automatisch een passend label. DLP grijpt in voordat data weglekt. Gebruikers leer je de uitzondering, niet de norm.</p>
+                </div>
+            </div>
+
+            <!-- Documenten -->
+            <div class="section-header">
+                <span class="section-number">06</span>
+                <h2>Documenten & materialen</h2>
+            </div>
+            <p>De volledige documentatie, workshopmaterialen en technische configuratiegidsen zijn beschikbaar op aanvraag. Neem contact op via LinkedIn of e-mail.</p>
+
+            <div class="tech-stack-grid">
+                <div class="tech-card" style="border-color:rgba(99,102,241,0.15);">
+                    <strong>📋 Workshopmaterialen</strong>
+                    <p>Facilitatiegidsen, vragenlijsten en templates voor alle drie de workshops.</p>
+                </div>
+                <div class="tech-card" style="border-color:rgba(99,102,241,0.15);">
+                    <strong>⚙️ Technische configuratiegids</strong>
+                    <p>Stap-voor-stap inrichting van labels, DLP en retentie in de Purview-portal.</p>
+                </div>
+                <div class="tech-card" style="border-color:rgba(99,102,241,0.15);">
+                    <strong>📊 Presentaties</strong>
+                    <p>Managementpresentaties voor draagvlak en besluitvorming bij de klant.</p>
+                </div>
+            </div>
+
+            <div class="blog-links-box">
+                <h3>Referentie</h3>
+                <ul>
+                    <li><a href="https://learn.microsoft.com/en-us/purview/deploymentmodels/depmod-secure-by-default-intro" target="_blank">Microsoft Secure by Default</a> — het fundament achter onze labelstrategie</li>
+                    <li><a href="https://techcommunity.microsoft.com/blog/microsoft-purview-blog/microsoft-purview-referential-architecture-diagrams/4510925" target="_blank">Microsoft Purview Referentie Architecturen</a> — architectuurdiagrammen per scenario</li>
+                    <li><a href="https://www.nationaalarchief.nl/archiveren/mdto" target="_blank">Nationaal Archief — MDTO</a> — officiële documentatie en XML-schema</li>
+                </ul>
+            </div>
+
+        </article>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 Portfolio. Gebouwd met GitHub Pages</p>
+            <nav class="footer-links">
+                <a href="https://github.com/NielsKok-Labs">GitHub</a>
+                <a href="https://www.linkedin.com/in/nielskoknl">LinkedIn</a>
+            </nav>
+        </div>
+    </footer>
+
+    <button class="back-to-top" id="backToTop" aria-label="Terug naar boven">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="18 15 12 9 6 15"/></svg>
+    </button>
+    <script src="../script.js"></script>
+</body>
+</html>
