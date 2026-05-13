@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="nl" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="M365 Health Check & Security Hardening bij HDSR — BIO2, CIS v6.0.1, Conditional Access, Entra ID.">
+    <title>M365 Health Check & Hardening | HDSR | Niels Kok</title>
+    <script>
+        (function() {
+            const saved = localStorage.getItem('theme');
+            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            if (saved === 'dark' || (!saved && prefersDark)) {
+                document.documentElement.setAttribute('data-theme', 'dark');
+            }
+        })();
+    </script>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="../blog.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600;700&family=Manrope:wght@400;600;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Ga naar hoofdinhoud</a>
+
+    <nav class="navbar" role="navigation" aria-label="Hoofdnavigatie">
+        <div class="container">
+            <a href="../index.html" class="logo" aria-label="Niels Kok - Home">
+                <svg width="40" height="40" viewBox="0 0 40 40" fill="none" aria-hidden="true">
+                    <rect width="40" height="40" rx="8" fill="url(#logo-gradient)"/>
+                    <path d="M12 12L28 28M28 12L12 28" stroke="white" stroke-width="3" stroke-linecap="round"/>
+                    <defs>
+                        <linearGradient id="logo-gradient" x1="0" y1="0" x2="40" y2="40">
+                            <stop offset="0%" stop-color="#6366f1"/>
+                            <stop offset="100%" stop-color="#8b5cf6"/>
+                        </linearGradient>
+                    </defs>
+                </svg>
+                <span>Niels Kok</span>
+            </a>
+            <ul class="nav-menu">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../index.html#about">Over mij</a></li>
+                <li><a href="../index.html#projects">Projecten</a></li>
+                <li><a href="../index.html#blog">Blog</a></li>
+                <li><a href="../index.html#contact">Contact</a></li>
+            </ul>
+            <div style="display:flex;align-items:center;gap:0.75rem;">
+                <button class="theme-toggle" id="themeToggle" aria-label="Schakel licht/donker thema">
+                    <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+                    <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                        <circle cx="12" cy="12" r="5"/>
+                        <line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+                        <line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+                    </svg>
+                </button>
+                <button class="menu-toggle" aria-label="Menu openen/sluiten" aria-expanded="false">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero blog-hero" aria-labelledby="project-title">
+        <div class="gradient-orb orb-1" aria-hidden="true"></div>
+        <div class="gradient-orb orb-2" aria-hidden="true"></div>
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-tag">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                    </svg>
+                    Client project · M365 / Security / GRC
+                </div>
+                <h1 class="hero-title" id="project-title">M365 Health Check &<br>Security Hardening | HDSR</h1>
+                <div class="blog-meta">
+                    <span class="blog-meta-item">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                        November 2024 – heden
+                    </span>
+                    <span class="blog-meta-item">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                        Fase 2 lopend
+                    </span>
+                    <span class="blog-meta-tag">CIS v6.0.1</span>
+                    <span class="blog-meta-tag">BIO2</span>
+                    <span class="blog-meta-tag">Entra ID</span>
+                    <span class="blog-meta-tag">Conditional Access</span>
+                    <span class="blog-meta-tag">GRC</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <main id="main-content">
+        <article class="blog-post">
+
+            <p class="lead">
+                Microsoft 365 Health Check bij Hoogheemraadschap De Stichtse Rijnlanden (HDSR), getoetst aan de BIO2 en CIS Microsoft 365 Foundations Benchmark v6.0.1 — zelfstandig uitgevoerd van analyse tot rapport, managementpresentatie en implementatieplan. Gevolgd door actieve hardening van de omgeving in samenwerking met het interne IT-team.
+            </p>
+
+            <!-- 01 Context -->
+            <div class="section-header">
+                <span class="section-number" aria-hidden="true">01</span>
+                <h2>Context & opdracht</h2>
+            </div>
+            <p>
+                HDSR is een waterschap dat verantwoordelijk is voor waterbeheer in een groot deel van de provincie Utrecht. Als overheidsorganisatie valt HDSR onder de BIO (Baseline Informatiebeveiliging Overheid) en is een aantoonbaar beveiligde Microsoft 365-omgeving een vereiste.
+            </p>
+            <p>
+                De opdracht bestond uit twee fasen: eerst een volledige health check uitvoeren om de huidige beveiligingsstatus in kaart te brengen, daarna de bevindingen omzetten in concrete verbeteringen. Beide fasen zijn door mij begeleid — de health check volledig zelfstandig, de hardening in samenwerking met het interne IT-team van HDSR.
+            </p>
+
+            <div class="tech-stack-grid">
+                <div class="tech-card" style="border-color:rgba(99,102,241,0.3);">
+                    <strong style="color:#6366f1;font-family:'Fira Code',monospace;">F1</strong>
+                    <strong>Health Check</strong>
+                    <p>Volledige analyse van de M365-tenant op basis van BIO2 en CIS v6.0.1. Zelfstandig uitgevoerd in november 2024.</p>
+                </div>
+                <div class="tech-card" style="border-color:rgba(14,165,233,0.3);">
+                    <strong style="color:#0ea5e9;font-family:'Fira Code',monospace;">F2</strong>
+                    <strong>Security Hardening</strong>
+                    <p>Uitvoering van de verbeteradviezen — hardening van Entra ID, Conditional Access en security policies. Lopend in samenwerking met intern team.</p>
+                </div>
+            </div>
+
+            <!-- 02 Fase 1: Health Check -->
+            <div class="section-header">
+                <span class="section-number" aria-hidden="true">02</span>
+                <h2>Fase 1 — De Health Check</h2>
+            </div>
+            <p>
+                De health check omvatte een gestructureerde beoordeling van de volledige M365-tenant. Elke check werd getoetst aan zowel de BIO2 als de CIS Microsoft 365 Foundations Benchmark v6.0.1, zodat de bevindingen direct koppelbaar zijn aan concrete normenkaders.
+            </p>
+
+            <div class="process-steps">
+                <div class="process-step">
+                    <div class="process-step-number">1</div>
+                    <div class="process-step-content">
+                        <strong>Analyse & inventarisatie</strong>
+                        <p>Volledige inventarisatie van de M365-omgeving: Entra ID-configuratie, Conditional Access policies, MFA-status, gastgebruikers, extern delen, wachtwoordbeleid, audit logging en Exchange Online-instellingen.</p>
+                    </div>
+                </div>
+                <div class="process-step">
+                    <div class="process-step-number">2</div>
+                    <div class="process-step-content">
+                        <strong>Toetsing aan BIO2 & CIS</strong>
+                        <p>Elke bevinding werd gekoppeld aan de relevante BIO2-maatregel en het bijbehorende CIS-controlepunt. Hierdoor is het rapport direct bruikbaar voor formele verantwoording richting management en auditors.</p>
+                    </div>
+                </div>
+                <div class="process-step">
+                    <div class="process-step-number">3</div>
+                    <div class="process-step-content">
+                        <strong>Rapport & managementpresentatie</strong>
+                        <p>Bevindingen vertaald naar een uitgebreid rapport met concrete verbeteradviezen, prioritering op risico en een managementpresentatie met een samenvatting op hoofdlijnen.</p>
+                    </div>
+                </div>
+                <div class="process-step">
+                    <div class="process-step-number">4</div>
+                    <div class="process-step-content">
+                        <strong>Implementatieplan</strong>
+                        <p>Verbeteradviezen uitgewerkt in een implementatieplan met prioritering, geschatte doorlooptijd per maatregel en verantwoordelijkheden — als directe input voor de hardening-fase.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="blog-callout">
+                <div class="blog-callout-icon" aria-hidden="true">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                </div>
+                <div>
+                    <strong>Advies over governance, security en Intune/MDM</strong>
+                    <p>Naast de directe CIS/BIO2-bevindingen zijn ook adviezen opgesteld over bredere governance-vraagstukken, de security-inrichting en raakvlakken met Intune en MDM-beleid — gericht op zowel IT als management.</p>
+                </div>
+            </div>
+
+            <!-- 03 Fase 2: Hardening -->
+            <div class="section-header">
+                <span class="section-number" aria-hidden="true">03</span>
+                <h2>Fase 2 — Security Hardening</h2>
+            </div>
+            <p>
+                Op basis van het implementatieplan is gestart met de daadwerkelijke hardening van de omgeving. Dit gebeurt in samenwerking met het interne IT-team van HDSR, waarbij ik de technische uitvoering begeleid en de implementatie toets aan de gestelde normen.
+            </p>
+
+            <div class="tech-stack-grid">
+                <div class="tech-card" style="border-color:rgba(16,185,129,0.3);">
+                    <strong style="color:#10b981;">Entra ID</strong>
+                    <p>Hardening van identiteitsbeheer: MFA-configuratie, admin-accounts, dynamic groups en gastgebruikersinstellingen.</p>
+                </div>
+                <div class="tech-card" style="border-color:rgba(99,102,241,0.3);">
+                    <strong style="color:#6366f1;">Conditional Access</strong>
+                    <p>Uitbreiding en verfijning van het Conditional Access-framework op basis van CIS-aanbevelingen en organisatiespecifieke vereisten.</p>
+                </div>
+                <div class="tech-card" style="border-color:rgba(14,165,233,0.3);">
+                    <strong style="color:#0ea5e9;">Security Policies</strong>
+                    <p>Implementatie van verbeterde wachtwoordbeveiliging, audit logging, Exchange Online-instellingen en SharePoint-governance.</p>
+                </div>
+            </div>
+
+            <!-- 04 Frameworks -->
+            <div class="section-header">
+                <span class="section-number" aria-hidden="true">04</span>
+                <h2>Gebruikte normenkaders</h2>
+            </div>
+
+            <div class="tech-stack-grid">
+                <div class="tech-card" style="border-color:rgba(99,102,241,0.3);">
+                    <strong style="color:#6366f1;font-family:'Fira Code',monospace;">BIO2</strong>
+                    <strong>Baseline Informatiebeveiliging Overheid</strong>
+                    <p>Verplicht normenkader voor alle Nederlandse overheidsorganisaties. BIO2 is de herziene versie die aansluit op ISO 27001:2022.</p>
+                </div>
+                <div class="tech-card" style="border-color:rgba(14,165,233,0.3);">
+                    <strong style="color:#0ea5e9;font-family:'Fira Code',monospace;">CIS v6.0.1</strong>
+                    <strong>CIS Microsoft 365 Foundations Benchmark</strong>
+                    <p>Internationale best practice standaard voor M365-beveiliging. Versie 6.0.1 omvat Level 1 en Level 2 controls voor de gehele M365-suite.</p>
+                </div>
+            </div>
+
+            <!-- 05 Resultaat -->
+            <div class="section-header">
+                <span class="section-number" aria-hidden="true">05</span>
+                <h2>Resultaat</h2>
+            </div>
+
+            <div class="tech-stack-grid">
+                <div class="tech-card" style="border-color:rgba(16,185,129,0.3);">
+                    <strong style="color:#10b981;font-size:2rem;font-family:'Fira Code',monospace;">3</strong>
+                    <p>Deliverables uit fase 1: uitgebreid rapport, managementpresentatie en implementatieplan.</p>
+                </div>
+                <div class="tech-card" style="border-color:rgba(99,102,241,0.3);">
+                    <strong style="color:#6366f1;font-size:2rem;font-family:'Fira Code',monospace;">2</strong>
+                    <p>Normenkaders getoetst: BIO2 en CIS Microsoft 365 Foundations Benchmark v6.0.1.</p>
+                </div>
+                <div class="tech-card" style="border-color:rgba(14,165,233,0.3);">
+                    <strong style="color:#0ea5e9;font-size:1.2rem;font-family:'Fira Code',monospace;">Lopend</strong>
+                    <p>Fase 2 actief: hardening van Entra ID, Conditional Access en security policies in samenwerking met intern team.</p>
+                </div>
+            </div>
+
+        </article>
+    </main>
+
+    <footer class="footer" role="contentinfo">
+        <div class="container">
+            <p>&copy; 2026 Portfolio. Gebouwd met GitHub Pages</p>
+            <nav class="footer-links" aria-label="Footer navigatie">
+                <a href="https://github.com/NielsKok-Labs">GitHub</a>
+                <a href="https://www.linkedin.com/in/nielskoknl">LinkedIn</a>
+            </nav>
+        </div>
+    </footer>
+
+    <button class="back-to-top" id="backToTop" aria-label="Terug naar boven">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+            <polyline points="18 15 12 9 6 15"/>
+        </svg>
+    </button>
+
+    <script src="../script.js"></script>
+</body>
+</html>

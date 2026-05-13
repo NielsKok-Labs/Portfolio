@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="nl" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Microsoft Purview implementatie bij Gemeente Midden-Groningen — gevoeligheidslabels, DLP, retentie, MDTO, workshops.">
+    <title>Microsoft Purview Implementatie | Gemeente Midden-Groningen | Niels Kok</title>
+    <script>
+        (function() {
+            const saved = localStorage.getItem('theme');
+            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            if (saved === 'dark' || (!saved && prefersDark)) {
+                document.documentElement.setAttribute('data-theme', 'dark');
+            }
+        })();
+    </script>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="../blog.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600;700&family=Manrope:wght@400;600;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Ga naar hoofdinhoud</a>
+
+    <nav class="navbar" role="navigation" aria-label="Hoofdnavigatie">
+        <div class="container">
+            <a href="../index.html" class="logo" aria-label="Niels Kok - Home">
+                <svg width="40" height="40" viewBox="0 0 40 40" fill="none" aria-hidden="true">
+                    <rect width="40" height="40" rx="8" fill="url(#logo-gradient)"/>
+                    <path d="M12 12L28 28M28 12L12 28" stroke="white" stroke-width="3" stroke-linecap="round"/>
+                    <defs>
+                        <linearGradient id="logo-gradient" x1="0" y1="0" x2="40" y2="40">
+                            <stop offset="0%" stop-color="#6366f1"/>
+                            <stop offset="100%" stop-color="#8b5cf6"/>
+                        </linearGradient>
+                    </defs>
+                </svg>
+                <span>Niels Kok</span>
+            </a>
+            <ul class="nav-menu">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../index.html#about">Over mij</a></li>
+                <li><a href="../index.html#projects">Projecten</a></li>
+                <li><a href="../index.html#blog">Blog</a></li>
+                <li><a href="../index.html#contact">Contact</a></li>
+            </ul>
+            <div style="display:flex;align-items:center;gap:0.75rem;">
+                <button class="theme-toggle" id="themeToggle" aria-label="Schakel licht/donker thema">
+                    <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+                    <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                        <circle cx="12" cy="12" r="5"/>
+                        <line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+                        <line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+                    </svg>
+                </button>
+                <button class="menu-toggle" aria-label="Menu openen/sluiten" aria-expanded="false">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero blog-hero" aria-labelledby="project-title">
+        <div class="gradient-orb orb-1" aria-hidden="true"></div>
+        <div class="gradient-orb orb-2" aria-hidden="true"></div>
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-tag">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                    </svg>
+                    Client project · M365 / Purview / GRC
+                </div>
+                <h1 class="hero-title" id="project-title">Microsoft Purview<br>Implementatie | Gemeente Midden-Groningen</h1>
+                <div class="blog-meta">
+                    <span class="blog-meta-item">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                        Maart 2025 – heden
+                    </span>
+                    <span class="blog-meta-item">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                        Lopend
+                    </span>
+                    <span class="blog-meta-tag">Microsoft Purview</span>
+                    <span class="blog-meta-tag">DLP</span>
+                    <span class="blog-meta-tag">Sensitivity Labels</span>
+                    <span class="blog-meta-tag">MDTO</span>
+                    <span class="blog-meta-tag">GRC</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <main id="main-content">
+        <article class="blog-post">
+
+            <p class="lead">
+                Implementatie van Microsoft Purview bij Gemeente Midden-Groningen, gericht op informatiebeheer en gegevensbescherming conform overheidsrichtlijnen. Gevoeligheidslabels, DLP-beleid en retentielabels ingericht. Workshops gefaciliteerd met FG, CISO en stakeholders voor het gezamenlijk bepalen van classificatiebeleid.
+            </p>
+
+            <!-- 01 Context -->
+            <div class="section-header">
+                <span class="section-number" aria-hidden="true">01</span>
+                <h2>Context & opdracht</h2>
+            </div>
+            <p>
+                Gemeente Midden-Groningen heeft de ambitie om informatiebeheer en gegevensbescherming structureel te verankeren in de Microsoft 365-omgeving. Microsoft Purview is hiervoor het centrale platform — maar de implementatie vereist meer dan technische configuratie. Beleid, classificatie en draagvlak bij de organisatie zijn minstens zo belangrijk.
+            </p>
+            <p>
+                De opdracht omvat zowel de technische implementatie als de organisatorische aanpak: workshops faciliteren met de Functionaris Gegevensbescherming (FG), CISO en andere stakeholders, en samen bepalen welke labels, DLP-regels en retentiebeleid het beste aansluiten bij de organisatie.
+            </p>
+
+            <!-- 02 Aanpak -->
+            <div class="section-header">
+                <span class="section-number" aria-hidden="true">02</span>
+                <h2>Aanpak</h2>
+            </div>
+            <p>
+                De implementatie is opgebouwd in fasen, waarbij de workshops als fundament dienen voor alle technische keuzes. Zonder draagvlak en gedeeld begrip van de classificatiestructuur is een Purview-implementatie gedoemd te stranden op adoptie.
+            </p>
+
+            <div class="process-steps">
+                <div class="process-step">
+                    <div class="process-step-number">1</div>
+                    <div class="process-step-content">
+                        <strong>Workshops met FG, CISO en stakeholders</strong>
+                        <p>Sessies gefaciliteerd om gezamenlijk de classificatiestructuur te bepalen: welke gevoeligheidsniveaus zijn relevant? Welke informatie valt onder welke categorie? Welke DLP-regels zijn nodig? De uitkomsten van de workshops zijn direct de input voor de technische configuratie.</p>
+                    </div>
+                </div>
+                <div class="process-step">
+                    <div class="process-step-number">2</div>
+                    <div class="process-step-content">
+                        <strong>Gevoeligheidslabels ontwerpen & uitrollen</strong>
+                        <p>Labelstructuur ontworpen op basis van de workshopuitkomsten — secure by default als uitgangspunt. Labels ingericht conform classificatiebeleid en organisatorische wensen, en uitgerold naar de volledige M365-omgeving.</p>
+                    </div>
+                </div>
+                <div class="process-step">
+                    <div class="process-step-number">3</div>
+                    <div class="process-step-content">
+                        <strong>Data Loss Prevention configureren</strong>
+                        <p>DLP-beleid opgezet en geconfigureerd op basis van de geïdentificeerde risico's en organisatiebehoeften. Regels afgestemd op de specifieke context van een gemeente — inclusief uitzonderingen voor werkprocessen die anders geblokkeerd zouden worden.</p>
+                    </div>
+                </div>
+                <div class="process-step">
+                    <div class="process-step-number">4</div>
+                    <div class="process-step-content">
+                        <strong>Retentielabels inrichten</strong>
+                        <p>Retentielabels ingericht met oog op toekomstige MDTO-mogelijkheden. De labels sluiten aan op de archiefwettelijke verplichtingen van de gemeente en zijn voorbereid op de overgang naar een gestructureerd informatiebeheersysteem.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 03 Scope -->
+            <div class="section-header">
+                <span class="section-number" aria-hidden="true">03</span>
+                <h2>Technische scope</h2>
+            </div>
+
+            <div class="tech-stack-grid">
+                <div class="tech-card" style="border-color:rgba(99,102,241,0.3);">
+                    <strong style="color:#6366f1;">Sensitivity Labels</strong>
+                    <p>Classificatiestructuur ontworpen en uitgerold. Secure by default als uitgangspunt — documenten krijgen automatisch een basisclassificatie.</p>
+                </div>
+                <div class="tech-card" style="border-color:rgba(14,165,233,0.3);">
+                    <strong style="color:#0ea5e9;">Data Loss Prevention</strong>
+                    <p>DLP-regels geconfigureerd voor Exchange, SharePoint, Teams en OneDrive. Afgestemd op gemeentelijke informatiestromen.</p>
+                </div>
+                <div class="tech-card" style="border-color:rgba(16,185,129,0.3);">
+                    <strong style="color:#10b981;">Retentiebeleid</strong>
+                    <p>Retentielabels ingericht conform selectielijsten en met oog op MDTO-vereisten voor duurzame toegankelijkheid van overheidsinformatie.</p>
+                </div>
+            </div>
+
+            <!-- 04 MDTO -->
+            <div class="section-header">
+                <span class="section-number" aria-hidden="true">04</span>
+                <h2>MDTO & overheidscontext</h2>
+            </div>
+            <p>
+                Voor gemeenten is informatiebeheer geen keuze maar een wettelijke verplichting. De Archiefwet, AVG en Wet Open Overheid stellen concrete eisen aan hoe informatie geclassificeerd, bewaard en vernietigd wordt. MDTO (Metagegevens voor Duurzaam Toegankelijke Overheidsinformatie) is de standaard die vastlegt welke metadata elke informatieobject moet hebben.
+            </p>
+
+            <div class="blog-callout">
+                <div class="blog-callout-icon" aria-hidden="true">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+                </div>
+                <div>
+                    <strong>Retentielabels als voorbereiding op MDTO</strong>
+                    <p>De retentielabels zijn niet alleen functioneel voor de huidige omgeving — ze zijn bewust ontworpen als voorbereiding op toekomstige MDTO-implementatie. Dit voorkomt dat labels later volledig opnieuw ontworpen moeten worden als de gemeente overgaat op een volwaardig informatiebeheersysteem.</p>
+                </div>
+            </div>
+
+            <!-- 05 Interne aanpak -->
+            <div class="section-header">
+                <span class="section-number" aria-hidden="true">05</span>
+                <h2>Herbruikbare implementatieaanpak</h2>
+            </div>
+            <p>
+                Parallel aan dit project is intern een gestandaardiseerde Purview implementatieaanpak ontwikkeld die breed inzetbaar is voor andere klanten. De ervaring en werkwijze uit Midden-Groningen vormen de basis voor dit raamwerk — inclusief workshopstructuur, labelontwerp en uitrolstrategie.
+            </p>
+
+            <!-- 06 Resultaat -->
+            <div class="section-header">
+                <span class="section-number" aria-hidden="true">06</span>
+                <h2>Resultaat</h2>
+            </div>
+
+            <div class="tech-stack-grid">
+                <div class="tech-card" style="border-color:rgba(99,102,241,0.3);">
+                    <strong style="color:#6366f1;font-size:1.2rem;font-family:'Fira Code',monospace;">Lopend</strong>
+                    <p>Implementatie actief in uitrol — labels, DLP en retentie worden gefaseerd uitgerold over de organisatie.</p>
+                </div>
+                <div class="tech-card" style="border-color:rgba(16,185,129,0.3);">
+                    <strong style="color:#10b981;font-size:1.2rem;font-family:'Fira Code',monospace;">FG & CISO</strong>
+                    <p>Classificatiebeleid tot stand gekomen via gestructureerde workshops met FG, CISO en inhoudelijke stakeholders.</p>
+                </div>
+                <div class="tech-card" style="border-color:rgba(14,165,233,0.3);">
+                    <strong style="color:#0ea5e9;font-size:1.2rem;font-family:'Fira Code',monospace;">MDTO-klaar</strong>
+                    <p>Retentiestructuur voorbereid op toekomstige MDTO-vereisten — geen herwerk nodig bij verdere informatiehuishouding.</p>
+                </div>
+            </div>
+
+        </article>
+    </main>
+
+    <footer class="footer" role="contentinfo">
+        <div class="container">
+            <p>&copy; 2026 Portfolio. Gebouwd met GitHub Pages</p>
+            <nav class="footer-links" aria-label="Footer navigatie">
+                <a href="https://github.com/NielsKok-Labs">GitHub</a>
+                <a href="https://www.linkedin.com/in/nielskoknl">LinkedIn</a>
+            </nav>
+        </div>
+    </footer>
+
+    <button class="back-to-top" id="backToTop" aria-label="Terug naar boven">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+            <polyline points="18 15 12 9 6 15"/>
+        </svg>
+    </button>
+
+    <script src="../script.js"></script>
+</body>
+</html>
