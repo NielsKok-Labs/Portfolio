@@ -700,6 +700,88 @@ const PROJECT_IMAGES = {
                     </linearGradient>
                 </defs>
             </svg>
+        </div>`,
+    conscia: `
+        <div class="placeholder-image" style="width:100%;height:100%;">
+            <svg viewBox="0 0 400 220" fill="none" style="width:100%;height:100%;">
+                <rect width="400" height="220" fill="url(#con-bg)"/>
+                <!-- Python logo hint left -->
+                <rect x="20" y="60" width="80" height="100" rx="10" fill="white" fill-opacity="0.1"/>
+                <text x="60" y="105" font-size="10" text-anchor="middle" fill="white" fill-opacity="0.6" font-family="monospace">Python</text>
+                <text x="60" y="120" font-size="8" text-anchor="middle" fill="white" fill-opacity="0.4" font-family="sans-serif">Toolbox</text>
+                <!-- Arrow to API -->
+                <line x1="102" y1="110" x2="132" y2="110" stroke="white" stroke-opacity="0.35" stroke-width="1.5"/>
+                <polyline points="126,104 134,110 126,116" fill="none" stroke="white" stroke-opacity="0.35" stroke-width="1.5"/>
+                <!-- REST API center -->
+                <rect x="135" y="75" width="90" height="70" rx="12" fill="white" fill-opacity="0.12" stroke="white" stroke-opacity="0.2" stroke-width="1.5"/>
+                <text x="180" y="105" font-size="10" text-anchor="middle" fill="white" fill-opacity="0.7" font-family="monospace">REST API</text>
+                <text x="180" y="120" font-size="8" text-anchor="middle" fill="white" fill-opacity="0.4" font-family="sans-serif">Integratie</text>
+                <!-- Arrow right split -->
+                <line x1="227" y1="95" x2="270" y2="75" stroke="white" stroke-opacity="0.3" stroke-width="1.5"/>
+                <line x1="227" y1="125" x2="270" y2="145" stroke="white" stroke-opacity="0.3" stroke-width="1.5"/>
+                <!-- Check Point box -->
+                <rect x="272" y="55" width="100" height="40" rx="8" fill="white" fill-opacity="0.1"/>
+                <text x="322" y="72" font-size="9" text-anchor="middle" fill="white" fill-opacity="0.7" font-family="sans-serif">Check Point</text>
+                <text x="322" y="85" font-size="8" text-anchor="middle" fill="white" fill-opacity="0.4" font-family="sans-serif">Firewall</text>
+                <!-- F5 box -->
+                <rect x="272" y="125" width="100" height="40" rx="8" fill="white" fill-opacity="0.1"/>
+                <text x="322" y="142" font-size="9" text-anchor="middle" fill="white" fill-opacity="0.7" font-family="sans-serif">F5</text>
+                <text x="322" y="155" font-size="8" text-anchor="middle" fill="white" fill-opacity="0.4" font-family="sans-serif">Load Balancer</text>
+                <!-- Bottom stat -->
+                <rect x="100" y="170" width="200" height="24" rx="8" fill="white" fill-opacity="0.07"/>
+                <text x="200" y="186" font-size="9" text-anchor="middle" fill="white" fill-opacity="0.6" font-family="sans-serif">Modulair · Herbruikbaar · Tijdsbesparing</text>
+                <defs>
+                    <linearGradient id="con-bg" x1="0" y1="0" x2="400" y2="220" gradientUnits="userSpaceOnUse">
+                        <stop offset="0%" stop-color="#1a2a1a"/>
+                        <stop offset="100%" stop-color="#0d1f0d"/>
+                    </linearGradient>
+                </defs>
+            </svg>
+        </div>`,
+
+    kubernetes: `
+        <div class="placeholder-image" style="width:100%;height:100%;">
+            <svg viewBox="0 0 400 220" fill="none" style="width:100%;height:100%;">
+                <rect width="400" height="220" fill="url(#k8s-bg)"/>
+                <!-- K8s wheel center -->
+                <circle cx="200" cy="105" r="38" fill="none" stroke="white" stroke-opacity="0.2" stroke-width="1.5"/>
+                <circle cx="200" cy="105" r="14" fill="white" fill-opacity="0.15"/>
+                <text x="200" y="110" font-size="9" text-anchor="middle" fill="white" fill-opacity="0.8" font-family="monospace">K8s</text>
+                <!-- Spokes -->
+                <line x1="200" y1="67" x2="200" y2="91" stroke="white" stroke-opacity="0.25" stroke-width="1.5"/>
+                <line x1="200" y1="119" x2="200" y2="143" stroke="white" stroke-opacity="0.25" stroke-width="1.5"/>
+                <line x1="167" y1="86" x2="187" y2="98" stroke="white" stroke-opacity="0.25" stroke-width="1.5"/>
+                <line x1="213" y1="112" x2="233" y2="124" stroke="white" stroke-opacity="0.25" stroke-width="1.5"/>
+                <line x1="233" y1="86" x2="213" y2="98" stroke="white" stroke-opacity="0.25" stroke-width="1.5"/>
+                <line x1="167" y1="124" x2="187" y2="112" stroke="white" stroke-opacity="0.25" stroke-width="1.5"/>
+                <!-- Surrounding component nodes -->
+                <!-- RKE2 top -->
+                <rect x="168" y="42" width="64" height="22" rx="6" fill="white" fill-opacity="0.12"/>
+                <text x="200" y="57" font-size="9" text-anchor="middle" fill="white" fill-opacity="0.7" font-family="sans-serif">RKE2</text>
+                <!-- Flux bottom -->
+                <rect x="168" y="148" width="64" height="22" rx="6" fill="white" fill-opacity="0.1"/>
+                <text x="200" y="163" font-size="9" text-anchor="middle" fill="white" fill-opacity="0.7" font-family="sans-serif">Flux GitOps</text>
+                <!-- Ansible left -->
+                <rect x="64" y="76" width="72" height="22" rx="6" fill="white" fill-opacity="0.1"/>
+                <text x="100" y="91" font-size="9" text-anchor="middle" fill="white" fill-opacity="0.7" font-family="sans-serif">Ansible</text>
+                <!-- Prometheus right -->
+                <rect x="264" y="76" width="80" height="22" rx="6" fill="white" fill-opacity="0.1"/>
+                <text x="304" y="91" font-size="9" text-anchor="middle" fill="white" fill-opacity="0.7" font-family="sans-serif">Prometheus</text>
+                <!-- Longhorn bottom-left -->
+                <rect x="48" y="118" width="72" height="22" rx="6" fill="white" fill-opacity="0.1"/>
+                <text x="84" y="133" font-size="9" text-anchor="middle" fill="white" fill-opacity="0.7" font-family="sans-serif">Longhorn</text>
+                <!-- Kube-Vip bottom-right -->
+                <rect x="280" y="118" width="72" height="22" rx="6" fill="white" fill-opacity="0.1"/>
+                <text x="316" y="133" font-size="9" text-anchor="middle" fill="white" fill-opacity="0.7" font-family="sans-serif">Kube-Vip</text>
+                <!-- Bottom label -->
+                <text x="200" y="200" font-size="9" text-anchor="middle" fill="white" fill-opacity="0.4" font-family="sans-serif">AVG · CIS · ISO 27001 · On-premise</text>
+                <defs>
+                    <linearGradient id="k8s-bg" x1="0" y1="0" x2="400" y2="220" gradientUnits="userSpaceOnUse">
+                        <stop offset="0%" stop-color="#0d1b2e"/>
+                        <stop offset="100%" stop-color="#1a3250"/>
+                    </linearGradient>
+                </defs>
+            </svg>
         </div>`
 };
 
