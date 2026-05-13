@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="nl" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Handige Links | Niels Kok</title>
+    <script>
+        (function() {
+            const saved = localStorage.getItem('theme');
+            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            if (saved === 'dark' || (!saved && prefersDark)) {
+                document.documentElement.setAttribute('data-theme', 'dark');
+            }
+        })();
+    </script>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600;700&family=Manrope:wght@400;600;800&display=swap" rel="stylesheet">
+    <style>
+        .links-section {
+            margin-bottom: 3rem;
+        }
+
+        .links-section-header {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1.25rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 2px solid var(--border);
+        }
+
+        .links-section-icon {
+            width: 36px;
+            height: 36px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            flex-shrink: 0;
+            font-size: 1rem;
+        }
+
+        .links-section-header h2 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--text);
+            margin: 0;
+        }
+
+        .links-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 0.85rem;
+        }
+
+        .link-card {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.85rem;
+            padding: 1rem 1.15rem;
+            background: var(--bg);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.2s ease;
+        }
+
+        .link-card:hover {
+            border-color: var(--primary);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow);
+        }
+
+        .link-favicon {
+            width: 32px;
+            height: 32px;
+            border-radius: 8px;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            font-size: 1rem;
+            overflow: hidden;
+        }
+
+        .link-favicon img {
+            width: 20px;
+            height: 20px;
+            object-fit: contain;
+        }
+
+        .link-info {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .link-info strong {
+            display: block;
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: var(--text);
+            margin-bottom: 0.2rem;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .link-info span {
+            font-size: 0.78rem;
+            color: var(--text-muted);
+            line-height: 1.5;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .link-arrow {
+            color: var(--text-muted);
+            flex-shrink: 0;
+            margin-top: 0.15rem;
+            transition: color 0.2s ease, transform 0.2s ease;
+        }
+
+        .link-card:hover .link-arrow {
+            color: var(--primary);
+            transform: translateX(3px);
+        }
+
+        .links-intro {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1.25rem 1.5rem;
+            margin-bottom: 2.5rem;
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        .links-intro strong {
+            color: var(--text);
+        }
+
+        @media (max-width: 768px) {
+            .links-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Ga naar hoofdinhoud</a>
+
+    <nav class="navbar" role="navigation" aria-label="Hoofdnavigatie">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+                    <rect width="40" height="40" rx="8" fill="url(#lg)"/>
+                    <path d="M12 12L28 28M28 12L12 28" stroke="white" stroke-width="3" stroke-linecap="round"/>
+                    <defs><linearGradient id="lg" x1="0" y1="0" x2="40" y2="40"><stop offset="0%" stop-color="#6366f1"/><stop offset="100%" stop-color="#8b5cf6"/></linearGradient></defs>
+                </svg>
+                <span>Niels Kok</span>
+            </a>
+            <ul class="nav-menu">
+                <li><a href="index.html#about">Over mij</a></li>
+                <li><a href="projects.html">Projecten</a></li>
+                <li><a href="index.html#certificates">Certificaten</a></li>
+                <li><a href="index.html#timeline">Ervaring</a></li>
+                <li><a href="blueprints.html">Blauwdrukken</a></li>
+                <li><a href="links.html" class="active">Handige Links</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+            <div style="display:flex;align-items:center;gap:0.75rem;">
+                <button class="theme-toggle" id="themeToggle" aria-label="Schakel licht/donker thema">
+                    <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+                    <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+                </button>
+                <button class="menu-toggle" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero blog-hero" style="min-height:40vh;">
+        <div class="gradient-orb orb-1" aria-hidden="true"></div>
+        <div class="gradient-orb orb-2" aria-hidden="true"></div>
+        <div class="container">
+            <div class="hero-content">
+                <p class="hero-tag">Kennisbank · Referenties</p>
+                <h1 class="hero-title"><span class="gradient-text">Handige Links</span></h1>
+                <p class="hero-description">Een persoonlijke collectie van tools, documentatie en bronnen die ik regelmatig gebruik.</p>
+            </div>
+        </div>
+    </section>
+
+    <main id="main-content">
+        <section class="section" style="background:var(--bg-secondary);">
+            <div class="container" style="max-width:1000px;">
+
+                <div class="links-intro">
+                    <strong>Persoonlijke linkbibliotheek</strong> — regelmatig bijgewerkt met tools en bronnen die ik zelf gebruik in mijn dagelijkse werk als M365 consultant.
+                </div>
+
+                <!-- ══════════════════════════════════════════════
+                     CATEGORIE: Microsoft Documentatie
+                     Om een link toe te voegen: kopieer een .link-card blok
+                     en pas de href, emoji, titel en beschrijving aan.
+                ══════════════════════════════════════════════ -->
+                <div class="links-section">
+                    <div class="links-section-header">
+                        <div class="links-section-icon">📘</div>
+                        <h2>Microsoft Documentatie</h2>
+                    </div>
+                    <div class="links-grid">
+
+                        <a href="https://learn.microsoft.com/nl-nl/microsoft-365/" target="_blank" rel="noopener" class="link-card">
+                            <div class="link-favicon">📄</div>
+                            <div class="link-info">
+                                <strong>Microsoft 365 Docs</strong>
+                                <span>Officiële documentatie voor alle M365-diensten</span>
+                            </div>
+                            <svg class="link-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                        </a>
+
+                        <a href="https://learn.microsoft.com/en-us/azure/active-directory/conditional-access/" target="_blank" rel="noopener" class="link-card">
+                            <div class="link-favicon">🔐</div>
+                            <div class="link-info">
+                                <strong>Conditional Access Docs</strong>
+                                <span>Alles over Conditional Access policies en configuratie</span>
+                            </div>
+                            <svg class="link-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                        </a>
+
+                        <a href="https://learn.microsoft.com/en-us/microsoft-365/compliance/purview-compliance" target="_blank" rel="noopener" class="link-card">
+                            <div class="link-favicon">🛡️</div>
+                            <div class="link-info">
+                                <strong>Microsoft Purview Docs</strong>
+                                <span>Compliance, labels, DLP, retentie en eDiscovery</span>
+                            </div>
+                            <svg class="link-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                        </a>
+
+                        <a href="https://learn.microsoft.com/en-us/graph/overview" target="_blank" rel="noopener" class="link-card">
+                            <div class="link-favicon">⚡</div>
+                            <div class="link-info">
+                                <strong>Microsoft Graph Docs</strong>
+                                <span>API-referentie voor Graph API endpoints</span>
+                            </div>
+                            <svg class="link-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                        </a>
+
+                    </div>
+                </div>
+
+                <!-- ══════════════════════════════════════════════
+                     CATEGORIE: Tools & Portalen
+                ══════════════════════════════════════════════ -->
+                <div class="links-section">
+                    <div class="links-section-header">
+                        <div class="links-section-icon">🛠️</div>
+                        <h2>Tools & Portalen</h2>
+                    </div>
+                    <div class="links-grid">
+
+                        <a href="https://admin.microsoft.com" target="_blank" rel="noopener" class="link-card">
+                            <div class="link-favicon">🏢</div>
+                            <div class="link-info">
+                                <strong>Microsoft 365 Admin Center</strong>
+                                <span>Beheerportaal voor gebruikers, licenties en diensten</span>
+                            </div>
+                            <svg class="link-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                        </a>
+
+                        <a href="https://entra.microsoft.com" target="_blank" rel="noopener" class="link-card">
+                            <div class="link-favicon">🔑</div>
+                            <div class="link-info">
+                                <strong>Microsoft Entra Admin Center</strong>
+                                <span>Identity, Conditional Access en PIM</span>
+                            </div>
+                            <svg class="link-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                        </a>
+
+                        <a href="https://purview.microsoft.com" target="_blank" rel="noopener" class="link-card">
+                            <div class="link-favicon">🛡️</div>
+                            <div class="link-info">
+                                <strong>Microsoft Purview Portal</strong>
+                                <span>Compliance, labels, DLP en retentie configureren</span>
+                            </div>
+                            <svg class="link-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                        </a>
+
+                        <a href="https://graph.microsoft.com/v1.0/$metadata" target="_blank" rel="noopener" class="link-card">
+                            <div class="link-favicon">🔍</div>
+                            <div class="link-info">
+                                <strong>Graph Explorer</strong>
+                                <span>Interactief testen van Graph API calls</span>
+                            </div>
+                            <svg class="link-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                        </a>
+
+                        <a href="https://make.powerapps.com" target="_blank" rel="noopener" class="link-card">
+                            <div class="link-favicon">⚙️</div>
+                            <div class="link-info">
+                                <strong>Power Apps Maker Portal</strong>
+                                <span>Power Apps en Power Automate bouwen en beheren</span>
+                            </div>
+                            <svg class="link-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                        </a>
+
+                        <a href="https://portal.azure.com" target="_blank" rel="noopener" class="link-card">
+                            <div class="link-favicon">☁️</div>
+                            <div class="link-info">
+                                <strong>Azure Portal</strong>
+                                <span>Azure resources, Logic Apps, Automation en Key Vault</span>
+                            </div>
+                            <svg class="link-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                        </a>
+
+                    </div>
+                </div>
+
+                <!-- ══════════════════════════════════════════════
+                     CATEGORIE: Security & Benchmarks
+                ══════════════════════════════════════════════ -->
+                <div class="links-section">
+                    <div class="links-section-header">
+                        <div class="links-section-icon">🔒</div>
+                        <h2>Security & Benchmarks</h2>
+                    </div>
+                    <div class="links-grid">
+
+                        <a href="https://www.cisecurity.org/benchmark/microsoft_365" target="_blank" rel="noopener" class="link-card">
+                            <div class="link-favicon">📋</div>
+                            <div class="link-info">
+                                <strong>CIS M365 Benchmark</strong>
+                                <span>CIS Microsoft 365 Foundations Benchmark downloads</span>
+                            </div>
+                            <svg class="link-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                        </a>
+
+                        <a href="https://www.digitaleoverheid.nl/overzicht-van-alle-onderwerpen/cybersecurity/bio-en-ensia/baseline-informatiebeveiliging-overheid/" target="_blank" rel="noopener" class="link-card">
+                            <div class="link-favicon">🏛️</div>
+                            <div class="link-info">
+                                <strong>BIO — Digitale Overheid</strong>
+                                <span>Baseline Informatiebeveiliging Overheid documentatie</span>
+                            </div>
+                            <svg class="link-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                        </a>
+
+                        <a href="https://learn.microsoft.com/en-us/purview/deploymentmodels/depmod-secure-by-default-intro" target="_blank" rel="noopener" class="link-card">
+                            <div class="link-favicon">✅</div>
+                            <div class="link-info">
+                                <strong>Secure by Default</strong>
+                                <span>Microsoft's aanpak voor Purview secure by default deployment</span>
+                            </div>
+                            <svg class="link-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                        </a>
+
+                        <a href="https://aka.ms/securescore" target="_blank" rel="noopener" class="link-card">
+                            <div class="link-favicon">📊</div>
+                            <div class="link-info">
+                                <strong>Microsoft Secure Score</strong>
+                                <span>Huidige beveiligingsscore van je tenant bekijken</span>
+                            </div>
+                            <svg class="link-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                        </a>
+
+                    </div>
+                </div>
+
+                <!-- ══════════════════════════════════════════════
+                     CATEGORIE: PnP & Community
+                ══════════════════════════════════════════════ -->
+                <div class="links-section">
+                    <div class="links-section-header">
+                        <div class="links-section-icon">🤝</div>
+                        <h2>PnP & Community</h2>
+                    </div>
+                    <div class="links-grid">
+
+                        <a href="https://pnp.github.io/" target="_blank" rel="noopener" class="link-card">
+                            <div class="link-favicon">🐙</div>
+                            <div class="link-info">
+                                <strong>PnP Community</strong>
+                                <span>Microsoft 365 & Power Platform Patterns and Practices</span>
+                            </div>
+                            <svg class="link-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                        </a>
+
+                        <a href="https://github.com/pnp/provision-assist-m365" target="_blank" rel="noopener" class="link-card">
+                            <div class="link-favicon">🚀</div>
+                            <div class="link-info">
+                                <strong>Provision Assist GitHub</strong>
+                                <span>Source code, deployment guide en documentatie</span>
+                            </div>
+                            <svg class="link-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                        </a>
+
+                        <a href="https://adoption.microsoft.com" target="_blank" rel="noopener" class="link-card">
+                            <div class="link-favicon">💡</div>
+                            <div class="link-info">
+                                <strong>Microsoft Adoption</strong>
+                                <span>Resources, templates en scenario guides voor M365</span>
+                            </div>
+                            <svg class="link-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                        </a>
+
+                        <a href="https://techcommunity.microsoft.com" target="_blank" rel="noopener" class="link-card">
+                            <div class="link-favicon">💬</div>
+                            <div class="link-info">
+                                <strong>Microsoft Tech Community</strong>
+                                <span>Blogs, discussies en nieuws van Microsoft-experts</span>
+                            </div>
+                            <svg class="link-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                        </a>
+
+                    </div>
+                </div>
+
+                <!-- ══════════════════════════════════════════════
+                     CATEGORIE: Overheid & Compliance NL
+                ══════════════════════════════════════════════ -->
+                <div class="links-section">
+                    <div class="links-section-header">
+                        <div class="links-section-icon">🏛️</div>
+                        <h2>Overheid & Compliance NL</h2>
+                    </div>
+                    <div class="links-grid">
+
+                        <a href="https://www.nationaalarchief.nl/archiveren/mdto" target="_blank" rel="noopener" class="link-card">
+                            <div class="link-favicon">📜</div>
+                            <div class="link-info">
+                                <strong>MDTO — Nationaal Archief</strong>
+                                <span>Metagegevens voor Duurzaam Toegankelijke Overheidsinformatie</span>
+                            </div>
+                            <svg class="link-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                        </a>
+
+                        <a href="https://www.forumstandaardisatie.nl" target="_blank" rel="noopener" class="link-card">
+                            <div class="link-favicon">📐</div>
+                            <div class="link-info">
+                                <strong>Forum Standaardisatie</strong>
+                                <span>Verplichte open standaarden voor de overheid</span>
+                            </div>
+                            <svg class="link-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                        </a>
+
+                        <a href="https://www.autoriteitpersoonsgegevens.nl" target="_blank" rel="noopener" class="link-card">
+                            <div class="link-favicon">⚖️</div>
+                            <div class="link-info">
+                                <strong>Autoriteit Persoonsgegevens</strong>
+                                <span>AVG-richtlijnen en handhaving in Nederland</span>
+                            </div>
+                            <svg class="link-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                        </a>
+
+                    </div>
+                </div>
+
+                <!-- ══════════════════════════════════════════════
+                     CATEGORIE: [VOEG HIER EEN NIEUWE CATEGORIE TOE]
+                     Kopieer het blok hieronder en pas aan:
+
+                <div class="links-section">
+                    <div class="links-section-header">
+                        <div class="links-section-icon">🔖</div>
+                        <h2>Categorienaam</h2>
+                    </div>
+                    <div class="links-grid">
+
+                        <a href="https://example.com" target="_blank" rel="noopener" class="link-card">
+                            <div class="link-favicon">🔗</div>
+                            <div class="link-info">
+                                <strong>Linktitel</strong>
+                                <span>Korte beschrijving van de link</span>
+                            </div>
+                            <svg class="link-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                        </a>
+
+                    </div>
+                </div>
+                ══════════════════════════════════════════════ -->
+
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 Portfolio. Gebouwd met GitHub Pages</p>
+            <nav class="footer-links">
+                <a href="https://github.com/NielsKok-Labs">GitHub</a>
+                <a href="https://www.linkedin.com/in/nielskoknl">LinkedIn</a>
+            </nav>
+        </div>
+    </footer>
+
+    <button class="back-to-top" id="backToTop" aria-label="Terug naar boven">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="18 15 12 9 6 15"/></svg>
+    </button>
+
+    <script src="script.js"></script>
+</body>
+</html>
