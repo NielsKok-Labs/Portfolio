@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="nl" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Productieklare Kubernetes-omgeving bij Anonify — RKE2, Ansible, GitOps met Flux, Prometheus, Longhorn en Kube-Vip.">
+    <title>Kubernetes Platform | Anonify | Niels Kok</title>
+    <script>
+        (function() {
+            const saved = localStorage.getItem('theme');
+            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            if (saved === 'dark' || (!saved && prefersDark)) {
+                document.documentElement.setAttribute('data-theme', 'dark');
+            }
+        })();
+    </script>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="../blog.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600;700&family=Manrope:wght@400;600;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Ga naar hoofdinhoud</a>
+
+    <nav class="navbar" role="navigation" aria-label="Hoofdnavigatie">
+        <div class="container">
+            <a href="../index.html" class="logo" aria-label="Niels Kok - Home">
+                <svg width="40" height="40" viewBox="0 0 40 40" fill="none" aria-hidden="true">
+                    <rect width="40" height="40" rx="8" fill="url(#logo-gradient)"/>
+                    <path d="M12 12L28 28M28 12L12 28" stroke="white" stroke-width="3" stroke-linecap="round"/>
+                    <defs>
+                        <linearGradient id="logo-gradient" x1="0" y1="0" x2="40" y2="40">
+                            <stop offset="0%" stop-color="#6366f1"/>
+                            <stop offset="100%" stop-color="#8b5cf6"/>
+                        </linearGradient>
+                    </defs>
+                </svg>
+                <span>Niels Kok</span>
+            </a>
+            <ul class="nav-menu">
+                <li><a href="../index.html#about">Over mij</a></li>
+                <li><a href="../projects.html">Projecten</a></li>
+                <li><a href="../index.html#certificates">Certificaten</a></li>
+                <li><a href="../index.html#timeline">Ervaring</a></li>
+                <li><a href="../blueprints.html">Blauwdrukken</a></li>
+                <li><a href="../links.html">Handige Links</a></li>
+                <li><a href="../index.html#contact">Contact</a></li>
+            </ul>
+            <div style="display:flex;align-items:center;gap:0.75rem;">
+                <button class="theme-toggle" id="themeToggle" aria-label="Schakel licht/donker thema">
+                    <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+                    <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                        <circle cx="12" cy="12" r="5"/>
+                        <line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+                        <line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+                    </svg>
+                </button>
+                <button class="menu-toggle" aria-label="Menu openen/sluiten" aria-expanded="false">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero blog-hero" aria-labelledby="project-title">
+        <div class="gradient-orb orb-1" aria-hidden="true"></div>
+        <div class="gradient-orb orb-2" aria-hidden="true"></div>
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-tag">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                        <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                    </svg>
+                    Stage · Kubernetes · Infrastructure
+                </div>
+                <h1 class="hero-title" id="project-title">Productieklaar Kubernetes<br>Platform | Anonify</h1>
+                <div class="blog-meta">
+                    <span class="blog-meta-item">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                        September 2023 – Februari 2024
+                    </span>
+                    <span class="blog-meta-item">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                        Succesvol afgerond
+                    </span>
+                    <span class="blog-meta-tag">Kubernetes</span>
+                    <span class="blog-meta-tag">Ansible</span>
+                    <span class="blog-meta-tag">GitOps</span>
+                    <span class="blog-meta-tag">Flux</span>
+                    <span class="blog-meta-tag">Prometheus</span>
+                    <span class="blog-meta-tag">RKE2</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <main id="main-content">
+        <article class="blog-post">
+
+            <p class="lead">
+                Een productieklare on-premise Kubernetes-omgeving voor een AI-applicatie bij Anonify — volledig geautomatiseerd opgezet met Cloud-Init, Ansible en RKE2, inclusief GitOps CI/CD met Flux, monitoring met Prometheus, persistent storage met Longhorn en load balancing met Kube-Vip. Beveiligings- en privacy-eisen (AVG, CIS en ISO 27001) geïntegreerd van dag één.
+            </p>
+
+            <!-- 01 Context -->
+            <div class="section-header">
+                <span class="section-number" aria-hidden="true">01</span>
+                <h2>Context & opdracht</h2>
+            </div>
+            <p>
+                Anonify ontwikkelt AI-applicaties gericht op privacy en anonimisering van data. De AI-workload moest on-premise draaien — cloud was geen optie vanwege de aard van de data en de AVG-vereisten. De opdracht: een volledig geautomatiseerd, productieklaar Kubernetes-platform bouwen dat stabiel, schaalbaar en compliant is.
+            </p>
+            <p>
+                Het platform moest van scratch opgezet worden: geen bestaande infrastructuur, geen handmatige configuratie — alles als code. Van node-provisioning tot applicatie-deployment moest elke stap herhaalbaar en auditeerbaar zijn.
+            </p>
+
+            <!-- 02 De stack -->
+            <div class="section-header">
+                <span class="section-number" aria-hidden="true">02</span>
+                <h2>De stack</h2>
+            </div>
+
+            <div class="tech-stack-grid">
+                <div class="tech-card" style="border-color:rgba(99,102,241,0.3);">
+                    <div class="tech-card-icon" style="background:linear-gradient(135deg,#326CE5,#1a4db8);">
+                        <svg viewBox="0 0 24 24" fill="white" width="22" height="22"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+                    </div>
+                    <strong>RKE2</strong>
+                    <p>Rancher's Kubernetes Engine 2 — productieklare Kubernetes-distributie met ingebouwde CIS-hardening en FIPS-compliance mogelijkheden.</p>
+                </div>
+                <div class="tech-card" style="border-color:rgba(14,165,233,0.3);">
+                    <div class="tech-card-icon" style="background:linear-gradient(135deg,#EE0000,#cc0000);">
+                        <svg viewBox="0 0 24 24" fill="white" width="22" height="22"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+                    </div>
+                    <strong>Ansible</strong>
+                    <p>Volledige node-configuratie en cluster-provisioning via Ansible playbooks. Idempotent en herhaalbaar — cluster opnieuw opzetten kost minuten, niet uren.</p>
+                </div>
+                <div class="tech-card" style="border-color:rgba(16,185,129,0.3);">
+                    <div class="tech-card-icon" style="background:linear-gradient(135deg,#5468FF,#3d4fd4);">
+                        <svg viewBox="0 0 24 24" fill="white" width="22" height="22"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                    </div>
+                    <strong>Flux — GitOps</strong>
+                    <p>CI/CD via GitOps: de Git-repository is de enige bron van waarheid voor de clusterstatus. Flux bewaakt continue of de gewenste toestand overeenkomt met de werkelijkheid.</p>
+                </div>
+                <div class="tech-card" style="border-color:rgba(245,158,11,0.3);">
+                    <div class="tech-card-icon" style="background:linear-gradient(135deg,#E6522C,#c44020);">
+                        <svg viewBox="0 0 24 24" fill="white" width="22" height="22"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+                    </div>
+                    <strong>Prometheus</strong>
+                    <p>Monitoring van het cluster en de AI-applicatie. Metrics-scraping, alerting-regels en dashboards voor inzicht in gezondheid en performance.</p>
+                </div>
+                <div class="tech-card" style="border-color:rgba(99,102,241,0.3);">
+                    <div class="tech-card-icon" style="background:linear-gradient(135deg,#6366f1,#4f46e5);">
+                        <svg viewBox="0 0 24 24" fill="white" width="22" height="22"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
+                    </div>
+                    <strong>Longhorn</strong>
+                    <p>Persistent storage voor stateful workloads. Gedistribueerde block storage met ingebouwde replicatie en snapshot-mogelijkheden.</p>
+                </div>
+                <div class="tech-card" style="border-color:rgba(16,185,129,0.3);">
+                    <div class="tech-card-icon" style="background:linear-gradient(135deg,#10b981,#059669);">
+                        <svg viewBox="0 0 24 24" fill="white" width="22" height="22"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+                    </div>
+                    <strong>Kube-Vip</strong>
+                    <p>Load balancing en virtueel IP-beheer voor on-premise Kubernetes. DNS-integratie voor bereikbaarheid van services zonder cloud load balancer.</p>
+                </div>
+            </div>
+
+            <!-- 03 Automatisering -->
+            <div class="section-header">
+                <span class="section-number" aria-hidden="true">03</span>
+                <h2>Volledig geautomatiseerd — van bare metal tot productie</h2>
+            </div>
+            <p>
+                Het uitgangspunt was infrastructure as code van de eerste tot de laatste stap. Geen handmatige configuratie, geen SSH-sessies om dingen "even snel" in te stellen. Alles wat het cluster beschrijft, staat in Git.
+            </p>
+
+            <div class="process-steps">
+                <div class="process-step">
+                    <div class="process-step-number">1</div>
+                    <div class="process-step-content">
+                        <strong>Node-provisioning met Cloud-Init</strong>
+                        <p>Nieuwe nodes worden automatisch geconfigureerd via Cloud-Init bij eerste boot — hostnaam, netwerk, SSH-keys, basisbeveiliging en Ansible-voorbereiding zonder handmatige tussenkomst.</p>
+                    </div>
+                </div>
+                <div class="process-step">
+                    <div class="process-step-number">2</div>
+                    <div class="process-step-content">
+                        <strong>Cluster-inrichting met Ansible</strong>
+                        <p>Ansible playbooks installeren en configureren RKE2 op alle nodes — control plane en workers. Configuratie is idempotent: playbooks meerdere keren uitvoeren levert altijd hetzelfde resultaat.</p>
+                    </div>
+                </div>
+                <div class="process-step">
+                    <div class="process-step-number">3</div>
+                    <div class="process-step-content">
+                        <strong>GitOps met Flux</strong>
+                        <p>Na cluster-initialisatie neemt Flux het over. Alle Kubernetes-manifesten, Helm-releases en configuratie staan in Git. Flux synchroniseert continu en herstelt automatisch afwijkingen van de gewenste toestand.</p>
+                    </div>
+                </div>
+                <div class="process-step">
+                    <div class="process-step-number">4</div>
+                    <div class="process-step-content">
+                        <strong>Monitoring & storage</strong>
+                        <p>Prometheus-stack uitgerold via Flux. Longhorn ingericht als distributed storage voor de AI-workloads. Kube-Vip geconfigureerd voor load balancing en DNS-integratie binnen het on-premise netwerk.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 04 Security & compliance -->
+            <div class="section-header">
+                <span class="section-number" aria-hidden="true">04</span>
+                <h2>Security & compliance — ingebouwd, niet achteraf</h2>
+            </div>
+            <p>
+                De AI-applicatie verwerkt gevoelige data — privacy en beveiliging waren geen afterthought maar een ontwerpvereiste. AVG, CIS en ISO 27001 zijn als uitgangspunt meegenomen in de architectuurkeuzes.
+            </p>
+
+            <div class="tech-stack-grid">
+                <div class="tech-card" style="border-color:rgba(99,102,241,0.3);">
+                    <strong style="color:#6366f1;">AVG</strong>
+                    <p>On-premise deployment zodat data de organisatiegrenzen niet verlaat. Geen cloudopslag van persoonsgegevens. Data-at-rest versleuteld via Longhorn.</p>
+                </div>
+                <div class="tech-card" style="border-color:rgba(14,165,233,0.3);">
+                    <strong style="color:#0ea5e9;">CIS Kubernetes Benchmark</strong>
+                    <p>RKE2 heeft ingebouwde CIS-hardening. Aanvullende netwerkpolicies, RBAC-configuratie en pod security standards toegepast conform de benchmark.</p>
+                </div>
+                <div class="tech-card" style="border-color:rgba(16,185,129,0.3);">
+                    <strong style="color:#10b981;">ISO 27001</strong>
+                    <p>Auditlogging ingeschakeld, toegang via least-privilege RBAC, secrets-management via Kubernetes Secrets en netwerksegmentatie via NetworkPolicies.</p>
+                </div>
+            </div>
+
+            <div class="blog-callout">
+                <div class="blog-callout-icon" aria-hidden="true">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+                </div>
+                <div>
+                    <strong>GitOps als compliance-tool</strong>
+                    <p>De keuze voor GitOps met Flux is niet alleen een technische keuze — het is ook een compliance-keuze. Elke wijziging aan het cluster wordt via Git bijgehouden, heeft een auteur en een tijdstempel. Dat is een audittrail out of the box.</p>
+                </div>
+            </div>
+
+            <!-- 05 Resultaat -->
+            <div class="section-header">
+                <span class="section-number" aria-hidden="true">05</span>
+                <h2>Resultaat</h2>
+            </div>
+
+            <div class="tech-stack-grid">
+                <div class="tech-card" style="border-color:rgba(16,185,129,0.3);">
+                    <strong style="color:#10b981;font-size:1.2rem;font-family:'Fira Code',monospace;">Productie</strong>
+                    <p>Volledig productieklaar platform — stabiel, schaalbaar en klaar voor de AI-workload van Anonify.</p>
+                </div>
+                <div class="tech-card" style="border-color:rgba(99,102,241,0.3);">
+                    <strong style="color:#6366f1;font-size:1.2rem;font-family:'Fira Code',monospace;">100% IaC</strong>
+                    <p>Geen handmatige configuratie — van bare metal tot productie volledig als code. Cluster opnieuw opzetten is reproduceerbaar.</p>
+                </div>
+                <div class="tech-card" style="border-color:rgba(14,165,233,0.3);">
+                    <strong style="color:#0ea5e9;font-size:1.2rem;font-family:'Fira Code',monospace;">Compliant</strong>
+                    <p>AVG, CIS Kubernetes Benchmark en ISO 27001-vereisten geïntegreerd in de architectuur — niet als laag erbovenop.</p>
+                </div>
+            </div>
+
+        </article>
+    </main>
+
+    <footer class="footer" role="contentinfo">
+        <div class="container">
+            <p>&copy; 2026 Portfolio. Gebouwd met GitHub Pages</p>
+            <nav class="footer-links" aria-label="Footer navigatie">
+                <a href="https://github.com/NielsKok-Labs">GitHub</a>
+                <a href="https://www.linkedin.com/in/nielskoknl">LinkedIn</a>
+            </nav>
+        </div>
+    </footer>
+
+    <button class="back-to-top" id="backToTop" aria-label="Terug naar boven">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+            <polyline points="18 15 12 9 6 15"/>
+        </svg>
+    </button>
+    <script src="../script.js"></script>
+</body>
+</html>
