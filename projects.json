@@ -174,5 +174,27 @@
     "status": "completed",
     "date": "2025",
     "image": "powerplatform"
+  },
+  {
+    "id": "conscia-automation",
+    "title": "Network Automation Toolbox | Conscia",
+    "description": "Modulaire Python-toolbox voor automatisering van netwerkconfiguraties binnen Security en NOC. REST API-integraties met Check Point firewalls en F5 load balancers — handmatige fouten gereduceerd en significante tijdsbesparing in testscenario's gerealiseerd.",
+    "tags": ["Python", "Automation", "Security", "Networking"],
+    "link": "projects/conscia-automation.html",
+    "linkType": "page",
+    "status": "completed",
+    "date": "Feb – Jun 2025",
+    "image": "conscia"
+  },
+  {
+    "id": "anonify-kubernetes",
+    "title": "Productieklaar Kubernetes Platform | Anonify",
+    "description": "On-premise Kubernetes-omgeving voor een AI-applicatie — volledig geautomatiseerd met Cloud-Init, Ansible en RKE2. GitOps CI/CD via Flux, monitoring met Prometheus, storage met Longhorn en load balancing via Kube-Vip. AVG, CIS en ISO 27001 geïntegreerd.",
+    "tags": ["Kubernetes", "Automation", "Security", "Docker"],
+    "link": "projects/anonify-kubernetes.html",
+    "linkType": "page",
+    "status": "completed",
+    "date": "Sep 2023 – Feb 2024",
+    "image": "kubernetes"
   }
 ]
