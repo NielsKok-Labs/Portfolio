@@ -44,6 +44,50 @@
     "image": "spo"
   },
   {
+    "id": "hdsr-health-check",
+    "title": "M365 Health Check & Security Hardening | HDSR",
+    "description": "Volledige M365 Health Check bij HDSR getoetst aan BIO2 en CIS v6.0.1 Benchmark — zelfstandig uitgevoerd van analyse tot rapport, managementpresentatie en implementatieplan. Gevolgd door actieve hardening van Entra ID, Conditional Access en security policies.",
+    "tags": ["M365", "Security", "GRC"],
+    "link": "projects/hdsr-health-check.html",
+    "linkType": "page",
+    "status": "active",
+    "date": "Nov 2024 – heden",
+    "image": "healthcheck"
+  },
+  {
+    "id": "ultimo-sharepoint",
+    "title": "Ultimo & SharePoint Integratie | HDSR",
+    "description": "Zelfontworpen integratie tussen Ultimo (assetbeheersysteem) en SharePoint Online. HLD/LLD opgesteld, PowerShell bulkscript voor 350 trajecten gebouwd en omgezet naar Azure Automation Runbook. Koppeling via REST API webhooks en Power Automate. Handmatige aanmaak kostte 30 min per library — nu volledig geautomatiseerd.",
+    "tags": ["M365", "Azure", "Automation", "PowerShell"],
+    "link": "projects/ultimo-sharepoint.html",
+    "linkType": "page",
+    "status": "active",
+    "date": "Apr 2025 – heden",
+    "image": "ultimo"
+  },
+  {
+    "id": "purview-midden-groningen",
+    "title": "Microsoft Purview Implementatie | Gemeente Midden-Groningen",
+    "description": "Implementatie van Microsoft Purview gericht op informatiebeheer en gegevensbescherming conform overheidsrichtlijnen. Gevoeligheidslabels, DLP-beleid en retentielabels ingericht. Workshops gefaciliteerd met FG, CISO en stakeholders voor gezamenlijke bepaling van classificatiebeleid.",
+    "tags": ["M365", "Security", "GRC", "Purview"],
+    "link": "projects/purview-midden-groningen.html",
+    "linkType": "page",
+    "status": "active",
+    "date": "Mrt 2025 – heden",
+    "image": "purview"
+  },
+  {
+    "id": "prorail-onboarding",
+    "title": "Onboarding Enquête Automatisering | ProRail OCCR",
+    "description": "Ontwerp en implementatie van een geautomatiseerd enquêteproces voor nieuwe medewerkers bij ProRail OCCR. HLD en LLD opgesteld, Power Automate flow ontwikkeld die automatisch een enquête verstuurt na 3 maanden in dienst. Testscenario's gedocumenteerd en uitgevoerd.",
+    "tags": ["M365", "Automation", "Power Automate"],
+    "link": "projects/prorail-onboarding.html",
+    "linkType": "page",
+    "status": "completed",
+    "date": "2025",
+    "image": "automate"
+  },
+  {
     "id": "smart-home",
     "title": "Zelf-gehost Smart Home Platform",
     "description": "Volledig zelf-gehost smart home platform op een Raspberry Pi met Docker. Energiebewuste automatiseringslogica, multi-room audio abstractie, veilige remote toegang via Tailscale — zonder cloud-afhankelijkheid en zonder open poorten.",
@@ -64,5 +108,71 @@
     "status": "completed",
     "date": "2025 – 2026",
     "image": "provision"
+  },
+  {
+    "id": "purview-aanpak-intern",
+    "title": "Microsoft Purview Implementatieaanpak | Intern",
+    "description": "Gestandaardiseerde Purview implementatieaanpak ontwikkeld als herbruikbaar raamwerk voor klanten. Omvat gevoeligheidslabels, DLP-beleid, retentielabels en workshopstructuur afgestemd op MDTO. Inzetbaar als standaard startpunt voor Purview-trajecten.",
+    "tags": ["M365", "Purview", "GRC"],
+    "link": null,
+    "linkType": "none",
+    "status": "active",
+    "date": "2025",
+    "image": "purview_intern"
+  },
+  {
+    "id": "provisioning-aanpak-intern",
+    "title": "M365 Provisioning Aanpak | Intern",
+    "description": "Gestandaardiseerde provisioning-aanpak voor Microsoft 365 ontwikkeld als herbruikbaar raamwerk. Omvat governance-richtlijnen, naamgevingsconventies, toegangsbeleid en sjablonen. Opgezet als standaard startpunt voor provisioning-trajecten bij nieuwe klanten.",
+    "tags": ["M365", "Governance"],
+    "link": null,
+    "linkType": "none",
+    "status": "active",
+    "date": "2025",
+    "image": "provisioning_intern"
+  },
+  {
+    "id": "healthcheck-tool-intern",
+    "title": "Geautomatiseerde Health Check Tool | Intern",
+    "description": "Doorontwikkeling van de interne Health Check methodiek naar een volledig geautomatiseerde PowerShell-gebaseerde tool voor CIS v6.0.1 en BIO2-toetsing. Mapping ontwikkeld tussen BIO2 en CIS-controls voor geïntegreerde toetsing.",
+    "tags": ["Security", "PowerShell", "Automation", "GRC"],
+    "link": null,
+    "linkType": "none",
+    "status": "active",
+    "date": "2025 – heden",
+    "image": "healthcheck_tool"
+  },
+  {
+    "id": "conditional-access-lvc",
+    "title": "Conditional Access Uitbreiding | Gemeente Land van Cuijk",
+    "description": "Uitbreiding van de bestaande Conditional Access-inrichting met maatwerk policies per applicatie en implementatie van CIS Benchmark-aanbevelingen. Voortbouwend op eerder opgezette tenant-inrichting.",
+    "tags": ["M365", "Security", "Azure"],
+    "link": null,
+    "linkType": "none",
+    "status": "active",
+    "date": "Mei 2025 – heden",
+    "image": "conditionalaccess"
+  },
+  {
+    "id": "heinen-hopman-provisioning",
+    "title": "Teams & SharePoint Provisioning | Heinen & Hopman",
+    "description": "Inrichting van een gestructureerd provisioning-proces voor Microsoft Teams en SharePoint bij Heinen & Hopman, gericht op betere governance en gestandaardiseerd werkruimtebeheer.",
+    "tags": ["M365", "SharePoint", "Governance"],
+    "link": null,
+    "linkType": "none",
+    "status": "completed",
+    "date": "2025",
+    "image": "provisioning_hh"
+  },
+  {
+    "id": "nji-otap",
+    "title": "Power Platform OTAP Inrichtingsdocument | NJI",
+    "description": "Herbruikbaar inrichtingsdocument opgesteld voor de opzet van een OTAP-straat binnen het Power Platform, inclusief Copilot Studio. Beschrijft volledige inrichting van O/A/P-omgevingen, pipelines en ALM-aanpak.",
+    "tags": ["Power Platform", "Automation"],
+    "link": null,
+    "linkType": "none",
+    "status": "completed",
+    "date": "2025",
+    "image": "powerplatform"
   }
 ]
